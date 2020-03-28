@@ -6,45 +6,50 @@
     <!-- Número: 54960, Nome: Rafael Ribeiro, PL: 21 -->
     <!-- Número: 55373, Nome: José Almeida, PL: 21 -->
     <!-- Número: 54941, Nome: Miguel Duarte, PL: 21-->
+    <link rel="stylesheet" href="estilos/styleRegras.css">
     <title>Zemira The Game - Regras!</title>
 </head>
 
 <body>
 
-<div class="tituloRegras">
-    <header>
-        <h1>
-            <span id="tituloRegrasJogo">Regras do jogo!</span>
-        </h1>
-    </header>
-</div>
+<div class="content">
 
-<div class="corpoRegras">
-    <nav id="navbar">
-        <h2 id="navbarTitulo"> Navegação </h2>
-        <a href="./Home.html"> Home </a>
-        <a href="./Features.html"> Features do Jogo </a>
-        <a href="./Intro.html"> Introdução ao Jogo </a>
-        <a href="./Loja.html"> Loja do Jogo </a>
-        <a href="./Regras.html"> Regras do Jogo </a>
-        <a href="./Bio.html"> Sobre os Desenvolvedores </a>
-    </nav>
+    <div id="corpoRegras">
+        <div id="navbar">
+        <ul id="nav">
+            <li><a href="./Home.html"> Home </a></li>
+            <li><a href="./Features.html"> Features </a></li>
+            <li><a href="./Intro.html"> Introduction </a></li>
+            <li><a href="./Loja.html"> Store </a></li>
+            <li><a href="./Regras.html"> Rules </a></li>
+            <li><a href="./Bio.html"> About </a></li>
+        </ul> 
+        </div> <!-- Este div vem da barra de navegação -->
 
-<p> Eis algumas regras do jogo: </p>
-<ol class="Regras">
-    <li> ola </li>
-    <li> olaa </li>
-    <li> olaaa </li>
-    <li> olaaaa </li>
-    <li> olaaaaa </li>
-    <li> olaaaaaa </li>
-    <li> olaaaaaaa </li>
-    <li> olaaaaaaaa </li>
-    <li> olaaaaaaaaa </li>
-    <li> olaaaaaaaaaa </li>
-</ol>
+        <h1> Regras do jogo! </h1>
+        
+        <div class="asRegras">
+        <ol>
+            <h2>Jogo Single-player:</h2>
+            <li> Cada jogador escolhe duas cartas e se as cartas foram iguais, <br> recebe um ponto e as cartas são removidas da mesa de jogo. </li>
+            <li> Caso as cartas que o jogador escolheu sejam diferentes, estas voltam à sua posição original. </li>
+            <li> O jogo termina quando todos os pares de cartas forem descobertos. </li>
+        </ol>
+        
+        <ol>
+            <h2>Jogo Multiplayer:</h2>
+            <li> O primeiro jogador a jogar é escolhido de forma aleatória. </li>
+            <li> Cada jogador joga somente uma vez, mesmo que acerte num par de cartas.</li>
+            <li> Caso o jogador acerte num par de cartas recebe um ponto. </li>
+            <li> O jogo termina quando todos os pares de cartas forem descobertos e vence o jogador com mais pontos. </li>
+            <li> Caso todos os jogadores tenham o mesmo número de pontos, é declarado empate. </li>
+        </ol>
+        </div>
+
+    </div><!-- Este div vem da class corpoRegras -->
+
+</div><!-- Este div vem da class content -->
 
 </body>
-
 
 </html>
