@@ -9,7 +9,7 @@
 
 body {
     background-color: #9900CC ;
-    font-family:<'kongtextregular'>;   
+    font-family:'kongtextregular';   
     text-align: center;  
     width: 60%;
     border-style: solid;
@@ -23,8 +23,7 @@ body {
     background-color: #9900CC ;
     text-align: center;
     border-style: solid;
-    display: inline-block;
-    font-family: 'kongtextregular';  
+    display: inline-block; 
     margin-top: 2ex;
     padding: 2ex;
     
@@ -48,7 +47,6 @@ body {
 
 h1{
 font-weight: bold;
-font-family: 'kongtextregular';  
 text-align: center;
 color:rgb(255, 208, 0);
 }
