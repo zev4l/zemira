@@ -16,10 +16,7 @@ body {background-color: #9900CC ;
     text-align: center;
 }
 
-.subTitle {
-    text-decoration: underline;
-    text-decoration-style: solid;
-}
+
 
 #features {
     width: 30%;
@@ -31,6 +28,24 @@ body {background-color: #9900CC ;
 header {
     text-align: center;
 }
+
+#infoZemira a {
+    text-decoration: none;
+    color: yellow;
+}
+
+#infoZemiraTitulo, #infoJogoTitulo {
+    padding: 1ex 1ex 1ex 0;
+    display: inline-block;
+}
+
+#infoJogo, #infoZemira {
+    width: 70%;
+    text-transform: justify;
+    margin: auto;
+    text-transform: underline;
+  }
+
 
 #nav {
     text-align: center;
