@@ -16,12 +16,6 @@ body {
     font-family: 'kongtextregular'; 
 }
 
-.content {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 100%;
-}
-
 .background_video {
     overflow: hidden;
     width: 100%;
@@ -42,13 +36,12 @@ body {
     position: relative;
     text-align: center;
     margin: 0 auto;
-
 }
 
 .corpo h1 {
     padding: 20px;
     text-transform: uppercase;
-    color: white;
+    color: rgb(255, 208, 0);
     font-size: 6em;
     position: relative;
     margin: 0 auto;
@@ -56,19 +49,25 @@ body {
 
 #nav {
     position: relative;
-    background-color: white;
-
 }
 
 #nav li {
     display: inline-block;
-    color:purple;
     font-size: 27px;
     padding: 25px;
   }
 
+#nav a {
+    text-decoration: none;
+    color: rgb(255, 208, 0);
+}
+
 .footer {
-    color: black;
+    bottom: 2ex;
+    width: 100%;
+    position: fixed;
+    color: rgb(255, 208, 0);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+
