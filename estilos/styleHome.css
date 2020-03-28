@@ -1,3 +1,7 @@
+/* Número: 54960, Nome: Rafael Ribeiro, PL: 21 */
+/* Número: 55373, Nome: José Almeida, PL: 21 */
+/* Número: 54941, Nome: Miguel Duarte, PL: 21 */
+
 @font-face {
     font-family: 'kongtextregular';
     src: url('../fonts/kongtext-webfont.woff2') format('woff2'),
@@ -48,24 +52,23 @@ body {
     font-size: 6em;
     position: relative;
     margin: 0 auto;
-    
 }
 
-nav {
+#nav {
     position: relative;
-    text-align: center;
     background-color: white;
+
 }
 
-a{
-    color:purple;
+#nav li {
     display: inline-block;
-    font-size: 30px;
-    padding: 20px;
-}
+    color:purple;
+    font-size: 27px;
+    padding: 25px;
+  }
 
-footer {
-    text-align: center;
+.footer {
     color: black;
+    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
