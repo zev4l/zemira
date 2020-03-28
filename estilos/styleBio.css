@@ -9,7 +9,7 @@
 
 body {
     background-color: #9900CC ;
-    font-family:'kongtextregular';   
+    font-family:<'kongtextregular'>;   
     text-align: center;  
     width: 60%;
     border-style: solid;
