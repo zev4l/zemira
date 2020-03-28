@@ -11,18 +11,8 @@ body {background-color: #9900CC ;
       font-family: 'kongtextregular';          
 }
 
-#featuresTitle {
-
-    text-align: center;
-}
-
-
-
-#features {
-    width: 30%;
-    border-style: solid;
-    padding: 2ex;
-    margin: auto;
+#introductionTitle {
+    color: rgb(255, 208, 0);
 }
 
 header {
@@ -31,12 +21,13 @@ header {
 
 #infoZemira a {
     text-decoration: none;
-    color: yellow;
+    color: rgb(255, 208, 0);
 }
 
 #infoZemiraTitulo, #infoJogoTitulo {
     padding: 1ex 1ex 1ex 0;
     display: inline-block;
+    color: rgb(255, 208, 0);
 }
 
 #infoJogo, #infoZemira {

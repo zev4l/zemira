@@ -14,11 +14,13 @@ body {background-color: #9900CC ;
 #featuresTitle {
 
     text-align: center;
+    color: rgb(255, 208, 0);
 }
 
 .subTitle {
     text-decoration: underline;
     text-decoration-style: solid;
+    color: rgb(255, 208, 0);
 }
 
 #features {
@@ -33,7 +35,7 @@ header {
 }
 
 #nav {
-    text-align: center;
+    
     border-style: solid;
     display: inline-block;
     margin-top: 2ex;
@@ -51,6 +53,6 @@ header {
 }
 
 #nav a:hover {
-    color:yellow;
+    color:rgb(255, 208, 0);
     text-decoration: none;
 }
