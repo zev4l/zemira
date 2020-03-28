@@ -7,15 +7,24 @@
 }
 
 
-body {background-color: #9900CC ;
-      font-family: 'kongtextregular';   
-      text-align: center;      
+body {
+    background-color: #9900CC ;
+    font-family:'kongtextregular';   
+    text-align: center;  
+    width: 60%;
+    border-style: solid;
+    padding: 2ex;
+    margin: auto;
+         
 }
 
+
 #nav {
+    background-color: #9900CC ;
     text-align: center;
     border-style: solid;
     display: inline-block;
+    font-family: 'kongtextregular';  
     margin-top: 2ex;
     padding: 2ex;
     
@@ -35,16 +44,33 @@ body {background-color: #9900CC ;
     text-decoration: none;
 }
 
-head{
-    text-align: center;
-    text-align: center;
-    font-weight: bold;
 
-
-}
 
 h1{
 font-weight: bold;
+font-family: 'kongtextregular';  
 text-align: center;
-text-decoration-color:rgb(255, 208, 0);
+color:rgb(255, 208, 0);
+}
+
+
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    position: fixed;     
+    text-align: center;    
+    bottom: 0px; 
+    width: 100%;
+    text-decoration: none;
+}
+#AboutImages{
+    background-color: #9900CC ;
+    font-family: 'kongtextregular';   
+    text-align: center;  
+    width: 60%;
+    border-style: solid;
+    padding: 2ex;
+    margin: auto;
+
 }
