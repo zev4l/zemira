@@ -10,3 +10,42 @@
 body {background-color: #9900CC ;
       font-family: 'kongtextregular';          
 }
+
+#featuresTitle {
+
+    text-align: center;
+}
+
+.subTitle {
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+
+#features {
+    width: 30%;
+    border-style: solid;
+    padding: 2ex;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+}
+
+#nav {
+    text-align: center;
+    border-style: solid;
+    display: inline-block;
+    margin-top: 2ex;
+    padding: 2ex;
+    
+}
+
+#nav li {
+    display: inline;
+}
+
+#nav a {
+    color:black;
+    text-decoration: none;
+}
