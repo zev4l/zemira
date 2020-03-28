@@ -1,3 +1,6 @@
+/* Número: 54960, Nome: Rafael Ribeiro, PL: 21 */
+/* Número: 55373, Nome: José Almeida, PL: 21 */
+/* Número: 54941, Nome: Miguel Duarte, PL: 21 */
 
 @font-face {
     font-family: 'kongtextregular';
@@ -31,12 +34,19 @@ header {
 }
 
 #infoJogo, #infoZemira {
-    width: 70%;
-    text-transform: justify;
+    text-align: justify;
     margin: auto;
-    text-transform: underline;
-  }
+}
 
+#corpo {
+    border-style: solid;
+    margin: 6ex auto;
+    text-align: center;
+    display: block;
+    width: 70%;
+    padding: 0 3ex 0 3ex;
+    
+}
 
 #nav {
     text-align: center;
@@ -44,8 +54,8 @@ header {
     display: inline-block;
     margin-top: 2ex;
     padding: 2ex;
-    
 }
+
 
 #nav li {
     display: inline;
@@ -57,6 +67,14 @@ header {
 }
 
 #nav a:hover {
-    color:yellow;
+    color:rgb(255, 208, 0);
     text-decoration: none;
+}
+
+.footer {
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;     
+    text-align: center;    
+    bottom: 0px; 
+    width: 100%;
 }
