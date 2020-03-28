@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'kongtextregular';
+    src: url('../fonts/kongtext-webfont.woff2') format('woff2'),
+         url('../fonts/kongtext-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {background-color: #9900CC ;
+      font-family: 'kongtextregular';   
+      text-align: center;      
+}
+
+#nav {
+    text-align: center;
+    border-style: solid;
+    display: inline-block;
+    margin-top: 2ex;
+    padding: 2ex;
+    
+}
+
+#nav li {
+    display: inline;
+}
+
+#nav a {
+    color:black;
+    text-decoration: none;
+}
+
+#nav a:hover {
+    color:yellow;
+    text-decoration: none;
+}
+
+head{
+    text-align: center;
+    text-align: center;
+    font-weight: bold;
+
+
+}
+
+h1{
+font-weight: bold;
+text-align: center;
+text-decoration-color:rgb(255, 208, 0);
+}
