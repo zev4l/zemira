@@ -28,7 +28,7 @@ header {
 }
 
 #infoZemiraTitulo, #infoJogoTitulo {
-    padding: 1ex 1ex 1ex 0;
+    padding: 1ex 1ex 0 0;
     display: inline-block;
     color: rgb(255, 208, 0);
 }
@@ -44,7 +44,7 @@ header {
     text-align: center;
     display: block;
     width: 70%;
-    padding: 0 3ex 0 3ex;
+    padding: 0 3ex 2ex 3ex;
     
 }
 
