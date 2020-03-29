@@ -11,10 +11,7 @@ body {
     background-color: #9900CC ;
     font-family:'kongtextregular';   
     text-align: center;  
-    width: 60%;
-    border-style: solid;
-    padding: 2ex;
-    margin: auto;
+   
          
 }
 
@@ -60,7 +57,6 @@ footer {
     text-align: center;    
     bottom: 0px; 
     width: 100%;
-    text-decoration: none;
 }
 #AboutImages{
     background-color: #9900CC ;
@@ -71,4 +67,15 @@ footer {
     padding: 2ex;
     margin: auto;
 
+}
+article{
+
+    background-color: #9900CC ;
+    font-family:'kongtextregular';   
+    text-align: center;  
+    width: 60%;
+    border-style: solid;
+    padding: 2ex;
+    margin: auto;
+         
 }
