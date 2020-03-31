@@ -77,4 +77,6 @@ header {
     text-align: center;    
     bottom: 0px; 
     width: 100%;
+    border-style: transparent; 
+    background-color: #9900CC;
 }
