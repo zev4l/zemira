@@ -55,11 +55,17 @@ body {
     display: inline-block;
     font-size: 27px;
     padding: 25px;
+    transition: 100ms ease-out;
   }
 
 #nav a {
     text-decoration: none;
     color: rgb(255, 208, 0);
+}
+
+#nav li:hover {
+    transition: 200ms ease;
+    transform: scale(1.3);
 }
 
 .footer {
