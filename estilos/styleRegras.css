@@ -13,6 +13,7 @@
 body {
     background-color:#9900CC;
     font-family: 'kongtextregular'; 
+    box-sizing: border-box;
 }
 
 #nav {
