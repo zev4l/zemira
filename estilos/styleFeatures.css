@@ -10,6 +10,7 @@
     font-style: normal;
 }
 
+
 body {background-color: #9900CC ;
       font-family: 'kongtextregular';          
 }
@@ -26,13 +27,6 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background: rgb(255, 208, 0);
 }
-
-
-
-
-
-
-
 
 #featuresTitle {
 
