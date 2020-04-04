@@ -10,7 +10,7 @@
     font-style: normal;
 }
 
-    @media screen and (min-width: 1000px){
+@media screen and (min-width: 1000px){
 
     body {background-color: #9900CC ;
         font-family: 'kongtextregular';          
@@ -42,7 +42,7 @@
     }
 
     #features {
-        width: 30%;
+        width: 50%;
         border-style: solid;
         padding: 2ex;
         margin: 5ex auto;
@@ -86,4 +86,170 @@
         border-style: transparent; 
         background-color: #9900CC;
     }
+
+    .mobile {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 999px){
+
+    body {background-color: #9900CC ;
+        font-family: 'kongtextregular';          
+    }
+
+
+    body::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    body::-webkit-scrollbar-track {
+        background: #1e1e24;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: rgb(255, 208, 0);
+    }
+
+    #featuresTitle {
+
+        text-align: center;
+        color: rgb(255, 208, 0);
+    }
+
+    .subTitle {
+        text-decoration: underline;
+        text-decoration-style: solid;
+        color: rgb(255, 208, 0);
+    }
+
+    #features {
+        width: 60%;
+        border-style: solid;
+        padding: 2ex;
+        margin: 5ex auto;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    #nav {
+        
+        border-style: solid;
+        display: inline-block;
+        margin-top: 2ex;
+        padding: 2ex;
+        
+    }
+
+    #nav li {
+        display: inline;
+    }
+
+    #nav a {
+        color:black;
+        text-decoration: none;
+        transition: ease 600ms;
+    }
+
+    #nav a:hover {
+        transition: ease 600ms;
+        color:rgb(255, 208, 0);
+        text-decoration: none;
+    }
+
+    .footer {
+        font-family: Arial, Helvetica, sans-serif;
+        position: fixed;     
+        text-align: center;    
+        bottom: 0px; 
+        width: 100%;
+        border-style: transparent; 
+        background-color: #9900CC;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 599px){
+
+body {background-color: #9900CC ;
+        font-family: 'kongtextregular';          
+    }
+
+
+    body::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    body::-webkit-scrollbar-track {
+        background: #1e1e24;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: rgb(255, 208, 0);
+    }
+
+    #featuresTitle {
+
+        text-align: center;
+        color: rgb(255, 208, 0);
+    }
+
+    .subTitle {
+        text-decoration: underline;
+        text-decoration-style: solid;
+        color: rgb(255, 208, 0);
+    }
+
+    #features {
+        width: 90%;
+        border-style: solid;
+        padding: 2ex;
+        margin: 2ex auto;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    #nav {
+        
+        border-style: solid;
+        display: inline-block;
+        margin-top: 2ex;
+        padding: 2ex;
+        
+    }
+
+    #nav li {
+        display: inline;
+    }
+
+    #nav a {
+        color:black;
+        text-decoration: none;
+        transition: ease 600ms;
+    }
+
+    #nav a:hover {
+        transition: ease 600ms;
+        color:rgb(255, 208, 0);
+        text-decoration: none;
+    }
+
+    .footer {
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;     
+        text-align: center;    
+        bottom: 0px; 
+        width: 100%;
+        border-style: transparent; 
+    }
+
 }
