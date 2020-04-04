@@ -82,3 +82,15 @@ header {
     border-style: transparent; 
     background-color: #9900CC;
 }
+
+body::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(255, 208, 0);
+}
