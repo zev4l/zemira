@@ -348,7 +348,7 @@ body::-webkit-scrollbar-thumb {
     .footer {
         bottom: 0px;
         width: 100%;
-        position: fixed;   
+        position: relative;   
         text-align: center;
         font-family: Arial, Helvetica, sans-serif;
         border-style: transparent; 
