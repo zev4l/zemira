@@ -2,7 +2,7 @@
 /* Número: 55373, Nome: José Almeida, PL: 21 */
 /* Número: 54941, Nome: Miguel Duarte, PL: 21 */
 
-
+@media screen and (min-width: 1000px){
 
 @font-face {
     font-family: 'kongtextregular';
@@ -92,6 +92,10 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background: rgb(255, 208, 0);
 }
+.mobile {
+    display: none;
+}
+}
 @media screen and (max-width: 599px){
 
 
@@ -164,7 +168,7 @@ body::-webkit-scrollbar-thumb {
     
         background-color: #9900CC ;
         font-family:'kongtextregular';   
-        text-align: center;  
+        text-align: justify; 
         width: 90%;
         border-style: solid;
         padding: 2ex;
@@ -258,7 +262,7 @@ body::-webkit-scrollbar-thumb {
     
         background-color: #9900CC ;
         font-family:'kongtextregular';   
-        text-align: center;  
+        text-align: justify;  
         width: 90%;
         border-style: solid;
         padding: 2ex;
@@ -276,6 +280,9 @@ body::-webkit-scrollbar-thumb {
     
     body::-webkit-scrollbar-thumb {
         background: rgb(255, 208, 0);
+    }
+    .mobile {
+        display: none;
     }
 
 
