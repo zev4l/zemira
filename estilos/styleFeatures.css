@@ -16,31 +16,6 @@
         font-family: 'kongtextregular';          
     }
 
-
-    body::-webkit-scrollbar {
-        width: 0.5rem;
-    }
-
-    body::-webkit-scrollbar-track {
-        background: #1e1e24;
-    }
-
-    body::-webkit-scrollbar-thumb {
-        background: rgb(255, 208, 0);
-    }
-
-    #featuresTitle {
-
-        text-align: center;
-        color: rgb(255, 208, 0);
-    }
-
-    .subTitle {
-        text-decoration: underline;
-        text-decoration-style: solid;
-        color: rgb(255, 208, 0);
-    }
-
     #features {
         width: 50%;
         border-style: solid;
@@ -50,31 +25,6 @@
 
     header {
         text-align: center;
-    }
-
-    #nav {
-        
-        border-style: solid;
-        display: inline-block;
-        margin-top: 2ex;
-        padding: 2ex;
-        
-    }
-
-    #nav li {
-        display: inline;
-    }
-
-    #nav a {
-        color:black;
-        text-decoration: none;
-        transition: ease 600ms;
-    }
-
-    #nav a:hover {
-        transition: ease 600ms;
-        color:rgb(255, 208, 0);
-        text-decoration: none;
     }
 
     .footer {

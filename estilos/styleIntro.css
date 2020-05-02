@@ -16,22 +16,12 @@
         font-family: 'kongtextregular';          
     }
 
-    #introductionTitle {
-        color: rgb(255, 208, 0);
-    }
-
     header {
         text-align: center;
     }
 
     #infoZemira a {
         text-decoration: none;
-        color: rgb(255, 208, 0);
-    }
-
-    #infoZemiraTitulo, #infoJogoTitulo {
-        padding: 1ex 1ex 0 0;
-        display: inline-block;
         color: rgb(255, 208, 0);
     }
 
@@ -50,31 +40,6 @@
         
     }
 
-    #nav {
-        text-align: center;
-        border-style: solid;
-        display: inline-block;
-        margin-top: 2ex;
-        padding: 2ex;
-    }
-
-
-    #nav li {
-        display: inline;
-    }
-
-    #nav a {
-        transition: ease 600ms;
-        color:black;
-        text-decoration: none;
-    }
-
-    #nav a:hover {
-        transition: ease 600ms;
-        color:rgb(255, 208, 0);
-        text-decoration: none;
-    }
-
     .footer {
         font-family: Arial, Helvetica, sans-serif;
         position: fixed;     
@@ -83,18 +48,6 @@
         width: 100%;
         border-style: transparent; 
         background-color: #9900CC;
-    }
-
-    body::-webkit-scrollbar {
-        width: 0.5rem;
-    }
-
-    body::-webkit-scrollbar-track {
-        background: #1e1e24;
-    }
-
-    body::-webkit-scrollbar-thumb {
-        background: rgb(255, 208, 0);
     }
 
     .mobile {
