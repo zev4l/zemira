@@ -1,0 +1,9 @@
+estilos/
+styleColors.css
+styleStructure.css
+styleText.css
+
+scripts/
+home.js
+store.js
+game.js
