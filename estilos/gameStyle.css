@@ -1,0 +1,98 @@
+/* Número: 54960, Nome: Rafael Ribeiro, PL: 21 */
+/* Número: 55373, Nome: José Almeida, PL: 21 */
+/* Número: 54941, Nome: Miguel Duarte, PL: 21 */
+
+@font-face {
+    font-family: 'kongtextregular';
+    src: url('../fonts/kongtext-webfont.woff2') format('woff2'),
+         url('../fonts/kongtext-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    background-color: #9900CC ;
+    font-family: 'kongtextregular'; 
+    border-style: solid ;
+   
+}
+h1{
+    color: rgb(255, 208, 0);
+    font-weight: bold;
+    text-align: center;
+    font-family: 'kongtextregular'; 
+    display: inline-block;
+    position: relative;
+    margin: auto;
+    padding: 1ex;
+}
+.LoginBox{
+    background-color: #9900CC;
+    display: inline-block;
+    margin-right: 0px;
+    border-style: dashed;
+    position: relative;
+    font-family: 'kongtextregular'; 
+    
+
+}
+.LoginBox .RegisterBox{
+    text-align: left;
+    
+    border-style: dashed;
+    display: inline-block;
+        
+
+}
+
+
+.LoginBox .LoginBox{
+    text-align: right;
+    padding: 0,5ex;
+    border-style: dashed;
+    display: inline-block;
+   
+
+}
+
+.CardTable{
+    cursor: pointer;
+    border-style: solid;
+    border-color: burlywood;
+    background-color: #d2b48c ;
+    text-align: center;
+    padding: 1ex;
+    width: 60%;   
+    position: relative; 
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.TimeCounterBox{
+
+    display: inline-block;
+    width: 15%;
+    padding: 1ex;
+    text-align: center;
+    margin-left: 0px;
+    margin-right: auto;
+    border-style: solid;
+    position: relative;
+
+}
+.MatchesFound{
+    position: relative;
+    display: inline-block;
+    width: 15%;
+    padding: 1ex;
+    text-align: center;
+    margin-left: auto;
+    margin-right: 0px;
+    border-style: solid;
+}
+
+
+
+
+
+
