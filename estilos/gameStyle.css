@@ -12,47 +12,53 @@
 body {
     background-color: #9900CC ;
     font-family: 'kongtextregular'; 
-    border-style: solid ;
+    
    
 }
-h1{
+.topDiv{
+    padding: 2ex;
+    border-style: solid ;
+    align-self: center;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+   
+    
+}
+.gameTitle{
     color: rgb(255, 208, 0);
     font-weight: bold;
+    font-size: 200%;
     text-align: center;
     font-family: 'kongtextregular'; 
-    display: inline-block;
-    position: relative;
-    margin: auto;
+    display: inline-block;        
     padding: 1ex;
+    border-style: solid ;
+    
 }
 .LoginBox{
-    background-color: #9900CC;
-    display: inline-block;
-    margin-right: 0px;
+    
+    display: inline-block;    
     border-style: dashed;
     position: relative;
     font-family: 'kongtextregular'; 
-    
+    cursor: pointer;
 
 }
-.LoginBox .RegisterBox{
-    text-align: left;
-    
+.RegisterBox{
+    text-align: left;    
     border-style: dashed;
     display: inline-block;
-        
-
+    position: relative;
+    cursor: pointer;
 }
 
-
-.LoginBox .LoginBox{
-    text-align: right;
-    padding: 0,5ex;
+.gameContent{
     border-style: dashed;
-    display: inline-block;
-   
-
+    width: 100%;
 }
+
 
 .CardTable{
     cursor: pointer;
@@ -66,6 +72,10 @@ h1{
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
+}
+table{
+    width: 200px;
+    border: 1px solid black;
 }
 
 .TimeCounterBox{
