@@ -12,16 +12,15 @@
 body {
     background-color: #9900CC ;
     font-family: 'kongtextregular'; 
+    text-align: center;
     
    
 }
 .topDiv{
     padding: 2ex;
     border-style: solid ;
-    align-self: center;
-    position: relative;
     text-align: center;
-    display: inline-block;
+    display: block;
     margin: 0 auto;
    
     
@@ -38,20 +37,26 @@ body {
     
 }
 .LoginBox{
-    
-    display: inline-block;    
+    display: inline-block;
     border-style: dashed;
-    position: relative;
     font-family: 'kongtextregular'; 
     cursor: pointer;
+    position: absolute;
+    right: 3ex;
+    top: 4ex;
+
 
 }
 .RegisterBox{
-    text-align: left;    
-    border-style: dashed;
     display: inline-block;
-    position: relative;
+    text-align: left;    
+    position: absolute;
+    border-style: dashed;
     cursor: pointer;
+    right: 13ex;
+    top: 4ex;
+
+
 }
 
 .gameContent{
@@ -61,7 +66,6 @@ body {
 
 
 .CardTable{
-    cursor: pointer;
     border-style: solid;
     border-color: burlywood;
     background-color: #d2b48c ;
@@ -73,6 +77,11 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+.CardTable th {
+    cursor: pointer;
+}
+
 table{
     width: 200px;
     border: 1px solid black;
