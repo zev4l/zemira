@@ -11,6 +11,7 @@
 <title>Zemira The Game</title>
 
 <link rel="stylesheet" href="estilos/gameStyle.css">
+<script src="scripts/game.js"></script>
 
 
 
@@ -24,11 +25,11 @@
      <!--box topo encostada à direita-->
     
 
-        <div class="RegisterBox">
+        <div class="registerBox">
             <p>Register</p>
         </div>
 
-        <div class="LoginBox">
+        <div class="loginBox">
             <p>Login</p>
 
         </div>
@@ -36,84 +37,243 @@
     </div>
 
 
-    <!--  <div class="SinglePlayer">-->
+    <div class="singlePlayer">
 
-      <!--     <h2>Play Solo!</h2>-->
+        <h2>Play Solo!</h2>
 
-        <!--   <p>In this game mode you play alone, not having any type of scoreboard, and only competing against your previous game time </p>-->
+        <p>Play alone and beat your previous times! </p>
 
-        <!--   <div class="SinglePlayerButton">-->
+        <div class="singlePlayerButton" onclick="singlePlayerButton()">
 
-          <!--     Play!-->
+            Play!
 
-          <!-- </div>-->
+        </div>
 
 
-  <!-- </div>-->
+    </div>
 
- <!--  <div class="MultiPlayer">-->
+    <div class="multiPlayer">
 
-     <!--  <h2>Play With Friends!</h2>-->
+        <h2>Play With Friends!</h2>
 
-     <!--  <p>In this game mode you can play with friends, being able to compete with eachother</p>-->
+        <p>Compete with your friends!</p>
 
-      <!-- <div class="MultiPlayerButton">-->
+        <div class="multiPlayerButton" onmouseover="multiPlayerButton()">
 
-      <!--     Play!-->
+            Play!
 
-     <!--  </div>-->
+        </div>
 
- <!--  </div>-->
+    </div>
 
 <!--box centro-->
 <div class="gameContent">
 
 <!--box centrada encostada à esquerda-->
-<div class="TimeCounterBox">
+<div class="timeCounterBox">
     <p>Time:</p>
 
 </div>
 
 
-<div class="CardTable">
+<div class="cardTable">
 
     <table>
         <tr>
-            <th>Card 1</th>
-            <th>Card 2</th>
-            <th>Card 3</th>
-            <th>Card 4</th>
-            <th>Card 5</th>
+            <th> 
+                <!-- Carta 1 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(0)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 2 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(1)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 3 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(2)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 4 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(3)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 5 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(4)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
         </tr>
         <tr>
-            <th>Card 6</th>
-            <th>Card 7</th>
-            <th>Card 8</th>
-            <th>Card 9</th>
-            <th>Card 10</th>       
+            <th>
+                <!-- Carta 6 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(5)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 7 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(6)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 8 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(7)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 9-->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(8)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 10 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(9)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>       
             
         </tr>
         <tr>
-            <th>Card 11</th>
-            <th>Card 12</th>
-            <th>Card 13</th>
-            <th>Card 14</th>
-            <th>Card 15</th>    
-    
+            <th>
+                <!-- Carta 11 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(10)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 12 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(11)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 13 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(12)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 14 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(13)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 15 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(14)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>    
         </tr>
         <tr>
-            <th>Card 16</th>
-            <th>Card 17</th>
-            <th>Card 18</th>
-            <th>Card 19</th>
-            <th>Card 20</th>    
+            <th>
+                <!-- Carta 16 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(15)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 17 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(16)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 18 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(17)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 19 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(18)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>
+            <th>
+                <!-- Carta 20 -->
+                <div class="cardContainer">
+                    <div class="card" onclick="showCard(19)">
+                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardBack">BACK OF CARD</div>
+                    </div>
+                  </div>
+            </th>    
     
         </tr>
     </table>
     
     </div>
 <!--box centrada encostada à direita-->
-<div class="MatchesFound">
+<div class="matchesFound">
     <p>You have found:</p>
 </div>
 </div>

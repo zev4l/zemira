@@ -16,10 +16,9 @@ body {
     
    
 }
-/*.SinglePlayer{
+.singlePlayer{
 
     width: 50%;
-    font-family: 'kongtextregular'; 
     text-align: center;
     padding: 2ex;
     border-style: solid;
@@ -27,7 +26,7 @@ body {
     margin-right: auto;
     margin-top: 5ex;
 }
-.SinglePlayerButton{
+.singlePlayerButton{
     font-size: 200%;
     border-style: solid ;
     width: 20%;
@@ -40,10 +39,9 @@ h2{
     color: rgb(255, 208, 0);
 }
 
-.MultiPlayer{
+.multiPlayer{
 
     width: 50%;
-    font-family: 'kongtextregular'; 
     text-align: center;
     padding: 2ex;
     border-style: solid;
@@ -51,14 +49,14 @@ h2{
     margin-right: auto;
     margin-top: 5ex;
 }
-.MultiPlayerButton{
+.multiPlayerButton{
     font-size: 200%;
     border-style: solid ;
     width: 20%;
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
-}*/
+}
 
 
 
@@ -79,16 +77,14 @@ h2{
     font-weight: bold;
     font-size: 200%;
     text-align: center;
-    font-family: 'kongtextregular'; 
     display: inline-block;        
     padding: 1ex;
     border-style: solid ;
     
 }
-.LoginBox{
+.loginBox{
     display: inline-block;
-    border-style: dashed;
-    font-family: 'kongtextregular'; 
+    border-style: dashed; 
     cursor: pointer;
     position: absolute;
     right: 3ex;
@@ -96,7 +92,7 @@ h2{
 
 
 }
-.RegisterBox{
+.registerBox{
     display: inline-block;
     text-align: left;    
     position: absolute;
@@ -111,10 +107,11 @@ h2{
 .gameContent{
     
     width: 100%;
+    display: none;
 }
 
 
-.CardTable{
+.cardTable{
     border-style: solid;
     border-color: burlywood;
     background-color: #d2b48c ;
@@ -122,13 +119,14 @@ h2{
     padding: 1ex;
     width: 60%;   
     position: relative; 
-    display: inline-block;
+    
     margin-top: 5ex;
     margin-left: auto;
     margin-right: auto;
+    display: inline-block;
 }
 
-.CardTable th {
+.cardTable th {
     cursor: pointer;
     height: 150px;
 }
@@ -138,7 +136,7 @@ table{
     
 }
 
-.TimeCounterBox{
+.timeCounterBox{
 
     display: inline-block;
     width: 15%;
@@ -150,7 +148,7 @@ table{
     position: relative;
 
 }
-.MatchesFound{
+.matchesFound{
     position: relative;
     display: inline-block;
     width: 15%;
@@ -161,8 +159,65 @@ table{
     border-style: solid;
 }
 
+/* DEFINÇÃO DAS CARTAS */
 
+/* THE MAINCONTAINER HOLDS EVERYTHING */
+.cardContainer{
+    position: relative;
+    width: 70px;
+    height: 100px;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
+}
 
+/* THE CARD HOLDS THE FRONT AND BACK FACES */
+.card{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+    transform: rotateY(180deg);
+}
 
+/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
+/* .card:hover{
+    transform: rotateY(180deg);
+} */
+
+/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+.cardFront{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #ffc728;
+    color: #000;
+}
+
+/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+.cardBack{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #fafafa;
+    color: #333;
+    text-align: center;
+    transform: rotateY(180deg);
+}
 
