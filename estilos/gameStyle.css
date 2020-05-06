@@ -16,9 +16,58 @@ body {
     
    
 }
-.topDiv{
+/*.SinglePlayer{
+
+    width: 50%;
+    font-family: 'kongtextregular'; 
+    text-align: center;
     padding: 2ex;
+    border-style: solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5ex;
+}
+.SinglePlayerButton{
+    font-size: 200%;
     border-style: solid ;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+h2{
+    color: rgb(255, 208, 0);
+}
+
+.MultiPlayer{
+
+    width: 50%;
+    font-family: 'kongtextregular'; 
+    text-align: center;
+    padding: 2ex;
+    border-style: solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5ex;
+}
+.MultiPlayerButton{
+    font-size: 200%;
+    border-style: solid ;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}*/
+
+
+
+
+
+
+
+.topDiv{
+    padding: 2ex;    
     text-align: center;
     display: block;
     margin: 0 auto;
@@ -60,7 +109,7 @@ body {
 }
 
 .gameContent{
-    border-style: dashed;
+    
     width: 100%;
 }
 
@@ -74,17 +123,19 @@ body {
     width: 60%;   
     position: relative; 
     display: inline-block;
+    margin-top: 5ex;
     margin-left: auto;
     margin-right: auto;
 }
 
 .CardTable th {
     cursor: pointer;
+    height: 150px;
 }
 
 table{
-    width: 200px;
-    border: 1px solid black;
+    width: 100%;
+    
 }
 
 .TimeCounterBox{
@@ -93,7 +144,7 @@ table{
     width: 15%;
     padding: 1ex;
     text-align: center;
-    margin-left: 0px;
+    margin-bottom: 4ex;
     margin-right: auto;
     border-style: solid;
     position: relative;
