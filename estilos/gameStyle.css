@@ -127,7 +127,6 @@ h2{
 }
 
 .cardTable th {
-    cursor: pointer;
     height: 150px;
 }
 
@@ -159,7 +158,7 @@ table{
     border-style: solid;
 }
 
-/* DEFINÇÃO DAS CARTAS */
+/* DEFINIÇÃO DAS CARTAS */
 
 .cardContainer{
     position: relative;
@@ -182,6 +181,7 @@ table{
     transform-style: preserve-3d;
     transition: all 0.8s ease;
     transform: rotateY(180deg);
+    cursor: pointer;
 }
 
 .cardFront{
