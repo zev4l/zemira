@@ -24,11 +24,13 @@ function startMusic() {
     window.music = backgroundMusic("sons/musicBackground.mp3")
 }
 
-function toggleMusic() {
+function toggleMusicHome() {
     if (music.sound.paused) {
         music.play()
+        document.getElementById("soundButtonHome").src="imagens/soundIcon.png"
     } else {
         music.stop()
+        document.getElementById("soundButtonHome").src="imagens/muteIcon.png"
     }
 }
 
