@@ -161,7 +161,6 @@ table{
 
 /* DEFINÇÃO DAS CARTAS */
 
-/* THE MAINCONTAINER HOLDS EVERYTHING */
 .cardContainer{
     position: relative;
     width: 70px;
@@ -173,7 +172,6 @@ table{
 
 }
 
-/* THE CARD HOLDS THE FRONT AND BACK FACES */
 .card{
     position: relative;
     top: 0;
@@ -186,12 +184,6 @@ table{
     transform: rotateY(180deg);
 }
 
-/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
-/* .card:hover{
-    transform: rotateY(180deg);
-} */
-
-/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
 .cardFront{
     position: absolute;
     top: 0;
@@ -205,7 +197,6 @@ table{
     color: #000;
 }
 
-/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
 .cardBack{
     position: absolute;
     top: 0;

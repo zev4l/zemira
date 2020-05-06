@@ -4,7 +4,7 @@ let estado = {
     login: null,
     matches: null,
     timeSpent: null,
-    currentCards: null,
+    currentCards: [],
 }
 
 /* FUNÇÕES DE CONTROLO DE APRESENTAÇÃO DO JOGO/BOTÕES */
@@ -25,6 +25,7 @@ function tableTester() {
 function showCard(n) {
     cardStyle = document.getElementsByClassName("card")[n].style
     cardStyle.transform = "rotateY(0deg)"
+    estado.currentCards += 
 
     
     // if (cardStyle.transform == "rotateY(180deg)" || cardStyle.transform == "") {
