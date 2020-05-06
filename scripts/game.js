@@ -12,7 +12,7 @@ let estado = {
 
 let config = {
     backImageSource: "imagens/testPatternCard.PNG",
-    cardPacks: {}
+    cardPacks: []
 }
 
 /* Other Functions */
@@ -32,7 +32,6 @@ function cardSourceChecker(n) {
     return document.getElementsByClassName("card")[n].getElementsByTagName("img")[0].src
 }
 
-/* Other Functions */
 
 /* FUNÇÕES DE CONTROLO DE APRESENTAÇÃO DO JOGO/BOTÕES */
 
@@ -80,13 +79,18 @@ function hideCard(n) {
     cardStyle = document.getElementsByClassName("card")[n].style
     cardStyle.transform = "rotateY(180deg)"
 }
-    
-    // if (cardStyle.transform == "rotateY(180deg)" || cardStyle.transform == "") {
-    //     cardStyle.transform = "rotateY(0deg)"
-    // }
-    // else if (cardStyle.transform == "rotateY(0deg)") {
-    //     cardStyle.transform = "rotateY(180deg)"
-    // }
 
-    
 }
+
+
+/* Uso do algoritmo Fisher-Yates-Durstenfelt para organizar uma lista de forma aleatoria */
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1))
+        var temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+    }
+}
+
