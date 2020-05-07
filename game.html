@@ -19,7 +19,7 @@
 <body onload="imageSetter()">
     <!--titulo centro meio-->
     <div class="topDiv">
-        <div class="gameTitle">Zemira The Game</div>
+        <div class="gameTitle"><a class="homeLink" href="./Home.html">Zemira The Game</a></div>
 
 
      <!--box topo encostada à direita-->
@@ -58,7 +58,7 @@
 
         <p>Compete with your friends!</p>
 
-        <div class="multiPlayerButton" onmouseover="multiPlayerButton()">
+        <div class="multiPlayerButton" onclick="multiPlayerButton()">
 
             Play!
 
@@ -66,17 +66,16 @@
 
     </div>
 
+  <div class="startButton" onclick="startButton()">
+    <h1>START</h1>
+  </div>
+
+
 <!--box centro-->
 <div class="gameContent">
 
-<!--box centrada encostada à esquerda-->
-<div class="timeCounterBox">
-    <p>Time:</p>
-
-</div>
-
-
 <div class="cardTable">
+
 
     <table>
         <tr>
@@ -84,7 +83,7 @@
                 <!-- Carta 1 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(0)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -93,7 +92,7 @@
                 <!-- Carta 2 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(1)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -102,7 +101,7 @@
                 <!-- Carta 3 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(2)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -111,7 +110,7 @@
                 <!-- Carta 4 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(3)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -120,7 +119,7 @@
                 <!-- Carta 5 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(4)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -131,7 +130,7 @@
                 <!-- Carta 6 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(5)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -140,7 +139,7 @@
                 <!-- Carta 7 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(6)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -149,7 +148,7 @@
                 <!-- Carta 8 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(7)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -158,7 +157,7 @@
                 <!-- Carta 9-->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(8)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -167,7 +166,7 @@
                 <!-- Carta 10 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(9)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -178,7 +177,7 @@
                 <!-- Carta 11 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(10)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -187,7 +186,7 @@
                 <!-- Carta 12 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(11)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -196,7 +195,7 @@
                 <!-- Carta 13 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(12)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -205,7 +204,7 @@
                 <!-- Carta 14 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(13)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -214,7 +213,7 @@
                 <!-- Carta 15 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(14)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -225,7 +224,7 @@
                 <!-- Carta 16 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(15)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -234,7 +233,7 @@
                 <!-- Carta 17 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(16)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -243,7 +242,7 @@
                 <!-- Carta 18 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(17)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -252,7 +251,7 @@
                 <!-- Carta 19 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(18)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -261,7 +260,7 @@
                 <!-- Carta 20 -->
                 <div class="cardContainer">
                     <div class="card" onclick="showCard(19)">
-                      <div class="cardFront">FRONT OF CARD</div>
+                      <div class="cardFront"><img></div>
                       <div class="cardBack"><img></div>
                     </div>
                   </div>
@@ -271,10 +270,22 @@
     </table>
     
     </div>
-<!--box centrada encostada à direita-->
-<div class="matchesFound">
-    <p>You have found:</p>
-</div>
+
+  <!--container do lado direito em cima-->
+  <div class="sideBar"> 
+    <div class="durationCounter">
+      <p>Duration:<span>0</span>s</p>
+
+    </div>
+
+    <!--container do lado direito no centro-->
+    <div class="matchesFound">
+        <p>Matches found:<span>0</span>/10<p>
+    </div>
+
+  </div>
+
+
 </div>
 </body>
 </html>
