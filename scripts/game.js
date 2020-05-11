@@ -1,33 +1,3 @@
-/* CONSTANTES */
-
-// Referência temporária aos icones das cartas 
-
-
-
-const foodPack = [
-    "imagens/iconPacks/food/1.png",
-    "imagens/iconPacks/food/2.png",
-    "imagens/iconPacks/food/3.png",
-    "imagens/iconPacks/food/4.png",
-    "imagens/iconPacks/food/5.png",
-    "imagens/iconPacks/food/6.png",
-    "imagens/iconPacks/food/7.png",
-    "imagens/iconPacks/food/8.png",
-    "imagens/iconPacks/food/9.png",
-    "imagens/iconPacks/food/10.png",
-    "imagens/iconPacks/food/11.png",
-    "imagens/iconPacks/food/12.png",
-    "imagens/iconPacks/food/13.png",
-    "imagens/iconPacks/food/14.png",
-    "imagens/iconPacks/food/15.png",
-    "imagens/iconPacks/food/16.png",
-    "imagens/iconPacks/food/17.png",
-    "imagens/iconPacks/food/18.png",
-    "imagens/iconPacks/food/19.png",
-    "imagens/iconPacks/food/20.png"]
-
-
-
 /* ESTADO DO JOGO */ 
 /************************************************************* */
 let estado = {
@@ -42,7 +12,7 @@ let estado = {
 
 let config = {
     backImageSource: "imagens/testPatternCard.PNG",
-    frontImagePackSource: foodPack
+    frontImagePackSource: localStorage.getItem("iconPack") || desertPack
 }
 
 let playerStatus = {
