@@ -1,3 +1,5 @@
+/* IMPORTAÇÃO DOS PACKS */
+
 /* ESTADO DO JOGO */ 
 /************************************************************* */
 let estado = {
@@ -12,7 +14,7 @@ let estado = {
 
 let config = {
     backImageSource: "imagens/testPatternCard.PNG",
-    frontImagePackSource: localStorage.getItem("iconPack") || desertPack
+    frontImagePackSource: localStorage.getItem("selectedIconPack") ||  JSON.parse(localStorage.getItem("packs")).lego
 }
 
 let playerStatus = {
@@ -43,6 +45,7 @@ function imageSetter() {
         pairedIconPackClone.push(iconPackClone[i])
     }
 
+    shuffleArray(pairedIconPackClone)
     shuffleArray(pairedIconPackClone)
 
     for (i=0; i<20; i++){
