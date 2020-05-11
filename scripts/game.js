@@ -2,6 +2,8 @@
 
 // Referência temporária aos icones das cartas 
 
+
+
 const foodPack = [
     "imagens/iconPacks/food/1.png",
     "imagens/iconPacks/food/2.png",
@@ -27,7 +29,7 @@ const foodPack = [
 
 
 /* ESTADO DO JOGO */ 
-
+/************************************************************* */
 let estado = {
     login: null,
     matches: 0,
@@ -43,7 +45,9 @@ let config = {
     frontImagePackSource: foodPack
 }
 
-/* FUNCTIONS */
+/************************************************************* */
+
+/* FUNÇÕES */
 
 function imageSetter() {
     
@@ -102,11 +106,11 @@ function startButton () {
     }
     
     estado.startTime = Math.floor(Date.now()/1000)
-    estado.timerID = setInterval(showtimePassed,1000)
+    estado.timerID = setInterval(showTimePassed,1000)
 
 }
 
-function showtimePassed() {
+function showTimePassed() {
 
     estado.timePassed = Math.floor((Date.now()/1000 - estado.startTime))
   
@@ -175,9 +179,9 @@ function hideCard(n) {
 /* Uso do algoritmo Fisher-Yates-Durstenfelt para organizar uma lista de forma aleatoria */
 
 function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1))
-        var temp = array[i]
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1))
+        let temp = array[i]
         array[i] = array[j]
         array[j] = temp
     }
