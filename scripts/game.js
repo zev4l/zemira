@@ -45,6 +45,10 @@ let config = {
     frontImagePackSource: foodPack
 }
 
+let playerStatus = {
+    zPoints: localStorage.getItem('zPoints') || 0
+};
+
 /************************************************************* */
 
 /* FUNÇÕES */
@@ -101,12 +105,14 @@ function startButton () {
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
     document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
     document.getElementsByClassName("startButton")[0].style.display = "none"
+
     for (i=0; i<20;i++) {
         document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
     }
     
     estado.startTime = Math.floor(Date.now()/1000)
     estado.timerID = setInterval(showTimePassed,1000)
+    showTempStats();
 
 }
 
@@ -155,23 +161,56 @@ function showCard(n) {
         if (estado.matches ==10) {
             clearInterval(estado.timerID)
         }
-        // if (estado.matches == 10) {
-        //     endGame()
-        // }
+        if (estado.matches == 10) {
+            endGame()
+        }
     updateMatches()
 
     }
 
 }
 
+function endGame() {
+    playerStatus.zPoints = parseInt(playerStatus.zPoints) + 1;
+    updateTempStats();
+
+    // Atualiza os pontos do jogador.
+    document.getElementsByClassName("zemiraPoints")[0].getElementsByTagName("span")[0].innerHTML = localStorage.getItem('zPoints');
+
+    resetEstado();
+    for (i=0; i<20; i++) {document.getElementsByClassName("card")[i].style.transform = "rotateY(180deg)";};
+
+    document.getElementsByClassName("gameContent")[0].style.display = "none";
+    document.getElementsByClassName("cardTable")[0].style.display = "none";
+    document.getElementsByClassName("sideBar")[0].style.display = "none";
+    document.getElementsByClassName("startButton")[0].style.display = "block";
+
+}
+
+function resetEstado() {
+    estado.usedCards = [];
+    estado.startTime = null;
+    estado.timerID = null;
+    estado.timePassed = null;
+    estado.matches = 0;
+}
+
 function updateMatches() {
-    document.getElementsByClassName("matchesFound")[0].getElementsByTagName("span")[0].innerHTML = estado.matches
+    document.getElementsByClassName("matchesFound")[0].getElementsByTagName("span")[0].innerHTML = estado.matches;
 }
 
 
 function hideCard(n) {
-    cardStyle = document.getElementsByClassName("card")[n].style
-    cardStyle.transform = "rotateY(180deg)"
+    cardStyle = document.getElementsByClassName("card")[n].style;
+    cardStyle.transform = "rotateY(180deg)";
+}
+
+function updateTempStats() {
+    localStorage.setItem('zPoints', playerStatus.zPoints);
+}
+
+function showTempStats () {
+    document.getElementsByClassName("zemiraPoints")[0].getElementsByTagName("span")[0].innerHTML = localStorage.getItem('zPoints');
 }
 
 
