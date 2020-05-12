@@ -18,6 +18,22 @@
 
 </head>
 <body onload="imageSetter()">
+
+<div id="dimmer"></div>
+    <!-- caixa de login e registo -->
+
+    <div class="loginPopup" id="loginBox">
+      <form class="loginForm">
+        <img class="closeButton" src="imagens/crossIcon.png" onclick="closeLogin()">
+        <h1 class="loginTitle">Login</h1>
+        <label for="username"><b>Username</b></label>
+        <input type="text" maxlength="30" size="10" placeholder="Enter Username" name="username" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <button type="submit" class="formButton">Enter the Matrix</button>
+      </form>
+    </div>
+
     <!--titulo centro meio-->
     <div class="topDiv">
         <div class="gameTitle"><a class="homeLink" href="./Home.html">Zemira The Game</a></div>
@@ -26,11 +42,11 @@
      <!--box topo encostada à direita-->
     
 
-        <div class="registerBox">
+        <div class="registerButton">
             <p>Register</p>
         </div>
 
-        <div class="loginBox">
+        <div onclick="openLogin()" class="loginButton">
             <p>Login</p>
 
         </div>
@@ -44,11 +60,11 @@
 
         <p>Play alone and beat your previous times! </p>
 
-        <div class="singlePlayerButton" onclick="singlePlayerButton()">
+        <h1 class="singlePlayerButton" onclick="singlePlayerButton()">
 
             Play!
 
-        </div>
+        </h1>
 
 
     </div>
@@ -59,11 +75,11 @@
 
         <p>Compete with your friends!</p>
 
-        <div class="multiPlayerButton" onclick="multiPlayerButton()">
+        <h1 class="multiPlayerButton" onclick="multiPlayerButton()">
 
             Play!
 
-        </div>
+        </h1>
 
     </div>
 

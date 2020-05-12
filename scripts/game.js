@@ -1,5 +1,7 @@
 /* IMPORTAÇÃO DOS PACKS */
 
+let packs = JSON.parse(localStorage.getItem("packs"))
+
 /* ESTADO DO JOGO */ 
 /************************************************************* */
 let estado = {
@@ -14,7 +16,7 @@ let estado = {
 
 let config = {
     backImageSource: "imagens/testPatternCard.PNG",
-    frontImagePackSource: localStorage.getItem("selectedIconPack") ||  JSON.parse(localStorage.getItem("packs")).lego
+    frontImagePackSource: localStorage.getItem("selectedIconPack") ||  packs.lego
 }
 
 let playerStatus = {
@@ -198,3 +200,32 @@ function shuffleArray(array) {
         array[j] = temp
     }
 }
+
+/* FUNÇÕES RELATIVAS AO FORM DE LOGIN */ 
+
+function openLogin() {
+    let loginBox = document.getElementById("loginBox")
+    let dimmer = document.getElementById("dimmer")
+    loginBox.style.display = "block"
+    setTimeout(function() {
+        loginBox.style.opacity = "1"
+        dimmer.style.opacity = "1"
+    },100)
+
+  }
+  
+function closeLogin() {
+    let loginBox = document.getElementById("loginBox")
+    let dimmer = document.getElementById("dimmer")
+
+
+    loginBox.style.opacity= "0";
+    dimmer.style.opacity = "0"
+
+    setTimeout(function() {
+        loginBox.style.display = "none";
+        
+    },200)
+
+}
+  

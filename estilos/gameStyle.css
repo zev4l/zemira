@@ -29,6 +29,10 @@ h2{
     color: rgb(255, 208, 0);
 }
 
+::selection {
+    background-color: #9900CC;
+}
+
 .topDiv{
     padding: 2ex;    
     text-align: center;
@@ -55,8 +59,8 @@ h2{
 }
 
 .gameTitle a:hover {
-        transition: 600ms ease;
-        animation: color-change 5s infinite;
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
 }
 
 @keyframes color-change {
@@ -86,64 +90,56 @@ h2{
 
 /* BOTÕES INICIAIS */
 
-.singlePlayer{
+.singlePlayer, .multiPlayer{
 
-    width: 50%;
+    width: 20%;
+    height: 40%;
     text-align: center;
     padding: 2ex;
     border-style: solid;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5ex;
-}
-.singlePlayerButton{
-    font-size: 200%;
-    border-style: solid ;
-    width: 20%;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;
-}
-
-.multiPlayer{
-
-    width: 50%;
     text-align: center;
-    padding: 2ex;
-    border-style: solid;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5ex;
 }
-.multiPlayerButton{
-    font-size: 200%;
-    border-style: solid ;
-    width: 20%;
+.singlePlayerButton, .multiPlayerButton{
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
+    padding: 2%;
+}
+
+
+.singlePlayerButton:hover, .multiPlayerButton:hover {
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
 }
 
 /* ELEMENTOS DE LOGIN */
 
-.loginBox{
+.loginButton{
     display: inline-block;
-    border-style: dashed; 
+    border-style: solid; 
     cursor: pointer;
     position: absolute;
     right: 3ex;
     top: 4ex;
 
 }
-.registerBox{
+.registerButton{
     display: inline-block;
     text-align: left;    
     position: absolute;
-    border-style: dashed;
+    border-style: solid;
     cursor: pointer;
     right: 13ex;
     top: 4ex;
+}
 
+.loginButton:hover, .registerButton:hover {
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
 }
 
 /* CONTAINER DE ELEMENTOS DO JOGO */
@@ -294,3 +290,94 @@ table{
     transition: ease 600ms;
 }
 
+/* DEFINIÇÃO DA CAIXA DE LOGIN E REGISTER */
+
+/* Container do formulário de Login */
+.loginPopup {
+    display: none;
+    position: fixed;
+    border: 3px solid rgb(255, 208, 0);
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(120, 2, 160);
+    overflow: hidden;
+    transition: all 200ms linear;
+    text-align: center;
+    opacity: 0;
+  
+}
+
+.loginForm {
+  max-width: 300px;
+  padding: 10px;
+}
+
+/* Definição de efeitos quando se passa o rato por cima do texto "Login" */
+.loginTitle:hover {
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
+}
+
+/* Modificações aos campos de texto e password do form */
+.loginForm input[type=text], .loginForm input[type=password] {
+  width: 80%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  border: 3px solid rgb(255, 208, 0);
+}
+
+/* Evitar borda azul que aparece ao clicar num campo de texto */
+.loginForm input[type=text]:focus, .loginForm input[type=password]:focus {
+    outline:0;
+}
+
+/* Fazer com que o texto escrito no campo "Username" seja da font utilizada */
+.loginForm input[type=text], textarea, select{font-family:inherit;}
+
+/* Fazer com que o texto de placeholder seja da font utilizada */
+.loginForm input[type=text]::placeholder,
+.loginForm input[type=password]::placeholder,
+.formButton {
+    font-family: 'kongtextregular';
+}
+
+/* Definição de vários atributos do formulário */
+.loginForm .formButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  
+}
+
+/* Definição de pequeno efeito de aumento de opacidade ao passar
+o rato em cima do butão de "submit" */
+.formButton:hover {
+  opacity: 1;
+}
+
+/* Definição de propriedades do botão de fechar a caixa de login */
+.closeButton {
+    width: 7%;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+
+/* Dimmer ativado quando se interage com o menu de login */
+#dimmer {
+    position: fixed;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.589);
+    pointer-events: none;
+    transition: all 200ms linear;
+    z-index: 8;
+    opacity: 0;
+}
