@@ -15,12 +15,16 @@ let estado = {
 }
 
 let config = {
-    backImageSource: "imagens/testPatternCard.PNG",
-    frontImagePackSource: localStorage.getItem("selectedIconPack") ||  packs.lego
+    backImageSource: "imagens/cardBack.png",
+    frontImagePackSource: localStorage.getItem("selectedIconPack") ||  packs.socialMedia
 }
 
-let playerStatus = {
-    zPoints: localStorage.getItem('zPoints') || 0
+let playerStats = {
+    zPoints: JSON.parse(localStorage.getItem('zPoints')) || 0,
+    gamesCompleted: JSON.parse(localStorage.getItem("gamesCompleted")) || 0,
+    cardsFlipped: JSON.parse(localStorage.getItem("cardsFlipped")) || 0,
+    matchesFoundEver: JSON.parse(localStorage.getItem("matchesFoundEver")) || 0,
+    timeSpentPlaying: JSON.parse(localStorage.getItem("timeSpentPlaying")) || 0
 };
 
 /************************************************************* */
@@ -87,13 +91,27 @@ function startButton () {
     
     estado.startTime = Math.floor(Date.now()/1000)
     estado.timerID = setInterval(showTimePassed,1000)
-    showTempStats();
+
+    // Para mostrar os zPoints atualizados
+    showStats();
 
 }
 
 function showTimePassed() {
 
     estado.timePassed = Math.floor((Date.now()/1000 - estado.startTime))
+
+    /* Adiciona tempo jogado ao contador de timeSpentPlaying (localStorage).
+       Existe aqui pois esta função é executada a cada segundo que passa.*/
+    playerStats.timeSpentPlaying ++
+    localStorage.setItem("timeSpentPlaying", playerStats.timeSpentPlaying);
+    /* A variável é guardada no localStorage nesta função em vez de em showStats()
+       por uma questão de fiabilidade. Ao ser feito aqui, todos os segundos de jogo
+       serão contabilizados, mesmo que o utilizador feche abruptamente o browser
+       em vez de carregar no botão de recomeçar, ou em vez de ganhar o jogo.
+       Esta variável serve para contar todos os segundos passados a jogar ao longo
+       de todo o tempo de jogo que o utilizador tem. */
+
   
     // Atualiza o temporizador visualmente.
     document.getElementsByClassName("durationCounter")[0].getElementsByTagName("span")[0].innerHTML = estado.timePassed
@@ -103,6 +121,11 @@ function showTimePassed() {
 /* FUNÇÃO PRINCIPAL */
 
 function showCard(n) {
+
+    // Atualiza o contador de cartas viradas em todo o tempo de jogo do utilizador
+    playerStats.cardsFlipped ++;
+
+
     cardStyle = document.getElementsByClassName("card")[n].style
     cardStyle.transform = "rotateY(0deg)"
     
@@ -112,9 +135,13 @@ function showCard(n) {
     if ((estado.currentCards.length) == 2) {
         if (cardSourceChecker(estado.currentCards[0]) == cardSourceChecker(estado.currentCards[1]) && estado.currentCards[0] != estado.currentCards[1] ){
 
-            estado.matches += 1
+            estado.matches ++
             estado.usedCards.push(estado.currentCards[0], estado.currentCards[1])
             estado.currentCards = []
+            playerStats.matchesFoundEver ++
+
+            // Para que seja atualizado na localStorage o contador de matchesFoundEver
+            updateStats()
             
         } else if (!(cardSourceChecker(estado.currentCards[0]) == cardSourceChecker(estado.currentCards[1]))) {
 
@@ -139,27 +166,40 @@ function showCard(n) {
         if (estado.matches == 10) {
             endGame()
         }
-    updateMatches()
+    // Para mostrar as matches atualizadas
+    showStats()
 
     }
 
 }
 
 function endGame() {
-    playerStatus.zPoints = parseInt(playerStatus.zPoints) + 1;
-    updateTempStats();
+    playerStats.zPoints = playerStats.zPoints + 1;
+    playerStats.gamesCompleted = playerStats.gamesCompleted + 1;
+    updateStats();
 
-    // Atualiza os pontos do jogador.
-    document.getElementsByClassName("zemiraPoints")[0].getElementsByTagName("span")[0].innerHTML = localStorage.getItem('zPoints');
+    // Atualiza os zPoints do jogador.
+    showStats()
 
+
+}
+
+function restartButton() {
     resetEstado();
-    for (i=0; i<20; i++) {document.getElementsByClassName("card")[i].style.transform = "rotateY(180deg)";};
+    for (i=0; i<20; i++) {
+        // document.getElementsByClassName("card")[i].style.transform = "rotateY(180deg)";
+        hideCard(i)
+    }
 
-    document.getElementsByClassName("gameContent")[0].style.display = "none";
-    document.getElementsByClassName("cardTable")[0].style.display = "none";
-    document.getElementsByClassName("sideBar")[0].style.display = "none";
-    document.getElementsByClassName("startButton")[0].style.display = "block";
+    // Volta a baralhar as cartas
+    imageSetter()
 
+    // Recomeçar o temporizador
+    estado.startTime = Math.floor(Date.now()/1000)
+    estado.timerID = setInterval(showTimePassed,1000)
+    
+    // Para mostrar as matches e os zPoints atualizados
+    showStats();
 }
 
 function resetEstado() {
@@ -170,9 +210,7 @@ function resetEstado() {
     estado.matches = 0;
 }
 
-function updateMatches() {
-    document.getElementsByClassName("matchesFound")[0].getElementsByTagName("span")[0].innerHTML = estado.matches;
-}
+
 
 
 function hideCard(n) {
@@ -180,12 +218,17 @@ function hideCard(n) {
     cardStyle.transform = "rotateY(180deg)";
 }
 
-function updateTempStats() {
-    localStorage.setItem('zPoints', playerStatus.zPoints);
+function updateStats() {
+    localStorage.setItem('zPoints', playerStats.zPoints);
+    localStorage.setItem("gamesCompleted", playerStats.gamesCompleted);
+    localStorage.setItem("cardsFlipped", playerStats.cardsFlipped);
+    localStorage.setItem("matchesFoundEver", playerStats.matchesFoundEver);
+
 }
 
-function showTempStats () {
+function showStats () {
     document.getElementsByClassName("zemiraPoints")[0].getElementsByTagName("span")[0].innerHTML = localStorage.getItem('zPoints');
+    document.getElementsByClassName("matchesFound")[0].getElementsByTagName("span")[0].innerHTML = estado.matches;
 }
 
 
@@ -226,6 +269,4 @@ function closeLogin() {
         loginBox.style.display = "none";
         
     },200)
-
 }
-  

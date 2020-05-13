@@ -1,8 +1,6 @@
-
-
 /* DEFINIÇÃO DOS PACKS DE ICONS */
 
-var foodPack = [
+let foodPack = [
     "imagens/iconPacks/food/1.png",
     "imagens/iconPacks/food/2.png",
     "imagens/iconPacks/food/3.png",
@@ -24,7 +22,7 @@ var foodPack = [
     "imagens/iconPacks/food/19.png",
     "imagens/iconPacks/food/20.png"]
 
-var desertPack = ["imagens/iconPacks/desert/001-cactus.png",
+let desertPack = ["imagens/iconPacks/desert/001-cactus.png",
 "imagens/iconPacks/desert/002-pyramid.png",
 "imagens/iconPacks/desert/003-road.png",
 "imagens/iconPacks/desert/004-sphinx.png",
@@ -75,7 +73,7 @@ var desertPack = ["imagens/iconPacks/desert/001-cactus.png",
 "imagens/iconPacks/desert/049-water tank.png",
 "imagens/iconPacks/desert/050-oil lamp.png"]
 
-var emojiPack = ["imagens/iconPacks/emoji/001-smile-7.png",
+let emojiPack = ["imagens/iconPacks/emoji/001-smile-7.png",
 "imagens/iconPacks/emoji/002-smile-8.png",
 "imagens/iconPacks/emoji/003-smile-9.png",
 "imagens/iconPacks/emoji/004-smile-10.png",
@@ -96,7 +94,7 @@ var emojiPack = ["imagens/iconPacks/emoji/001-smile-7.png",
 "imagens/iconPacks/emoji/019-smile-5.png",
 "imagens/iconPacks/emoji/020-smile-6.png"]
 
-var epidemicPack = ["imagens/iconPacks/epidemic/001-bacteria-2.png",
+let epidemicPack = ["imagens/iconPacks/epidemic/001-bacteria-2.png",
 "imagens/iconPacks/epidemic/002-spread.png",
 "imagens/iconPacks/epidemic/003-bacteria-3.png",
 "imagens/iconPacks/epidemic/004-bacteria-4.png",
@@ -117,7 +115,7 @@ var epidemicPack = ["imagens/iconPacks/epidemic/001-bacteria-2.png",
 "imagens/iconPacks/epidemic/019-drop-2.png",
 "imagens/iconPacks/epidemic/020-bacteria-1.png"]
 
-var legoPack = ["imagens/iconPacks/lego/001-lego.png",
+let legoPack = ["imagens/iconPacks/lego/001-lego.png",
 "imagens/iconPacks/lego/002-lego.png",
 "imagens/iconPacks/lego/003-lego.png",
 "imagens/iconPacks/lego/004-lego.png",
@@ -198,7 +196,7 @@ var legoPack = ["imagens/iconPacks/lego/001-lego.png",
 "imagens/iconPacks/lego/079-surgeon.png",
 "imagens/iconPacks/lego/080-priest.png"]
 
-var petsPack = ["imagens/iconPacks/pets/001-wild.png",
+let petsPack = ["imagens/iconPacks/pets/001-wild.png",
 "imagens/iconPacks/pets/002-snack.png",
 "imagens/iconPacks/pets/003-snack-1.png",
 "imagens/iconPacks/pets/004-cat.png",
@@ -218,7 +216,7 @@ var petsPack = ["imagens/iconPacks/pets/001-wild.png",
 "imagens/iconPacks/pets/018-building.png",
 "imagens/iconPacks/pets/019-app.png"]
 
-var pokemonPack = ["imagens/iconPacks/pokemon/abra.png",
+let pokemonPack = ["imagens/iconPacks/pokemon/abra.png",
 "imagens/iconPacks/pokemon/action-1.png",
 "imagens/iconPacks/pokemon/action.png",
 "imagens/iconPacks/pokemon/augmented-reality-1.png",
@@ -319,7 +317,7 @@ var pokemonPack = ["imagens/iconPacks/pokemon/abra.png",
 "imagens/iconPacks/pokemon/yellow-team.png",
 "imagens/iconPacks/pokemon/zubat.png"]
 
-var radioactivePack = ["imagens/iconPacks/radioactive/002-industry.png",
+let radioactivePack = ["imagens/iconPacks/radioactive/002-industry.png",
 "imagens/iconPacks/radioactive/003-power-1.png",
 "imagens/iconPacks/radioactive/004-power-2.png",
 "imagens/iconPacks/radioactive/005-ecology-and-environment.png",
@@ -340,7 +338,7 @@ var radioactivePack = ["imagens/iconPacks/radioactive/002-industry.png",
 "imagens/iconPacks/radioactive/020-power.png",
 "imagens/iconPacks/radioactive/weather.png"]
 
-var socialMediaPack = ["imagens/iconPacks/socialMedia/001-youtube.png",
+let socialMediaPack = ["imagens/iconPacks/socialMedia/001-youtube.png",
 "imagens/iconPacks/socialMedia/002-yelp.png",
 "imagens/iconPacks/socialMedia/003-wordpress.png",
 "imagens/iconPacks/socialMedia/004-wikipedia.png",
@@ -389,7 +387,7 @@ var socialMediaPack = ["imagens/iconPacks/socialMedia/001-youtube.png",
 "imagens/iconPacks/socialMedia/047-behance.png",
 "imagens/iconPacks/socialMedia/049-amazon.png"]
 
-var sustainableEnergyPack = ["imagens/iconPacks/sustainableEnergy/001-nature.png",
+let sustainableEnergyPack = ["imagens/iconPacks/sustainableEnergy/001-nature.png",
 "imagens/iconPacks/sustainableEnergy/002-power.png",
 "imagens/iconPacks/sustainableEnergy/003-tree.png",
 "imagens/iconPacks/sustainableEnergy/004-earth.png",
@@ -410,17 +408,19 @@ var sustainableEnergyPack = ["imagens/iconPacks/sustainableEnergy/001-nature.png
 "imagens/iconPacks/sustainableEnergy/019-sky.png",
 "imagens/iconPacks/sustainableEnergy/020-technology.png"]
 
-let packs = {
-    pets: petsPack,
-    pokemon: pokemonPack,
-    desert: desertPack,
-    emoji: emojiPack,
-    epidemic: epidemicPack,
-    food: foodPack,
-    lego: legoPack,
-    radioactive: radioactivePack,
-    socialMedia: socialMediaPack,
-    sustainableEnergy: sustainableEnergyPack}
+if (!(localStorage.getItem("packs"))) {
 
-
-localStorage.setItem("packs", JSON.stringify(packs))
+    let packs = {
+        pets: petsPack,
+        pokemon: pokemonPack,
+        desert: desertPack,
+        emoji: emojiPack,
+        epidemic: epidemicPack,
+        food: foodPack,
+        lego: legoPack,
+        radioactive: radioactivePack,
+        socialMedia: socialMediaPack,
+        sustainableEnergy: sustainableEnergyPack}
+        
+    localStorage.setItem("packs", JSON.stringify(packs))
+}

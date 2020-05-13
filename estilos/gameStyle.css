@@ -87,6 +87,32 @@ h2{
     100% {color: pink;}
 }
 
+/* BACKGROUND KEYFRAMES */
+
+@keyframes background-color-change {
+    10% {background-color: #1abc9c;}    
+    20% {background-color: #d35400;}     
+    30% {background-color: #ff0dc2;} 
+    40% {background-color: #2980b9;}
+    60% {background-color: #f1c40f;}
+    70% {background-color: #2980b9;}
+    80% {background-color: #29b9ad;}
+    90% {background-color: #df75fa;}
+    100% {background-color: pink;}
+}
+
+@-webkit-keyframes background-color-change {
+    10% {background-color: #1abc9c;}    
+    20% {background-color: #d35400;}     
+    30% {background-color: #ff0dc2;} 
+    40% {background-color: #2980b9;}
+    60% {background-color: #f1c40f;}
+    70% {background-color: #2980b9;}
+    80% {background-color: #29b9ad;}
+    90% {background-color: #df75fa;}
+    100% {background-color: pink;}
+}
+
 
 /* BOTÕES INICIAIS */
 
@@ -188,6 +214,7 @@ table{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    visibility: hidden;
 
 }
 
@@ -209,18 +236,18 @@ table{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    border-radius: 10px;
+    height: 95%;
+    background-color: rgb(255, 208, 0);
+    border-radius: 12px;
     backface-visibility: hidden;
     overflow: hidden;
-    background: #ffc728;
     color: #000;
 }
 
 .cardFront img {
     width: 70%;
     position: relative;
-    top: 2.5ex;
+    top: 2ex;
     margin: auto;
 }
 
@@ -229,8 +256,8 @@ table{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    border-radius: 10px;
+    height: 95%;
+    border-radius: 12px;
     backface-visibility: hidden;
     overflow: hidden;
     background: #fafafa;
@@ -239,13 +266,21 @@ table{
     transform: rotateY(180deg);
 }
 
+/* PNG DImensions: 180x303 */
+.cardBack img {
+    width: 100%;
+    position: relative;
+}
+
+
+
 /* DEFINIÇÃO DA SIDEBAR */
 
 .sideBar {
     position: absolute;
     display: inline-block;
     border: solid;
-    margin: 20ex auto auto 3ex;
+    margin: 20ex 3ex auto 3ex;
     height: 30%;
     padding: 3ex;
 }
@@ -272,10 +307,6 @@ table{
 
 /* DEFINIÇÃO DO START BUTTON (E ESTÉTICA RELACIONADA)*/
 
-.cardContainer {
-    visibility: hidden;
-}
-
 .startButton {
     display: none;
     margin: auto auto;
@@ -286,8 +317,17 @@ table{
 }
 
 .startButton:hover {
-    color: red;
-    transition: ease 600ms;
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
+}
+
+/* DEFINIÇÃO DO START BUTTON */
+
+.restart {
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    margin: 5% auto auto 8%;
 }
 
 /* DEFINIÇÃO DA CAIXA DE LOGIN E REGISTER */
