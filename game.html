@@ -11,27 +11,89 @@
 <title>Zemira The Game</title>
 
 <link rel="stylesheet" href="estilos/gameStyle.css">
-<script src="scripts/game.js"></script>
 <script src="scripts/iconPacks.js"></script>
+<script src="scripts/game.js"></script>
+
 
 
 
 </head>
-<body onload="imageSetter()">
+<body onload="inicial()">
 
 <div id="dimmer"></div>
     <!-- caixa de login e registo -->
 
     <div class="loginPopup" id="loginBox">
-      <form class="loginForm">
+      <form id="loginForm">
         <img class="closeButton" src="imagens/crossIcon.png" onclick="closeLogin()">
         <h1 class="loginTitle">Login</h1>
         <label for="username"><b>Username</b></label>
         <input type="text" maxlength="30" size="10" placeholder="Enter Username" name="username" required>
         <label for="password"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
-        <button type="submit" class="formButton">Enter the Matrix</button>
+        <button type="button" class="formButton" id="loginSubmit" onclick="loginHandler()">Enter the Matrix</button>
       </form>
+    </div>
+
+
+    <div class="registerPopup" id="registerBox">
+      <form id="registerForm">
+        <img class="closeButton" src="imagens/crossIcon.png" onclick="closeRegister()">
+        <h1 class="registerTitle">Register</h1>
+
+        <label for="email"><b>E-mail</b></label>
+        <input type="email" size="10" placeholder="Enter e-mail" name="email" required>
+
+        <fieldset>
+
+          <legend>Gender</legend>
+
+          <label for="male"><b>Male:</b></label>
+          <input type="radio" id="male" name="gender" value="male" required><br>
+
+          <label for="female"><b>Female:</b</label>
+          <input type="radio" id="female" name="gender" value="female"><br>
+
+          <br>
+        </fieldset><br>
+
+        <fieldset>
+
+          <legend>Age Group</legend>
+
+          <label for="male"><b>5-12:</b></label>
+          <input type="radio" id="child" name="age" value="5-12" required><br>
+
+          <label for="female"><b>13-19:</b</label>
+          <input type="radio" id="teenager" name="age" value="13-19"><br>
+
+          <label for="female"><b>20-29:</b</label>
+          <input type="radio" id="young adult" name="age" value="20-29"><br>
+
+          <label for="female"><b>30-49:</b</label>
+          <input type="radio" id="adult" name="age" value="30-49"><br>
+
+          <label for="female"><b>50+:</b</label>
+          <input type="radio" id="middle aged" name="age" value="50+"><br>
+
+          <br>
+        </fieldset><br>
+
+        <label for="username"><b>Username:</b></label>
+        <input type="text" maxlength="30" size="10" placeholder="Enter Username" name="username" required>
+
+        <label for="password"><b>Password:</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="button" id="registerSubmit" class="formButton" onclick="registerHandler()">Register</button>
+      </form>
+    </div>
+
+    <div class="logoutPopup" id="logoutBox">
+      <h1>Leaving <br> already <br> <span id="playerName"></span>?</h1>
+      <button type="button" class="confirmLogout" onclick="logout()">Leave the Matrix</button>
+      <button type="button" class="declineLogout" onclick="closeLogout()">Stay because you love it</button>
+       
     </div>
 
     <!--titulo centro meio-->
@@ -42,14 +104,18 @@
      <!--box topo encostada à direita-->
     
 
-        <div class="registerButton">
+        <div class="registerButton" onclick="openRegister()">
             <p>Register</p>
         </div>
 
-        <div onclick="openLogin()" class="loginButton">
+        <div class="loginButton" onclick="openLogin()">
             <p>Login</p>
-
         </div>
+
+        <div class="logoutButton" onclick="openLogout()">
+          <p>Logout</p>
+      </div>
+
 
     </div>
 
@@ -303,11 +369,11 @@
     </div>
 
     <div class="matchesFound">
-        <p>Matches found:<span>0</span>/10<p>
+        <p>Matches found:<br><span>0</span>/10<p>
     </div>
 
     <div class="zemiraPoints">
-      <p>Zemira Points: <span>0</span><p>
+      <p>zPoints: <span>0</span><p>
     </div>
 
   </div>

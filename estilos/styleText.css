@@ -10,6 +10,31 @@
     font-style: normal;
 }
 
+@keyframes color-change {
+    10% {color: #1abc9c;}    
+    20% {color: #d35400;}     
+    30% {color: #ff0dc2;} 
+    40% {color: #2980b9;}
+    60% {color: #f1c40f;}
+    70% {color: #2980b9;}
+    80% {color: #29b9ad;}
+    90% {color: #df75fa;}
+    100% {color: pink;}
+}
+
+@-webkit-keyframes color-change {
+    10% {color: #1abc9c;}    
+    20% {color: #d35400;}     
+    30% {color: #ff0dc2;} 
+    40% {color: #2980b9;}
+    60% {color: #f1c40f;}
+    70% {color: #2980b9;}
+    80% {color: #29b9ad;}
+    90% {color: #df75fa;}
+    100% {color: pink;}
+}
+
+
 @media screen and (min-width: 1000px){
 
     .homeBody, .mainBody {

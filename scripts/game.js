@@ -2,10 +2,55 @@
 
 let packs = JSON.parse(localStorage.getItem("packs"))
 
+/* DEFINIÇÃO DE CONSTANTES E VARIÁVEIS GLOBAIS */
+
+const REGISTER_EMAIL = "email"
+
+const REGISTER_GENDER = "gender"
+
+const REGISTER_AGE_GROUP = "age"
+
+const REGISTER_USERNAME = "username"
+
+const REGISTER_PASSWORD = "password"
+
+const LOGIN_USERNAME = "username"
+
+const LOGIN_PASSWORD = "password"
+
+let formularioRegister = null
+
+let formularioLogin = null
+
+let errorTimeoutID = null
+
+/* CONSTRUTOR DE CONTAS */
+
+function Account(username, password, email, gender, ageGroup, stats) {
+
+    this.username = username,
+    this.password = password,
+    this.email = email,
+    this.gender = gender,
+    this.ageGroup = ageGroup,
+    this.stats = stats
+}
+
+function playerStats() {
+    this.zPoints = 0,
+    this.gamesCompleted = 0,
+    this.cardsFlipped = 0,
+    this.matchesFoundEver = 0,
+    this.timeSpentPlaying = 0
+}
+
 /* ESTADO DO JOGO */ 
 /************************************************************* */
+
+let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null
+
 let estado = {
-    login: null,
+    loggedIn: null,
     matches: 0,
     startTime: null,
     timePassed: null,
@@ -19,17 +64,25 @@ let config = {
     frontImagePackSource: localStorage.getItem("selectedIconPack") ||  packs.socialMedia
 }
 
-let playerStats = {
-    zPoints: JSON.parse(localStorage.getItem('zPoints')) || 0,
-    gamesCompleted: JSON.parse(localStorage.getItem("gamesCompleted")) || 0,
-    cardsFlipped: JSON.parse(localStorage.getItem("cardsFlipped")) || 0,
-    matchesFoundEver: JSON.parse(localStorage.getItem("matchesFoundEver")) || 0,
-    timeSpentPlaying: JSON.parse(localStorage.getItem("timeSpentPlaying")) || 0
-};
+let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []
 
 /************************************************************* */
 
 /* FUNÇÕES */
+
+function inicial() {
+
+    formularioRegister = document.forms["registerForm"]
+
+    formularioLogin = document.forms["loginForm"]
+
+    loginRegisterButtonToggle()
+
+
+    imageSetter()
+
+}
+
 
 function imageSetter() {
     
@@ -73,9 +126,11 @@ function singlePlayerButton() {
     // Esconder elementos e mostar o start button
 
     document.getElementsByClassName("singlePlayer")[0].style.display = "none"
+
     document.getElementsByClassName("multiPlayer")[0].style.display = "none"
 
     document.getElementsByClassName("startButton")[0].style.display = "block"
+
     document.getElementsByClassName("sideBar")[0].style.display = "none"
 }
 
@@ -103,8 +158,10 @@ function showTimePassed() {
 
     /* Adiciona tempo jogado ao contador de timeSpentPlaying (localStorage).
        Existe aqui pois esta função é executada a cada segundo que passa.*/
-    playerStats.timeSpentPlaying ++
-    localStorage.setItem("timeSpentPlaying", playerStats.timeSpentPlaying);
+    if (currentAccount) {
+        currentAccount.stats.timeSpentPlaying ++
+        updateStats()
+    }
     /* A variável é guardada no localStorage nesta função em vez de em showStats()
        por uma questão de fiabilidade. Ao ser feito aqui, todos os segundos de jogo
        serão contabilizados, mesmo que o utilizador feche abruptamente o browser
@@ -115,7 +172,6 @@ function showTimePassed() {
   
     // Atualiza o temporizador visualmente.
     document.getElementsByClassName("durationCounter")[0].getElementsByTagName("span")[0].innerHTML = estado.timePassed
-  
   }
 
 /* FUNÇÃO PRINCIPAL */
@@ -123,7 +179,8 @@ function showTimePassed() {
 function showCard(n) {
 
     // Atualiza o contador de cartas viradas em todo o tempo de jogo do utilizador
-    playerStats.cardsFlipped ++;
+    currentAccount.stats.cardsFlipped ++;
+    updateStats()
 
 
     cardStyle = document.getElementsByClassName("card")[n].style
@@ -138,7 +195,8 @@ function showCard(n) {
             estado.matches ++
             estado.usedCards.push(estado.currentCards[0], estado.currentCards[1])
             estado.currentCards = []
-            playerStats.matchesFoundEver ++
+
+            currentAccount.stats.matchesFoundEver ++
 
             // Para que seja atualizado na localStorage o contador de matchesFoundEver
             updateStats()
@@ -173,21 +231,23 @@ function showCard(n) {
 
 }
 
+function hideCard(n) {
+    cardStyle = document.getElementsByClassName("card")[n].style;
+    cardStyle.transform = "rotateY(180deg)";
+}
+
 function endGame() {
-    playerStats.zPoints = playerStats.zPoints + 1;
-    playerStats.gamesCompleted = playerStats.gamesCompleted + 1;
+    currentAccount.stats.zPoints ++
+    currentAccount.stats.gamesCompleted ++
     updateStats();
 
     // Atualiza os zPoints do jogador.
     showStats()
-
-
 }
 
 function restartButton() {
     resetEstado();
     for (i=0; i<20; i++) {
-        // document.getElementsByClassName("card")[i].style.transform = "rotateY(180deg)";
         hideCard(i)
     }
 
@@ -202,6 +262,8 @@ function restartButton() {
     showStats();
 }
 
+/* FUNÇÕES QUE GEREM VARIÁVEIS E LOCALSTORAGE */ 
+
 function resetEstado() {
     estado.usedCards = [];
     estado.startTime = null;
@@ -211,23 +273,35 @@ function resetEstado() {
 }
 
 
+function updateStats() {
+    for (i=0; i<accountArray.length; i++){ 
+        if (accountArray[i].username == currentAccount.username) {
 
+            accountArray[i].stats.zPoints == currentAccount.zPoints
+            accountArray[i].stats.gamesCompleted == currentAccount.gamesCompleted
+            accountArray[i].stats.cardsFlipped == currentAccount.cardsFlipped
+            accountArray[i].stats.matchesFoundEver == currentAccount.matchesFoundEver
+            updateAccounts()
+            break
+        }
 
-function hideCard(n) {
-    cardStyle = document.getElementsByClassName("card")[n].style;
-    cardStyle.transform = "rotateY(180deg)";
+    }
 }
 
-function updateStats() {
-    localStorage.setItem('zPoints', playerStats.zPoints);
-    localStorage.setItem("gamesCompleted", playerStats.gamesCompleted);
-    localStorage.setItem("cardsFlipped", playerStats.cardsFlipped);
-    localStorage.setItem("matchesFoundEver", playerStats.matchesFoundEver);
-
+function updateAccounts() {
+    localStorage.setItem("accountArray", JSON.stringify(accountArray))
+    localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
 }
 
 function showStats () {
-    document.getElementsByClassName("zemiraPoints")[0].getElementsByTagName("span")[0].innerHTML = localStorage.getItem('zPoints');
+
+    if (currentAccount != null) {
+        document.getElementsByClassName("zemiraPoints")[0].getElementsByTagName("span")[0].innerHTML = currentAccount.stats.zPoints;
+    }
+    else {
+        document.getElementsByClassName("zemiraPoints")[0].getElementsByTagName("span")[0].innerHTML = "0 <br> (Not logged in)"
+    }
+    
     document.getElementsByClassName("matchesFound")[0].getElementsByTagName("span")[0].innerHTML = estado.matches;
 }
 
@@ -270,3 +344,192 @@ function closeLogin() {
         
     },200)
 }
+
+/* FUNÇÕES RELATIVAS AO FORM DE REGISTER */ 
+
+function openRegister() {
+    let registerBox = document.getElementById("registerBox")
+    let dimmer = document.getElementById("dimmer")
+    registerBox.style.display = "block"
+    setTimeout(function() {
+        registerBox.style.opacity = "1"
+        dimmer.style.opacity = "1"
+    },100)
+}
+
+function closeRegister() {
+    let registerBox = document.getElementById("registerBox")
+    let dimmer = document.getElementById("dimmer")
+
+
+    registerBox.style.opacity= "0";
+    dimmer.style.opacity = "0"
+
+    setTimeout(function() {
+        registerBox.style.display = "none";
+        
+    },200)
+}
+
+function registerHandler() {
+    let validAccount = formularioRegister.reportValidity()
+
+    let used = usedCredentialChecker(formularioRegister.elements[REGISTER_USERNAME].value, 
+                          formularioRegister.elements[REGISTER_EMAIL].value)
+
+    if (validAccount && !used) {
+        let newAccount = new Account(formularioRegister.elements[REGISTER_USERNAME].value,
+                           formularioRegister.elements[REGISTER_PASSWORD].value,
+                           formularioRegister.elements[REGISTER_EMAIL].value,
+                           formularioRegister.elements[REGISTER_GENDER].value,
+                           formularioRegister.elements[REGISTER_AGE_GROUP].value,
+                           new playerStats)
+                           
+    formularioRegister.reset()
+    closeRegister()
+    
+    accountArray.push(newAccount)
+
+    updateAccounts()
+    }
+}
+
+function loginHandler() {
+    let validInput = formularioLogin.reportValidity()
+
+    if (validInput){
+
+        for (let i = 0; i < accountArray.length; i++) {
+            if (accountArray[i].username == formularioLogin.elements[LOGIN_USERNAME].value) {
+                if (accountArray[i].password == formularioLogin.elements[LOGIN_PASSWORD].value) {
+                    currentAccount = accountArray[i]
+                    loginRegisterButtonToggle()
+                    closeLogin()
+                    updateAccounts()
+                    showStats()
+                    break
+                }
+            }
+            if (i == (accountArray.length - 1)) {
+                showLoginErrorMessage()
+            }
+        
+        }
+        
+    }
+}
+
+function showLoginErrorMessage() {
+
+    if (errorTimeoutID) {
+        clearTimeout(errorTimeoutID)
+    }
+
+    let loginSubmitButton = document.getElementById("loginSubmit") 
+
+    loginSubmitButton.innerHTML = "INCORRECT USERNAME/PASSWORD"
+    loginSubmitButton.style.backgroundColor = "red"
+
+    errorTimeoutID = setTimeout(function() {
+        loginSubmitButton.innerHTML = "Enter the Matrix"
+        loginSubmitButton.style.backgroundColor = "#4CAF50"
+        
+    },3000)
+
+}
+
+function showRegisterErrorMessage(reason) {
+
+    if (errorTimeoutID) {
+        clearTimeout(errorTimeoutID)
+    }
+
+    let registerSubmitButton = document.getElementById("registerSubmit") 
+
+    if (reason == "username"){
+        registerSubmitButton.innerHTML = "USERNAME ALREADY IN USE"
+    }
+    if (reason == "email"){
+        registerSubmitButton.innerHTML = "EMAIL ALREADY IN USE"
+    }
+    
+
+    registerSubmitButton.style.backgroundColor = "red"
+
+    errorTimeoutID = setTimeout(function() {
+        registerSubmitButton.innerHTML = "Register"
+        registerSubmitButton.style.backgroundColor = "#4CAF50"
+        
+    },3000)
+
+}
+
+function loginRegisterButtonToggle() {
+
+    if (currentAccount) {
+        document.getElementsByClassName("registerButton")[0].style.display = "none"
+        document.getElementsByClassName("loginButton")[0].style.display = "none"
+        document.getElementsByClassName("logoutButton")[0].style.display = "inline-block"
+    }
+    if (!(currentAccount)) {
+        document.getElementsByClassName("registerButton")[0].style.display = "inline-block"
+        document.getElementsByClassName("loginButton")[0].style.display = "inline-block"
+        document.getElementsByClassName("logoutButton")[0].style.display = "none"
+    }
+
+}
+
+function openLogout() {
+    let logoutBox = document.getElementById("logoutBox")
+
+    let playerSpan = document.getElementById("playerName")
+
+    playerSpan.innerHTML = currentAccount.username
+
+    playerSpan.style.animation = "color-change 5s infinite"
+
+    let dimmer = document.getElementById("dimmer")
+
+    logoutBox.style.display = "block"
+    setTimeout(function() {
+        logoutBox.style.opacity = "1"
+        dimmer.style.opacity = "1"
+    },100)
+}
+
+function closeLogout() {
+    let logoutBox = document.getElementById("logoutBox")
+    let dimmer = document.getElementById("dimmer")
+
+
+    logoutBox.style.opacity= "0";
+    dimmer.style.opacity = "0"
+
+    setTimeout(function() {
+        logoutBox.style.display = "none";
+        
+    },200)
+}
+
+function usedCredentialChecker(username, email) {
+    for(i=0;i<accountArray.length; i++) {
+        if (accountArray[i].username == username) {
+            showRegisterErrorMessage("username")
+            return true
+        }
+        if (accountArray[i].email == email) {
+            showRegisterErrorMessage("email")
+            return true
+        }
+    }
+}
+
+
+
+function logout() {
+    currentAccount = null
+    loginRegisterButtonToggle()
+    updateAccounts()
+    closeLogout()
+}
+

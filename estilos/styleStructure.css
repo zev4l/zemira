@@ -99,8 +99,8 @@
     }
     
     #playButton:hover {
-        color: red;
-        transition: ease 250ms;
+        transition: 600ms ease;
+        animation: color-change 5s infinite;
     }
 
     #features {
@@ -221,9 +221,10 @@
         width: 70px;
         position: absolute;
         margin-top: 0.5%;
-        border-radius: 25px;
+        border-radius: 12px;
         border: solid transparent;
         overflow:  hidden;
+        cursor: pointer;
 
     }
 
@@ -323,8 +324,8 @@
     }   
     
     #playButton:hover {
-        color: red;
-        transition: ease 250ms;
+        transition: 600ms ease;
+        animation: color-change 5s infinite;
     }
 
     #features {
@@ -432,6 +433,7 @@
         display: block;
         width: 70px;
         margin: 4vh auto;
+        border: solid transparent;
 
     }
 
@@ -536,8 +538,8 @@
     }   
     
     #playButton:hover {
-        color: red;
-        transition: ease 250ms;
+        transition: 600ms ease;
+        animation: color-change 5s infinite;
     }
 
     #features {
@@ -651,6 +653,7 @@
         width: 70px;
         position: absolute;
         margin-top: 2.5vh;
+        border: solid transparent;
     }
 
     #soundButtonHome:focus {
