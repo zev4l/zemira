@@ -63,7 +63,7 @@ let estado = {
 }
 
 let config = {
-    backImageSource: "imagens/cardBack.png",
+    backImageSource: "imagens/cardBacks/cardBack.png",
     frontImagePackSource: localStorage.getItem("selectedIconPack") ||  packs.socialMedia
 }
 

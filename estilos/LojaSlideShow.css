@@ -6,6 +6,32 @@
     font-style: normal;
 }
 
+/* ZPOINTS COLOR CHANGE */
+@keyframes color-change {
+    10% {color: #1abc9c;}    
+    20% {color: #d35400;}     
+    30% {color: #ff0dc2;} 
+    40% {color: #2980b9;}
+    60% {color: #f1c40f;}
+    70% {color: #2980b9;}
+    80% {color: #29b9ad;}
+    90% {color: #df75fa;}
+    100% {color: pink;}
+}
+
+@-webkit-keyframes color-change {
+    10% {color: #1abc9c;}    
+    20% {color: #d35400;}     
+    30% {color: #ff0dc2;} 
+    40% {color: #2980b9;}
+    60% {color: #f1c40f;}
+    70% {color: #2980b9;}
+    80% {color: #29b9ad;}
+    90% {color: #df75fa;}
+    100% {color: pink;}
+}
+
+/* BUTTON BORDER COLOR CHANGE */
 @keyframes border-color-change {
     10% {border-color: #1abc9c;}    
     20% {border-color: #d35400;}     
@@ -30,11 +56,35 @@
     100% {border-color: pink;}
 }
 
-#MainTitle {
-    display: block;
-    margin-left: 2.5%;
+#game {
+    font-family: 'kongtextregular';
     color: rgb(255, 208, 0);
     font-size: 20px;
+}
+
+.zPoints {
+    text-align: center;
+}
+
+#preZemiraPoints {
+    color: rgb(255, 208, 0);
+}
+
+.preText {
+    color: rgb(255, 208, 0);
+}
+
+#totalZPoints {
+    font-size: 25px;
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
+}
+
+#MainTitle {
+    display: block;
+    text-align: center;
+    color: rgb(255, 208, 0);
+    font-size: 22px;
 
 }
 
@@ -43,6 +93,13 @@
     width: 170px;
     height: 170px;
     border-radius: 35px;
+}
+
+.cardBacksImg {
+    top: 5px;
+    width: 120px;
+    height: 150px;
+    border-radius: 10px;
 }
 
 .buyButton {
@@ -71,6 +128,14 @@
     width: 20%;   
 }
 
+.backCardsToBuy {
+    text-align: center;
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 20%;
+}
+
 .iconsPackName {
     margin-left: 10px;
 }
@@ -80,8 +145,13 @@
     text-align: center;
 }
 
+.backCardsLine {
+    margin-left: 10px;
+    text-align: center;
+}
 
-    
+
+
 /* ----------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------------- */
 .slideShowHolder{

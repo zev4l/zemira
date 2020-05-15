@@ -33,10 +33,13 @@
 
     <h1 class="mainTitle">Store</h1>
 <article>
-<p>You have Zemira Points to spend? Use them!</p>
-
+<p>Here you can buy new stuff to use in the game! Equip the itens you buy before starting each <span id="game">game</span>!</p>
+<br>
+<br>
 <div class="ZPoints" >
-    <p>Current Zemira Points: <span>0</span></p>
+    <div class="zPoints">
+    <p>Current <span id="preZemiraPoints">Zemira Points</span>:  <span id="totalZPoints">0</span></p>
+    </div>
     <br>
     <h3 id="MainTitle">Buy icon packs and change the look of your game cards!</h3>
     <br>
@@ -45,7 +48,7 @@
         <div class="iconsPacksLine">
             <td>
                 <div class="packsToBuy">
-                    <p class="iconsPackName">Desert Icon <br> Pack<p>
+                    <p class="iconsPackName"><span class="preText">Desert</span> <br> Icon Pack<p>
                     <img class="iconsImg" src="imagens/StoreImages/desertPackApresentation.jpg" onclick="displayAllIcons()">
                     <br>
                     <br>
@@ -54,7 +57,7 @@
             </td>
             <td>
                 <div class="packsToBuy">
-                    <p class="iconsPackName">Lego Icon <br> Pack<p>
+                    <p class="iconsPackName"><span class="preText">Lego</span> <br> Icon Pack<p>
                     <img class="iconsImg" src="imagens/StoreImages/legoPackApresentation.jpg" onclick="displayAllIcons()">
                     <br>
                     <br>
@@ -63,7 +66,7 @@
             </td>
             <td>
                 <div class="packsToBuy">
-                    <p class="iconsPackName">Pokemon Icon <br> Pack<p>
+                    <p class="iconsPackName"><span class="preText">Pokemon</span> <br> Icon Pack<p>
                     <img class="iconsImg" src="imagens/StoreImages/pokemonPackApresentation.jpg" onclick="displayAllIcons()">
                     <br>
                     <br>
@@ -72,7 +75,7 @@
             </td>
             <td>
                 <div class="packsToBuy">
-                    <p class="iconsPackName">Social Media <br> Icon Pack<p>
+                    <p class="iconsPackName"><span class="preText">Social Media</span> <br> Icon Pack<p>
                     <img class="iconsImg" src="imagens/StoreImages/socialmediaPackApresentation.jpg" onclick="displayAllIcons()">
                     <br>
                     <br>
@@ -88,7 +91,7 @@
         <div class="iconsPacksLine">
             <td>
                 <div class="packsToBuy">
-                    <p class="iconsPackName">Eenrgy Icon <br> Pack<p>
+                    <p class="iconsPackName"><span class="preText">Energy</span> <br> Icon Pack<p>
                     <img class="iconsImg" src="imagens/StoreImages/sustainableEnergyPackApresentation.jpg" onclick="displayAllIcons()">
                     <br>
                     <br>
@@ -97,7 +100,7 @@
             </td>
             <td>
                 <div class="packsToBuy">
-                    <p class="iconsPackName">Epidemic <br> Icon Pack<p>
+                    <p class="iconsPackName"><span class="preText">Epidemic</span> <br> Icon Pack<p>
                     <img class="iconsImg" src="imagens/StoreImages/epidemicPackApresentation.jpg" onclick="displayAllIcons()">
                     <br>
                     <br>
@@ -106,7 +109,7 @@
             </td>
             <td>
                 <div class="packsToBuy">
-                    <p class="iconsPackName">Food Icon <br> Pack<p>
+                    <p class="iconsPackName"><span class="preText">Food</span> <br> Icon Pack<p>
                     <img class="iconsImg" src="imagens/StoreImages/foodPackApresentation.jpg" onclick="displayAllIcons()">
                     <br>
                     <br>
@@ -115,7 +118,7 @@
             </td>
             <td>
                 <div class="packsToBuy">
-                    <p class="iconsPackName">Radioactive <br> Icon Pack<p>
+                    <p class="iconsPackName"><span class="preText">Radioactive</span> <br> Icon Pack<p>
                     <img class="iconsImg" src="imagens/StoreImages/radioactivePackApresentation.jpg" onclick="displayAllIcons()">
                     <br>
                     <br>
@@ -131,12 +134,44 @@
     <h3 id="MainTitle">Buy new card background images!</h3>
 
     <th>
-        <td>Cards background 1</td>
-        <td>Cards background 2</td>
-        <td>Cards background 3</td>
-        <br>
-        <td>Cards background 4</td>
-        <td>Cards background 5</td>
+        <div class="backCardsLine">
+            <td>
+                <div class="backCardsToBuy">
+                    <p class="cardBackTitle"><span class="preText">Space</span> <br> Back Card<p>
+                    <img class="cardBacksImg" src="imagens/cardBacks/spaceCardBack.png">
+                    <br>
+                    <br>
+                    <button class="buyButton"> BUY IT!</button>
+                </div>
+            </td>
+            <td>
+                <div class="backCardsToBuy">
+                    <p class="cardBackTitle"><span class="preText">Super Mario</span> <br> Back Card<p>
+                    <img class="cardBacksImg" src="imagens/cardBacks/marioCardBack.png">
+                    <br>
+                    <br>
+                    <button class="buyButton"> BUY IT!</button>
+                </div>
+            </td>
+            <td>
+                <div class="backCardsToBuy">
+                    <p class="cardBackTitle"><span class="preText">Halloween</span> <br> Back Card<p>
+                    <img class="cardBacksImg" src="imagens/cardBacks/halloweenCardBack.png">
+                    <br>
+                    <br>
+                    <button class="buyButton"> BUY IT!</button>
+                </div>
+            </td>
+            <td>
+                <div class="backCardsToBuy">
+                    <p class="cardBackTitle"><span class="preText">Ilusion</span> <br> Back Card<p>
+                    <img class="cardBacksImg" src="imagens/cardBacks/ilusionCardBack.png">
+                    <br>
+                    <br>
+                    <button class="buyButton"> BUY IT!</button>
+                </div>
+            </td>
+        </div>
     </th>
 </div>
 

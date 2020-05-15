@@ -7,9 +7,9 @@ function displayPoints() {
 	/*document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[0].innerHTML = localStorage.getItem();*/
 	let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null;
 	if (currentAccount){
-		document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[0].innerHTML = currentAccount.stats.zPoints + "$Z";
+		document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[1].innerHTML = currentAccount.stats.zPoints + "$Z";
 	} else {
-		document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[0].innerHTML = "Unknown! Please Log In!"
+		document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[1].innerHTML = "Unknown! Please Log In!"
 	}
 }
 
