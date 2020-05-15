@@ -175,7 +175,22 @@ function showTimePassed() {
   
     // Atualiza o temporizador visualmente.
     document.getElementsByClassName("durationCounter")[0].getElementsByTagName("span")[0].innerHTML = estado.timePassed
-  }
+}
+
+function loginRegisterButtonToggle() {
+
+    if (currentAccount) {
+        document.getElementsByClassName("registerButton")[0].style.display = "none"
+        document.getElementsByClassName("loginButton")[0].style.display = "none"
+        document.getElementsByClassName("logoutButton")[0].style.display = "inline-block"
+    }
+    if (!(currentAccount)) {
+        document.getElementsByClassName("registerButton")[0].style.display = "inline-block"
+        document.getElementsByClassName("loginButton")[0].style.display = "inline-block"
+        document.getElementsByClassName("logoutButton")[0].style.display = "none"
+    }
+
+}
 
 /* FUNÇÃO PRINCIPAL */
 
@@ -308,6 +323,18 @@ function showStats () {
     document.getElementsByClassName("matchesFound")[0].getElementsByTagName("span")[0].innerHTML = estado.matches;
 }
 
+function usedCredentialChecker(username, email) {
+    for(i=0;i<accountArray.length; i++) {
+        if (accountArray[i].username == username) {
+            showRegisterErrorMessage("username")
+            return true
+        }
+        if (accountArray[i].email == email) {
+            showRegisterErrorMessage("email")
+            return true
+        }
+    }
+}
 
 
 /* Uso do algoritmo Fisher-Yates-Durstenfelt para organizar uma lista de forma aleatoria */
@@ -346,6 +373,31 @@ function closeLogin() {
         loginBox.style.display = "none";
         
     },200)
+}
+
+function loginHandler() {
+    let validInput = formularioLogin.reportValidity()
+
+    if (validInput){
+
+        for (let i = 0; i < accountArray.length; i++) {
+            if (accountArray[i].username == formularioLogin.elements[LOGIN_USERNAME].value) {
+                if (accountArray[i].password == formularioLogin.elements[LOGIN_PASSWORD].value) {
+                    currentAccount = accountArray[i]
+                    loginRegisterButtonToggle()
+                    closeLogin()
+                    updateAccounts()
+                    showStats()
+                    break
+                }
+            }
+            if (i == (accountArray.length - 1)) {
+                showLoginErrorMessage()
+            }
+        
+        }
+        
+    }
 }
 
 /* FUNÇÕES RELATIVAS AO FORM DE REGISTER */ 
@@ -397,30 +449,48 @@ function registerHandler() {
     }
 }
 
-function loginHandler() {
-    let validInput = formularioLogin.reportValidity()
+/* FUNÇÕES RELATIVAS AO LOGOUT */ 
 
-    if (validInput){
+function openLogout() {
+    let logoutBox = document.getElementById("logoutBox")
 
-        for (let i = 0; i < accountArray.length; i++) {
-            if (accountArray[i].username == formularioLogin.elements[LOGIN_USERNAME].value) {
-                if (accountArray[i].password == formularioLogin.elements[LOGIN_PASSWORD].value) {
-                    currentAccount = accountArray[i]
-                    loginRegisterButtonToggle()
-                    closeLogin()
-                    updateAccounts()
-                    showStats()
-                    break
-                }
-            }
-            if (i == (accountArray.length - 1)) {
-                showLoginErrorMessage()
-            }
-        
-        }
-        
-    }
+    let playerSpan = document.getElementById("playerName")
+
+    playerSpan.innerHTML = currentAccount.username
+
+    playerSpan.style.animation = "color-change 5s infinite"
+
+    let dimmer = document.getElementById("dimmer")
+
+    logoutBox.style.display = "block"
+    setTimeout(function() {
+        logoutBox.style.opacity = "1"
+        dimmer.style.opacity = "1"
+    },100)
 }
+
+function closeLogout() {
+    let logoutBox = document.getElementById("logoutBox")
+    let dimmer = document.getElementById("dimmer")
+
+
+    logoutBox.style.opacity= "0";
+    dimmer.style.opacity = "0"
+
+    setTimeout(function() {
+        logoutBox.style.display = "none";
+        
+    },200)
+}
+
+function logoutHandler() {
+    currentAccount = null
+    loginRegisterButtonToggle()
+    updateAccounts()
+    closeLogout()
+}
+
+/* FUNÇÕES QUE MOSTRAM MENSAGENS DE ERRO */
 
 function showLoginErrorMessage() {
 
@@ -467,72 +537,5 @@ function showRegisterErrorMessage(reason) {
 
 }
 
-function loginRegisterButtonToggle() {
 
-    if (currentAccount) {
-        document.getElementsByClassName("registerButton")[0].style.display = "none"
-        document.getElementsByClassName("loginButton")[0].style.display = "none"
-        document.getElementsByClassName("logoutButton")[0].style.display = "inline-block"
-    }
-    if (!(currentAccount)) {
-        document.getElementsByClassName("registerButton")[0].style.display = "inline-block"
-        document.getElementsByClassName("loginButton")[0].style.display = "inline-block"
-        document.getElementsByClassName("logoutButton")[0].style.display = "none"
-    }
-
-}
-
-function openLogout() {
-    let logoutBox = document.getElementById("logoutBox")
-
-    let playerSpan = document.getElementById("playerName")
-
-    playerSpan.innerHTML = currentAccount.username
-
-    playerSpan.style.animation = "color-change 5s infinite"
-
-    let dimmer = document.getElementById("dimmer")
-
-    logoutBox.style.display = "block"
-    setTimeout(function() {
-        logoutBox.style.opacity = "1"
-        dimmer.style.opacity = "1"
-    },100)
-}
-
-function closeLogout() {
-    let logoutBox = document.getElementById("logoutBox")
-    let dimmer = document.getElementById("dimmer")
-
-
-    logoutBox.style.opacity= "0";
-    dimmer.style.opacity = "0"
-
-    setTimeout(function() {
-        logoutBox.style.display = "none";
-        
-    },200)
-}
-
-function usedCredentialChecker(username, email) {
-    for(i=0;i<accountArray.length; i++) {
-        if (accountArray[i].username == username) {
-            showRegisterErrorMessage("username")
-            return true
-        }
-        if (accountArray[i].email == email) {
-            showRegisterErrorMessage("email")
-            return true
-        }
-    }
-}
-
-
-
-function logout() {
-    currentAccount = null
-    loginRegisterButtonToggle()
-    updateAccounts()
-    closeLogout()
-}
 
