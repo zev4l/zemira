@@ -498,3 +498,50 @@ o rato em cima do butão de "submit" */
     opacity: 0;
 }
 
+
+
+.multiPlayerMainMenu{
+    
+    text-align: center;
+    display: none;
+    position: fixed;
+    
+}
+
+.matrixSingleStyle{
+    
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
+
+}
+
+.numberOfPlayerSelect{
+    border: 5px solid black;
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+}
+
+
+.multiPlayerFieldset{
+    vertical-align: middle;
+    border: none;
+}
+
+.formMultiPlayer:hover{
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
+}
+
+.multiPlayerForm{
+    font-family: 'kongtextregular';
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 70%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    transition: 600ms ease;
+}
