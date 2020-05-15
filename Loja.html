@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="estilos/styleStructure.css" type="text/css">
     <link rel="stylesheet" href="estilos/styleText.css" type="text/css">
     <link rel="stylesheet" href="estilos/LojaSlideShow.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="scripts/store.js"></script>
     <script src="scripts/iconPacks.js"></script>
 
@@ -36,19 +37,100 @@
 
 <div class="ZPoints" >
     <p>Current Zemira Points: <span>0</span></p>
-
+    <br>
+    <h3 id="MainTitle">Buy icon packs and change the look of your game cards!</h3>
+    <br>
     <th>
-        <td>Pack 1</td>
-        <td>Pack 2</td>
-        <td>Pack 3</td>
-        <td>Pack 4</td>
-        <td>Pack 5</td>
+        <div class="iconsPacksLine">
+        <td>
+            <div class="packsToBuy">
+                <p class="iconsPackName">Desert Icon <br> Pack<p>
+                <img class="iconsImg" src="imagens/StoreImages/desertPackApresentation.jpg" onclick="displayAllIcons()">
+                <br>
+                <br>
+                <button class="buyButton"> Buy it!</button>
+            </div>
+        </td> 
+        <td>
+            <div class="packsToBuy">
+                <p class="iconsPackName">Lego Icon <br> Pack<p>
+                <img class="iconsImg" src="imagens/StoreImages/legoPackApresentation.jpg" onclick="displayAllIcons()">
+                <br>
+                <br>
+                <button class="buyButton"> Buy it!</button>
+            </div>
+        </td>
+        <td>
+            <div class="packsToBuy">
+                <p class="iconsPackName">Pokemon Icon <br> Pack<p>
+                <img class="iconsImg" src="imagens/StoreImages/pokemonPackApresentation.jpg" onclick="displayAllIcons()">
+                <br>
+                <br>
+                <button class="buyButton"> Buy it!</button>
+            </div>
+        </td>
+        <td>
+            <div class="packsToBuy">
+                <p class="iconsPackName">Social Media <br> Icon Pack<p>
+                <img class="iconsImg" src="imagens/StoreImages/socialmediaPackApresentation.jpg" onclick="displayAllIcons()">
+                <br>
+                <br>
+                <button class="buyButton"> Buy it!</button>
+            </div>
+        </td>
+        </div>
+        
+        <br>
+
+        <div class="iconsPacksLine">
+
+        <td>
+            <div class="packsToBuy">
+                <p class="iconsPackName">Emoji <br> Icon Pack<p>
+                <img class="iconsImg" src="imagens/StoreImages/emojiPackApresentation.jpg" onclick="displayAllIcons()">
+                <br>
+                <br>
+                <button class="buyButton"> Buy it!</button>
+            </div>
+        </td>
+        <td>
+            <div class="packsToBuy">
+                <p class="iconsPackName">Sports <br> Icon Pack<p>
+                <img class="iconsImg" src="imagens/StoreImages/sportsPackApresentation.jpg" onclick="displayAllIcons()">
+                <br>
+                <br>
+                <button class="buyButton"> Buy it!</button>
+            </div>
+        </td>
+        <td>
+            <div class="packsToBuy">
+                <p class="iconsPackName">Radioactive <br> Icon Pack<p>
+                <img class="iconsImg" src="imagens/StoreImages/radioactivePackApresentation.jpg" onclick="displayAllIcons()">
+                <br>
+                <br>
+                <button class="buyButton"> Buy it!</button>
+            </div>
+        </td>
+        <td>
+            <div class="packsToBuy">
+                <p class="iconsPackName">Energy <br> Icon Pack<p>
+                <img class="iconsImg" src="imagens/StoreImages/sustainableEnergyPackApresentation.jpg" onclick="displayAllIcons()">
+                <br>
+                <br>
+                <button class="buyButton"> Buy it!</button>
+            </div>
+        </td>
+
+        </div>
+
     </th>
+    <br>
     <br>
     <th>
         <td>Cards background 1</td>
         <td>Cards background 2</td>
         <td>Cards background 3</td>
+        <br>
         <td>Cards background 4</td>
         <td>Cards background 5</td>
     </th>

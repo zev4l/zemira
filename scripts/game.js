@@ -1,3 +1,6 @@
+// Impede alguns erros fáceis de cometer.
+"use strict";
+
 /* IMPORTAÇÃO DOS PACKS */
 
 let packs = JSON.parse(localStorage.getItem("packs"))

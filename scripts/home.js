@@ -1,3 +1,6 @@
+// Impede alguns erros fáceis de cometer.
+"use strict";
+
 /*-----------------------------------------------------------------------------------------------*/
 // Definição das funções que controlam a música de fundo na home.
 

@@ -1,3 +1,64 @@
+@font-face {
+    font-family: 'kongtextregular';
+    src: url('../fonts/kongtext-webfont.woff2') format('woff2'),
+         url('../fonts/kongtext-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#MainTitle {
+    display: block;
+    margin-left: 2.5%;
+    color: rgb(218,165,32);
+    font-size: 20px;
+
+}
+
+.iconsImg {
+    top: 20px;
+    width: 170px;
+    height: 170px;
+    margin: 0 auto;
+    border-radius: 35px;
+}
+
+.buyButton {
+    cursor: pointer;
+    display: block;
+    left: 100px;
+    margin-left: 20px;
+    width: 140px;
+    height: 40px;
+    background-color: rgb(218,165,32);
+    font-family: 'kongtextregular';
+    font-size: 15px;
+    
+}
+
+.packsToBuy {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.iconsPackName {
+    text-align: center;
+}
+
+.iconsPacksLine {
+    margin-left: 10%;
+}
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------- */
+
+
+
 .slideShowContainer{
     margin: 0 auto;
     margin-top: 20px;
