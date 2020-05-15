@@ -4,16 +4,22 @@
 $(document).ready(displayPoints);
 
 function displayPoints() {
-    document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[0].innerHTML = localStorage.getItem('zPoints');
+	/*document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[0].innerHTML = localStorage.getItem();*/
+	let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null;
+	if (currentAccount){
+		document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[0].innerHTML = currentAccount.stats.zPoints + "$Z";
+	} else {
+		document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[0].innerHTML = "Unknown! Please Log In!"
+	}
 }
 
 
 
 function displayAllIcons(){
-	document.getElementsByClassName("slideShowHolder")[0].style.display="flex"
+	document.getElementsByClassName("slideShowHolder")[0].style.display="flex";
 }
 
 
 function closeSlideShow(){
-	document.getElementsByClassName("slideShowHolder")[0].style.display="none"
+	document.getElementsByClassName("slideShowHolder")[0].style.display="none";
 }

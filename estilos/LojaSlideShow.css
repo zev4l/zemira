@@ -6,54 +6,82 @@
     font-style: normal;
 }
 
+@keyframes border-color-change {
+    10% {border-color: #1abc9c;}    
+    20% {border-color: #d35400;}     
+    30% {border-color: #ff0dc2;} 
+    40% {border-color: #2980b9;}
+    60% {border-color: #f1c40f;}
+    70% {border-color: #2980b9;}
+    80% {border-color: #29b9ad;}
+    90% {border-color: #df75fa;}
+    100% {border-color: pink;}
+}
+
+@-webkit-keyframes border-color-change {
+    10% {border-color: #1abc9c;}    
+    20% {border-color: #d35400;}     
+    30% {border-color: #ff0dc2;} 
+    40% {border-color: #2980b9;}
+    60% {border-color: #f1c40f;}
+    70% {border-color: #2980b9;}
+    80% {border-color: #29b9ad;}
+    90% {border-color: #df75fa;}
+    100% {border-color: pink;}
+}
+
 #MainTitle {
     display: block;
     margin-left: 2.5%;
-    color: rgb(218,165,32);
+    color: rgb(255, 208, 0);
     font-size: 20px;
 
 }
 
 .iconsImg {
-    top: 20px;
+    top: 5px;
     width: 170px;
     height: 170px;
-    margin: 0 auto;
     border-radius: 35px;
 }
 
 .buyButton {
     cursor: pointer;
-    display: block;
-    left: 100px;
-    margin-left: 20px;
+    display: inline-block;
     width: 140px;
     height: 40px;
     background-color: rgb(218,165,32);
     font-family: 'kongtextregular';
     font-size: 15px;
-    
+    transition: 600ms ease;
+    animation: border-color-change 5s infinite;
+    border-width: 5px;
+    box-shadow: 5px 5px black;
+}   
+
+.buyButton:hover {
+    background-color: #3e8e41
 }
 
 .packsToBuy {
+    text-align: center;
     display: inline-block;
-    margin-left: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 20%;   
 }
 
 .iconsPackName {
-    text-align: center;
+    margin-left: 10px;
 }
 
 .iconsPacksLine {
-    margin-left: 10%;
+    margin-left: 10px;
+    text-align: center;
 }
 
 
-
-
-
-
-
+    
 /* ----------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------------- */
 .slideShowHolder{
@@ -132,5 +160,3 @@
 #i3:checked ~ #third{
     z-index: 9;
 }
-
-
