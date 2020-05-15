@@ -137,6 +137,19 @@ function singlePlayerButton() {
     document.getElementsByClassName("sideBar")[0].style.display = "none"
 }
 
+function multiPlayerButton() {
+	document.getElementsByClassName("singlePlayer")[0].style.display = "none"
+
+    document.getElementsByClassName("multiPlayer")[0].style.display = "none"
+
+    document.getElementsByClassName("startButton")[0].style.display = "none"
+
+    document.getElementsByClassName("sideBar")[0].style.display = "none"
+	
+	document.getElementsByClassName("multiPlayerMainMenu")[0].style.display = "block"
+	
+}
+
 function startButton () {
     document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
