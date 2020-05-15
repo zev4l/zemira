@@ -1,5 +1,5 @@
-// Impede alguns erros fáceis de cometer.
-"use strict";
+// // Impede alguns erros fáceis de cometer.
+// "use strict";
 
 /* IMPORTAÇÃO DOS PACKS */
 
@@ -91,18 +91,18 @@ function imageSetter() {
     
     /* Definição da imagem de trás */
 
-    for (i=0; i<20; i++){
+    for (let i=0; i<20; i++){
         document.getElementsByClassName("cardBack")[i].getElementsByTagName("img")[0].src = config.backImageSource
     }
     /* Definição das imagens da frente */
 
     
-    iconPackClone = [...config.frontImagePackSource] // Clonagem do iconPack atual de modo a não alterar o original
+    let iconPackClone = [...config.frontImagePackSource] // Clonagem do iconPack atual de modo a não alterar o original
     let pairedIconPackClone = []
     
     shuffleArray(iconPackClone)
 
-    for (i=0; i<10; i++ ) { //Duplicação dos elementos no iconPack para que sejam formados pares
+    for (let i=0; i<10; i++ ) { //Duplicação dos elementos no iconPack para que sejam formados pares
         pairedIconPackClone.push(iconPackClone[i])
         pairedIconPackClone.push(iconPackClone[i])
     }
@@ -110,7 +110,7 @@ function imageSetter() {
     shuffleArray(pairedIconPackClone)
     shuffleArray(pairedIconPackClone)
 
-    for (i=0; i<20; i++){
+    for (let i=0; i<20; i++){
         document.getElementsByClassName("cardFront")[i].getElementsByTagName("img")[0].src = pairedIconPackClone[i]
     
     }
@@ -143,7 +143,7 @@ function startButton () {
     document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
     document.getElementsByClassName("startButton")[0].style.display = "none"
 
-    for (i=0; i<20;i++) {
+    for (let i=0; i<20;i++) {
         document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
     }
     
@@ -197,8 +197,10 @@ function loginRegisterButtonToggle() {
 function showCard(n) {
 
     // Atualiza o contador de cartas viradas em todo o tempo de jogo do utilizador
-    currentAccount.stats.cardsFlipped ++;
-    updateStats()
+    if (currentAccount) {
+        currentAccount.stats.cardsFlipped ++;
+        updateStats()
+    }
 
 
     cardStyle = document.getElementsByClassName("card")[n].style
@@ -214,10 +216,13 @@ function showCard(n) {
             estado.usedCards.push(estado.currentCards[0], estado.currentCards[1])
             estado.currentCards = []
 
+            if (currentAccount) {
             currentAccount.stats.matchesFoundEver ++
-
             // Para que seja atualizado na localStorage o contador de matchesFoundEver
             updateStats()
+            }
+
+            
             
         } else if (!(cardSourceChecker(estado.currentCards[0]) == cardSourceChecker(estado.currentCards[1]))) {
 
@@ -255,9 +260,11 @@ function hideCard(n) {
 }
 
 function endGame() {
-    currentAccount.stats.zPoints ++
-    currentAccount.stats.gamesCompleted ++
-    updateStats();
+    if (currentAccount) {
+        currentAccount.stats.zPoints ++
+        currentAccount.stats.gamesCompleted ++
+        updateStats();
+    }
 
     // Atualiza os zPoints do jogador.
     showStats()
@@ -265,7 +272,7 @@ function endGame() {
 
 function restartButton() {
     resetEstado();
-    for (i=0; i<20; i++) {
+    for (let i=0; i<20; i++) {
         hideCard(i)
     }
 
@@ -292,7 +299,7 @@ function resetEstado() {
 
 
 function updateStats() {
-    for (i=0; i<accountArray.length; i++){ 
+    for (let i=0; i<accountArray.length; i++){ 
         if (accountArray[i].username == currentAccount.username) {
 
             accountArray[i].stats.zPoints == currentAccount.zPoints
@@ -324,7 +331,7 @@ function showStats () {
 }
 
 function usedCredentialChecker(username, email) {
-    for(i=0;i<accountArray.length; i++) {
+    for(let i=0;i<accountArray.length; i++) {
         if (accountArray[i].username == username) {
             showRegisterErrorMessage("username")
             return true
