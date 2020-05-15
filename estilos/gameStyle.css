@@ -164,7 +164,7 @@ h2{
     top: 4ex;
 }
 
-.logoutButton{
+.logoutButton, .settingsButton {
     display: inline-block;
     cursor: pointer;
     position: absolute;
@@ -173,13 +173,17 @@ h2{
     display: none;
 }
 
+.settingsButton {
+    right: 20ex;
+}
+
 .logoutButton:hover {
     transition: 600ms ease;
     color: red;
 }
 
 
-.loginButton:hover, .registerButton:hover {
+.loginButton:hover, .registerButton:hover, .settingsButton:hover {
     transition: 600ms ease;
     animation: color-change 5s infinite;
 }
@@ -349,7 +353,7 @@ table{
 /* DEFINIÇÃO DA CAIXA DE LOGIN, REGISTER E LOGOUT */
 
 /* Container do formulário de Login */
-.loginPopup, .registerPopup, .logoutPopup {
+.loginPopup, .registerPopup, .logoutPopup, .settingsPopup{
     display: none;
     position: fixed;
     border: 3px solid rgb(255, 208, 0);
@@ -432,11 +436,6 @@ o rato em cima do butão de "submit" */
     top: 2%;
 }
 
-.logoutPopup {
-    width: min-content;
-    padding: 10px;
-}
-
 #playerName {
     display: inline-block;
 }
@@ -460,8 +459,9 @@ o rato em cima do butão de "submit" */
 
 .logoutPopup {
     border-color: red;
+    width: min-content;
+    padding: 10px;
 }
-
 .confirmLogout, .declineLogout {
     color: white;
     padding: 16px 20px;
@@ -482,7 +482,13 @@ o rato em cima do butão de "submit" */
     background-color: red;
 }
 
-/* Dimmer ativado quando se interage com o menu de login */
+/* Personalização do menu settings */
+
+.settingsPopup {
+
+}
+
+/* Dimmer ativado quando se interage com os menus */
 #dimmer {
     position: fixed;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.589);

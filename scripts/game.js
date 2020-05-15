@@ -183,11 +183,13 @@ function loginRegisterButtonToggle() {
         document.getElementsByClassName("registerButton")[0].style.display = "none"
         document.getElementsByClassName("loginButton")[0].style.display = "none"
         document.getElementsByClassName("logoutButton")[0].style.display = "inline-block"
+        document.getElementsByClassName("settingsButton")[0].style.display = "inline-block"
     }
     if (!(currentAccount)) {
         document.getElementsByClassName("registerButton")[0].style.display = "inline-block"
         document.getElementsByClassName("loginButton")[0].style.display = "inline-block"
         document.getElementsByClassName("logoutButton")[0].style.display = "none"
+        document.getElementsByClassName("settingsButton")[0].style.display = "none"
     }
 
 }
@@ -496,6 +498,34 @@ function logoutHandler() {
     updateAccounts()
     closeLogout()
 }
+
+/* FUNÇÕES RELATIVAS AO BOTÃO DE SETTINGS */
+
+function openSettings() {
+    let settingsBox = document.getElementById("settingsBox")
+    let dimmer = document.getElementById("dimmer")
+    settingsBox.style.display = "block"
+    setTimeout(function() {
+        settingsBox.style.opacity = "1"
+        dimmer.style.opacity = "1"
+    },100)
+
+  }
+  
+function closeSettings() {
+    let settingsBox = document.getElementById("settingsBox")
+    let dimmer = document.getElementById("dimmer")
+
+
+    settingsBox.style.opacity= "0";
+    dimmer.style.opacity = "0"
+
+    setTimeout(function() {
+        settingsBox.style.display = "none";
+        
+    },200)
+}
+
 
 /* FUNÇÕES QUE MOSTRAM MENSAGENS DE ERRO */
 
