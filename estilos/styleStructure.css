@@ -182,10 +182,14 @@
     .AboutImages {
         margin-right: 0px;
     }
+    .specImage{
+        border: dashed 5px purple;
+
+    }
     
     img {
         width: 50%;
-        border: dashed 5px purple;
+        
     }
     
     .content {
