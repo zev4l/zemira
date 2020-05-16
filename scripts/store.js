@@ -3,8 +3,10 @@
 
 $(document).ready(displayStuff);
 
-let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null
-let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []
+let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null;
+let accountArray = JSON.parse(localStorage.getItem("accountArray")) || [];
+let contentList = ["packs.desert", "packs.lego", "packs.pokemon", "packs.socialMedia", "packs.energy", "packs.epidemic", "packs.food", "packs.radioactive", "backs.space", "backs.superMario", "backs.halloween", "backs.illusion", "avatars.doge", "avatars.starWars", "avatars.dinossaur", "avatars.theWay", "avatars.snakeMGS", "avatars.theCardMaster", "avatars.nerdLady", "avatars.theSpeedrunner" ];
+
 
 function updateStats() {
     for (let i=0; i<accountArray.length; i++){ 
@@ -25,18 +27,21 @@ function updateAccounts() {
 
 
 function displayStuff() {
-	/*document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[0].innerHTML = localStorage.getItem();*/
 	let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null;
 	if (currentAccount){
 		document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[1].innerHTML = currentAccount.stats.zPoints + "$Z";
+		
+		for (let i = 0; i<currentAccount.aesthetics.boughtIconPacks; i++) {
+			let item = contentList.indexOf(currentAccount.aesthetics.boughtIconPacks[i]);
+			document.getElementsByClassName("buyButton")[item].disabled = true;
+			document.getElementsByClassName("buyButton")[item].innerHTML = "Item bought!";
+		}
+
 	} else {
 		document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[1].innerHTML = "Unknown, please Login!"
-	}
-
-	if (!currentAccount) {
 		for (let i=0; i<20; i++) {
 			document.getElementsByClassName("buyButton")[i].disabled = true;
-			document.getElementsByClassName("buyButton")[i].innerHTML = "Please Login!"
+			document.getElementsByClassName("buyButton")[i].innerHTML = "Please Login!";
 		}
 	}
 }
@@ -53,30 +58,31 @@ function closeSlideShow(){
 
 function buyItem (number) {
 
-	let contentList = ["packs.desert", "packs.lego", "packs.pokemon", "packs.socialMedia", "packs.energy", "packs.epidemic", "packs.food", "packs.radioactive", "backs.space", "backs.superMario", "backs.halloween", "backs.illusion", "avatars.doge", "avatars.starWars", "avatars.dinossaur", "avatars.theWay", "avatars.snakeMGS", "avatars.theCardMaster", "avatars.nerdLady", "avatars.theSpeedrunner" ]
-
 	let itemBought = contentList[number];
 
 	if (currentAccount.stats.zPoints >= 1) {
 		currentAccount.stats.zPoints -= 1;
 
 		if (itemBought.includes("packs")) {
-			currentAccount.aesthetics.boughtIconPacks.append(itemBought);
+			currentAccount.aesthetics.boughtIconPacks.push(itemBought);
+			updateStats();
 		}
 	
 		if (itemBought.includes("backs")) {
-			currentAccount.aesthetics.boughtCardBacks.append(itemBought);
+			currentAccount.aesthetics.boughtCardBacks.push(itemBought);
+			updateStats();
 		}
 	
 		if (itemBought.includes("avatars")) {
-			currentAccount.aesthetics.boughtAvatars.append(itemBought);
+			currentAccount.aesthetics.boughtAvatars.push(itemBought);
+			updateStats();
 		}
 
 		updateStats();
 
 		document.getElementsByClassName("buyButton")[number].disabled = true;
-		document.getElementsByClassName("buyButton")[number].innerHTML = "Item Bought!"
-
+		document.getElementsByClassName("buyButton")[number].innerHTML = "Item Bought!";
+		displayStuff();
 	} else {
 		alert("Não tens pontos suficientes!");
 	}
