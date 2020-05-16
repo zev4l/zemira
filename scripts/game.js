@@ -29,14 +29,15 @@ let errorTimeoutID = null
 
 /* CONSTRUTOR DE CONTAS */
 
-function Account(username, password, email, gender, ageGroup, stats) {
+function Account(username, password, email, gender, ageGroup, stats, aesthetics) {
 
     this.username = username,
     this.password = password,
     this.email = email,
     this.gender = gender,
     this.ageGroup = ageGroup,
-    this.stats = stats
+    this.stats = stats,
+    this.aesthetics = aesthetics
 }
 
 function playerStats() {
@@ -45,6 +46,15 @@ function playerStats() {
     this.cardsFlipped = 0,
     this.matchesFoundEver = 0,
     this.timeSpentPlaying = 0
+}
+
+function aesthetics() {
+    this.cardBack = "default",
+    this.avatar = "default",
+    this.iconPack = "default"
+    this.boughtCardBacks = [],
+    this.boughtAvatars = [],
+    this.boughtIconPacks = []
 }
 
 /* ESTADO DO JOGO */ 
@@ -460,7 +470,7 @@ function registerHandler() {
                            formularioRegister.elements[REGISTER_EMAIL].value,
                            formularioRegister.elements[REGISTER_GENDER].value,
                            formularioRegister.elements[REGISTER_AGE_GROUP].value,
-                           new playerStats)
+                           new playerStats, new aesthetics)
                            
     formularioRegister.reset()
     closeRegister()
