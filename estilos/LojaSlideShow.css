@@ -120,7 +120,16 @@
     animation: border-color-change 5s infinite;
     border-width: 5px;
     box-shadow: 5px 5px black;
-}   
+}
+
+.buyButton:disabled {
+    background-color: grey;
+    border:solid;
+    animation: none;
+    cursor: default;
+    color: black;
+}
+
 
 .buyButton:hover {
     background-color: #3e8e41
