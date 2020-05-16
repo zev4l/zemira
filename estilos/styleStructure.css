@@ -223,12 +223,14 @@
         position: relative;
         margin-left: 3vw;
         width: 70px;
+        height: 65px;
         position: absolute;
         margin-top: 0.5%;
         border-radius: 12px;
         border: solid transparent;
         overflow:  hidden;
         cursor: pointer;
+        background-color: white;
 
     }
 
