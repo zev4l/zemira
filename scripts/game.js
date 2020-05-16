@@ -93,7 +93,6 @@ function inicial() {
 
 
     imageSetter()
-
 }
 
 

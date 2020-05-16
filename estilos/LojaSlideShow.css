@@ -116,11 +116,12 @@
     background-color: rgb(218,165,32);
     font-family: 'kongtextregular';
     font-size: 15px;
-    transition: 600ms ease;
     animation: border-color-change 5s infinite;
     border-width: 5px;
     box-shadow: 5px 5px black;
+    outline:0;
 }
+
 
 .buyButton:disabled {
     background-color: grey;
@@ -140,7 +141,8 @@
     display: inline-block;
     margin-right: 10px;
     margin-left: 10px;
-    width: 20%;   
+    width: 20%;
+    height: 40%;
 }
 
 .backCardsToBuy {
