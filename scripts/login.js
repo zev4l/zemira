@@ -42,9 +42,9 @@ function playerStats() {
 }
 
 function aesthetics() {
-    this.cardBack = "default",
-    this.avatar = "default",
-    this.iconPack = "default"
+    this.cardBack = "defaultBack",
+    this.avatar = "defaultAvatar",
+    this.iconPack = "defaultPack",
     this.boughtCardBacks = [],
     this.boughtAvatars = [],
     this.boughtIconPacks = []

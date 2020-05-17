@@ -5,6 +5,10 @@
 
 let packs = JSON.parse(localStorage.getItem("packs"))
 
+let backs = JSON.parse(localStorage.getItem("backs"))
+
+let avatars = JSON.parse(localStorage.getItem("avatars"))
+
 
 
 /* ESTADO DO JOGO */ 
@@ -22,9 +26,18 @@ let estado = {
     usedCards: []
 }
 
+let defaultPack = packs.socialMedia
+
+let defaultBack = "imagens/cardBacks/cardBack.png"
+
+let defaultAvatar = "imagens/avatares/dogeAvatar.png"
+
+
+
 let config = {
-    backImageSource: "imagens/cardBacks/cardBack.png",
-    frontImagePackSource: localStorage.getItem("selectedIconPack") ||  packs.socialMedia
+    backImageSource: defaultBack,
+    frontImagePackSource:  defaultPack,
+    avatar: defaultAvatar
 }
 
 let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []
@@ -36,10 +49,14 @@ let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []
 function inicial() {
 
     formularioRegister = document.forms["registerForm"]
-
     formularioLogin = document.forms["loginForm"]
-
     loginRegisterButtonToggle()
+
+    if (currentAccount) { // Define os items selecionados pelo jogador como recursos a usar no jogo
+        config.backImageSource = eval(currentAccount.aesthetics.cardBack)
+        config.frontImagePackSource = eval(currentAccount.aesthetics.iconPack)
+        config.avatar = eval(currentAccount.aesthetics.avatar)
+    }
 
 
     imageSetter()

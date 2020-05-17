@@ -1,5 +1,6 @@
 /* DEFINIÇÃO DOS PACKS DE ICONS */
 
+
 let foodPack = [
     "imagens/iconPacks/food/1.png",
     "imagens/iconPacks/food/2.png",
@@ -408,23 +409,32 @@ let sustainableEnergyPack = ["imagens/iconPacks/sustainableEnergy/001-nature.png
 "imagens/iconPacks/sustainableEnergy/019-sky.png",
 "imagens/iconPacks/sustainableEnergy/020-technology.png"]
 
-let backs = {
+// Define backs, avatars e packs caso estes não existam na localStorage (como por exemplo, na primeira interação)
+
+if (!(localStorage.getItem("backs"))) {
+    let backs = {
     default: "imagens/cardBacks/cardBack.png",
     halloween: "imagens/cardBacks/halloweenCardBack.png",
     illusion: "imagens/cardBacks/illusionCardBack.png",
     mario: "imagens/cardBacks/marioCardBack.png",
     space: "imagens/cardBacks/spaceCardBack.png"
+    }
+    localStorage.setItem("cardBacks", JSON.stringify(backs))
+
 }
 
-let avatars = {
-    doge: "imagens/avatares/dogeAvatar.png",
-    googleDinossaur: "imagens/avatares/googleDinossaur.png",
-    nerdLady: "imagens/avatares/nerdLadyAvatar.png",
-    snake: "imagens/avatares/snakeAvatar.png",
-    starWars: "imagens/avatares/starWarsAvatar.png",
-    cardGuy: "imagens/avatares/theCardGuyAvatar.png",
-    speedRunner: "imagens/avatares/theSpeedRunnerAvatar.png",
-    theWay: "imagens/avatares/theWayAvatar.png"
+if (!(localStorage.getItem("avatars"))) {
+    let avatars = {
+        doge: "imagens/avatares/dogeAvatar.png",
+        googleDinossaur: "imagens/avatares/googleDinossaur.png",
+        nerdLady: "imagens/avatares/nerdLadyAvatar.png",
+        snake: "imagens/avatares/snakeAvatar.png",
+        starWars: "imagens/avatares/starWarsAvatar.png",
+        cardGuy: "imagens/avatares/theCardGuyAvatar.png",
+        speedRunner: "imagens/avatares/theSpeedRunnerAvatar.png",
+        theWay: "imagens/avatares/theWayAvatar.png"
+    }
+    localStorage.setItem("avatars", JSON.stringify(avatars))
 }
 
 if (!(localStorage.getItem("packs"))) {
@@ -442,6 +452,4 @@ if (!(localStorage.getItem("packs"))) {
         sustainableEnergy: sustainableEnergyPack}
         
     localStorage.setItem("packs", JSON.stringify(packs))
-    localStorage.setItem("avatars", JSON.stringify(avatars))
-    localStorage.setItem("cardBacks", JSON.stringify(backs))
 }
