@@ -24,10 +24,9 @@
 
 <body class="mainBody">
 
-    <!-- Login/Register/Settings/Logout -->
+    <!-- Login/Register/Settings/Logout/Settings -->
 
     <div id="dimmer"></div>
-    <!-- caixa de login e registo -->
 
     <div class="loginPopup" id="loginBox">
       <form id="loginForm">
@@ -103,9 +102,30 @@
     </div>
 
     <div class="settingsPopup" id="settingsBox">
-      <img class="closeButton" src="imagens/crossIcon.png" onclick="closeSettings()">
-      <h1>SETTINGS HERE</h1>
-    </div>
+        <img class="closeButton" src="imagens/crossIcon.png" onclick="closeSettings()">
+        <h1 class="settingsTitle">Settings</h1>
+        <form id="aestheticsForm">
+          <div class="selectField">
+            <label for="choosePack">Choose your icon pack:</label>
+            <select id = "choosePack">
+              <option value = "defaultPack" selected>Default</option>
+            </select>
+          </div>
+          <div class="selectField">
+            <label for="chooseBack">Choose your card back:</label>
+            <select id = "chooseBack">
+              <option value = "defaultBack" selected>Default</option>
+            </select>
+          </div>
+          <div class="selectField">
+            <label for="chooseAvatar">Choose your avatar:</label>
+            <select id = "chooseAvatar">
+              <option value = "defaultAvatar" selected>Default</option>
+            </select>
+          </div>
+        </form>
+        <button type="button" class="formButton"  id="applySettingsButton" onclick="settingsHandler()">Apply Settings</button>
+      </div>
     
         <div class="registerButton" onclick="openRegister()">
             <p>Register</p>
@@ -123,6 +143,7 @@
           <p>Logout</p>
         </div>
 
+    
 
 <!-- ****************************** -->
 
@@ -142,6 +163,7 @@
       <p>Logout</p>
     </div>
 
+<!-- ****************************** -->
 
 
     <header>

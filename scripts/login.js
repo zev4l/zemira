@@ -14,11 +14,21 @@ const LOGIN_USERNAME = "username"
 
 const LOGIN_PASSWORD = "password"
 
+const SELECTED_PACK = "choosePack"
+
+const SELECTED_BACK = "chooseBack"
+
+const SELECTED_AVATAR = "chooseAvatar"
+
 let formularioRegister = null
 
 let formularioLogin = null
 
+let formularioSettings = null
+
 let errorTimeoutID = null
+
+let appliedTimeoutID = null
 
 /* CONSTRUTOR DE CONTAS */
 
@@ -55,9 +65,6 @@ function aesthetics() {
 window.onload = inicial
 
 function inicial() {
-	formularioRegister = document.forms["registerForm"]
-
-    formularioLogin = document.forms["loginForm"]
 
     loginRegisterButtonToggle()
 
@@ -109,6 +116,9 @@ function closeLogin() {
 }
 
 function loginHandler() {
+
+    formularioLogin = document.forms["loginForm"]
+
     let validInput = formularioLogin.reportValidity()
 
     if (validInput){
@@ -120,6 +130,7 @@ function loginHandler() {
                     loginRegisterButtonToggle()
                     closeLogin()
                     updateAccounts()
+                    settingsFiller()
 					showStats()
                     break
                 }
@@ -160,6 +171,8 @@ function closeRegister() {
 }
 
 function registerHandler() {
+    formularioRegister = document.forms["registerForm"]
+
     let validAccount = formularioRegister.reportValidity()
 
     let used = usedCredentialChecker(formularioRegister.elements[REGISTER_USERNAME].value, 
@@ -217,11 +230,14 @@ function closeLogout() {
 }
 
 function logoutHandler() {
+    updateStats()
+    formularioLogin.reset()
     currentAccount = null
     loginRegisterButtonToggle()
     updateAccounts()
 	closeLogout()
-	showStats()
+    showStats()
+
 }
 
 /* FUNÇÕES RELATIVAS AO BOTÃO DE SETTINGS */
@@ -310,4 +326,112 @@ function usedCredentialChecker(username, email) {
             return true
         }
     }
+}
+
+// Settings
+
+function settingsFiller() {
+
+    formularioSettings = document.forms["aestheticsForm"]
+
+
+    if (currentAccount) {
+        let boughtIconPacks = currentAccount.aesthetics.boughtIconPacks
+        let boughtCardBacks = currentAccount.aesthetics.boughtCardBacks
+        let boughtAvatars = currentAccount.aesthetics.boughtAvatars
+
+        for (let i = 0; i<boughtIconPacks.length; i++) {
+            let selectList = document.getElementById("choosePack")
+            let newOption = document.createElement("option")
+            let prettyOptionText = settingsNameProcessor(boughtIconPacks[i])
+
+            newOption.appendChild(document.createTextNode(prettyOptionText))
+
+            newOption.value = boughtIconPacks[i]
+            selectList.appendChild(newOption)
+        }
+
+        for (let i = 0; i<boughtCardBacks.length; i++) {
+            let selectList = document.getElementById("chooseBack")
+            let newOption = document.createElement("option")
+            let prettyOptionText = settingsNameProcessor(boughtCardBacks[i])
+
+            newOption.appendChild(document.createTextNode(prettyOptionText))
+
+            newOption.value = boughtCardBacks[i]
+            selectList.appendChild(newOption)
+        }
+
+        for (let i = 0; i<boughtAvatars.length; i++) {
+            let selectList = document.getElementById("chooseAvatar")
+            let newOption = document.createElement("option")
+            let prettyOptionText = settingsNameProcessor(boughtAvatars[i])
+
+            newOption.appendChild(document.createTextNode(prettyOptionText))
+
+            newOption.value = boughtAvatars[i]
+            selectList.appendChild(newOption)
+        }
+
+
+        // Selecionar os settings da conta
+
+        for (let i = 0; i<formularioSettings.choosePack.length; i++) {
+            if (formularioSettings.choosePack[i].value == currentAccount.aesthetics.iconPack) {
+                formularioSettings.choosePack[i].selected = true
+            }
+        }
+
+        for (let i = 0; i<formularioSettings.chooseBack.length; i++) {
+            if (formularioSettings.chooseBack[i].value == currentAccount.aesthetics.cardBack) {
+                formularioSettings.chooseBack[i].selected = true
+            }
+        }
+
+        for (let i = 0; i<formularioSettings.chooseAvatar.length; i++) {
+            if (formularioSettings.chooseAvatar[i].value == currentAccount.aesthetics.avatar) {
+                formularioSettings.chooseAvatar[i].selected = true
+            }
+        }
+    }
+}
+
+function settingsNameProcessor(name) {
+    // retirar "packs.","backs." e "avatars." do nome
+    let cleanName = name.replace("packs.","").replace("backs.","").replace("avatars.","")
+
+    // tornar a primeira letra maiuscula
+    let capitalizedName = cleanName.charAt(0).toUpperCase() + cleanName.slice(1)
+
+    // Adicionar espaços antes de letras maiusculas como, por exemplo, no pack "theWay"->"The Way"
+    capitalizedName = capitalizedName.replace(/([A-Z])/g, ' $1').trim()
+
+    return capitalizedName
+}
+
+function settingsHandler() {
+    formularioSettings = document.forms.aestheticsForm
+    currentAccount.aesthetics.iconPack = formularioSettings.choosePack.value
+    currentAccount.aesthetics.cardBack = formularioSettings.chooseBack.value
+    currentAccount.aesthetics.avatar = formularioSettings.chooseAvatar.value
+    showSettingsAppliedMessage()
+    updateStats()
+    imageSetter()
+
+}
+
+function showSettingsAppliedMessage() {
+
+    if (appliedTimeoutID) {
+        clearTimeout(appliedTimeoutID)
+    }
+
+    let applyButton = document.getElementById("applySettingsButton") 
+
+    applyButton.innerHTML = "SETTINGS APPLIED"
+
+    appliedTimeoutID = setTimeout(function() {
+    applyButton.innerHTML = "Apply Settings"
+        
+    },1500)
 }

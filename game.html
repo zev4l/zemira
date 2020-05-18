@@ -15,10 +15,6 @@
 <script src="scripts/login.js"></script>
 <script src="scripts/game.js"></script>
 
-
-
-
-
 </head>
 <body onload="inicial()">
 
@@ -53,7 +49,7 @@
           <label for="male"><b>Male:</b></label>
           <input type="radio" id="male" name="gender" value="male" required><br>
 
-          <label for="female"><b>Female:</b</label>
+          <label for="female"><b>Female:</b></label>
           <input type="radio" id="female" name="gender" value="female"><br>
 
           <br>
@@ -66,16 +62,16 @@
           <label for="male"><b>5-12:</b></label>
           <input type="radio" id="child" name="age" value="5-12" required><br>
 
-          <label for="female"><b>13-19:</b</label>
+          <label for="female"><b>13-19:</b></label>
           <input type="radio" id="teenager" name="age" value="13-19"><br>
 
-          <label for="female"><b>20-29:</b</label>
+          <label for="female"><b>20-29:</b></label>
           <input type="radio" id="young adult" name="age" value="20-29"><br>
 
-          <label for="female"><b>30-49:</b</label>
+          <label for="female"><b>30-49:</b></label>
           <input type="radio" id="adult" name="age" value="30-49"><br>
 
-          <label for="female"><b>50+:</b</label>
+          <label for="female"><b>50+:</b></label>
           <input type="radio" id="middle aged" name="age" value="50+"><br>
 
           <br>
@@ -100,7 +96,28 @@
 
     <div class="settingsPopup" id="settingsBox">
       <img class="closeButton" src="imagens/crossIcon.png" onclick="closeSettings()">
-      <h1>SETTINGS HERE</h1>
+      <h1 class="settingsTitle">Settings</h1>
+      <form id="aestheticsForm">
+        <div class="selectField">
+          <label for="choosePack">Choose your icon pack:</label>
+          <select id = "choosePack">
+            <option value = "defaultPack" selected>Default</option>
+          </select>
+        </div>
+        <div class="selectField">
+          <label for="chooseBack">Choose your card back:</label>
+          <select id = "chooseBack">
+            <option value = "defaultBack" selected>Default</option>
+          </select>
+        </div>
+        <div class="selectField">
+          <label for="chooseAvatar">Choose your avatar:</label>
+          <select id = "chooseAvatar">
+            <option value = "defaultAvatar" selected>Default</option>
+          </select>
+        </div>
+      </form>
+      <button type="button" class="formButton"  id="applySettingsButton" onclick="settingsHandler()">Apply Settings</button>
     </div>
 
     <!--titulo centro meio-->

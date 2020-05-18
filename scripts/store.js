@@ -19,7 +19,11 @@ function updateStats() {
     for (let i=0; i<accountArray.length; i++){ 
         if (accountArray[i].username == currentAccount.username) {
 
-            accountArray[i].stats.zPoints == currentAccount.zPoints
+			accountArray[i].aesthetics.boughtIconPacks == currentAccount.aesthetics.boughtIconPacks
+			accountArray[i].aesthetics.boughtCardBacks == currentAccount.aesthetics.boughtCardBacks
+			accountArray[i].aesthetics.boughtAvatars == currentAccount.aesthetics.boughtAvatars
+
+            accountArray[i].stats.zPoints == currentAccount.stats.zPoints
             updateAccounts()
             break
         }

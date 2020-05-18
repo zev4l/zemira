@@ -48,23 +48,22 @@ let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []
 
 function inicial() {
 
-    formularioRegister = document.forms["registerForm"]
-    formularioLogin = document.forms["loginForm"]
     loginRegisterButtonToggle()
+
+    imageSetter()
+    settingsFiller()
+}
+
+
+function imageSetter() {
+    
+    /* Utilziar recursos selecionados pelo jogador */
 
     if (currentAccount) { // Define os items selecionados pelo jogador como recursos a usar no jogo
         config.backImageSource = eval(currentAccount.aesthetics.cardBack)
         config.frontImagePackSource = eval(currentAccount.aesthetics.iconPack)
         config.avatar = eval(currentAccount.aesthetics.avatar)
     }
-
-
-    imageSetter()
-}
-
-
-function imageSetter() {
-    
     /* Definição da imagem de trás */
 
     for (let i=0; i<20; i++){
@@ -131,6 +130,7 @@ function startButton () {
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
     document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
     document.getElementsByClassName("startButton")[0].style.display = "none"
+    document.getElementsByClassName("settingsButton")[0].style.display = "none"
 
     for (let i=0; i<20;i++) {
         document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
@@ -280,6 +280,10 @@ function updateStats() {
             accountArray[i].stats.gamesCompleted == currentAccount.gamesCompleted
             accountArray[i].stats.cardsFlipped == currentAccount.cardsFlipped
             accountArray[i].stats.matchesFoundEver == currentAccount.matchesFoundEver
+
+            accountArray[i].aesthetics.iconPack == currentAccount.aesthetics.iconPack
+            accountArray[i].aesthetics.cardBack == currentAccount.aesthetics.cardBack
+            accountArray[i].aesthetics.avatar == currentAccount.aesthetics.avatar
             updateAccounts()
             break
         }

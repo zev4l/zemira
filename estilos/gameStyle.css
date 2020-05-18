@@ -259,7 +259,7 @@ table{
     height: 95%;
     background-color: rgb(255, 208, 0);
     border-radius: 12px;
-    backface-visibility: hidden;
+    backface-visibility: visible;
     overflow: hidden;
     color: #000;
 }
@@ -368,13 +368,13 @@ table{
     opacity: 0;
 }
 
-#loginForm, #registerForm {
+#loginForm, #registerForm, #aestheticsForm{
   max-width: 300px;
   padding: 10px;
 }
 
 /* Definição de efeitos quando se passa o rato por cima do texto "Login" */
-.loginTitle:hover, .registerTitle:hover {
+.loginTitle:hover, .registerTitle:hover, .settingsTitle:hover {
     transition: 600ms ease;
     animation: color-change 5s infinite;
 }
@@ -382,7 +382,7 @@ table{
 /* Modificações aos campos de texto e password do form */
 #loginForm input[type=text], #loginForm input[type=password],
 #registerForm input[type=text], #registerForm input[type=email],
-#registerForm input[type=password], .formButton {
+#registerForm input[type=password], .formButton, .settingsPopup select {
   width: 80%;
   padding: 10px;
   margin: 5px 0 22px 0;
@@ -414,7 +414,7 @@ textarea, select{font-family:inherit;}
   padding: 16px 20px;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 90%;
   margin-bottom:10px;
   opacity: 0.8;
   transition: 600ms ease;
@@ -484,8 +484,24 @@ o rato em cima do butão de "submit" */
 
 /* Personalização do menu settings */
 
-.settingsPopup {
+#aestheticsForm {
+    height: 300px;
+}
 
+.selectField {
+    text-align: left;
+    padding: 10px;
+}
+
+.selectField label {
+    padding-bottom: 10px;
+    display: block;
+}
+
+.selectField select {
+    display: block;
+    margin: auto;
+    
 }
 
 /* Dimmer ativado quando se interage com os menus */

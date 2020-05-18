@@ -416,10 +416,10 @@ if (!(localStorage.getItem("backs"))) {
     default: "imagens/cardBacks/cardBack.png",
     halloween: "imagens/cardBacks/halloweenCardBack.png",
     illusion: "imagens/cardBacks/illusionCardBack.png",
-    mario: "imagens/cardBacks/marioCardBack.png",
+    superMario: "imagens/cardBacks/marioCardBack.png",
     space: "imagens/cardBacks/spaceCardBack.png"
     }
-    localStorage.setItem("cardBacks", JSON.stringify(backs))
+    localStorage.setItem("backs", JSON.stringify(backs))
 
 }
 
