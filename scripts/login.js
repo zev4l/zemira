@@ -231,12 +231,13 @@ function closeLogout() {
 
 function logoutHandler() {
     updateStats()
-    formularioLogin.reset()
     currentAccount = null
     loginRegisterButtonToggle()
     updateAccounts()
 	closeLogout()
     showStats()
+    //reloads page
+    location = location
 
 }
 
@@ -394,6 +395,7 @@ function settingsFiller() {
             }
         }
     }
+    
 }
 
 function settingsNameProcessor(name) {
@@ -416,7 +418,10 @@ function settingsHandler() {
     currentAccount.aesthetics.avatar = formularioSettings.chooseAvatar.value
     showSettingsAppliedMessage()
     updateStats()
-    imageSetter()
+
+    if (location.href.includes("game.html")) {
+        restartButton() 
+    }
 
 }
 

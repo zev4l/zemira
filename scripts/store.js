@@ -38,6 +38,7 @@ function updateAccounts() {
 
 function inicial() {
 
+	settingsFiller()
 	showStats()
 	
 }
