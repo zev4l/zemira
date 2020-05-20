@@ -30,6 +30,8 @@ let errorTimeoutID = null
 
 let appliedTimeoutID = null
 
+let deleteAccountTimeoutID = null
+
 /* CONSTRUTOR DE CONTAS */
 
 function Account(username, password, email, gender, ageGroup, stats, aesthetics) {
@@ -232,18 +234,19 @@ function closeLogout() {
 function logoutHandler() {
     updateStats()
     currentAccount = null
-    loginRegisterButtonToggle()
     updateAccounts()
 	closeLogout()
-    showStats()
     //reloads page
     location = location
+    loginRegisterButtonToggle()
+    showStats()
 
 }
 
 /* FUNÇÕES RELATIVAS AO BOTÃO DE SETTINGS */
 
 function openSettings() {
+    settingsFiller()
     let settingsBox = document.getElementById("settingsBox")
     let dimmer = document.getElementById("dimmer")
     settingsBox.style.display = "block"
@@ -341,37 +344,57 @@ function settingsFiller() {
         let boughtCardBacks = currentAccount.aesthetics.boughtCardBacks
         let boughtAvatars = currentAccount.aesthetics.boughtAvatars
 
+        let selectListPacks = document.getElementById("choosePack")
+        let selectListBacks = document.getElementById("chooseBack")
+        let selectListAvatars = document.getElementById("chooseAvatar")
+
+        // Primeiro remover entradas pre-existentes para alem da Default, para evitar 
+
         for (let i = 0; i<boughtIconPacks.length; i++) {
-            let selectList = document.getElementById("choosePack")
             let newOption = document.createElement("option")
             let prettyOptionText = settingsNameProcessor(boughtIconPacks[i])
 
             newOption.appendChild(document.createTextNode(prettyOptionText))
 
             newOption.value = boughtIconPacks[i]
-            selectList.appendChild(newOption)
+
+            // Não se adiciona essa opção se ela já existir, para evitar duplicados
+
+            let optionExists = document.querySelectorAll(`[value="${newOption.value}"]`).length > 0
+
+            if (!(optionExists)) {
+                selectListPacks.appendChild(newOption)
+            }
         }
 
         for (let i = 0; i<boughtCardBacks.length; i++) {
-            let selectList = document.getElementById("chooseBack")
             let newOption = document.createElement("option")
             let prettyOptionText = settingsNameProcessor(boughtCardBacks[i])
 
             newOption.appendChild(document.createTextNode(prettyOptionText))
 
             newOption.value = boughtCardBacks[i]
-            selectList.appendChild(newOption)
+
+            let optionExists = document.querySelectorAll(`[value="${newOption.value}"]`).length > 0
+
+            if (!(optionExists)) {
+                selectListBacks.appendChild(newOption)
+            }
         }
 
         for (let i = 0; i<boughtAvatars.length; i++) {
-            let selectList = document.getElementById("chooseAvatar")
             let newOption = document.createElement("option")
             let prettyOptionText = settingsNameProcessor(boughtAvatars[i])
 
             newOption.appendChild(document.createTextNode(prettyOptionText))
 
             newOption.value = boughtAvatars[i]
-            selectList.appendChild(newOption)
+
+            let optionExists = document.querySelectorAll(`[value="${newOption.value}"]`).length > 0
+
+            if (!(optionExists)) {
+                selectListAvatars.appendChild(newOption)
+            }
         }
 
 
@@ -439,4 +462,30 @@ function showSettingsAppliedMessage() {
     applyButton.innerHTML = "Apply Settings"
         
     },1500)
+}
+
+function deleteAccount() {
+
+    let deleteButton = document.getElementById("deleteAccountButton") 
+
+    if (deleteAccountTimeoutID) {
+        deleteButton.innerHTML = "ACCOUNT DELETED"
+        for (let i = 0; i < accountArray.length; i++) {
+            if (accountArray[i].username == currentAccount.username) {
+                accountArray.splice(i, 1)
+                currentAccount = null
+                updateAccounts()
+                location = location
+            }
+        }
+    }
+
+    
+
+    deleteButton.innerHTML = "ARE YOU 100% SURE?"
+
+    deleteAccountTimeoutID = setTimeout(function() {
+    deleteButton.innerHTML = "DELETE ACCOUNT"
+    },4000)
+
 }

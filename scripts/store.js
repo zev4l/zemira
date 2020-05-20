@@ -9,7 +9,7 @@ let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null;
 
 let accountArray = JSON.parse(localStorage.getItem("accountArray")) || [];
 
-let contentList = ["packs.desert", "packs.lego", "packs.pokemon", "packs.socialMedia", "packs.energy", "packs.epidemic", "packs.food", "packs.radioactive", "backs.space", "backs.superMario", "backs.halloween", "backs.illusion", "avatars.doge", "avatars.starWars", "avatars.dinossaur", "avatars.theWay", "avatars.snakeMGS", "avatars.theCardMaster", "avatars.nerdLady", "avatars.theSpeedrunner" ];
+let contentList = ["packs.desert", "packs.lego", "packs.pokemon", "packs.socialMedia", "packs.sustainableEnergy", "packs.epidemic", "packs.food", "packs.radioactive", "backs.space", "backs.superMario", "backs.halloween", "backs.illusion", "avatars.doge", "avatars.starWars", "avatars.dinossaur", "avatars.theWay", "avatars.snakeMGS", "avatars.theCardMaster", "avatars.nerdLady", "avatars.theSpeedrunner" ];
 
 
 
@@ -22,9 +22,11 @@ function updateStats() {
 			accountArray[i].aesthetics.boughtIconPacks == currentAccount.aesthetics.boughtIconPacks
 			accountArray[i].aesthetics.boughtCardBacks == currentAccount.aesthetics.boughtCardBacks
 			accountArray[i].aesthetics.boughtAvatars == currentAccount.aesthetics.boughtAvatars
-
-            accountArray[i].stats.zPoints == currentAccount.stats.zPoints
-            updateAccounts()
+			accountArray[i].stats.zPoints == currentAccount.stats.zPoints
+			
+			setTimeout(function() {
+				updateAccounts()
+			},1000)
             break
         }
 

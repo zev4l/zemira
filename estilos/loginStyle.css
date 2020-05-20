@@ -1,0 +1,265 @@
+/* Dimmer ativado quando se interage com os menus */
+#dimmer {
+    position: fixed;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.589);
+    pointer-events: none;
+    transition: all 200ms linear;
+    z-index: 8;
+    opacity: 0;
+}
+
+/* Keyframes para efeitos */
+
+@keyframes color-change {
+    10% {color: #1abc9c;}    
+    20% {color: #d35400;}     
+    30% {color: #ff0dc2;} 
+    40% {color: #2980b9;}
+    60% {color: #f1c40f;}
+    70% {color: #2980b9;}
+    80% {color: #29b9ad;}
+    90% {color: #df75fa;}
+    100% {color: pink;}
+}
+
+@-webkit-keyframes color-change {
+    10% {color: #1abc9c;}    
+    20% {color: #d35400;}     
+    30% {color: #ff0dc2;} 
+    40% {color: #2980b9;}
+    60% {color: #f1c40f;}
+    70% {color: #2980b9;}
+    80% {color: #29b9ad;}
+    90% {color: #df75fa;}
+    100% {color: pink;}
+}
+
+/* BACKGROUND KEYFRAMES */
+
+@keyframes background-color-change {
+    10% {background-color: #1abc9c;}    
+    20% {background-color: #d35400;}     
+    30% {background-color: #ff0dc2;} 
+    40% {background-color: #2980b9;}
+    60% {background-color: #f1c40f;}
+    70% {background-color: #2980b9;}
+    80% {background-color: #29b9ad;}
+    90% {background-color: #df75fa;}
+    100% {background-color: pink;}
+}
+
+@-webkit-keyframes background-color-change {
+    10% {background-color: #1abc9c;}    
+    20% {background-color: #d35400;}     
+    30% {background-color: #ff0dc2;} 
+    40% {background-color: #2980b9;}
+    60% {background-color: #f1c40f;}
+    70% {background-color: #2980b9;}
+    80% {background-color: #29b9ad;}
+    90% {background-color: #df75fa;}
+    100% {background-color: pink;}
+}
+
+/* ELEMENTOS DE LOGIN */
+
+.loginButton{
+    display: none;
+    border-style: solid; 
+    cursor: pointer;
+    position: absolute;
+    right: 3ex;
+    top: 4ex;
+
+}
+.registerButton{
+    display: none;
+    text-align: left;    
+    position: absolute;
+    border-style: solid;
+    cursor: pointer;
+    right: 13ex;
+    top: 4ex;
+}
+
+.logoutButton, .settingsButton {
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    right: 6ex;
+    top: 4ex;
+    display: none;
+}
+
+.settingsButton {
+    right: 20ex;
+}
+
+.logoutButton:hover {
+    transition: 600ms ease;
+    color: red;
+}
+
+
+.loginButton:hover, .registerButton:hover, .settingsButton:hover {
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
+}
+
+
+/* DEFINIÇÃO DA CAIXA DE LOGIN, REGISTER E LOGOUT */
+
+/* Container do formulário de Login */
+.loginPopup, .registerPopup, .logoutPopup, .settingsPopup{
+    display: none;
+    position: fixed;
+    border: 3px solid rgb(255, 208, 0);
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(120, 2, 160);
+    overflow: hidden;
+    text-align: center;
+    transition: all 200ms linear;
+    opacity: 0;
+}
+
+#loginForm, #registerForm, #aestheticsForm{
+  max-width: 300px;
+  padding: 10px;
+}
+
+/* Definição de efeitos quando se passa o rato por cima do texto "Login" */
+.loginTitle:hover, .registerTitle:hover, .settingsTitle:hover {
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
+}
+
+/* Modificações aos campos de texto e password do form */
+#loginForm input[type=text], #loginForm input[type=password],
+#registerForm input[type=text], #registerForm input[type=email],
+#registerForm input[type=password], .formButton, .settingsPopup select {
+  width: 80%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  border: 3px solid rgb(255, 208, 0);
+
+  /* Evitar borda azul que aparece ao clicar num campo de texto */
+  outline:0;
+}
+
+/* Fazer com que o texto escrito no campo "Username" e "E-mail" seja da font utilizada */
+#loginForm input[type=text], #registerForm input[type=text],
+#registerForm input[type=email],
+textarea, select{font-family:inherit;}
+
+/* Fazer com que o texto de placeholder seja da font utilizada */
+#loginForm input[type=text]::placeholder,
+#loginForm input[type=password]::placeholder,
+#registerForm input[type=text]::placeholder,
+#registerForm input[type=email]::placeholder,
+#registerForm input[type=password]::placeholder,
+.formButton, .confirmLogout, .declineLogout {
+    font-family: 'kongtextregular';
+}
+
+/* Definição de vários atributos do formulário */
+.formButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  transition: 600ms ease;
+}
+
+/* Definição de pequeno efeito de aumento de opacidade ao passar
+o rato em cima do butão de "submit" */
+.formButton:hover {
+  opacity: 1;
+}
+
+/* Definição de propriedades do botão de fechar a caixa de login */
+.closeButton {
+    width: 7%;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+
+#playerName {
+    display: inline-block;
+}
+
+/* Personalização dos fieldsets */
+
+.registerPopup fieldset {
+    vertical-align: middle;
+    border: none;
+}
+
+.registerPopup legend {
+    text-decoration: underline;
+}
+
+.registerPopup input[type=radio] {
+    float: right;
+}
+
+/* Personalização dos botões do popup de logout */
+
+.logoutPopup {
+    border-color: red;
+    width: min-content;
+    padding: 10px;
+}
+.confirmLogout, .declineLogout {
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    transition: 600ms ease;
+    outline:0;
+}
+
+.declineLogout {
+    animation: background-color-change 5s infinite;
+}
+
+.confirmLogout, #deleteAccountButton {
+    background-color: red;
+}
+
+/* Personalização do menu settings */
+
+#aestheticsForm {
+    height: 300px;
+}
+
+#settingsBox {
+    width: 30%;
+}
+
+.selectField {
+    text-align: left;
+    padding: 10px;
+}
+
+.selectField label {
+    padding-bottom: 10px;
+    display: block;
+}
+
+.selectField select {
+    display: block;
+    margin: auto;
+    
+}

@@ -402,7 +402,7 @@
     
     img {
         width: 80%;
-        border: dashed 5px purple;
+        /* border: dashed 5px purple; Não se pode fazer isto para todas as imagens, pois esta página de CSS é utilizada por quase todo o site. */
     }
     
     .content {
@@ -620,7 +620,7 @@
     
     img {
         width: 50%;
-        border: dashed 5px purple;
+        /* border: dashed 5px purple; Não se pode fazer isto para todas as imagens, pois esta página de CSS é utilizada por quase todo o site. */
         }
     
     .content {
