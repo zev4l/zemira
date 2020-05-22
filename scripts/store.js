@@ -22,6 +22,11 @@ function updateStats() {
 			accountArray[i].aesthetics.boughtIconPacks == currentAccount.aesthetics.boughtIconPacks
 			accountArray[i].aesthetics.boughtCardBacks == currentAccount.aesthetics.boughtCardBacks
 			accountArray[i].aesthetics.boughtAvatars == currentAccount.aesthetics.boughtAvatars
+
+			accountArray[i].aesthetics.iconPack == currentAccount.aesthetics.iconPack
+            accountArray[i].aesthetics.cardBack == currentAccount.aesthetics.cardBack
+			accountArray[i].aesthetics.avatar == currentAccount.aesthetics.avatar
+			
 			accountArray[i].stats.zPoints == currentAccount.stats.zPoints
 			
 			setTimeout(function() {

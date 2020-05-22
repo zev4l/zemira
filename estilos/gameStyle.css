@@ -138,7 +138,7 @@ h2{
 }
 
 
-.singlePlayerButton:hover, .multiPlayerButton:hover {
+.singlePlayerButton:hover, .multiPlayerButton:hover, .matrixHighlight {
     transition: 600ms ease;
     animation: color-change 5s infinite;
 }
@@ -307,6 +307,7 @@ table{
 }
 
 /* Dimmer ativado quando se interage com os menus */
+
 #dimmer {
     position: fixed;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.589);
@@ -317,49 +318,78 @@ table{
 }
 
 
+/* DEFINIÇÃO DO POPUP DE MULTIPLAYER */
 
-.multiPlayerMainMenu{
-    
-    text-align: center;
+.multiplayerPopup{
+
     display: none;
     position: fixed;
-    
-}
-
-.matrixSingleStyle{
-    
-    transition: 600ms ease;
-    animation: color-change 5s infinite;
-
-}
-
-.numberOfPlayerSelect{
-    border: 5px solid black;
+    border: 3px solid rgb(255, 208, 0);
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(120, 2, 160);
+    overflow: hidden;
     text-align: center;
-    width: 30%;
-    margin: 0 auto;
+    transition: all 200ms linear;
+    opacity: 0;
+    width: 300px;
+    color: black;
+
 }
 
-
-.multiPlayerFieldset{
-    vertical-align: middle;
-    border: none;
+.multiplayerPopup h2 {
+    color: black;
 }
 
-.formMultiPlayer:hover{
-    transition: 600ms ease;
-    animation: color-change 5s infinite;
+.backgroundHighlight {
+    animation: background-color-change 5s infinite;
 }
 
-.multiPlayerForm{
-    font-family: 'kongtextregular';
+.MPButton {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    border: 3px solid rgb(255, 208, 0);
+    /* Evitar borda azul que aparece ao clicar num campo de texto */
+    outline:0;
+
     background-color: #4CAF50;
     color: white;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
-    width: 70%;
-    margin-bottom: 10px;
+    width: 90%;
+    margin-bottom:10px;
     opacity: 0.8;
     transition: 600ms ease;
+    font-family: 'kongtextregular'; 
+}
+
+.MPButton:hover {
+    opacity: 1;
+}
+
+#MPStartButton, #namesOfPlayers, #MPNameFormText {
+    display: none;
+}
+
+#namesOfPlayers input[type=text]::placeholder {
+    font-family: 'kongtextregular'
+}
+
+.MPTextArea {
+    width: 80%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    border: 3px solid rgb(255, 208, 0);
+  
+    /* Evitar borda azul que aparece ao clicar num campo de texto */
+    outline:0;
+    font-family: 'kongtextregular'
+}
+
+.closeButton {
+    margin-bottom: 10ex;
 }

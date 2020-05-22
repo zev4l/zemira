@@ -125,6 +125,10 @@ function loginHandler() {
 
     if (validInput){
 
+        if (accountArray.length == 0) {
+            showLoginErrorMessage()
+        }
+
         for (let i = 0; i < accountArray.length; i++) {
             if (accountArray[i].username == formularioLogin.elements[LOGIN_USERNAME].value) {
                 if (accountArray[i].password == formularioLogin.elements[LOGIN_PASSWORD].value) {
@@ -200,6 +204,12 @@ function registerHandler() {
 /* FUNÇÕES RELATIVAS AO LOGOUT */ 
 
 function openLogout() {
+
+    /* Atualização dos stats é feita aqui pois, se for feita quando o utilizador
+    carrega no botão de logout, dá-se um bug estranho em que os dados não são guardados */
+    
+    updateStats()
+
     let logoutBox = document.getElementById("logoutBox")
 
     let playerSpan = document.getElementById("playerName")

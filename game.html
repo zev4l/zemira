@@ -60,19 +60,19 @@
 
           <legend>Age Group</legend>
 
-          <label for="male"><b>5-12:</b></label>
+          <label for="child"><b>5-12:</b></label>
           <input type="radio" id="child" name="age" value="5-12" required><br>
 
-          <label for="female"><b>13-19:</b></label>
+          <label for="teenager"><b>13-19:</b></label>
           <input type="radio" id="teenager" name="age" value="13-19"><br>
 
-          <label for="female"><b>20-29:</b></label>
+          <label for="young adult"><b>20-29:</b></label>
           <input type="radio" id="young adult" name="age" value="20-29"><br>
 
-          <label for="female"><b>30-49:</b></label>
+          <label for="adult"><b>30-49:</b></label>
           <input type="radio" id="adult" name="age" value="30-49"><br>
 
-          <label for="female"><b>50+:</b></label>
+          <label for="middle aged"><b>50+:</b></label>
           <input type="radio" id="middle aged" name="age" value="50+"><br>
 
           <br>
@@ -120,6 +120,28 @@
       </form>
       <button type="button" class="formButton"  id="applySettingsButton" onclick="settingsHandler()">Apply Settings</button>
       <button type="button" class="formButton"  id="deleteAccountButton" onclick="deleteAccount()">DELETE ACCOUNT</button>
+    </div>
+
+    <div class="multiplayerPopup" id="multiplayerBox">
+      <img class="closeButton" src="imagens/crossIcon.png" onclick="closeMultiplayer()">
+      <h2 id="MPNumberFormText">How many of you wish to enter the <span class="matrixHighlight">matrix</span>?</h2>
+      <h2 id="MPNameFormText">And what are your names?</h2>
+        <form id="numberOfPlayers">
+          <label for="2"><b>2:</b></label>
+          <input type="radio" id="2" name="playerNumber" value="2" required><br>
+          <label for="3"><b>3:</b></label>
+          <input type="radio" id="3" name="playerNumber" value="3"><br>
+          <label for="4"><b>4:</b></label>
+          <input type="radio" id="4" name="playerNumber" value="4"><br>
+        </form>
+        <form id="namesOfPlayers">
+          <label for="currentAccountName"> Player 1's name:</label>
+          <input type="text" class="MPTextArea" id="currentAccountName" name="playername1" maxlength="30" size="15" disabled>
+          <!-- Definido de forma dinamica em JS -->
+        </form>
+  
+      <button type="button" class="MPButton" id="MPNextButton" onclick="multiplayerSecondScreen()">Next</button>
+      <button type="button" class="backgroundHighlight MPButton" id="MPStartButton" onclick="multiplayerStart()">Start!</button>
     </div>
 
     <!--titulo centro meio-->
@@ -172,40 +194,13 @@
 
         <p>Compete with your friends!</p>
 
-        <h1 class="multiPlayerButton" onclick="multiPlayerButton()">
+        <h1 class="multiPlayerButton" onclick="openMultiplayer()">
 
             Play!
 
         </h1>
 
     </div>
-
-
-    <div class="multiPlayerMainMenu">
-      <h1>How many people wish to enter the <span class="matrixSingleStyle">matrix</span>?</h1>
-
-      <div class="numberOfPlayerSelect">
-        <fieldset class="multiPlayerFieldset">
-        <form>
-          <input type="radio" id="1" name="player" value="1">
-          <label for="1"><span class="formMultiPlayer">1 player</span></label><br>
-          <input type="radio" id="2" name="player" value="2">
-          <label for="2"><span class="formMultiPlayer">2 players</span></label><br>
-          <input type="radio" id="3" name="player" value="3">
-          <label for="3"><span class="formMultiPlayer">3 players</span></label>
-
-        </form>
-      </fieldset>
-      <button type="button" class="multiPlayerForm" onclick="numberOfPlayersSelected()">Lets go!</button>
-
-
-      
-
-      </div>
-
-
-
-
 
   </div>
 

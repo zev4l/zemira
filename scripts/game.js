@@ -318,3 +318,120 @@ function shuffleArray(array) {
         array[j] = temp
     }
 }
+
+/* Funções relativas ao multiplayer */
+
+function openMultiplayer() {
+    let multiplayerBox = document.getElementById("multiplayerBox")
+    let dimmer = document.getElementById("dimmer")
+    multiplayerBox.style.display = "block"
+    setTimeout(function() {
+        multiplayerBox.style.opacity = "1"
+        dimmer.style.opacity = "1"
+    },100)
+
+}
+  
+function closeMultiplayer() {
+    let multiplayerBox = document.getElementById("multiplayerBox")
+    let dimmer = document.getElementById("dimmer")
+
+
+    multiplayerBox.style.opacity= "0";
+    dimmer.style.opacity = "0"
+
+    setTimeout(function() {
+        multiplayerBox.style.display = "none";
+        
+    },200)
+
+    setTimeout(function() {
+        multiplayerFirstScreen();
+        
+    },200)
+
+}
+
+function multiplayerSecondScreen() {
+    let nextButton = document.getElementById("MPNextButton")
+    let startButton = document.getElementById("MPStartButton")
+    let numberForm = document.forms["numberOfPlayers"]
+    let nameForm = document.forms["namesOfPlayers"]
+    let numberFormText = document.getElementById("MPNumberFormText")
+    let nameFormText = document.getElementById("MPNameFormText")
+    let currentAccountName = document.getElementById("currentAccountName")
+
+    let validInput = numberForm.reportValidity()
+
+    if (validInput) {
+
+        nextButton.style.display = "none"
+        numberForm.style.display = "none"
+        numberFormText.style.display = "none"
+
+        startButton.style.display = "inline-block"
+        nameForm.style.display = "inline-block"
+        nameFormText.style.display = "inline-block"
+        currentAccountName.value = currentAccount.username
+        
+
+        let selectedValue = numberForm.playerNumber.value
+
+
+
+        for (let i=1; i < selectedValue; i++) {
+        let newLabel = document.createElement("label")
+
+            let playerNumber = i + 1 
+            
+            // Definição dos atributos da label
+
+            newLabel.setAttribute("for",`player${playerNumber}`)
+            newLabel.appendChild(document.createTextNode(` Player ${playerNumber}\'s name:`))
+
+
+            // Definição de todos os atributos do input
+
+            let newInput = document.createElement("input")
+            newInput.className = "MPTextArea"
+            newInput.setAttribute("type","text")
+            newInput.setAttribute("id",`player${playerNumber}`)
+            newInput.setAttribute("name", `playername${playerNumber}`)
+            newInput.setAttribute("maxlength","30")
+            newInput.setAttribute("size","15")
+            newInput.setAttribute("placeholder","Enter Name")
+            newInput.required = true
+
+            // Adicionar label e input ao form dos nomes dos jogadores
+
+            nameForm.appendChild(newLabel)
+            nameForm.appendChild(newInput)
+        }
+    }
+}
+
+function multiplayerFirstScreen() {
+    let nextButton = document.getElementById("MPNextButton")
+    let startButton = document.getElementById("MPStartButton")
+    let numberForm = document.forms["numberOfPlayers"]
+    let nameForm = document.forms["namesOfPlayers"]
+    let numberFormText = document.getElementById("MPNumberFormText")
+    let nameFormText = document.getElementById("MPNameFormText")
+
+    // Remover todos os inputs e labels excepto o primeiro par
+
+    while (nameForm.children.length > 2) { 
+        nameForm.removeChild(nameForm.lastElementChild);
+    }
+
+
+
+
+    nextButton.style.display = "inline-block"
+    numberForm.style.display = "inline-block"
+    numberFormText.style.display = "inline-block"
+
+    startButton.style.display = "none"
+    nameForm.style.display = "none"
+    nameFormText.style.display = "none"
+}
