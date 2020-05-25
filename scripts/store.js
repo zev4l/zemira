@@ -13,7 +13,6 @@ let contentList = ["packs.desert", "packs.lego", "packs.pokemon", "packs.socialM
 function updateStats() {
     for (let i=0; i<accountArray.length; i++){ 
         if (accountArray[i].username == currentAccount.username) {
-			console.log("Here")
 
 			accountArray[i].aesthetics.boughtIconPacks == currentAccount.aesthetics.boughtIconPacks
 			accountArray[i].aesthetics.boughtCardBacks == currentAccount.aesthetics.boughtCardBacks

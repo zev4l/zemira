@@ -144,6 +144,7 @@ function loginHandler() {
 
                     if (location.href.includes("game.html")) {
                         imageSetter()
+                        multiplayerEnabler()
                     }
 
 					showStats()
