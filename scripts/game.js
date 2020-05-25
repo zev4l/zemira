@@ -9,9 +9,7 @@ let backs = JSON.parse(localStorage.getItem("backs"))
 
 let avatars = JSON.parse(localStorage.getItem("avatars"))
 
-
-
-/* JOGADORES TEMPORÁRIOS */ 
+/* CONSTRUTOR DE JOGADORES TEMPORÁRIOS */ 
 
 function tempPlayer() {
     this.name= null,
@@ -20,7 +18,7 @@ function tempPlayer() {
 }
 
 /************************************************************* */
-
+/* ESTADO DO JOGO */
 
 let estado = {
     loggedIn: null,
@@ -45,9 +43,7 @@ let config = {
     avatar: defaultAvatar
 }
 
-// let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []
-
-// Especificidades do multiplayer
+/* Especificidades do multiplayer */
 
 let duplicateNameErrorTimeoutID = null;
 
@@ -57,7 +53,7 @@ let duplicateNameErrorTimeoutID = null;
 
 function inicial() {
 
-    loginRegisterButtonToggle()
+    menuElementToggle()
 
     // Permite jogar multiplayer quando se está logged-in
     multiplayerEnabler()
@@ -483,7 +479,10 @@ function multiplayerStart() {
         hideNonGameElements()
         showMPGameElements()
         turnIdentifier.style.display = "block"
-        /// FALTA CONTINUAR A FUNÇÃO DO MULTIPLAYER
+    
+        // for (let i = 0; playerNames.length; i++) {
+        //     // CRIAR OBJETOS TEMPPLAYER
+        // }
 
 
         

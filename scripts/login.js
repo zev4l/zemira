@@ -73,12 +73,12 @@ window.onload = inicial
 
 function inicial() {
 
-    loginRegisterButtonToggle()
+    menuElementToggle()
 
 	
 }
 
-function loginRegisterButtonToggle() {
+function menuElementToggle() {
 
     if (currentAccount) {
         document.getElementsByClassName("registerButton")[0].style.display = "none"
@@ -137,7 +137,7 @@ function loginHandler() {
             if (accountArray[i].username == formularioLogin.elements[LOGIN_USERNAME].value) {
                 if (accountArray[i].password == formularioLogin.elements[LOGIN_PASSWORD].value) {
                     currentAccount = accountArray[i]
-                    loginRegisterButtonToggle()
+                    menuElementToggle()
                     closeLogin()
                     updateAccounts()
                     settingsFiller()
@@ -258,7 +258,7 @@ function logoutHandler() {
 	closeLogout()
     //reloads page
     location = location
-    loginRegisterButtonToggle()
+    menuElementToggle()
     showStats()
 
 }
