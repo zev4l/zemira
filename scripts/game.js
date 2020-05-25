@@ -11,10 +11,15 @@ let avatars = JSON.parse(localStorage.getItem("avatars"))
 
 
 
-/* ESTADO DO JOGO */ 
+/* JOGADORES TEMPORÁRIOS */ 
+
+function tempPlayer() {
+    this.matches= null,
+    this.cardsFlipped= null
+}
+
 /************************************************************* */
 
-let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null
 
 let estado = {
     loggedIn: null,
@@ -38,11 +43,11 @@ let config = {
     avatar: defaultAvatar
 }
 
-let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []
+// let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []
 
 // Especificidades do multiplayer
 
-let duplicateNameErroTimeoutID = null;
+let duplicateNameErrorTimeoutID = null;
 
 /************************************************************* */
 
@@ -435,9 +440,6 @@ function multiplayerFirstScreen() {
         nameForm.removeChild(nameForm.lastElementChild);
     }
 
-
-
-
     nextButton.style.display = "inline-block"
     numberForm.style.display = "inline-block"
     numberFormText.style.display = "inline-block"
@@ -451,16 +453,18 @@ function multiplayerStart() {
     let numberForm = document.forms.numberOfPlayers
     let nameForm = document.forms.namesOfPlayers
     let validInput = nameForm.reportValidity()
-    let numberOfPlayers = numberForm.playerNumber.value
+    // let numberOfPlayers = numberForm.playerNumber.value
     let turnIdentifier = document.getElementById("turnID")
-    checkMPNames()
+    let dupeChecker = checkMPNames()
 
-    if (validInput && !(checkMPNames)) {
+    if (validInput && !(dupeChecker)) {
         console.log("here")
         closeMultiplayer()
         hideNonGameElements()
         showMPGameElements()
         turnIdentifier.style.display = "block"
+
+
 
     }
 }
@@ -483,8 +487,8 @@ function checkMPNames() {
 }
 
 function showDuplicateNameErrorMessage() {
-    if (duplicateNameErroTimeoutID) {
-        clearTimeout(duplicateNameErroTimeoutID)
+    if (duplicateNameErrorTimeoutID) {
+        clearTimeout(duplicateNameErrorTimeoutID)
     }
 
     let startButton = document.getElementById("MPStartButton") 
@@ -493,7 +497,7 @@ function showDuplicateNameErrorMessage() {
     startButton.style.backgroundColor = "red"
     startButton.classList.remove("backgroundHighlight")
 
-    duplicateNameErroTimeoutID = setTimeout(function() {
+    duplicateNameErrorTimeoutID = setTimeout(function() {
         startButton.innerHTML = "Start"
         startButton.style.backgroundColor = ""
         startButton.classList.add("backgroundHighlight")

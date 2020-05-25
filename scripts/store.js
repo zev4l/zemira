@@ -4,11 +4,6 @@
 $(document).ready(inicial);
 
 /* DEFINIÇÃO DE CONSTANTES E VARIÁVEIS GLOBAIS */
-
-let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null;
-
-let accountArray = JSON.parse(localStorage.getItem("accountArray")) || [];
-
 let contentList = ["packs.desert", "packs.lego", "packs.pokemon", "packs.socialMedia", "packs.sustainableEnergy", "packs.epidemic", "packs.food", "packs.radioactive", "backs.space", "backs.superMario", "backs.halloween", "backs.illusion", "avatars.doge", "avatars.starWars", "avatars.dinossaur", "avatars.theWay", "avatars.snakeMGS", "avatars.theCardMaster", "avatars.nerdLady", "avatars.theSpeedrunner" ];
 
 
@@ -40,7 +35,6 @@ function updateStats() {
 function updateAccounts() {
     localStorage.setItem("accountArray", JSON.stringify(accountArray))
 	localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
-	console.log("Here, updateAccounts()")
 }
 
 function inicial() {

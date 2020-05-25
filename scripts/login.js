@@ -32,6 +32,11 @@ let appliedTimeoutID = null
 
 let deleteAccountTimeoutID = null
 
+let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null;
+
+let accountArray = JSON.parse(localStorage.getItem("accountArray")) || [];
+
+
 /* CONSTRUTOR DE CONTAS */
 
 function Account(username, password, email, gender, ageGroup, stats, aesthetics) {
@@ -100,8 +105,7 @@ function openLogin() {
         loginBox.style.opacity = "1"
         dimmer.style.opacity = "1"
     },100)
-
-  }
+}
   
 function closeLogin() {
     let loginBox = document.getElementById("loginBox")
@@ -455,6 +459,11 @@ function settingsHandler() {
     currentAccount.aesthetics.cardBack = formularioSettings.chooseBack.value
     currentAccount.aesthetics.avatar = formularioSettings.chooseAvatar.value
     showSettingsAppliedMessage()
+
+    if (location.href.includes("game.html")) {
+        imageSetter()
+    }
+    
     updateStats()
 
 
