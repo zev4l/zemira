@@ -95,6 +95,24 @@
        
     </div>
 
+
+
+    <div class="statsPopup" id="statsBox">
+      
+      <img class="closeButton" src="imagens/crossIcon.png" onclick="closeStats()">
+      <h2><span class="usernameStats">USERNAME</span>, here's how you're doing so far:</h2>
+      <div class="statsTextLayout">
+      <p>You have seen the true face of <span class="numberOfCards">Number of cards</span> matrix objects</p>
+      <p>You completed <span class="numberOfGamesPlayed">Number of games played</span> adventures trough the realm</p>
+      <p>You have hit the bullseye <span class="numberOfCorrect">number of correct pairs</span> times</p>
+      <p>You have spent <span>time played</span> in the realm</p>
+      <p>You have <span>money that player has</span>zemira points</p>
+      <p>Your accuracy inside the realm is <span>tempo de jogo</span></p>     
+      </div> 
+
+    </div>
+
+
     <div class="settingsPopup" id="settingsBox">
       <img class="closeButton" src="imagens/crossIcon.png" onclick="closeSettings()">
       <h1 class="settingsTitle">Settings</h1>
@@ -162,6 +180,10 @@
         
         <div class="settingsButton" onclick="openSettings()">
           <p>Settings</p>
+        </div>
+
+        <div class="statsButton" onclick="openStats()">
+          <p>Stats</p>
         </div>
 
         <div class="logoutButton" onclick="openLogout()">

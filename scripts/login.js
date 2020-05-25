@@ -85,12 +85,14 @@ function menuElementToggle() {
         document.getElementsByClassName("loginButton")[0].style.display = "none"
         document.getElementsByClassName("logoutButton")[0].style.display = "inline-block"
         document.getElementsByClassName("settingsButton")[0].style.display = "inline-block"
+		document.getElementsByClassName("statsButton")[0].style.display = "inline-block"
     }
     if (!(currentAccount)) {
         document.getElementsByClassName("registerButton")[0].style.display = "inline-block"
         document.getElementsByClassName("loginButton")[0].style.display = "inline-block"
         document.getElementsByClassName("logoutButton")[0].style.display = "none"
         document.getElementsByClassName("settingsButton")[0].style.display = "none"
+		document.getElementsByClassName("statsButton")[0].style.display = "none"
     }
 
 }
@@ -289,6 +291,36 @@ function closeSettings() {
         settingsBox.style.display = "none";
         
     },200)
+}
+
+
+/* FUNÇÕES RELATIVAS AO BOTÃO DE STATS */
+
+
+
+function openStats(){
+	let statsBox = document.getElementById("statsBox")
+    let dimmer = document.getElementById("dimmer")
+    statsBox.style.display = "block"
+    setTimeout(function() {
+        statsBox.style.opacity = "1"
+        dimmer.style.opacity = "1"
+    },100)
+}
+
+function closeStats(){
+	let statsBox = document.getElementById("statsBox")
+    let dimmer = document.getElementById("dimmer")
+
+
+    statsBox.style.opacity= "0";
+    dimmer.style.opacity = "0"
+
+    setTimeout(function() {
+        settingsBox.style.display = "none";
+        
+    },200)
+	
 }
 
 

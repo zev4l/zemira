@@ -81,7 +81,7 @@
     top: 4ex;
 }
 
-.logoutButton, .settingsButton {
+.logoutButton, .settingsButton, .statsButton {
     display: inline-block;
     cursor: pointer;
     position: absolute;
@@ -94,13 +94,17 @@
     right: 20ex;
 }
 
+.statsButton {
+    right: 37ex;
+}
+
 .logoutButton:hover {
     transition: 600ms ease;
     color: red;
 }
 
 
-.loginButton:hover, .registerButton:hover, .settingsButton:hover {
+.loginButton:hover, .registerButton:hover, .settingsButton:hover, .statsButton:hover{
     transition: 600ms ease;
     animation: color-change 5s infinite;
 }
@@ -109,7 +113,7 @@
 /* DEFINIÇÃO DA CAIXA DE LOGIN, REGISTER E LOGOUT */
 
 /* Container do formulário de Login */
-.loginPopup, .registerPopup, .logoutPopup, .settingsPopup{
+.loginPopup, .registerPopup, .logoutPopup, .settingsPopup, .statsPopup{
     display: none;
     position: fixed;
     border: 3px solid rgb(255, 208, 0);
@@ -263,3 +267,14 @@ o rato em cima do butão de "submit" */
     margin: auto;
     
 }
+
+/* Personalização do menu stats */
+
+.statsPopup{
+    max-width: 300px;
+}
+
+.statsTextLayout{
+    text-align: left;
+}
+
