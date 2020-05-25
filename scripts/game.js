@@ -9,17 +9,16 @@ let backs = JSON.parse(localStorage.getItem("backs"))
 
 let avatars = JSON.parse(localStorage.getItem("avatars"))
 
-
-
-/* JOGADORES TEMPORÁRIOS */ 
+/* CONSTRUTOR DE JOGADORES TEMPORÁRIOS */ 
 
 function tempPlayer() {
+    this.name= null,
     this.matches= null,
     this.cardsFlipped= null
 }
 
 /************************************************************* */
-
+/* ESTADO DO JOGO */
 
 let estado = {
     loggedIn: null,
@@ -28,7 +27,8 @@ let estado = {
     timePassed: null,
     timerID: null,
     currentCards: [],
-    usedCards: []
+    usedCards: [],
+    multiplayer: null
 }
 
 let defaultPack = packs.socialMedia
@@ -43,9 +43,7 @@ let config = {
     avatar: defaultAvatar
 }
 
-// let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []
-
-// Especificidades do multiplayer
+/* Especificidades do multiplayer */
 
 let duplicateNameErrorTimeoutID = null;
 
@@ -55,7 +53,10 @@ let duplicateNameErrorTimeoutID = null;
 
 function inicial() {
 
-    loginRegisterButtonToggle()
+    menuElementToggle()
+
+    // Permite jogar multiplayer quando se está logged-in
+    multiplayerEnabler()
 
     imageSetter()
     settingsFiller()
@@ -181,6 +182,15 @@ function showTimePassed() {
     document.getElementsByClassName("durationCounter")[0].getElementsByTagName("span")[0].innerHTML = estado.timePassed
 }
 
+function multiplayerEnabler() {
+    if (currentAccount) {
+        let MPPlayButton = document.getElementsByClassName("multiPlayerButton")[0]
+
+        MPPlayButton.innerHTML = "Play!"
+        MPPlayButton.addEventListener("click", openMultiplayer)
+    }
+}
+
 /* FUNÇÃO PRINCIPAL */
 
 function showCard(n) {
@@ -288,7 +298,6 @@ function resetEstado() {
 
 
 function updateStats() {
-    console.log("Here")
     for (let i=0; i<accountArray.length; i++){ 
         if (accountArray[i].username == currentAccount.username) {
 
@@ -309,7 +318,6 @@ function updateStats() {
 function updateAccounts() {
     localStorage.setItem("accountArray", JSON.stringify(accountArray))
     localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
-    console.log("Here, updateAccounts()")
 }
 
 function showStats () {
@@ -452,30 +460,36 @@ function multiplayerFirstScreen() {
 function multiplayerStart() {
     let numberForm = document.forms.numberOfPlayers
     let nameForm = document.forms.namesOfPlayers
-    let validInput = nameForm.reportValidity()
-    // let numberOfPlayers = numberForm.playerNumber.value
     let turnIdentifier = document.getElementById("turnID")
-    let dupeChecker = checkMPNames()
+    let validInput = nameForm.reportValidity()
+
+    // Obtenção dos nomes referidos
+    let playerNames = []
+
+    for (let i=0; i<nameForm.elements.length; i++) {
+        playerNames.push(nameForm.elements[i].value)
+    }
+
+    // Verificação de nomes duplicados
+    let dupeChecker = checkMPNames(playerNames)
+
 
     if (validInput && !(dupeChecker)) {
-        console.log("here")
         closeMultiplayer()
         hideNonGameElements()
         showMPGameElements()
         turnIdentifier.style.display = "block"
+    
+        // for (let i = 0; playerNames.length; i++) {
+        //     // CRIAR OBJETOS TEMPPLAYER
+        // }
 
 
-
+        
     }
 }
 
-function checkMPNames() {
-    let nameFormElements = document.forms.namesOfPlayers.elements
-    let playerNames = []
-
-    for (let i=0; i<nameFormElements.length; i++) {
-        playerNames.push(nameFormElements[i].value)
-    }
+function checkMPNames(playerNames) {
 
     let hasDupes = (new Set(playerNames)).size !== playerNames.length
 
@@ -502,5 +516,6 @@ function showDuplicateNameErrorMessage() {
         startButton.style.backgroundColor = ""
         startButton.classList.add("backgroundHighlight")
         
-    },3000)
+    },2000)
 }
+
