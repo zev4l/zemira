@@ -38,6 +38,10 @@
 /* Para a barra de navegação da página HOME */
     .homeNavBar {
         position: relative;
+        background-color: rgb(255, 208, 0);
+        border-radius: 10px;
+        border: solid black;
+        padding: 5px;
     }
 
     .homeNavBar li {
@@ -49,7 +53,7 @@
 
     .homeNavBar a {
         text-decoration: none;
-        color: rgb(255, 208, 0);
+        color: black;
     }
 
     .homeNavBar li:hover {
@@ -434,18 +438,24 @@
 
 /* Para o botão de mute/unmute de música na home */
 
-    #soundButtonHome {
-        position: relative;
-        display: block;
-        width: 70px;
-        margin: 4vh auto;
-        border: solid transparent;
+#soundButtonHome {
+    position: relative;
+    margin-left: 3vw;
+    width: 70px;
+    height: 65px;
+    position: absolute;
+    margin-top: 0.5%;
+    border-radius: 12px;
+    border: solid transparent;
+    overflow:  hidden; 
+    cursor: pointer;
+    background-color: white;
 
-    }
+}
 
-    #soundButtonHome:focus {
-        outline:none;
-    }
+#soundButtonHome:focus {
+    outline:none;
+}
 
 }
 
@@ -653,17 +663,23 @@
 
 /* Para o botão de mute/unmute de música na home */
 
-    #soundButtonHome {
-        position: relative;
-        margin-left: 3vw;
-        width: 70px;
-        position: absolute;
-        margin-top: 2.5vh;
-        border: solid transparent;
-    }
+#soundButtonHome {
+    position: relative;
+    margin-left: 3vw;
+    width: 70px;
+    height: 65px;
+    position: absolute;
+    margin-top: 0.5%;
+    border-radius: 12px;
+    border: solid transparent;
+    overflow:  hidden; 
+    cursor: pointer;
+    background-color: white;
 
-    #soundButtonHome:focus {
-        outline:none;
-    }
+}
+
+#soundButtonHome:focus {
+    outline:none;
+}
 }
 

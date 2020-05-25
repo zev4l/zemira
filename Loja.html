@@ -9,7 +9,7 @@
 <head>
     <link rel="stylesheet" href="estilos/styleStructure.css" type="text/css">
     <link rel="stylesheet" href="estilos/styleText.css" type="text/css">
-    <link rel="stylesheet" href="estilos/StoreBuys.css" type="text/css">
+    <link rel="stylesheet" href="estilos/storeBuys.css" type="text/css">
     <link rel="stylesheet" href="estilos/loginStyle.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="scripts/login.js"></script>
@@ -56,7 +56,7 @@
           <label for="male"><b>Male:</b></label>
           <input type="radio" id="male" name="gender" value="male" required><br>
 
-          <label for="female"><b>Female:</b</label>
+          <label for="female"><b>Female:</b></label>
           <input type="radio" id="female" name="gender" value="female"><br>
 
           <br>
@@ -69,16 +69,16 @@
           <label for="male"><b>5-12:</b></label>
           <input type="radio" id="child" name="age" value="5-12" required><br>
 
-          <label for="female"><b>13-19:</b</label>
+          <label for="female"><b>13-19:</b></label>
           <input type="radio" id="teenager" name="age" value="13-19"><br>
 
-          <label for="female"><b>20-29:</b</label>
+          <label for="female"><b>20-29:</b></label>
           <input type="radio" id="young adult" name="age" value="20-29"><br>
 
-          <label for="female"><b>30-49:</b</label>
+          <label for="female"><b>30-49:</b></label>
           <input type="radio" id="adult" name="age" value="30-49"><br>
 
-          <label for="female"><b>50+:</b</label>
+          <label for="female"><b>50+:</b></label>
           <input type="radio" id="middle aged" name="age" value="50+"><br>
 
           <br>
@@ -180,16 +180,17 @@
 
     <h1 class="mainTitle">Store</h1>
 <article>
-<p>Here you can buy new stuff to use in the game! Equip the itens you buy before starting each <span id="game">game</span>!</p>
-<br>
+<p id="game">Equip the itens you buy before starting each game!</p>
 <br>
 <div class="ZPoints" >
     <div class="zPoints">
-    <p>Current <span id="preZemiraPoints">Zemira Points</span>:  <span id="totalZPoints">0</span></p>
+    <p>Current <span id="preZemiraPoints">Zemira Points</span>:  <span class="totalZPoints">0</span></p>
     </div>
     <br>
-    <h3 id="MainTitle">Buy icon packs and change the look of your game cards!</h3>
+    <h3 id="MainTitle">Buy new icon packs!</h3>
     <br>
+
+    <p><span class="price"><span class="priceZPoints">5$Z</span> per icon pack!</span></p>    
     
     <th>
         <div class="iconsPacksLine">
@@ -282,6 +283,10 @@
 
     <h3 id="MainTitle">Buy new card background images!</h3>
 
+    <br>
+
+    <p><span class="price"><span class="priceZPoints">2$Z</span> per icon pack!</span></p>   
+
     <th>
         <div class="backCardsLine">
             <td>
@@ -328,7 +333,11 @@
     <br>
     <br>
 
-    <h3 id="MainTitle">Buy new avatars and be the king of the Zemira Game!</h3>
+    <h3 id="MainTitle">Buy new avatars!</h3>
+
+    <br>
+
+    <p><span class="price"><span class="priceZPoints">2$Z</span> per icon pack!</span></p>  
 
     <th>
         <div class="avatarsLine">
@@ -417,6 +426,8 @@
 
 
 </body>
+
+<br><br><br>
 
 <footer class="footerMain">
     <div>

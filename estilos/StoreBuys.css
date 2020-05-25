@@ -60,6 +60,7 @@
     font-family: 'kongtextregular';
     color: rgb(255, 208, 0);
     font-size: 20px;
+    text-align: center;
 }
 
 .zPoints {
@@ -74,7 +75,7 @@
     color: rgb(255, 208, 0);
 }
 
-#totalZPoints {
+.totalZPoints {
     font-size: 25px;
     transition: 600ms ease;
     animation: color-change 5s infinite;
@@ -178,4 +179,20 @@
 .avatarsLine {
     margin-left: 10px;
     text-align: center;
+}
+
+.price {
+    font-size: 20px;
+    border: solid;
+    padding: 15px;
+    display:table;
+    margin:0 auto;
+    border-radius: 10px;
+    background-color: rgb(255, 208, 0);
+
+}
+
+.priceZPoints {
+    color: white;
+    font-size: 25px;
 }
