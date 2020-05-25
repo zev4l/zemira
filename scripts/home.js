@@ -26,10 +26,10 @@ function startMusic() {
 function toggleMusicHome() {
     if (music.paused) {
         music.play()
-        document.getElementById("soundButtonHome").src="imagens/soundIcon.png"
+        document.getElementById("soundButtonHome").src="imagens/soundIcon2.png"
     } else {
         music.pause()
-        document.getElementById("soundButtonHome").src="imagens/muteIcon.png"
+        document.getElementById("soundButtonHome").src="imagens/muteIcon2.png"
     }
 }
 

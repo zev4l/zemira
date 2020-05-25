@@ -36,6 +36,11 @@
     }
 
 /* Para a barra de navegação da página HOME */
+    #homeNavBar {
+        margin-top: -200px;
+        position: absolute;
+    }
+
     .homeNavBar {
         position: relative;
         background-color: rgb(255, 208, 0);
@@ -105,6 +110,13 @@
     #playButton:hover {
         transition: 600ms ease;
         animation: color-change 5s infinite;
+    }
+
+    #elementsHome {
+        position: absolute;
+        top: 200px;
+        left: 40%;
+        display: inline-block;
     }
 
     #features {
@@ -224,10 +236,9 @@
 /* Para o botão de mute/unmute de música na home */
 
     #soundButtonHome {
-        position: relative;
         margin-left: 3vw;
-        width: 70px;
-        height: 65px;
+        width: 50px;
+        height: 66px;
         position: absolute;
         margin-top: 0.5%;
         border-radius: 12px;
@@ -235,6 +246,9 @@
         overflow:  hidden; 
         cursor: pointer;
         background-color: white;
+        border: solid;
+        top: 12px;
+        left: 220px;
 
     }
 
