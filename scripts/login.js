@@ -137,6 +137,11 @@ function loginHandler() {
                     closeLogin()
                     updateAccounts()
                     settingsFiller()
+
+                    if (location.href.includes("game.html")) {
+                        imageSetter()
+                    }
+
 					showStats()
                     break
                 }
@@ -452,9 +457,6 @@ function settingsHandler() {
     showSettingsAppliedMessage()
     updateStats()
 
-    if (location.href.includes("game.html")) {
-        restartButton() 
-    }
 
 }
 

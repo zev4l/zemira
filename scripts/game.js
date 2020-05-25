@@ -32,8 +32,6 @@ let defaultBack = "imagens/cardBacks/cardBack.png"
 
 let defaultAvatar = "imagens/avatares/dogeAvatar.png"
 
-
-
 let config = {
     backImageSource: defaultBack,
     frontImagePackSource:  defaultPack,
@@ -41,6 +39,10 @@ let config = {
 }
 
 let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []
+
+// Especificidades do multiplayer
+
+let duplicateNameErroTimeoutID = null;
 
 /************************************************************* */
 
@@ -103,29 +105,25 @@ function singlePlayerButton() {
 
     // Esconder elementos e mostar o start button
 
-    document.getElementsByClassName("singlePlayer")[0].style.display = "none"
-
-    document.getElementsByClassName("multiPlayer")[0].style.display = "none"
+    hideNonGameElements()
 
     document.getElementsByClassName("startButton")[0].style.display = "block"
 
-    document.getElementsByClassName("sideBar")[0].style.display = "none"
-}
-
-function multiPlayerButton() {
-	document.getElementsByClassName("singlePlayer")[0].style.display = "none"
-
-    document.getElementsByClassName("multiPlayer")[0].style.display = "none"
-
-    document.getElementsByClassName("startButton")[0].style.display = "none"
-
-    document.getElementsByClassName("sideBar")[0].style.display = "none"
-	
-	document.getElementsByClassName("multiPlayerMainMenu")[0].style.display = "block"
-	
 }
 
 function startButton () {
+    showSPGameElements()
+    
+    estado.startTime = Math.floor(Date.now()/1000)
+    estado.timerID = setInterval(showTimePassed,1000)
+
+    // Para mostrar os zPoints atualizados
+    showStats();
+
+}
+
+function showSPGameElements() {
+    // Mostra elementos essenciais ao jogo em single player
     document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
     document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
@@ -135,13 +133,25 @@ function startButton () {
     for (let i=0; i<20;i++) {
         document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
     }
-    
-    estado.startTime = Math.floor(Date.now()/1000)
-    estado.timerID = setInterval(showTimePassed,1000)
 
-    // Para mostrar os zPoints atualizados
-    showStats();
+}
 
+function showMPGameElements() {
+     // Mostra elementos essenciais ao jogo em single player
+    document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
+    document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
+    document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
+    document.getElementsByClassName("settingsButton")[0].style.display = "none"
+
+    for (let i=0; i<20;i++) {
+        document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
+    }
+}
+
+function hideNonGameElements() {
+    document.getElementsByClassName("sideBar")[0].style.display = "none"
+    document.getElementsByClassName("multiPlayer")[0].style.display = "none"
+    document.getElementsByClassName("singlePlayer")[0].style.display = "none"
 }
 
 function showTimePassed() {
@@ -215,9 +225,7 @@ function showCard(n) {
 
             
         }
-        if (estado.matches ==10) {
-            clearInterval(estado.timerID)
-        }
+
         if (estado.matches == 10) {
             endGame()
         }
@@ -239,6 +247,8 @@ function endGame() {
         currentAccount.stats.gamesCompleted ++
         updateStats();
     }
+
+    clearInterval(estado.timerID)
 
     // Atualiza os zPoints do jogador.
     showStats()
@@ -273,6 +283,7 @@ function resetEstado() {
 
 
 function updateStats() {
+    console.log("Here")
     for (let i=0; i<accountArray.length; i++){ 
         if (accountArray[i].username == currentAccount.username) {
 
@@ -284,16 +295,16 @@ function updateStats() {
             accountArray[i].aesthetics.iconPack == currentAccount.aesthetics.iconPack
             accountArray[i].aesthetics.cardBack == currentAccount.aesthetics.cardBack
             accountArray[i].aesthetics.avatar == currentAccount.aesthetics.avatar
-            updateAccounts()
             break
         }
-
     }
+    updateAccounts()
 }
 
 function updateAccounts() {
     localStorage.setItem("accountArray", JSON.stringify(accountArray))
     localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
+    console.log("Here, updateAccounts()")
 }
 
 function showStats () {
@@ -434,4 +445,58 @@ function multiplayerFirstScreen() {
     startButton.style.display = "none"
     nameForm.style.display = "none"
     nameFormText.style.display = "none"
+}
+
+function multiplayerStart() {
+    let numberForm = document.forms.numberOfPlayers
+    let nameForm = document.forms.namesOfPlayers
+    let validInput = nameForm.reportValidity()
+    let numberOfPlayers = numberForm.playerNumber.value
+    let turnIdentifier = document.getElementById("turnID")
+    checkMPNames()
+
+    if (validInput && !(checkMPNames)) {
+        console.log("here")
+        closeMultiplayer()
+        hideNonGameElements()
+        showMPGameElements()
+        turnIdentifier.style.display = "block"
+
+    }
+}
+
+function checkMPNames() {
+    let nameFormElements = document.forms.namesOfPlayers.elements
+    let playerNames = []
+
+    for (let i=0; i<nameFormElements.length; i++) {
+        playerNames.push(nameFormElements[i].value)
+    }
+
+    let hasDupes = (new Set(playerNames)).size !== playerNames.length
+
+    if (hasDupes) {
+        showDuplicateNameErrorMessage()
+    }
+
+    return hasDupes
+}
+
+function showDuplicateNameErrorMessage() {
+    if (duplicateNameErroTimeoutID) {
+        clearTimeout(duplicateNameErroTimeoutID)
+    }
+
+    let startButton = document.getElementById("MPStartButton") 
+
+    startButton.innerHTML = "DO NOT USE DUPLICATE NAMES"
+    startButton.style.backgroundColor = "red"
+    startButton.classList.remove("backgroundHighlight")
+
+    duplicateNameErroTimeoutID = setTimeout(function() {
+        startButton.innerHTML = "Start"
+        startButton.style.backgroundColor = ""
+        startButton.classList.add("backgroundHighlight")
+        
+    },3000)
 }

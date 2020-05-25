@@ -18,6 +18,7 @@ let contentList = ["packs.desert", "packs.lego", "packs.pokemon", "packs.socialM
 function updateStats() {
     for (let i=0; i<accountArray.length; i++){ 
         if (accountArray[i].username == currentAccount.username) {
+			console.log("Here")
 
 			accountArray[i].aesthetics.boughtIconPacks == currentAccount.aesthetics.boughtIconPacks
 			accountArray[i].aesthetics.boughtCardBacks == currentAccount.aesthetics.boughtCardBacks
@@ -29,18 +30,17 @@ function updateStats() {
 			
 			accountArray[i].stats.zPoints == currentAccount.stats.zPoints
 			
-			setTimeout(function() {
-				updateAccounts()
-			},1000)
             break
-        }
+		}
 
-    }
+	}
+	updateAccounts()
 }
 
 function updateAccounts() {
     localStorage.setItem("accountArray", JSON.stringify(accountArray))
-    localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
+	localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
+	console.log("Here, updateAccounts()")
 }
 
 function inicial() {
@@ -50,7 +50,7 @@ function inicial() {
 	
 }
 
-function showStats() { //displayStuff, o nome teve que ser mudado por questões de compatibilidade com os outros ficheiros
+function showStats() {
 	if (currentAccount){
 		document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[1].innerHTML = currentAccount.stats.zPoints + "$Z";
 

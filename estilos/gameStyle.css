@@ -393,3 +393,7 @@ table{
 .closeButton {
     margin-bottom: 10ex;
 }
+
+#turnID {
+    display: none
+}

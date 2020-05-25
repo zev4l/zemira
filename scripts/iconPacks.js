@@ -393,7 +393,7 @@ let sustainableEnergyPack = ["imagens/iconPacks/sustainableEnergy/001-nature.png
 "imagens/iconPacks/sustainableEnergy/003-tree.png",
 "imagens/iconPacks/sustainableEnergy/004-earth.png",
 "imagens/iconPacks/sustainableEnergy/005-arrows.png",
-"imagens/iconPacks/sustainableEnergy/006-varruction.png",
+"imagens/iconPacks/sustainableEnergy/006-construction.png",
 "imagens/iconPacks/sustainableEnergy/007-power-1.png",
 "imagens/iconPacks/sustainableEnergy/008-arrows-1.png",
 "imagens/iconPacks/sustainableEnergy/009-signs.png",
