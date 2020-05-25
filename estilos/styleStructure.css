@@ -36,6 +36,11 @@
     }
 
 /* Para a barra de navegação da página HOME */
+    #homeNavBar {
+        margin-top: -400px;
+        position: absolute;
+    }
+
     .homeNavBar {
         position: relative;
         background-color: rgb(255, 208, 0);
