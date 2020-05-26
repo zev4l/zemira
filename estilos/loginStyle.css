@@ -275,6 +275,26 @@ o rato em cima do butão de "submit" */
 }
 
 .statsTextLayout{
-    text-align: left;
+    text-align: center;
+    padding: 1ex;
 }
 
+.usernameStats{
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
+    text-align: center;
+    display: inline;
+}
+
+.numberOfCards:hover, .numberOfGamesPlayed:hover, .numberOfCorrectPairs:hover, .timePlayed:hover, .accountCurrency:hover, .accuracySpan:hover{
+    
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
+
+
+}
+
+.numberOfCards, .numberOfGamesPlayed, .numberOfCorrectPairs, .timePlayed, .accountCurrency, .accuracySpan{
+    display: inline;    ;
+
+}

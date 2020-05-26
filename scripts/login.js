@@ -301,11 +301,19 @@ function closeSettings() {
 function openStats(){
 	let statsBox = document.getElementById("statsBox")
     let dimmer = document.getElementById("dimmer")
+	//statsUpdater()
     statsBox.style.display = "block"
+	
+	
     setTimeout(function() {
         statsBox.style.opacity = "1"
         dimmer.style.opacity = "1"
     },100)
+		
+	
+	
+	
+	
 }
 
 function closeStats(){
@@ -321,8 +329,29 @@ function closeStats(){
         
     },200)
 	
+	
 }
 
+
+/* FUNÇÂO RESPONSAVEL PELO UPDATE DOS STATS*/
+
+function statsUpdater(){
+	let usernameSub = currentAccount.username
+	let cardsFlippedSub = currentAccount.stats.cardsFlipped
+	let gamesCompletedSub = currentAccount.stats.gamesCompleted
+	let pairsFoundSub = currentAccount.stats.matchesFoundEver
+	let timePlayedSub = currentAccount.stats.timeSpentPlaying
+		
+		
+	document.getElementByClass("usernameStats").innerHTML = usernameSub;
+	document.getElementByClass("numberOfCards").innerHTML = cardsFlippedSub;
+	document.getElementByClass("numberOfGamesPlayed").innerHTML = gamesCompletedSub;
+	document.getElementByClass("numberOfCorrectPairs").innerHTML = pairsFoundSub;
+	document.getElementByClass("timePlayed").innerHTML = timePlayedSub;
+	
+	
+		
+}
 
 /* FUNÇÕES QUE MOSTRAM MENSAGENS DE ERRO */
 
