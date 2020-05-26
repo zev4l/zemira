@@ -301,7 +301,7 @@ function closeSettings() {
 function openStats(){
 	let statsBox = document.getElementById("statsBox")
     let dimmer = document.getElementById("dimmer")
-	//statsUpdater()
+	statsBoxUpdater()
     statsBox.style.display = "block"
 	
 	
@@ -325,7 +325,7 @@ function closeStats(){
     dimmer.style.opacity = "0"
 
     setTimeout(function() {
-        settingsBox.style.display = "none";
+        statsBox.style.display = "none";
         
     },200)
 	
@@ -335,19 +335,15 @@ function closeStats(){
 
 /* FUNÇÂO RESPONSAVEL PELO UPDATE DOS STATS*/
 
-function statsUpdater(){
-	let usernameSub = currentAccount.username
-	let cardsFlippedSub = currentAccount.stats.cardsFlipped
-	let gamesCompletedSub = currentAccount.stats.gamesCompleted
-	let pairsFoundSub = currentAccount.stats.matchesFoundEver
-	let timePlayedSub = currentAccount.stats.timeSpentPlaying
+function statsBoxUpdater(){
+	
 		
 		
-	document.getElementByClass("usernameStats").innerHTML = usernameSub;
-	document.getElementByClass("numberOfCards").innerHTML = cardsFlippedSub;
-	document.getElementByClass("numberOfGamesPlayed").innerHTML = gamesCompletedSub;
-	document.getElementByClass("numberOfCorrectPairs").innerHTML = pairsFoundSub;
-	document.getElementByClass("timePlayed").innerHTML = timePlayedSub;
+	document.getElementsByClassName("usernameStats")[0].innerHTML = currentAccount.username;
+	document.getElementsByClassName("numberOfCards")[0].innerHTML = currentAccount.stats.cardsFlipped;
+	document.getElementsByClassName("numberOfGamesPlayed")[0].innerHTML = currentAccount.stats.gamesCompleted;
+	document.getElementsByClassName("numberOfCorrectPairs")[0].innerHTML = currentAccount.stats.matchesFoundEver;
+	document.getElementsByClassName("timePlayed")[0].innerHTML = currentAccount.stats.timeSpentPlaying;
 	
 	
 		

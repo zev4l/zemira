@@ -295,6 +295,6 @@ o rato em cima do butão de "submit" */
 }
 
 .numberOfCards, .numberOfGamesPlayed, .numberOfCorrectPairs, .timePlayed, .accountCurrency, .accuracySpan{
-    display: inline;    ;
+    display: block;    
 
 }
