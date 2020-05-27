@@ -280,21 +280,33 @@ o rato em cima do butão de "submit" */
 }
 
 .usernameStats{
-    transition: 600ms ease;
-    animation: color-change 5s infinite;
+    font-size: xx-large;
     text-align: center;
-    display: inline;
+    display: block;
+    cursor: pointer;
+    color: rgb(255, 208, 0);
 }
 
-.numberOfCards:hover, .numberOfGamesPlayed:hover, .numberOfCorrectPairs:hover, .timePlayed:hover, .accountCurrency:hover, .accuracySpan:hover{
-    
-    transition: 600ms ease;
-    animation: color-change 5s infinite;
 
-
-}
 
 .numberOfCards, .numberOfGamesPlayed, .numberOfCorrectPairs, .timePlayed, .accountCurrency, .accuracySpan{
-    display: block;    
+    display: block; 
+    transition: 400ms ease;
+    animation: color-change 5s infinite;   
 
+}
+
+.introStatsHeader{
+
+    color: black;
+}
+
+.statsGradeAnalyser{
+    color: white;
+    padding: 16px 20px;
+    border-color: yellow;
+    cursor: pointer;
+    width: 80%;
+    margin-bottom:10px;       
+    background-color: green;
 }

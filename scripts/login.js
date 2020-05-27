@@ -308,13 +308,10 @@ function openStats(){
     setTimeout(function() {
         statsBox.style.opacity = "1"
         dimmer.style.opacity = "1"
-    },100)
-		
-	
-	
-	
+    },100)	
 	
 }
+
 
 function closeStats(){
 	let statsBox = document.getElementById("statsBox")
@@ -327,25 +324,30 @@ function closeStats(){
     setTimeout(function() {
         statsBox.style.display = "none";
         
-    },200)
-	
+    },200)	
 	
 }
 
 
+function usernameSettingsAccess(){
+	closeStats()
+	openSettings()
+	
+}
+
+
+
+
 /* FUNÇÂO RESPONSAVEL PELO UPDATE DOS STATS*/
 
-function statsBoxUpdater(){
-	
-		
+function statsBoxUpdater(){		
 		
 	document.getElementsByClassName("usernameStats")[0].innerHTML = currentAccount.username;
 	document.getElementsByClassName("numberOfCards")[0].innerHTML = currentAccount.stats.cardsFlipped;
 	document.getElementsByClassName("numberOfGamesPlayed")[0].innerHTML = currentAccount.stats.gamesCompleted;
 	document.getElementsByClassName("numberOfCorrectPairs")[0].innerHTML = currentAccount.stats.matchesFoundEver;
 	document.getElementsByClassName("timePlayed")[0].innerHTML = currentAccount.stats.timeSpentPlaying;
-	
-	
+	document.getElementsByClassName("accountCurrency")[0].innerHTML = currentAccount.stats.zPoints
 		
 }
 
