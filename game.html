@@ -100,7 +100,7 @@
     <div class="statsPopup" id="statsBox">
       
       <img class="closeButton" src="imagens/crossIcon.png" onclick="closeStats()">
-      <h2><span class="usernameStats">USERNAME</span> Here's how you're doing so far:</h2>
+      <h2 class="introStatsHeader"><span class="usernameStats" onclick="usernameSettingsAccess()">USERNAME</span> Here's how you're doing so far:</h2>
       <div class="statsTextLayout">
       <p>You have seen the true face of <span class="numberOfCards">Number of cards</span> matrix objects</p>
       <p>You completed <span class="numberOfGamesPlayed">Number of games played</span> adventures trough the realm</p>
@@ -109,6 +109,8 @@
       <p>You have <span class="accountCurrency">money that player has</span>zemira points</p>
       <p>Your accuracy inside the realm is <span class="accuracySpan">taxa de acerto de pares</span></p>     
       </div> 
+
+      <button type="button" class="statsGradeAnalyser" onclick="">Grade Will be displayed here</button>
 
     </div>
 
