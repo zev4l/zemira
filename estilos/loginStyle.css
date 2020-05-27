@@ -292,12 +292,10 @@ o rato em cima do butão de "submit" */
 .numberOfCards, .numberOfGamesPlayed, .numberOfCorrectPairs, .timePlayed, .accountCurrency, .accuracySpan{
     display: block; 
     transition: 400ms ease;
-    animation: color-change 5s infinite;   
-
+    animation: color-change 5s infinite;  
 }
 
 .introStatsHeader{
-
     color: black;
 }
 
