@@ -30,7 +30,7 @@ let estado = {
     timerID: null,
     currentCards: [],
     usedCards: [],
-    multiplayer: null, // Usado para saber se a instância do jogo é MP ou não
+    multiplayer: false, // Usado para saber se a instância do jogo é MP ou não
 }
 
 let defaultPack = packs.socialMedia
@@ -106,6 +106,11 @@ function cardSourceChecker(n) {
     return document.getElementsByClassName("cardFront")[n].getElementsByTagName("img")[0].src
 }
 
+function startTimeCounter() {
+    estado.startTime = Math.floor(Date.now()/1000)
+    estado.timerID = setInterval(showTimePassed,1000)
+}
+
 function singleplayerStart() {
 
     // Esconder elementos e mostar o start button
@@ -114,9 +119,9 @@ function singleplayerStart() {
     closeSingleplayer()
 
     showSPGameElements()
+    hideNonGameElements()
     
-    estado.startTime = Math.floor(Date.now()/1000)
-    estado.timerID = setInterval(showTimePassed,1000)
+    startTimeCounter()
 
     // Para mostrar os zPoints atualizados
     showStats();
@@ -129,23 +134,18 @@ function showSPGameElements() {
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
     document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
 
-    // Esconde elementos não essenciais ao jogo
-    document.getElementsByClassName("startButton")[0].style.display = "none"
-    document.getElementsByClassName("settingsButton")[0].style.display = "none"
-    document.getElementsByClassName("statsButton")[0].style.display = "none"
-
     for (let i=0; i<20;i++) {
         document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
     }
 
 }
 
-function showMPGameElements() {
+function showMPGameElements() { 
      // Mostra elementos essenciais ao jogo em single player
     document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
     document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
-    document.getElementsByClassName("settingsButton")[0].style.display = "none"
+    document.getElementById("turnID").style.display = "block"
 
     for (let i=0; i<20;i++) {
         document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
@@ -155,6 +155,9 @@ function showMPGameElements() {
 function hideNonGameElements() {
     document.getElementsByClassName("multiPlayer")[0].style.display = "none"
     document.getElementsByClassName("singlePlayer")[0].style.display = "none"
+    document.getElementsByClassName("settingsButton")[0].style.display = "none"
+    document.getElementsByClassName("statsButton")[0].style.display = "none"
+
 }
 
 function showTimePassed() {
@@ -192,8 +195,10 @@ function multiplayerEnabler() {
 
 function showCard(n) {
 
+    let multiplayerOn = estado.timePassed.multiplayer
+
     // Atualiza o contador de cartas viradas em todo o tempo de jogo do utilizador
-    if (currentAccount) {
+    if (currentAccount && !(multiplayerOn)) {
         currentAccount.stats.cardsFlipped ++;
         updateStats()
     }
@@ -482,7 +487,6 @@ function multiplayerFirstScreen() {
 function multiplayerStart() {
 
     let nameForm = document.forms.namesOfPlayers
-    let turnIdentifier = document.getElementById("turnID")
     let validInput = nameForm.reportValidity()
 
     // Obtenção dos nomes referidos
@@ -500,13 +504,15 @@ function multiplayerStart() {
         closeMultiplayer()
         hideNonGameElements()
         showMPGameElements()
-        turnIdentifier.style.display = "block"
+        startTimeCounter()
 
         for (let i = 0; i < playerNames.length; i++) {
             let newTempPlayer = new tempPlayer(playerNames[i])
             tempPlayerList.push(newTempPlayer)
-            console.log("here")
         }
+        
+        estado.multiplayer = true
+        
 
 
         
