@@ -95,7 +95,11 @@ function menuElementToggle() {
         document.getElementsByClassName("loginButton")[0].style.display = "inline-block"
         document.getElementsByClassName("logoutButton")[0].style.display = "none"
         document.getElementsByClassName("settingsButton")[0].style.display = "none"
-		document.getElementsByClassName("statsButton")[0].style.display = "none"
+
+        if (location.href.includes("game.html")) {
+            document.getElementsByClassName("statsButton")[0].style.display = "none"
+        }
+		
     }
 
 }

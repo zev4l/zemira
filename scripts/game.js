@@ -13,11 +13,15 @@ let avatars = JSON.parse(localStorage.getItem("avatars"))
 
 function tempPlayer(name) {
     this.name= name,
-    this.matches= null,
-    this.cardsFlipped= null
+    this.matches= 0,
+    this.cardsFlipped= 0
 }
 
 let tempPlayerList = []
+
+let TURN_ID = null
+
+let TURN_CONTAINER_ID = null
 
 /************************************************************* */
 /* ESTADO DO JOGO */
@@ -31,6 +35,7 @@ let estado = {
     currentCards: [],
     usedCards: [],
     multiplayer: false, // Usado para saber se a instância do jogo é MP ou não
+    currentMPPlayer: null
 }
 
 let defaultPack = packs.socialMedia
@@ -51,6 +56,7 @@ let duplicateNameErrorTimeoutID = null;
 
 /************************************************************* */
 
+
 /* FUNÇÕES */
 
 function inicial() {
@@ -62,9 +68,12 @@ function inicial() {
 
     imageSetter()
     settingsFiller()
+
+    TURN_ID = document.getElementById("turn")
+    TURN_CONTAINER_ID = document.getElementById("turnContainer")
 }
 
-
+// Função que define imagens das cartas (frente + trás)
 function imageSetter() {
     
     /* Utilziar recursos selecionados pelo jogador */
@@ -111,96 +120,31 @@ function startTimeCounter() {
     estado.timerID = setInterval(showTimePassed,1000)
 }
 
-function singleplayerStart() {
-
-    // Esconder elementos e mostar o start button
-
-    hideNonGameElements()
-    closeSingleplayer()
-
-    showSPGameElements()
-    hideNonGameElements()
-    
-    startTimeCounter()
-
-    // Para mostrar os zPoints atualizados
-    showStats();
-
-}
-
-function showSPGameElements() {
-    // Mostra elementos essenciais ao jogo em single player
-    document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
-    document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
-    document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
-
-    for (let i=0; i<20;i++) {
-        document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
-    }
-
-}
-
-function showMPGameElements() { 
-     // Mostra elementos essenciais ao jogo em single player
-    document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
-    document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
-    document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
-    document.getElementById("turnID").style.display = "block"
-
-    for (let i=0; i<20;i++) {
-        document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
-    }
-}
-
-function hideNonGameElements() {
-    document.getElementsByClassName("multiPlayer")[0].style.display = "none"
-    document.getElementsByClassName("singlePlayer")[0].style.display = "none"
-    document.getElementsByClassName("settingsButton")[0].style.display = "none"
-    document.getElementsByClassName("statsButton")[0].style.display = "none"
-
-}
-
-function showTimePassed() {
-
-    estado.timePassed = Math.floor((Date.now()/1000 - estado.startTime))
-
-    /* Adiciona tempo jogado ao contador de timeSpentPlaying (localStorage).
-       Existe aqui pois esta função é executada a cada segundo que passa.*/
-    if (currentAccount) {
-        currentAccount.stats.timeSpentPlaying ++
-        updateStats()
-    }
-    /* A variável é guardada no localStorage nesta função em vez de em showStats()
-       por uma questão de fiabilidade. Ao ser feito aqui, todos os segundos de jogo
-       serão contabilizados, mesmo que o utilizador feche abruptamente o browser
-       em vez de carregar no botão de recomeçar, ou em vez de ganhar o jogo.
-       Esta variável serve para contar todos os segundos passados a jogar ao longo
-       de todo o tempo de jogo que o utilizador tem. */
-
-  
-    // Atualiza o temporizador visualmente.
-    document.getElementsByClassName("durationCounter")[0].getElementsByTagName("span")[0].innerHTML = estado.timePassed
-}
-
-function multiplayerEnabler() {
-    if (currentAccount) {
-        let MPPlayButton = document.getElementsByClassName("multiPlayerButton")[0]
-
-        MPPlayButton.innerHTML = "Play!"
-        MPPlayButton.addEventListener("click", openMultiplayer)
-    }
-}
 
 /* FUNÇÃO PRINCIPAL */
 
 function showCard(n) {
 
-    let multiplayerOn = estado.timePassed.multiplayer
+    let multiplayerOn = estado.multiplayer
 
-    // Atualiza o contador de cartas viradas em todo o tempo de jogo do utilizador
-    if (currentAccount && !(multiplayerOn)) {
-        currentAccount.stats.cardsFlipped ++;
-        updateStats()
+    /* Atualiza o contador de cartas viradas em todo o tempo de jogo do utilizador
+    Simultaneamente impede um jogador de farmar cardFlips, pois verifica se a carta
+    já se inclui numa match (se pertence a usedCards) ou se é a mesma que a primeira */
+    if (currentAccount && n!=estado.currentCards[0] && !(estado.usedCards.includes(n))) {
+        if (multiplayerOn) {
+            if (currentAccount.username == estado.currentMPPlayer.name ) {
+                currentAccount.stats.cardsFlipped ++;
+                updateStats()
+            }
+        } else if (!(multiplayerOn)) {
+            currentAccount.stats.cardsFlipped ++;
+            updateStats()
+        }
+        
+    }
+
+    if (multiplayerOn && n!=estado.currentCards[0] && !(estado.usedCards.includes(n))) {
+        MPStatUpdater("cardsFlipped")
     }
 
 
@@ -221,7 +165,12 @@ function showCard(n) {
             currentAccount.stats.matchesFoundEver ++
             // Para que seja atualizado na localStorage o contador de matchesFoundEver
             updateStats()
+
+            if (multiplayerOn) {
+                MPStatUpdater("matches")
+                
             }
+        }
 
             
             
@@ -243,15 +192,36 @@ function showCard(n) {
             
         }
 
+        if (multiplayerOn) {
+    
+            MPTurnHandler()
+
+            /* Este passo serve para que possa haver um pequeno atraso no mostrador de turns,
+            mas que os dados dos jogadores possam ser atualizados instantaneamente.
+            Sem este passo, um jogador poderia clicar em mais que 2 cartas por jogada, fazendo
+            com que os stats de fim de jogo fossem destabilizados (um jogador poderia ter 
+            muitas mais cardsFlipped do que outros. */
+            let currentPlayerBackup = estado.currentMPPlayer
+
+            setTimeout(function() {
+                TURN_ID.innerHTML = currentPlayerBackup.name
+            }, 1000)
+    
+        }
+
         if (estado.matches == 10) {
             endGame()
         }
+
+        
     // Para mostrar as matches atualizadas
     showStats()
 
     }
 
 }
+
+// Funções ajudantes da principal
 
 function hideCard(n) {
     let cardStyle = document.getElementsByClassName("card")[n].style;
@@ -303,14 +273,14 @@ function updateStats() {
     for (let i=0; i<accountArray.length; i++){ 
         if (accountArray[i].username == currentAccount.username) {
 
-            accountArray[i].stats.zPoints == currentAccount.zPoints
-            accountArray[i].stats.gamesCompleted == currentAccount.gamesCompleted
-            accountArray[i].stats.cardsFlipped == currentAccount.cardsFlipped
-            accountArray[i].stats.matchesFoundEver == currentAccount.matchesFoundEver
+            accountArray[i].stats.zPoints = currentAccount.stats.zPoints
+            accountArray[i].stats.gamesCompleted = currentAccount.stats.gamesCompleted
+            accountArray[i].stats.cardsFlipped = currentAccount.stats.cardsFlipped
+            accountArray[i].stats.matchesFoundEver = currentAccount.stats.matchesFoundEver
 
-            accountArray[i].aesthetics.iconPack == currentAccount.aesthetics.iconPack
-            accountArray[i].aesthetics.cardBack == currentAccount.aesthetics.cardBack
-            accountArray[i].aesthetics.avatar == currentAccount.aesthetics.avatar
+            accountArray[i].aesthetics.iconPack = currentAccount.aesthetics.iconPack
+            accountArray[i].aesthetics.cardBack = currentAccount.aesthetics.cardBack
+            accountArray[i].aesthetics.avatar = currentAccount.aesthetics.avatar
             break
         }
     }
@@ -334,6 +304,62 @@ function showStats () {
     document.getElementsByClassName("matchesFound")[0].getElementsByTagName("span")[0].innerHTML = estado.matches;
 }
 
+/* FUNÇÕES QUE GEREM VISIBILIDADE DE ELEMENTOS HTML */
+
+function showSPGameElements() {
+    // Mostra elementos essenciais ao jogo em single player
+    document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
+    document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
+    document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
+
+    for (let i=0; i<20;i++) {
+        document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
+    }
+
+}
+
+function showMPGameElements() { 
+     // Mostra elementos essenciais ao jogo em single player
+    document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
+    document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
+    document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
+    TURN_CONTAINER_ID.style.display = "block"
+
+    for (let i=0; i<20;i++) {
+        document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
+    }
+}
+
+function hideNonGameElements() {
+    document.getElementsByClassName("multiPlayer")[0].style.display = "none"
+    document.getElementsByClassName("singlePlayer")[0].style.display = "none"
+    document.getElementsByClassName("settingsButton")[0].style.display = "none"
+    document.getElementsByClassName("statsButton")[0].style.display = "none"
+
+}
+
+function showTimePassed() {
+
+    estado.timePassed = Math.floor((Date.now()/1000 - estado.startTime))
+
+    /* Adiciona tempo jogado ao contador de timeSpentPlaying (localStorage).
+       Existe aqui pois esta função é executada a cada segundo que passa.*/
+    if (currentAccount) {
+        currentAccount.stats.timeSpentPlaying ++
+        updateStats()
+    }
+    /* A variável é guardada no localStorage nesta função em vez de em showStats()
+       por uma questão de fiabilidade. Ao ser feito aqui, todos os segundos de jogo
+       serão contabilizados, mesmo que o utilizador feche abruptamente o browser
+       em vez de carregar no botão de recomeçar, ou em vez de ganhar o jogo.
+       Esta variável serve para contar todos os segundos passados a jogar ao longo
+       de todo o tempo de jogo que o utilizador tem. */
+
+  
+    // Atualiza o temporizador visualmente.
+    document.getElementsByClassName("durationCounter")[0].getElementsByTagName("span")[0].innerHTML = estado.timePassed
+}
+
 /* Uso do algoritmo Fisher-Yates-Durstenfelt para organizar uma lista de forma aleatoria */
 
 function shuffleArray(array) {
@@ -346,6 +372,22 @@ function shuffleArray(array) {
 }
 
 /* Funções relativas à caixa de singleplayer */
+
+function singleplayerStart() {
+
+    // Esconder elementos do menu home e mostrar elementos do jogo
+
+    hideNonGameElements()
+    closeSingleplayer()
+
+    showSPGameElements()
+    
+    startTimeCounter()
+
+    // Para mostrar os zPoints atualizados
+    showStats();
+
+}
 
 function openSingleplayer(){
     let singleplayerBox = document.getElementById("singleplayerBox")
@@ -372,6 +414,15 @@ function closeSingleplayer() {
 }
 
 /* Funções relativas ao multiplayer */
+
+function multiplayerEnabler() {
+    if (currentAccount) {
+        let MPPlayButton = document.getElementsByClassName("multiPlayerButton")[0]
+
+        MPPlayButton.innerHTML = "Play!"
+        MPPlayButton.addEventListener("click", openMultiplayer)
+    }
+}
 
 function openMultiplayer() {
     let multiplayerBox = document.getElementById("multiplayerBox")
@@ -512,6 +563,8 @@ function multiplayerStart() {
         }
         
         estado.multiplayer = true
+        estado.currentMPPlayer = tempPlayerList[0]
+        TURN_ID.innerHTML = estado.currentMPPlayer.name
         
 
 
@@ -529,6 +582,31 @@ function checkMPNames(playerNames) {
 
     return hasDupes
 }
+
+function MPTurnHandler() {
+    let playerIndex = tempPlayerList.indexOf(estado.currentMPPlayer)
+
+    // Faz reset do contador de indice
+    if (playerIndex + 1 == tempPlayerList.length) {
+        playerIndex = -1;
+    }
+    estado.currentMPPlayer = tempPlayerList[playerIndex+1]
+}
+
+function MPStatUpdater(scope) {
+
+    // Incrementa matches nas estatisticas do jogador atual
+    if (scope=="matches") {
+        estado.currentMPPlayer.matches ++
+    }
+
+    // Incrementa cardsFlipped nas estatisticas do jogador atual
+    if (scope=="cardsFlipped") {
+        estado.currentMPPlayer.cardsFlipped ++
+    }
+}
+
+// Funções relativas a mensagens de erro
 
 function showDuplicateNameErrorMessage() {
     if (duplicateNameErrorTimeoutID) {
@@ -548,4 +626,6 @@ function showDuplicateNameErrorMessage() {
         
     },2000)
 }
+
+
 
