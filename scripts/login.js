@@ -85,7 +85,10 @@ function menuElementToggle() {
         document.getElementsByClassName("loginButton")[0].style.display = "none"
         document.getElementsByClassName("logoutButton")[0].style.display = "inline-block"
         document.getElementsByClassName("settingsButton")[0].style.display = "inline-block"
-		document.getElementsByClassName("statsButton")[0].style.display = "inline-block"
+
+        if (location.href.includes("game.html")) {
+            document.getElementsByClassName("statsButton")[0].style.display = "inline-block"
+        }
     }
     if (!(currentAccount)) {
         document.getElementsByClassName("registerButton")[0].style.display = "inline-block"
