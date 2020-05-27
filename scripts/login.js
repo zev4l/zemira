@@ -329,6 +329,7 @@ function closeStats(){
         
     },200)	
 	
+	document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "->Check you grade here<-";
 }
 
 
@@ -344,14 +345,39 @@ function usernameSettingsAccess(){
 /* FUNÇÂO RESPONSAVEL PELO UPDATE DOS STATS*/
 
 function statsBoxUpdater(){		
+	var toOperateWithStats = currentAccount.stats.cardsFlipped
+	var toOperateWithStatsss = currentAccount.stats.matchesFoundEver
+	var finalOperationStatsGrade = toOperateWithStatsss / toOperateWithStats * 100
+	
 		
 	document.getElementsByClassName("usernameStats")[0].innerHTML = currentAccount.username;
 	document.getElementsByClassName("numberOfCards")[0].innerHTML = currentAccount.stats.cardsFlipped;
 	document.getElementsByClassName("numberOfGamesPlayed")[0].innerHTML = currentAccount.stats.gamesCompleted;
 	document.getElementsByClassName("numberOfCorrectPairs")[0].innerHTML = currentAccount.stats.matchesFoundEver;
-	document.getElementsByClassName("timePlayed")[0].innerHTML = currentAccount.stats.timeSpentPlaying;
+	document.getElementsByClassName("timePlayed")[0].innerHTML = currentAccount.stats.timeSpentPlaying + " ZemiraSecs";
 	document.getElementsByClassName("accountCurrency")[0].innerHTML = currentAccount.stats.zPoints
+	document.getElementsByClassName("accuracySpan")[0].innerHTML = Math.round(finalOperationStatsGrade) + "%";
+}
+
+
+
+function gradeStatCheck(){
+	var toOperateWithStats1 = currentAccount.stats.cardsFlipped
+	var toOperateWithStats2 = currentAccount.stats.matchesFoundEver
+	var gradeForCondicional = toOperateWithStats2 / toOperateWithStats1 * 100 
 		
+	if (gradeForCondicional < 10){
+		document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "Get you some memofante!";
+	}	else if (gradeForCondicional < 30){
+		document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "Average memory!";
+	}	else if (gradeForCondicional <60){
+		document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "good memory!";
+	}	else if (gradeForCondicional <=80){
+		document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "Photographic memory?";
+	}	else{
+		document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "You hacker!";
+	}
+	
 }
 
 /* FUNÇÕES QUE MOSTRAM MENSAGENS DE ERRO */
