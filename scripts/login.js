@@ -346,7 +346,7 @@ function usernameSettingsAccess(){
 
 
 
-/* FUNÇÂO RESPONSAVEL PELO UPDATE DOS STATS*/
+/* FUNÇÕES RESPONSAVEL PELO UPDATE DA CAIXA DE STATS*/
 
 function statsBoxUpdater(){		
 	var toOperateWithStats = currentAccount.stats.cardsFlipped
