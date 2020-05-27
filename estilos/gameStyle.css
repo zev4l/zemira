@@ -280,24 +280,7 @@ table{
     width: 15%   
 }
 
-/* DEFINIÇÃO DO START BUTTON (E ESTÉTICA RELACIONADA)*/
-
-.startButton {
-    display: none;
-    margin: auto auto;
-    cursor: pointer;
-    font-size: 40px;
-    position: relative;
-    margin: 15% auto auto auto;
-    transition: all 200ms linear;
-}
-
-.startButton:hover {
-    transition: 600ms ease;
-    animation: color-change 5s infinite;
-}
-
-/* DEFINIÇÃO DO START BUTTON */
+/* DEFINIÇÃO DO RESTART BUTTON */
 
 .restart {
     position: absolute;
@@ -318,9 +301,9 @@ table{
 }
 
 
-/* DEFINIÇÃO DO POPUP DE MULTIPLAYER */
+/* DEFINIÇÃO DO POPUP DE MULTIPLAYER E SINGLEPLAYER */
 
-.multiplayerPopup{
+.multiplayerPopup, .singleplayerPopup{
 
     display: none;
     position: fixed;
@@ -347,7 +330,7 @@ table{
     animation: background-color-change 5s infinite;
 }
 
-.MPButton {
+.MPButton, .SPButton {
     width: 80%;
     padding: 10px;
     margin: 5px 0 22px 0;
@@ -367,7 +350,7 @@ table{
     font-family: 'kongtextregular'; 
 }
 
-.MPButton:hover {
+.MPButton:hover, .SPButton:hover {
     opacity: 1;
 }
 

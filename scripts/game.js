@@ -9,13 +9,15 @@ let backs = JSON.parse(localStorage.getItem("backs"))
 
 let avatars = JSON.parse(localStorage.getItem("avatars"))
 
-/* CONSTRUTOR DE JOGADORES TEMPORÁRIOS */ 
+/* CONSTRUTOR E GESTÃO DE JOGADORES TEMPORÁRIOS */ 
 
-function tempPlayer() {
-    this.name= null,
+function tempPlayer(name) {
+    this.name= name,
     this.matches= null,
     this.cardsFlipped= null
 }
+
+let tempPlayerList = []
 
 /************************************************************* */
 /* ESTADO DO JOGO */
@@ -28,7 +30,7 @@ let estado = {
     timerID: null,
     currentCards: [],
     usedCards: [],
-    multiplayer: null
+    multiplayer: null, // Usado para saber se a instância do jogo é MP ou não
 }
 
 let defaultPack = packs.socialMedia
@@ -104,20 +106,13 @@ function cardSourceChecker(n) {
     return document.getElementsByClassName("cardFront")[n].getElementsByTagName("img")[0].src
 }
 
-
-/* FUNÇÕES DE CONTROLO DE APRESENTAÇÃO DO JOGO/BOTÕES */
-
-function singlePlayerButton() {
+function singleplayerStart() {
 
     // Esconder elementos e mostar o start button
 
     hideNonGameElements()
+    closeSingleplayer()
 
-    document.getElementsByClassName("startButton")[0].style.display = "block"
-
-}
-
-function startButton () {
     showSPGameElements()
     
     estado.startTime = Math.floor(Date.now()/1000)
@@ -133,8 +128,11 @@ function showSPGameElements() {
     document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
     document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
+
+    // Esconde elementos não essenciais ao jogo
     document.getElementsByClassName("startButton")[0].style.display = "none"
     document.getElementsByClassName("settingsButton")[0].style.display = "none"
+    document.getElementsByClassName("statsButton")[0].style.display = "none"
 
     for (let i=0; i<20;i++) {
         document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
@@ -155,7 +153,6 @@ function showMPGameElements() {
 }
 
 function hideNonGameElements() {
-    document.getElementsByClassName("sideBar")[0].style.display = "none"
     document.getElementsByClassName("multiPlayer")[0].style.display = "none"
     document.getElementsByClassName("singlePlayer")[0].style.display = "none"
 }
@@ -343,6 +340,32 @@ function shuffleArray(array) {
     }
 }
 
+/* Funções relativas à caixa de singleplayer */
+
+function openSingleplayer(){
+    let singleplayerBox = document.getElementById("singleplayerBox")
+    let dimmer = document.getElementById("dimmer")
+    singleplayerBox.style.display = "block"
+    setTimeout(function() {
+        singleplayerBox.style.opacity = "1"
+        dimmer.style.opacity = "1"
+    },100)
+}
+
+function closeSingleplayer() {
+    let singleplayerBox = document.getElementById("singleplayerBox")
+    let dimmer = document.getElementById("dimmer")
+
+
+    singleplayerBox.style.opacity= "0";
+    dimmer.style.opacity = "0"
+
+    setTimeout(function() {
+        singleplayerBox.style.display = "none";
+        
+    },200)
+}
+
 /* Funções relativas ao multiplayer */
 
 function openMultiplayer() {
@@ -353,7 +376,6 @@ function openMultiplayer() {
         multiplayerBox.style.opacity = "1"
         dimmer.style.opacity = "1"
     },100)
-
 }
   
 function closeMultiplayer() {
@@ -458,7 +480,7 @@ function multiplayerFirstScreen() {
 }
 
 function multiplayerStart() {
-    let numberForm = document.forms.numberOfPlayers
+
     let nameForm = document.forms.namesOfPlayers
     let turnIdentifier = document.getElementById("turnID")
     let validInput = nameForm.reportValidity()
@@ -479,10 +501,12 @@ function multiplayerStart() {
         hideNonGameElements()
         showMPGameElements()
         turnIdentifier.style.display = "block"
-    
-        // for (let i = 0; playerNames.length; i++) {
-        //     // CRIAR OBJETOS TEMPPLAYER
-        // }
+
+        for (let i = 0; i < playerNames.length; i++) {
+            let newTempPlayer = new tempPlayer(playerNames[i])
+            tempPlayerList.push(newTempPlayer)
+            console.log("here")
+        }
 
 
         
