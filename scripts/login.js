@@ -349,9 +349,13 @@ function usernameSettingsAccess(){
 /* FUNÇÕES RESPONSAVEL PELO UPDATE DA CAIXA DE STATS*/
 
 function statsBoxUpdater(){		
-	var toOperateWithStats = currentAccount.stats.cardsFlipped
-	var toOperateWithStatsss = currentAccount.stats.matchesFoundEver
-	var finalOperationStatsGrade = toOperateWithStatsss / toOperateWithStats * 100
+	let statsCardsFlipped = currentAccount.stats.cardsFlipped
+	let statsMatchesFound = currentAccount.stats.matchesFoundEver
+    let statsFinalGrade = Math.round((statsMatchesFound / (statsCardsFlipped/2)) * 100)
+    console.log(statsFinalGrade)
+    if (isNaN(statsFinalGrade)) {
+        statsFinalGrade = 0
+    }
 	
 		
 	document.getElementsByClassName("usernameStats")[0].innerHTML = currentAccount.username;
@@ -359,26 +363,27 @@ function statsBoxUpdater(){
 	document.getElementsByClassName("numberOfGamesPlayed")[0].innerHTML = currentAccount.stats.gamesCompleted;
 	document.getElementsByClassName("numberOfCorrectPairs")[0].innerHTML = currentAccount.stats.matchesFoundEver;
 	document.getElementsByClassName("timePlayed")[0].innerHTML = currentAccount.stats.timeSpentPlaying + " ZemiraSecs";
-	document.getElementsByClassName("accountCurrency")[0].innerHTML = currentAccount.stats.zPoints
-	document.getElementsByClassName("accuracySpan")[0].innerHTML = Math.round(finalOperationStatsGrade) + "%";
+    document.getElementsByClassName("accountCurrency")[0].innerHTML = currentAccount.stats.zPoints
+    document.getElementsByClassName("accuracySpan")[0].innerHTML = statsFinalGrade + "%";
+    
+    gradeStatCheck(statsFinalGrade)
 }
 
 
 
-function gradeStatCheck(){
-	var toOperateWithStats1 = currentAccount.stats.cardsFlipped
-	var toOperateWithStats2 = currentAccount.stats.matchesFoundEver
-	var gradeForCondicional = toOperateWithStats2 / toOperateWithStats1 * 100 
+function gradeStatCheck(accuracyLevel){
+    
+    // Em vez de redefinires, passa a percentagem como argumento através da outra função!! :)
 		
-	if (gradeForCondicional < 10){
+	if (accuracyLevel < 10){
 		document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "Get you some memofante!";
-	}	else if (gradeForCondicional < 30){
+	}	else if (accuracyLevel < 30){
 		document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "Average memory!";
-	}	else if (gradeForCondicional <60){
+	}	else if (accuracyLevel <60){
 		document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "good memory!";
-	}	else if (gradeForCondicional <=80){
+	}	else if (accuracyLevel <=80){
 		document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "Photographic memory?";
-	}	else{
+	}	else if (accuracyLevel > 80) {
 		document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "You hacker!";
 	}
 	

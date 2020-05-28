@@ -167,6 +167,9 @@ h2{
     margin-left: auto;
     margin-right: auto;
     display: inline-block;
+
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .cardTable th {

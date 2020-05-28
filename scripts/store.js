@@ -21,14 +21,20 @@ function updateStats() {
 			accountArray[i].aesthetics.iconPack = currentAccount.aesthetics.iconPack
             accountArray[i].aesthetics.cardBack = currentAccount.aesthetics.cardBack
 			accountArray[i].aesthetics.avatar = currentAccount.aesthetics.avatar
-			
+
 			accountArray[i].stats.zPoints = currentAccount.stats.zPoints
+            accountArray[i].stats.gamesCompleted = currentAccount.stats.gamesCompleted
+            accountArray[i].stats.cardsFlipped = currentAccount.stats.cardsFlipped
+			accountArray[i].stats.matchesFoundEver = currentAccount.stats.matchesFoundEver
+			accountArray[i].stats.timeSpentPlaying = currentAccount.stats.timeSpentPlaying
+
+			updateAccounts()
 			
             break
 		}
 
 	}
-	updateAccounts()
+	
 }
 
 function updateAccounts() {
