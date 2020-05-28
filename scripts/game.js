@@ -674,11 +674,16 @@ function endgameFiller() {
 
         // Adicionar novas entradas
 
+            // mas primeiro, organizar a lista de jogadores pelo número de matches encontradas
+            // primariamente, e secundariamente pelo nível de accuracy
         
-        for(let i= 0; i < tempPlayerList.length; i++) {
+        let listCopy = [...tempPlayerList]
+        listCopy.sort((a, b) => (a.matches < b.matches) ? 1 : (a.matches === b.matches) ? ((getTempPlayerAccuracy(a) < getTempPlayerAccuracy(b)) ? 1 : -1) : -1 )
+
+        for(let i= 0; i < listCopy.length; i++) {
         
-            let currentPlayer = tempPlayerList[i]
-            let playerAccuracy = Math.round((currentPlayer.matches / (currentPlayer.cardsFlipped/2)) * 100)
+            let currentPlayer = listCopy[i]
+            let playerAccuracy = getTempPlayerAccuracy(currentPlayer)
             let MPTimeTaken = document.getElementById("MPTimeTaken")
 
             if (isNaN(playerAccuracy)) {
@@ -688,6 +693,7 @@ function endgameFiller() {
             MPTimeTaken.innerHTML = estado.timePassed
 
             multiplayerLeaderboardTable.innerHTML += "<tr>" +
+                                                "<td>" + (i+1) + "." + "</td>" +
                                                 "<td>" + currentPlayer.name + "</td>" +
                                                 "<td>" + currentPlayer.matches + "</td>" +
                                                 "<td>" + currentPlayer.cardsFlipped + "</td>" +
@@ -714,6 +720,12 @@ function endgameFiller() {
         SPAccuracy.innerHTML = playerAccuracy + "%"
 
     }
+}
+
+function getTempPlayerAccuracy(tempPlayerObject) {
+    let playerAccuracy = Math.round((tempPlayerObject.matches / (tempPlayerObject.cardsFlipped/2)) * 100)
+    
+    return playerAccuracy
 }
 
 function exitGame(scope=null) {
