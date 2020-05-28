@@ -1,5 +1,40 @@
 /* DEFINIÇÃO DOS PACKS DE ICONS */
 
+let defaultPack = [
+    "imagens/iconPacks/default/001-3d glasses.png",
+    "imagens/iconPacks/default/002-toy machine.png",
+    "imagens/iconPacks/default/003-calculator.png",
+    "imagens/iconPacks/default/004-cassette.png",
+    "imagens/iconPacks/default/005-computer.png",
+    "imagens/iconPacks/default/006-computer.png",
+    "imagens/iconPacks/default/007-disk.png",
+    "imagens/iconPacks/default/008-toy.png",
+    "imagens/iconPacks/default/009-game console.png",
+    "imagens/iconPacks/default/010-game console.png",
+    "imagens/iconPacks/default/011-game console.png",
+    "imagens/iconPacks/default/012-game console.png",
+    "imagens/iconPacks/default/013-glasses.png",
+    "imagens/iconPacks/default/014-joystick.png",
+    "imagens/iconPacks/default/015-joystick.png",
+    "imagens/iconPacks/default/016-joystick.png",
+    "imagens/iconPacks/default/017-lightsaber.png",
+    "imagens/iconPacks/default/018-mac.png",
+    "imagens/iconPacks/default/019-computer.png",
+    "imagens/iconPacks/default/020-mouse.png",
+    "imagens/iconPacks/default/021-picture.png",
+    "imagens/iconPacks/default/022-headphones.png",
+    "imagens/iconPacks/default/023-recorder.png",
+    "imagens/iconPacks/default/024-voice recorder.png",
+    "imagens/iconPacks/default/025-stereo.png",
+    "imagens/iconPacks/default/026-toy.png",
+    "imagens/iconPacks/default/027-tv.png",
+    "imagens/iconPacks/default/028-tv.png",
+    "imagens/iconPacks/default/029-tv.png",
+    "imagens/iconPacks/default/030-video player.png",
+    "imagens/iconPacks/default/031-video tape.png",
+    "imagens/iconPacks/default/032-view.png",
+    "imagens/iconPacks/default/033-calculator.png",
+    "imagens/iconPacks/default/034-watch.png"]
 
 let foodPack = [
     "imagens/iconPacks/food/1.png",
@@ -440,6 +475,7 @@ if (!(localStorage.getItem("avatars"))) {
 if (!(localStorage.getItem("packs"))) {
 
     let packs = {
+        default: defaultPack,
         pets: petsPack,
         pokemon: pokemonPack,
         desert: desertPack,

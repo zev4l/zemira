@@ -223,9 +223,6 @@ function registerHandler() {
 /* FUNÇÕES RELATIVAS AO LOGOUT */ 
 
 function openLogout() {
-
-    /* Atualização dos stats é feita aqui pois, se for feita quando o utilizador
-    carrega no botão de logout, dá-se um bug estranho em que os dados não são guardados */
     
     updateStats()
 
@@ -269,6 +266,33 @@ function logoutHandler() {
     location = location
     menuElementToggle()
     showStats()
+
+}
+
+function deleteAccount() {
+
+    let deleteButton = document.getElementById("deleteAccountButton") 
+
+    if (deleteAccountTimeoutID) {
+        deleteButton.innerHTML = "ACCOUNT DELETED"
+        for (let i = 0; i < accountArray.length; i++) {
+            if (accountArray[i].username == currentAccount.username) {
+                accountArray.splice(i, 1)
+                currentAccount = null
+                updateAccounts()
+                location = location
+            }
+        }
+    }
+
+    
+
+    deleteButton.innerHTML = "ARE YOU 100% SURE?"
+
+    deleteAccountTimeoutID = setTimeout(function() {
+        deleteButton.innerHTML = "DELETE ACCOUNT"
+        deleteAccountTimeoutID = null
+    },4000)
 
 }
 
@@ -583,28 +607,3 @@ function showSettingsAppliedMessage() {
     },1500)
 }
 
-function deleteAccount() {
-
-    let deleteButton = document.getElementById("deleteAccountButton") 
-
-    if (deleteAccountTimeoutID) {
-        deleteButton.innerHTML = "ACCOUNT DELETED"
-        for (let i = 0; i < accountArray.length; i++) {
-            if (accountArray[i].username == currentAccount.username) {
-                accountArray.splice(i, 1)
-                currentAccount = null
-                updateAccounts()
-                location = location
-            }
-        }
-    }
-
-    
-
-    deleteButton.innerHTML = "ARE YOU 100% SURE?"
-
-    deleteAccountTimeoutID = setTimeout(function() {
-    deleteButton.innerHTML = "DELETE ACCOUNT"
-    },4000)
-
-}

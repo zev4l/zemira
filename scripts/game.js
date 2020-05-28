@@ -38,7 +38,7 @@ let estado = {
     currentMPPlayer: null
 }
 
-let defaultPack = packs.socialMedia
+let defaultIconPack = packs.default
 
 let defaultBack = "imagens/cardBacks/cardBack.png"
 
@@ -46,7 +46,7 @@ let defaultAvatar = "imagens/avatares/dogeAvatar.png"
 
 let config = {
     backImageSource: defaultBack,
-    frontImagePackSource:  defaultPack,
+    frontImagePackSource:  defaultIconPack,
     avatar: defaultAvatar
 }
 
@@ -635,6 +635,8 @@ function showDuplicateNameErrorMessage() {
         
     },2000)
 }
+
+// Funções relativas ao popup de final de jogo.
 
 
 
