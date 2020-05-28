@@ -8,39 +8,7 @@ let contentList = ["packs.desert", "packs.lego", "packs.pokemon", "packs.socialM
 
 
 
-// ************************************+
-
-function updateStats() {
-    for (let i=0; i<accountArray.length; i++){ 
-        if (accountArray[i].username == currentAccount.username) {
-
-			accountArray[i].aesthetics.boughtIconPacks = currentAccount.aesthetics.boughtIconPacks
-			accountArray[i].aesthetics.boughtCardBacks = currentAccount.aesthetics.boughtCardBacks
-			accountArray[i].aesthetics.boughtAvatars = currentAccount.aesthetics.boughtAvatars
-
-			accountArray[i].aesthetics.iconPack = currentAccount.aesthetics.iconPack
-            accountArray[i].aesthetics.cardBack = currentAccount.aesthetics.cardBack
-			accountArray[i].aesthetics.avatar = currentAccount.aesthetics.avatar
-
-			accountArray[i].stats.zPoints = currentAccount.stats.zPoints
-            accountArray[i].stats.gamesCompleted = currentAccount.stats.gamesCompleted
-            accountArray[i].stats.cardsFlipped = currentAccount.stats.cardsFlipped
-			accountArray[i].stats.matchesFoundEver = currentAccount.stats.matchesFoundEver
-			accountArray[i].stats.timeSpentPlaying = currentAccount.stats.timeSpentPlaying
-
-			updateAccounts()
-			
-            break
-		}
-
-	}
-	
-}
-
-function updateAccounts() {
-    localStorage.setItem("accountArray", JSON.stringify(accountArray))
-	localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
-}
+// ************************************
 
 function inicial() {
 

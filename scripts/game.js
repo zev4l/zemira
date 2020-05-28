@@ -32,6 +32,7 @@ let estado = {
     startTime: null,
     timePassed: null,
     timerID: null,
+    cardsFlipped: null,
     currentCards: [],
     usedCards: [],
     multiplayer: false, // Usado para saber se a instância do jogo é MP ou não
@@ -126,6 +127,12 @@ function startTimeCounter() {
 function showCard(n) {
 
     let multiplayerOn = estado.multiplayer
+
+    if (n!=estado.currentCards[0] && !(estado.usedCards.includes(n))) {
+        estado.cardsFlipped ++
+
+    }
+
 
     /* Atualiza o contador de cartas viradas em todo o tempo de jogo do utilizador
     Simultaneamente impede um jogador de farmar cardFlips, pois verifica se a carta
@@ -229,7 +236,7 @@ function hideCard(n) {
 }
 
 function endGame() {
-
+let multiplayerOn = estado.multiplayer
     // abre o popup de fim de jogo
 
     openEndgamePopup()
@@ -237,6 +244,9 @@ function endGame() {
     if (currentAccount) {
         currentAccount.stats.zPoints ++
         currentAccount.stats.gamesCompleted ++
+        if (!(multiplayerOn) && (currentAccount.stats.lowestTime == null || estado.timePassed < currentAccount.stats.lowestTime)) {
+            currentAccount.stats.lowestTime = estado.timePassed
+        }
         updateStats();
     }
 
@@ -247,7 +257,7 @@ function endGame() {
 
 }
 
-function restartButton() {
+function restartButton(scope=null) {
     resetEstado();
     for (let i=0; i<20; i++) {
         hideCard(i)
@@ -262,6 +272,15 @@ function restartButton() {
     
     // Para mostrar as matches e os zPoints atualizados
     showStats();
+    closeEndgamePopup()
+
+    if (scope="multiplayer") {
+        for (let i = 0; i< tempPlayerList.length; i++) {
+            let currentPlayer = tempPlayerList[i]
+            currentPlayer.matches = 0
+            currentPlayer.cardsFlipped = 0
+        }
+    }
 }
 
 /* FUNÇÕES QUE GEREM VARIÁVEIS E LOCALSTORAGE */ 
@@ -272,40 +291,9 @@ function resetEstado() {
     estado.timerID = null;
     estado.timePassed = null;
     estado.matches = 0;
+    estado.cardsFlipped = 0;
 }
 
-
-function updateStats() {
-    for (let i=0; i<accountArray.length; i++){ 
-        if (accountArray[i].username == currentAccount.username) {
-
-			accountArray[i].aesthetics.boughtIconPacks = currentAccount.aesthetics.boughtIconPacks
-			accountArray[i].aesthetics.boughtCardBacks = currentAccount.aesthetics.boughtCardBacks
-			accountArray[i].aesthetics.boughtAvatars = currentAccount.aesthetics.boughtAvatars
-
-			accountArray[i].aesthetics.iconPack = currentAccount.aesthetics.iconPack
-            accountArray[i].aesthetics.cardBack = currentAccount.aesthetics.cardBack
-			accountArray[i].aesthetics.avatar = currentAccount.aesthetics.avatar
-
-			accountArray[i].stats.zPoints = currentAccount.stats.zPoints
-            accountArray[i].stats.gamesCompleted = currentAccount.stats.gamesCompleted
-            accountArray[i].stats.cardsFlipped = currentAccount.stats.cardsFlipped
-            accountArray[i].stats.matchesFoundEver = currentAccount.stats.matchesFoundEver
-            accountArray[i].stats.timeSpentPlaying = currentAccount.stats.timeSpentPlaying
-
-			updateAccounts()
-			
-            break
-		}
-
-	}
-	
-}
-
-function updateAccounts() {
-    localStorage.setItem("accountArray", JSON.stringify(accountArray))
-    localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
-}
 
 function showStats () {
 
@@ -326,6 +314,7 @@ function showSPGameElements() {
     document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
     document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
+    document.getElementById("singleplayerLeaderboard").style.display = "block"
 
     for (let i=0; i<20;i++) {
         document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
@@ -338,6 +327,7 @@ function showMPGameElements() {
     document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
     document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
+    document.getElementById("multiplayerLeaderboard").style.display = "block"
     TURN_CONTAINER_ID.style.display = "block"
 
     for (let i=0; i<20;i++) {
@@ -647,6 +637,7 @@ function showDuplicateNameErrorMessage() {
 function openEndgamePopup() {
     let endgameBox = document.getElementById("endgameBox")
     let dimmer = document.getElementById("dimmer")
+    endgameFiller()
     endgameBox.style.display = "block"
     setTimeout(function() {
         endgameBox.style.opacity = "1"
@@ -654,7 +645,7 @@ function openEndgamePopup() {
     },100)
 }
   
-function closeEngamePopup() {
+function closeEndgamePopup() {
     let endgameBox = document.getElementById("endgameBox")
     let dimmer = document.getElementById("dimmer")
 
@@ -668,7 +659,70 @@ function closeEngamePopup() {
     },200)
 }
 
-function exitGame() {
-    location = location
+function endgameFiller() {
+    let multiplayerLeaderboardTable = document.getElementById("multiplayerLeaderboardTable")
+    let singleplayerLeaderboard = document.getElementById("singleplayerLeaderboard")
+    let multiplayerOn = estado.multiplayer 
+
+    // Lidar com o leaderboard de final de jogo do multiplayer
+    if (multiplayerOn) {
+
+        // Remover possíveis entradas de jogos anteriores
+        while (multiplayerLeaderboardTable.children.length > 1) { 
+            multiplayerLeaderboardTable.removeChild(multiplayerLeaderboardTable.lastElementChild);
+        }
+
+        // Adicionar novas entradas
+
+        
+        for(let i= 0; i < tempPlayerList.length; i++) {
+        
+            let currentPlayer = tempPlayerList[i]
+            let playerAccuracy = Math.round((currentPlayer.matches / (currentPlayer.cardsFlipped/2)) * 100)
+            let MPTimeTaken = document.getElementById("MPTimeTaken")
+
+            if (isNaN(playerAccuracy)) {
+                playerAccuracy = 0
+            }
+
+            MPTimeTaken.innerHTML = estado.timePassed
+
+            multiplayerLeaderboardTable.innerHTML += "<tr>" +
+                                                "<td>" + currentPlayer.name + "</td>" +
+                                                "<td>" + currentPlayer.matches + "</td>" +
+                                                "<td>" + currentPlayer.cardsFlipped + "</td>" +
+                                                "<td>" + playerAccuracy + "%" + "</td>" +
+                                                "</tr>"
+                        
+        }
+    }
+
+    // Lidar com o leaderboard de final de jogo com o singleplayer
+    if (!(multiplayerOn)) {
+
+        let SPTimeTaken = document.getElementById("SPTimeTaken")
+        let SPCardsFlipped = document.getElementById("SPCardsFlipped")
+        let SPAccuracy = document.getElementById("SPAccuracy")
+        let playerAccuracy = Math.round((estado.matches / (estado.cardsFlipped/2)) * 100)
+
+        if (isNaN(playerAccuracy)) {
+            playerAccuracy = 0
+        }
+
+        SPTimeTaken.innerHTML = estado.timePassed
+        SPCardsFlipped.innerHTML = estado.cardsFlipped
+        SPAccuracy.innerHTML = playerAccuracy + "%"
+
+    }
 }
+
+function exitGame(scope=null) {
+    location = location
+
+    if (scope == "MPNewPlayers") {
+        openMultiplayer()
+    }
+}
+
+
 

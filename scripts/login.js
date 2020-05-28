@@ -55,7 +55,8 @@ function playerStats() {
     this.gamesCompleted = 0,
     this.cardsFlipped = 0,
     this.matchesFoundEver = 0,
-    this.timeSpentPlaying = 0
+    this.timeSpentPlaying = 0,
+    this.lowestTime = null
 }
 
 function aesthetics() {
@@ -76,6 +77,41 @@ function inicial() {
     menuElementToggle()
 
 	
+}
+
+// FUNÇÕES GESTORAS DE DADOS
+
+function updateStats() {
+    for (let i=0; i<accountArray.length; i++){ 
+        if (accountArray[i].username == currentAccount.username) {
+
+			accountArray[i].aesthetics.boughtIconPacks = currentAccount.aesthetics.boughtIconPacks
+			accountArray[i].aesthetics.boughtCardBacks = currentAccount.aesthetics.boughtCardBacks
+			accountArray[i].aesthetics.boughtAvatars = currentAccount.aesthetics.boughtAvatars
+
+			accountArray[i].aesthetics.iconPack = currentAccount.aesthetics.iconPack
+            accountArray[i].aesthetics.cardBack = currentAccount.aesthetics.cardBack
+			accountArray[i].aesthetics.avatar = currentAccount.aesthetics.avatar
+
+			accountArray[i].stats.zPoints = currentAccount.stats.zPoints
+            accountArray[i].stats.gamesCompleted = currentAccount.stats.gamesCompleted
+            accountArray[i].stats.cardsFlipped = currentAccount.stats.cardsFlipped
+            accountArray[i].stats.matchesFoundEver = currentAccount.stats.matchesFoundEver
+            accountArray[i].stats.timeSpentPlaying = currentAccount.stats.timeSpentPlaying
+            accountArray[i].stats.lowestTime = currentAccount.stats.lowestTime
+
+			updateAccounts()
+			
+            break
+		}
+
+	}
+	
+}
+
+function updateAccounts() {
+    localStorage.setItem("accountArray", JSON.stringify(accountArray))
+    localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
 }
 
 function menuElementToggle() {
@@ -376,12 +412,16 @@ function statsBoxUpdater(){
 	let statsCardsFlipped = currentAccount.stats.cardsFlipped
 	let statsMatchesFound = currentAccount.stats.matchesFoundEver
     let statsFinalGrade = Math.round((statsMatchesFound / (statsCardsFlipped/2)) * 100)
-    console.log(statsFinalGrade)
     if (isNaN(statsFinalGrade)) {
         statsFinalGrade = 0
     }
 	
-		
+    
+    // Miguel, quando puderes adiciona um novo parâmetro.
+    // Existe uma coisa nova chamada currentAccount.stats.lowestTime
+    // que mostra o tempo mais baixo que o jogador alguma vez fez!
+    // Se tiveres problemas apaga a tua localstorage e tenta denovo :) good luck!
+
 	document.getElementsByClassName("usernameStats")[0].innerHTML = currentAccount.username;
 	document.getElementsByClassName("numberOfCards")[0].innerHTML = currentAccount.stats.cardsFlipped;
 	document.getElementsByClassName("numberOfGamesPlayed")[0].innerHTML = currentAccount.stats.gamesCompleted;
@@ -499,7 +539,7 @@ function settingsFiller() {
 
             newOption.value = boughtIconPacks[i]
 
-            // Não se adiciona essa opção se ela já existir, para evitar duplicados
+            // Não se adiciona essa opção se ela já existir, para evitar entradas duplicadas na mesma sessão de jogo
 
             let optionExists = document.querySelectorAll(`[value="${newOption.value}"]`).length > 0
 

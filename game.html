@@ -181,10 +181,25 @@
     <!-- caixa de fim-de-jogo -->
 
     <div class="endgamePopup" id="endgameBox">
-      <img class="closeButton" src="imagens/crossIcon.png" onclick="closeEndgamePopup()">
-      <h2>(TODO: LEADERBOARD OF TEMP PLAYERS)</h2>
+      <h2 id="endgamePopupTitle">GAME STATS</h2>
+      <div id = "multiplayerLeaderboard" >
+        <table id="multiplayerLeaderboardTable">
+          <tr>
+            <th class="tableTitle">Name</th>
+            <th class="tableTitle">Matches Found</th> 
+            <th class="tableTitle">Cards Flipped</th>
+            <th class="tableTitle">Accuracy</th>
+          </tr>
+        </table>
+        <p>Time taken: <span id="MPTimeTaken"></span> seconds</p>
+      </div>
+      <div id="singleplayerLeaderboard">
+        <p>Time taken: <span id="SPTimeTaken"></span> seconds</p>
+        <p>Cards flipped: <span id="SPCardsFlipped"></span></p>
+        <p>Accuracy: <span id="SPAccuracy"></span></p>
+      </div>
 
-      <button type="button" class="backgroundHighlight SPButton" id="" onclick="">Restart game! (same players)</button>
+      <button type="button" class="backgroundHighlight SPButton" id="" onclick="restartButton()">Restart game!</button>
       <button type="button" class="exitButton SPButton" id="" onclick="exitGame()">Exit</button>
     </div>
 

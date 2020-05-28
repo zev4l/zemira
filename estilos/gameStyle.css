@@ -324,8 +324,12 @@ table{
 
 }
 
-.multiplayerPopup h2, .endgamePopup h2 {
+.multiplayerPopup h2 {
     color: black;
+}
+
+.endgamePopup {
+    width: 600px;
 }
 
 .backgroundHighlight {
@@ -390,4 +394,19 @@ table{
     color: black;
 }
 
+#turn {
+    animation: color-change 5s infinite;
+}
+
+/* Leaderboard */
+
+#multiplayerLeaderboard, #singleplayerLeaderboard {
+    display: none;
+}
+
+#singleplayerLeaderboard {
+    text-align: left;
+    width: 80%;
+    margin: 10% auto 10% auto;
+}
 
