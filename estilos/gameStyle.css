@@ -303,9 +303,9 @@ table{
 }
 
 
-/* DEFINIÇÃO DO POPUP DE MULTIPLAYER E SINGLEPLAYER */
+/* DEFINIÇÃO DO POPUP DE MULTIPLAYER, SINGLEPLAYER E ENDGAME */
 
-.multiplayerPopup, .singleplayerPopup{
+.multiplayerPopup, .singleplayerPopup, .endgamePopup{
 
     display: none;
     position: fixed;
@@ -324,7 +324,7 @@ table{
 
 }
 
-.multiplayerPopup h2 {
+.multiplayerPopup h2, .endgamePopup h2 {
     color: black;
 }
 
@@ -377,6 +377,10 @@ table{
 
 .closeButton {
     margin-bottom: 10ex;
+}
+
+.exitButton {
+    background-color: red;
 }
 
 #turnContainer {

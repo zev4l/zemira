@@ -229,6 +229,11 @@ function hideCard(n) {
 }
 
 function endGame() {
+
+    // abre o popup de fim de jogo
+
+    openEndgamePopup()
+
     if (currentAccount) {
         currentAccount.stats.zPoints ++
         currentAccount.stats.gamesCompleted ++
@@ -239,6 +244,7 @@ function endGame() {
 
     // Atualiza os zPoints do jogador.
     showStats()
+
 }
 
 function restartButton() {
@@ -638,5 +644,31 @@ function showDuplicateNameErrorMessage() {
 
 // Funções relativas ao popup de final de jogo.
 
+function openEndgamePopup() {
+    let endgameBox = document.getElementById("endgameBox")
+    let dimmer = document.getElementById("dimmer")
+    endgameBox.style.display = "block"
+    setTimeout(function() {
+        endgameBox.style.opacity = "1"
+        dimmer.style.opacity = "1"
+    },100)
+}
+  
+function closeEngamePopup() {
+    let endgameBox = document.getElementById("endgameBox")
+    let dimmer = document.getElementById("dimmer")
 
+
+    endgameBox.style.opacity= "0";
+    dimmer.style.opacity = "0"
+
+    setTimeout(function() {
+        endgameBox.style.display = "none";
+        
+    },200)
+}
+
+function exitGame() {
+    location = location
+}
 
