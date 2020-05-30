@@ -47,6 +47,7 @@
         border-radius: 10px;
         border: solid black;
         padding: 5px;
+        text-align: center;
     }
 
     .homeNavBar li {
@@ -95,6 +96,7 @@
     }
 
     #playButton {
+        position: relative;
         display: inline-block;
         cursor: pointer;
         box-shadow: inset 0px 0px 40px 40px #9c01cfa4;
@@ -106,6 +108,7 @@
         font-size: 300%;
         padding: 20px;
         text-decoration: none;
+        top:50px;
     }
     
     #playButton:hover {
@@ -248,7 +251,7 @@
         cursor: pointer;
         background-color: white;
         border: solid;
-        top: 12px;
+        top: 62px;
         left: 220px;
 
     }
@@ -283,7 +286,12 @@
         position: relative;
         text-align: center;
         align-items: center;
-        margin: 0 auto;
+        margin: 0 auto auto auto;
+    }
+
+    .homeCorpo {
+        position: relative;
+        right: 170px;
     }
 
 /* Para a barra de navegação de todas as outras páginas HTML */
@@ -306,24 +314,27 @@
         transition: ease 600ms;
     }
 
-    .mainNavBar a:hover {
-        transition: ease 600ms;
-        color:rgb(255, 208, 0);
-        text-decoration: none;
+/* Para a barra de navegação da página HOME */
+    #homeNavBar {
+        margin-top: 50px;
+        position: relative;
+        left: 25%;
+        z-index: 2;
     }
 
-/* Para a barra de navegação da página HOME */
     .homeNavBar {
         position: relative;
+        display: inline-block;
         margin-right: 3em;
         margin-top: 1em;
+        text-align: center;
     }
 
     .homeNavBar li {
         position: relative;
         display: inline-block;
-        font-size: 0.8em;
-        padding: 5px;
+        font-size: 13px;
+        padding: 7px;
     }
 
     .homeNavBar a {
@@ -346,6 +357,7 @@
         font-size: 300%;
         padding: 20px;
         text-decoration: none;
+        top: 20px;
     }   
     
     #playButton:hover {
@@ -432,7 +444,6 @@
     .footerHome {
         bottom: 0.01ex;
         font-size: 12px;
-        margin: 0 auto;
         background: black;
         width: 100%;
         position: fixed;
@@ -454,10 +465,9 @@
 /* Para o botão de mute/unmute de música na home */
 
 #soundButtonHome {
-    position: relative;
     margin-left: 3vw;
-    width: 70px;
-    height: 65px;
+    width: 50px;
+    height: 66px;
     position: absolute;
     margin-top: 0.5%;
     border-radius: 12px;
@@ -465,6 +475,9 @@
     overflow:  hidden; 
     cursor: pointer;
     background-color: white;
+    border: solid;
+    top: 520px;
+    left: 280px;
 
 }
 
@@ -479,6 +492,9 @@
 
     .mobile {
         display: none;
+    }
+    .tablet {
+        display: block;
     }
 
     header {
@@ -506,14 +522,13 @@
         margin: 0 auto;
     }
 
+
 /* Para a barra de navegação de todas as outras páginas HTML */
     .mainNavBar {
-        
         border-style: solid;
         display: inline-block;
         margin-top: 2ex;
         padding: 2ex;
-        
     }
 
     .mainNavBar li {
@@ -533,27 +548,37 @@
     }
 
 /* Para a barra de navegação da página HOME */
+    #homeNavBar {
+        margin-top: 10px;
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+    }
+
     .homeNavBar {
         position: relative;
-        margin-right: 3em;
-        margin-top: 1em;
+        background-color: rgb(255, 208, 0);
+        border-radius: 10px;
+        border: solid black;
+        padding: 5px;
+        text-align: center;
     }
 
     .homeNavBar li {
         position: relative;
-        display: inline-block;
-        font-size: 1.1em;
-        padding: 5px;
+        display: inline-block ;
+        font-size: 15px;
+        padding: 20px;
+        transition: 200ms ease;
     }
 
     .homeNavBar a {
         text-decoration: none;
-        background: black;
-        padding: 4px;
-        color: rgb(255, 208, 0);
+        color: black;
     }
 
     #playButton {
+        top: 20px;
         position: relative;
         display: inline-block;
         cursor: pointer;
@@ -656,13 +681,17 @@
     .footerHome {
         bottom: 0.01ex;
         font-size: 12px;
-        margin: 0 auto;
         background: black;
         width: 100%;
         position: fixed;
         color: rgb(255, 208, 0);
         text-align: center;
         font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #footerMain {
+        position: relative;
+        bottom: 10px;
     }
 
 /* Para o footer de todas as outras páginas HTML */
@@ -679,10 +708,9 @@
 /* Para o botão de mute/unmute de música na home */
 
 #soundButtonHome {
-    position: relative;
     margin-left: 3vw;
-    width: 70px;
-    height: 65px;
+    width: 50px;
+    height: 66px;
     position: absolute;
     margin-top: 0.5%;
     border-radius: 12px;
@@ -690,6 +718,9 @@
     overflow:  hidden; 
     cursor: pointer;
     background-color: white;
+    border: solid;
+    top: 530px;
+    left: 450px;
 
 }
 

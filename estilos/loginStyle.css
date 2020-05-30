@@ -98,13 +98,17 @@
     top: 10px;
 }
 
+.leaderboardButton {
+    display: inline-block;
+}
+
 .logoutButton:hover {
     transition: 600ms ease;
     color: red;
 }
 
 
-.loginButton:hover, .registerButton:hover, .settingsButton:hover, .statsButton:hover{
+.loginButton:hover, .registerButton:hover, .settingsButton:hover, .statsButton:hover, .leaderboardButton:hover{
     transition: 600ms ease;
     animation: color-change 5s infinite;
 }
