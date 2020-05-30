@@ -81,8 +81,7 @@
     top: 4ex;
 }
 
-.logoutButton, .settingsButton, .statsButton {
-    display: inline-block;
+.logoutButton, .settingsButton, .statsButton, .leaderboardButton {
     cursor: pointer;
     position: absolute;
     right: 6ex;
@@ -98,13 +97,17 @@
     right: 37ex;
 }
 
+.leaderboardButton {
+    display: inline-block;
+}
+
 .logoutButton:hover {
     transition: 600ms ease;
     color: red;
 }
 
 
-.loginButton:hover, .registerButton:hover, .settingsButton:hover, .statsButton:hover{
+.loginButton:hover, .registerButton:hover, .settingsButton:hover, .statsButton:hover, .leaderboardButton:hover{
     transition: 600ms ease;
     animation: color-change 5s infinite;
 }

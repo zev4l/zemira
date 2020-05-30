@@ -753,6 +753,11 @@ function closeLeaderboard() {
     },200)
 }
 
+function leaderboardFiller() {
+    for(let i = 0; i<accountArray.length; i++) {
+        
+    }
+}
 
 // Outras funções
 
