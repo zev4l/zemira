@@ -333,6 +333,10 @@ table{
     position: fixed;
 }
 
+.leaderboardPopup {
+    width: 400px;
+}
+
 .backgroundHighlight {
     animation: background-color-change 5s infinite;
 }
