@@ -116,6 +116,24 @@
 
     </div>
 
+    <!-- caixa de leaderboard // melhores tempos de todos os jogadores -->
+
+    <div class="leaderboardPopup" id="leaderboardBox">
+      
+      <img class="closeButton" src="imagens/crossIcon.png" onclick="closeLeaderboard()">
+      <h2>LEADERBOARD</h2>
+      <h3>ALL TIME TOP SCORES:</h3>
+      <div>
+        <table id="leaderboardTable">
+          <tr class="headerRow">
+            <th class="tableTitle">Rank</th>
+            <th class="tableTitle">Name</th>
+            <th class="tableTitle">Time taken</th> 
+          </tr>
+        </table>         
+      </div> 
+    </div>
+
     <!-- caixa de settings -->
 
     <div class="settingsPopup" id="settingsBox">
@@ -226,6 +244,10 @@
 
         <div class="statsButton" onclick="openStats()">
           <p>Stats</p>
+        </div>
+
+        <div class="leaderboardButton" onclick="openLeaderboard()">
+          <p>Leaderboard</p>
         </div>
 
         <div class="logoutButton" onclick="openLogout()">

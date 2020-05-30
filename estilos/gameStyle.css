@@ -305,7 +305,7 @@ table{
 
 /* DEFINIÇÃO DO POPUP DE MULTIPLAYER, SINGLEPLAYER E ENDGAME */
 
-.multiplayerPopup, .singleplayerPopup, .endgamePopup{
+.multiplayerPopup, .singleplayerPopup, .endgamePopup, .leaderboardPopup{
 
     display: none;
     position: fixed;
