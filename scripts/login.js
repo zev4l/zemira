@@ -412,9 +412,12 @@ function statsBoxUpdater(){
 	let statsCardsFlipped = currentAccount.stats.cardsFlipped
 	let statsMatchesFound = currentAccount.stats.matchesFoundEver
     let statsFinalGrade = Math.round((statsMatchesFound / (statsCardsFlipped/2)) * 100)
+	
     if (isNaN(statsFinalGrade)) {
         statsFinalGrade = 0
     }
+	
+	
 	
     
     // Miguel, quando puderes adiciona um novo parâmetro.
@@ -428,6 +431,7 @@ function statsBoxUpdater(){
 	document.getElementsByClassName("numberOfCorrectPairs")[0].innerHTML = currentAccount.stats.matchesFoundEver;
 	document.getElementsByClassName("timePlayed")[0].innerHTML = currentAccount.stats.timeSpentPlaying + " ZemiraSecs";
     document.getElementsByClassName("accountCurrency")[0].innerHTML = currentAccount.stats.zPoints
+	document.getElementsByClassName("lowestTime")[0].innerHTML = currentAccount.stats.lowestTime + " ZemiraSecs"
     document.getElementsByClassName("accuracySpan")[0].innerHTML = statsFinalGrade + "%";
     
     gradeStatCheck(statsFinalGrade)
