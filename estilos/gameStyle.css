@@ -329,7 +329,7 @@ table{
 }
 
 .endgamePopup {
-    min-width: 30%;
+    width: 620px;
     position: fixed;
 }
 
