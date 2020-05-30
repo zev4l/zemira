@@ -404,6 +404,20 @@ function usernameSettingsAccess(){
 }
 
 
+function openHamburguerMenu(){
+	let hamburguerMenu = document.getElementsByClassName("hamburguerMenuDiv")[0]
+		
+	hamburguerMenu.style.display = "block"
+	
+	 setTimeout(function() {
+		 
+        hamburguerMenu.style.height = "40%"
+    },200)
+}
+
+
+
+
 
 
 /* FUNÇÕES RESPONSAVEL PELO UPDATE DA CAIXA DE STATS*/

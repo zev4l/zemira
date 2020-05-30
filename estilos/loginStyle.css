@@ -81,21 +81,21 @@
     top: 4ex;
 }
 
-.logoutButton, .settingsButton, .statsButton {
-    display: inline-block;
+.logoutButton, .settingsButton, .statsButton, .leaderboardButton {
+    display: block;
+    border: solid;    
     cursor: pointer;
-    position: absolute;
-    right: 6ex;
-    top: 4ex;
+    background-color: yellow;
+    width: 100%;
     display: none;
 }
 
 .settingsButton {
-    right: 20ex;
+    top: 2px;
 }
 
 .statsButton {
-    right: 37ex;
+    top: 10px;
 }
 
 .logoutButton:hover {
@@ -307,4 +307,34 @@ o rato em cima do butão de "submit" */
     width: 80%;
     margin-bottom:10px;       
     background-color: green;
+}
+
+.hamburguerMenuDiv{
+    transition: 600ms ease;
+    overflow: hidden;
+    display: none;
+    position: absolute; 
+    text-align: center;    
+    height : 0%;  
+    width: 10%;    
+    border: 3px solid rgb(255, 208, 0);        
+    right: 10px;    
+    background-color: black;    
+    text-align: center;    
+    opacity: 0.5;  
+}
+.hamburguerMenu{
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    right: 6ex;
+    top: 4ex;
+    
+}
+
+.closeHamburgerButton{
+    position: absolute;
+    bottom: 0;
+    left: 2px;
+    color: white;
 }
