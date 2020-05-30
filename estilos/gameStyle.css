@@ -329,7 +329,8 @@ table{
 }
 
 .endgamePopup {
-    width: 600px;
+    min-width: 30%;
+    position: relative;
 }
 
 .backgroundHighlight {

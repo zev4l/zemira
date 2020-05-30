@@ -54,6 +54,7 @@
         display: inline-block ;
         font-size: 27px;
         padding: 20px;
+        transition: 200ms ease;
     }
 
     .homeNavBar a {
