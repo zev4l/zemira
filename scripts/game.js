@@ -661,7 +661,6 @@ function closeEndgamePopup() {
 
 function endgameFiller() {
     let multiplayerLeaderboardTable = document.getElementById("multiplayerLeaderboardTable")
-    let singleplayerLeaderboard = document.getElementById("singleplayerLeaderboard")
     let multiplayerOn = estado.multiplayer 
 
     // Lidar com o leaderboard de final de jogo do multiplayer
@@ -727,6 +726,35 @@ function getTempPlayerAccuracy(tempPlayerObject) {
     
     return playerAccuracy
 }
+
+// Funções relativas ao popup de leaderboard (não o de final de jogo)
+
+function openLeaderboard() {
+    let leaderboardBox = document.getElementById("leaderboardBox")
+    let dimmer = document.getElementById("dimmer")
+    leaderboardBox.style.display = "block"
+    setTimeout(function() {
+        leaderboardBox.style.opacity = "1"
+        dimmer.style.opacity = "1"
+    },100)
+}
+  
+function closeLeaderboard() {
+    let leaderboardBox = document.getElementById("leaderboardBox")
+    let dimmer = document.getElementById("dimmer")
+
+
+    leaderboardBox.style.opacity= "0";
+    dimmer.style.opacity = "0"
+
+    setTimeout(function() {
+        leaderboardBox.style.display = "none";
+        
+    },200)
+}
+
+
+// Outras funções
 
 function exitGame(scope=null) {
     location = location
