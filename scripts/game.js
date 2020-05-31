@@ -11,18 +11,25 @@ let avatars = JSON.parse(localStorage.getItem("avatars"))
 
 /* CONSTRUTOR E GESTÃO DE JOGADORES TEMPORÁRIOS */ 
 
+/**
+ * Esta função serve o propósito de criar objetos de jogador temporário, utilizados no multiplayer.
+ * @param {string} name - nome do jogador temporário
+ */
 function tempPlayer(name) {
     this.name= name,
     this.matches= 0,
     this.cardsFlipped= 0
 }
 
+// Liste que alberga os objetos de jogador temporário durante jogos de multiplayer. Limpa após cada jogo.
 let tempPlayerList = []
 
+// Utilizados para identificar o elemento que alberga o nome do jogador multiplayer cuja vez é.
 let TURN_ID = null
 
 let TURN_CONTAINER_ID = null
 
+// Utilizados para albergar o objetos Audio relativos à música de fundo e efeitos sonoros
 let music = null
 
 let matchesSoundEffect = null
@@ -47,6 +54,8 @@ let estado = {
     currentMPPlayer: null
 }
 
+// Representação dos recursos estéticos definidos por omissão
+
 let defaultIconPack = packs.default
 
 let defaultBack = "imagens/cardBacks/cardBack.png"
@@ -68,6 +77,11 @@ let duplicateNameErrorTimeoutID = null;
 
 /* FUNÇÕES */
 
+/**
+ * Função inicial - controla o início da página, chamado funções responsáveis
+ * por inicializarem a música, e definirem a maioria do resto dos recursos
+ * estáticos relativos ao jogo e aos menus.
+ */
 function inicial() {
 
     startMusic()
@@ -87,7 +101,10 @@ function inicial() {
     TURN_CONTAINER_ID = document.getElementById("turnContainer")
 }
 
-// Função que define imagens das cartas (frente + trás)
+/**
+ * Função que define imagens das cartas (frente + trás) de acordo com os items que o utilizador
+ * selecionou no menu settings 
+ */
 function imageSetter() {
     
     /* Utilziar recursos selecionados pelo jogador */
@@ -108,6 +125,7 @@ function imageSetter() {
     let iconPackClone = [...config.frontImagePackSource] // Clonagem do iconPack atual de modo a não alterar o original
     let pairedIconPackClone = []
     
+    // Organizar a lista de forma aleatória, para que se tirem icones aleatórios do pack selecionado.
     shuffleArray(iconPackClone)
 
     for (let i=0; i<10; i++ ) { //Duplicação dos elementos no iconPack para que sejam formados pares
@@ -116,7 +134,8 @@ function imageSetter() {
     }
 
     shuffleArray(pairedIconPackClone)
-    shuffleArray(pairedIconPackClone)
+
+    // Definição das imagens da frente da carta - "icones"
 
     for (let i=0; i<20; i++){
         document.getElementsByClassName("cardFront")[i].getElementsByTagName("img")[0].src = pairedIconPackClone[i]
@@ -124,11 +143,20 @@ function imageSetter() {
     }
 
 }
-
+/**
+ * Função responsável por verificar o atributo src de uma carta.
+ * Utilizada externamente para verificar se duas cartas são iguais.
+ * @param {int} n - número da carta, 0<=n<=19
+ * @returns {string} - string que representa o nome do ficheiro de 
+ * origem da imagem
+ */
 function cardSourceChecker(n) {
     return document.getElementsByClassName("cardFront")[n].getElementsByTagName("img")[0].src
 }
 
+/**
+ * Função responsável por iniciar o contador de tempo de um jogo
+ */
 function startTimeCounter() {
     estado.startTime = Math.floor(Date.now()/1000)
     estado.timerID = setInterval(showTimePassed,1000)
@@ -137,6 +165,16 @@ function startTimeCounter() {
 
 /* FUNÇÃO PRINCIPAL */
 
+/**
+ * 
+ * @param {int} n - número da carta, 0<=n<=19
+ * Responsável por virar a carta indicada. Regista matches devidamente.
+ * Responsável por tocar efeitos sonoros.
+ * Responsável por virar cartas de volta para baixo caso estas não sejam
+ * uma match.
+ * Responsável por incrementar várias estatísticas do jogador.
+ * Chama função responsável por terminar o jogo quando se atingem as 10 matches.
+ */
 function showCard(n) {
 
     let multiplayerOn = estado.multiplayer
@@ -253,11 +291,22 @@ function showCard(n) {
 
 // Funções ajudantes da principal
 
+/**
+ * 
+ * @param {n} n - número da carta, 0<=n<=19
+ * Esconde a carta indicada por n
+ */
 function hideCard(n) {
     let cardStyle = document.getElementsByClassName("card")[n].style;
     cardStyle.transform = "rotateY(180deg)";
 }
 
+
+/**
+ * Termina o jogo. Responsável por tocar o efeito sonoro de vitória.
+ * Incrementa várias estatísticas da conta do jogador.
+ * Termina o contador de tempo do jogo.
+ */
 function endGame() {
 let multiplayerOn = estado.multiplayer
 
@@ -315,6 +364,12 @@ let multiplayerOn = estado.multiplayer
 
 }
 
+/**
+ * 
+ * @param {string} scope - define os termos de uso da função. Suporta opção "multiplayer".
+ * Responsável por reiniciar o jogo, redefinindo icones aleatórios, recomeçando o temporizador
+ * e, caso scope=="multiplayer", reiniciando também os stats dos jogadores temporários.
+ */
 function restartButton(scope=null) {
     resetEstado();
     for (let i=0; i<20; i++) {
@@ -342,7 +397,9 @@ function restartButton(scope=null) {
 }
 
 /* FUNÇÕES QUE GEREM VARIÁVEIS E LOCALSTORAGE */ 
-
+/**
+ * Responsável por reiniciar os valores do estado do jogo.
+ */
 function resetEstado() {
     estado.usedCards = [];
     estado.startTime = null;
@@ -353,6 +410,11 @@ function resetEstado() {
 }
 
 
+/* FUNÇÕES QUE GEREM VISIBILIDADE DE ELEMENTOS HTML */
+
+/**
+ * Responsável por atualizar as estatísticas vistas no ecrã, durante o jogo.
+ */
 function showStats () {
 
     if (currentAccount != null) {
@@ -365,10 +427,10 @@ function showStats () {
     document.getElementsByClassName("matchesFound")[0].getElementsByTagName("span")[0].innerHTML = estado.matches;
 }
 
-/* FUNÇÕES QUE GEREM VISIBILIDADE DE ELEMENTOS HTML */
-
+/**
+ * Mostra elementos necessários ao jogo em singleplayer.
+ */
 function showSPGameElements() {
-    // Mostra elementos essenciais ao jogo em single player
     document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
     tableStartAnimation()
@@ -382,6 +444,9 @@ function showSPGameElements() {
 
 }
 
+/**
+ * Mostra elementos necessários ao jogo em multiplayer.
+ */
 function showMPGameElements() { 
      // Mostra elementos essenciais ao jogo em single player
     document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
@@ -398,11 +463,16 @@ function showMPGameElements() {
     }
 }
 
+/**
+ * Permite executar uma animação ao início de um jogo
+ */
 function tableStartAnimation() {
 
     setTimeout(function() {
         document.getElementsByClassName("cardTable")[0].style.opacity = 1
     },100)
+
+    // Mostra cada carta suavemente, 100ms uma após da outra
 
     for (let i = 0; i<document.querySelectorAll(".cardContainer").length; i++) {
         setTimeout(function() {
@@ -412,6 +482,9 @@ function tableStartAnimation() {
     
 }
 
+/**
+ * Esconde elementos não necessários ao jogo em si.
+ */
 function hideNonGameElements() {
     document.getElementsByClassName("multiPlayer")[0].style.display = "none"
     document.getElementsByClassName("singlePlayer")[0].style.display = "none"
@@ -420,6 +493,9 @@ function hideNonGameElements() {
 
 }
 
+/**
+ * Responsável por atualizar, no ecrã, o temporizador.
+ */
 function showTimePassed() {
 
     estado.timePassed = Math.floor((Date.now()/1000 - estado.startTime))
@@ -442,8 +518,11 @@ function showTimePassed() {
     document.getElementsByClassName("durationCounter")[0].getElementsByTagName("span")[0].innerHTML = estado.timePassed
 }
 
-/* Uso do algoritmo Fisher-Yates-Durstenfelt para organizar uma lista de forma aleatoria */
-
+/**
+ * 
+ * @param {array} array 
+ * Função responsável por baralhar um array. Utilizada externamente para escolher ícones aleatórios.
+ */
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1))
@@ -455,6 +534,9 @@ function shuffleArray(array) {
 
 /* Funções relativas à caixa de singleplayer */
 
+/**
+ * Responsável por gerir as funções a chamar quando se inicia um jogo em singleplayer.
+ */
 function singleplayerStart() {
 
     // Esconder elementos do menu home e mostrar elementos do jogo
@@ -474,6 +556,9 @@ function singleplayerStart() {
 
 }
 
+/**
+ * Abre o popup de singleplayer.
+ */
 function openSingleplayer(){
     let singleplayerBox = document.getElementById("singleplayerBox")
     let dimmer = document.getElementById("dimmer")
@@ -485,6 +570,9 @@ function openSingleplayer(){
     },100)
 }
 
+/**
+ * Fecha o popup de singleplayer.
+ */
 function closeSingleplayer() {
     let singleplayerBox = document.getElementById("singleplayerBox")
     let dimmer = document.getElementById("dimmer")
@@ -502,6 +590,9 @@ function closeSingleplayer() {
 
 /* Funções relativas ao multiplayer */
 
+/**
+ * Permite entrar no multiplayer quando logged-in.
+ */
 function multiplayerEnabler() {
     if (currentAccount) {
         let MPPlayButton = document.getElementsByClassName("multiPlayerButton")[0]
@@ -511,6 +602,9 @@ function multiplayerEnabler() {
     }
 }
 
+/**
+ * Abre o popup de multiplayer.
+ */
 function openMultiplayer() {
     let multiplayerBox = document.getElementById("multiplayerBox")
     let dimmer = document.getElementById("dimmer")
@@ -522,6 +616,10 @@ function openMultiplayer() {
     },100)
 }
   
+
+/**
+ * Fecha o popup de multiplayer.
+ */
 function closeMultiplayer() {
     let multiplayerBox = document.getElementById("multiplayerBox")
     let dimmer = document.getElementById("dimmer")
@@ -543,6 +641,9 @@ function closeMultiplayer() {
 
 }
 
+/**
+ * Permite passar ao segundo ecrã do menu de entrada para um jogo multiplayer.
+ */
 function multiplayerSecondScreen() {
     let nextButton = document.getElementById("MPNextButton")
     let startButton = document.getElementById("MPStartButton")
@@ -601,6 +702,9 @@ function multiplayerSecondScreen() {
     }
 }
 
+/**
+ * Permite reverter ao primeiro ecrã do menu de multiplayer.
+ */
 function multiplayerFirstScreen() {
     let nextButton = document.getElementById("MPNextButton")
     let startButton = document.getElementById("MPStartButton")
@@ -624,6 +728,11 @@ function multiplayerFirstScreen() {
     nameFormText.style.display = "none"
 }
 
+
+/**
+ * Responsável por iniciar um jogo de multiplayer, verificado a validade dos
+ * forms preenchidos no respetivo menu.
+ */
 function multiplayerStart() {
 
     let nameForm = document.forms.namesOfPlayers
@@ -667,6 +776,10 @@ function multiplayerStart() {
     }
 }
 
+/**
+ * Dentro de uma lista de nomes de jogadores, permite verificar se algum deles se repete.
+ * @param {array} playerNames - array de nomes de jogadores
+ */
 function checkMPNames(playerNames) {
 
     let hasDupes = (new Set(playerNames)).size !== playerNames.length
@@ -678,6 +791,9 @@ function checkMPNames(playerNames) {
     return hasDupes
 }
 
+/**
+ * Responsável por gerir os turnos dos jogadores num jogo multiplayer.
+ */
 function MPTurnHandler() {
     let playerIndex = tempPlayerList.indexOf(estado.currentMPPlayer)
 
@@ -688,6 +804,12 @@ function MPTurnHandler() {
     estado.currentMPPlayer = tempPlayerList[playerIndex+1]
 }
 
+/**
+ * Responsável por incrementar em  estatísticas de jogadores temporários.
+ * @param {string} scope - suporta scope=="matches" e scope=="cardsFlipped"
+ * scope=="matches" - incrementa "matches" no jogador cuja turn é a atual
+ * scope=="cardsFlipped" - incrementa "cards flipped" no jogador cuja turn é a atual
+ */
 function MPStatUpdater(scope) {
 
     // Incrementa matches nas estatisticas do jogador atual
@@ -703,6 +825,10 @@ function MPStatUpdater(scope) {
 
 // Funções relativas a mensagens de erro
 
+/**
+ * Mostra uma mensagem de erro no lugar do botão respetivo quando se usam nomes duplicados
+ * nos menus de multiplayer.
+ */
 function showDuplicateNameErrorMessage() {
     if (duplicateNameErrorTimeoutID) {
         clearTimeout(duplicateNameErrorTimeoutID)
@@ -724,6 +850,9 @@ function showDuplicateNameErrorMessage() {
 
 // Funções relativas ao popup de final de jogo.
 
+/**
+ * Permite abrir o popup de fim de jogo.
+ */
 function openEndgamePopup() {
     let endgameBox = document.getElementById("endgameBox")
     let dimmer = document.getElementById("dimmer")
@@ -737,7 +866,10 @@ function openEndgamePopup() {
         dimmer.style.opacity = "1"
     },100)
 }
-  
+
+/**
+ * Permite fechar o popup de fim de jogo.
+ */
 function closeEndgamePopup() {
     let endgameBox = document.getElementById("endgameBox")
     let dimmer = document.getElementById("dimmer")
@@ -753,6 +885,9 @@ function closeEndgamePopup() {
     },200)
 }
 
+/**
+ * Enche as tabelas de endgame conforme as estatísticas dos jogadores/do jogador.
+ */
 function endgameFiller() {
     let multiplayerLeaderboardTable = document.getElementById("multiplayerLeaderboardTable")
     let singleplayerLeaderboardTable = document.getElementById("singleplayerLeaderboardTable")
@@ -772,6 +907,7 @@ function endgameFiller() {
             // primariamente, e secundariamente pelo nível de accuracy
         
         let listCopy = [...tempPlayerList]
+        // Organiza a lista conforme o número de matches dos jogadores como primeiro atributo de decisão, tendo a sua accuracy como segundo atributo de decisão.
         listCopy.sort((a, b) => (a.matches < b.matches) ? 1 : (a.matches === b.matches) ? ((getTempPlayerAccuracy(a) < getTempPlayerAccuracy(b)) ? 1 : -1) : -1 )
 
         for(let i= 0; i < listCopy.length; i++) {
@@ -843,6 +979,10 @@ function endgameFiller() {
     }
 }
 
+/**
+ * Recebe um objeto tempPlayer e devolve a sua accuracy.
+ * @param {tempPlayer} tempPlayerObject
+ */
 function getTempPlayerAccuracy(tempPlayerObject) {
     let playerAccuracy = Math.round((tempPlayerObject.matches / (tempPlayerObject.cardsFlipped/2)) * 100)
     
@@ -851,6 +991,9 @@ function getTempPlayerAccuracy(tempPlayerObject) {
 
 // Funções relativas ao popup de leaderboard (não o de final de jogo)
 
+/**
+ * Permite abrir o leaderboard, através do menu hamburger.
+ */
 function openLeaderboard() {
     leaderboardFiller()
     clickToggler("disable")
@@ -863,6 +1006,9 @@ function openLeaderboard() {
     },100)
 }
   
+/**
+ * Permite fechar o leaderboard.
+ */
 function closeLeaderboard() {
     let leaderboardBox = document.getElementById("leaderboardBox")
     let dimmer = document.getElementById("dimmer")
