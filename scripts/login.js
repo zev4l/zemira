@@ -397,7 +397,7 @@ function closeStats(){
         
     },200)	
 	
-	document.getElementsByClassName("statsGradeAnalyser")[0].innerHTML = "->Check you grade here<-";
+	
 }
 
 
@@ -413,6 +413,7 @@ function toggleHamburgerMenu(){
     let hamburgerMenu = document.getElementsByClassName("hamburgerMenuDiv")[0]
     let hamburgerMenuButton = document.getElementById("hamburgerButton")
 
+    console.log(hamburgerState)
     
     if (!(hamburgerState)) {
         
