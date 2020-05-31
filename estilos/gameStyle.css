@@ -72,7 +72,7 @@ body {
     background-color: #9900CC ;
     font-family: 'kongtextregular'; 
     text-align: center;
-    background-image: url('../imagens/tableBackground.png')
+    background-image: url('../imagens/tableBackground.png');
 }
 
 img {
@@ -448,7 +448,7 @@ table{
         background-color: #9900CC ;
         font-family: 'kongtextregular'; 
         text-align: center;
-        
+        background-image: url('../imagens/tableBackground.png')       
        
     }
     
@@ -512,6 +512,7 @@ table{
         margin-top: 5ex;
         text-align: center;
         transition: all 200ms linear;
+        background-color:rgb(135, 0, 180)
     }
     .singlePlayerButton, .multiPlayerButton{
         display: inline-block;
@@ -808,6 +809,15 @@ table{
         width: 50%;
     }
 
+    #musicToggle {
+        transition: 600ms ease;
+        position: fixed;
+        top: 3.7ex;
+        right: 20ex;
+        width: 50px;
+        cursor: pointer;
+    }
+
 }
 
 
@@ -816,7 +826,7 @@ table{
         background-color: #9900CC ;
         font-family: 'kongtextregular'; 
         text-align: center;
-        
+        background-image: url('../imagens/tableBackground.png')        
        
     }
     
@@ -879,6 +889,7 @@ table{
         margin-top: 5ex;
         text-align: center;
         transition: all 200ms linear;
+        background-color:rgb(135, 0, 180)
     }
     .singlePlayerButton, .multiPlayerButton{
         display: inline-block;
@@ -1174,6 +1185,15 @@ table{
     
     .leaderboardAvatar {
         width: 50%;
+    }
+
+    #musicToggle {
+        transition: 600ms ease;
+        position: fixed;
+        top: 3.7ex;
+        right: 20ex;
+        width: 50px;
+        cursor: pointer;
     }
 
     
