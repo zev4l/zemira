@@ -293,7 +293,7 @@ let multiplayerOn = estado.multiplayer
 
             currentAccount.stats.bestTimes.sort((a, b) => (a.timeTaken > b.timeTaken) ? 1 : -1)
 
-            if (currentAccount.stats.bestTimes.length > 10) {
+            if (currentAccount.stats.bestTimes.length >= 10) {
                 currentAccount.stats.bestTimes.pop()
             }
 
@@ -732,6 +732,10 @@ function openEndgamePopup() {
     clickToggler("disable")
     endgameBox.style.display = "block"
 
+    if (!multiplayerOn) {
+        endgameBox.style.width = "400px"
+    }
+
     setTimeout(function() {
         endgameBox.style.opacity = "1"
         dimmer.style.opacity = "1"
@@ -812,33 +816,6 @@ function endgameFiller() {
         SPTimeTaken.innerHTML = estado.timePassed
         SPCardsFlipped.innerHTML = estado.cardsFlipped
         SPAccuracy.innerHTML = playerAccuracy + "%"
-
-        // Tabela de 10 melhores tempos 
-
-        // Remover possíveis entradas de jogos anteriores
-        while (singleplayerLeaderboardTable.children.length > 1) { 
-            singleplayerLeaderboardTable.removeChild(singleplayerLeaderboardTable.lastElementChild);
-        }
-
-
-        let listCopy = [...currentAccount.stats.bestTimes]
-
-        for(let i= 0; i < listCopy.length; i++) {
-        
-            let match = listCopy[i]
-            let accuracy = match.accuracy
-            let timeTaken = match.timeTaken
-            let date = match.date
-
-
-            singleplayerLeaderboardTable.innerHTML += "<tr>" +
-                                                    "<td>" + (i+1) + "." + "</td>" +
-                                                    "<td>" + timeTaken + "s" + "</td>" +
-                                                    "<td>" + accuracy + "%" + "</td>" +
-                                                    "<td>" + date + "</td>" +
-                                                    "</tr>"
-
-        }
 
     }
 }

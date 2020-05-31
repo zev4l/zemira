@@ -171,7 +171,7 @@ h2{
     padding: 1ex;
     width: 60%;   
     position: relative;     
-    margin-top: 3ex;
+    margin-top: 5ex;
     margin-left: auto;
     margin-right: auto;
     display: inline-block;
@@ -328,9 +328,8 @@ table{
 }
 
 .leaderboardPopup {
-    min-width: 30%;
+    width: 30%;
 }
-
 
 .backgroundHighlight {
     animation: background-color-change 5s infinite;
@@ -392,13 +391,6 @@ table{
     text-transform: uppercase;
     font-size: 150%;
     color: black;
-    width: 25%;
-    margin: auto;
-    border: solid black;
-    background-color: #9000CC;
-}
-
-
 }
 
 #turn {
@@ -419,9 +411,8 @@ table{
 
 #singleplayerLeaderboard {
     text-align: left;
-    width: 90%;
+    width: 80%;
     margin: 10% auto 10% auto;
-    text-align: center;
 }
 
 .headerRow {
@@ -449,14 +440,10 @@ table{
 
 #singleplayerLeaderboardTable {
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
     margin: 10% auto 10% auto;
 }
 
-#singleplayerLeaderboardTable tr {
-    margin: 10px 0;
-    border: solid;
-}
 
 
 .hamburgerMenuDiv{

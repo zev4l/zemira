@@ -289,7 +289,6 @@ o rato em cima do butão de "submit" */
     font-size: xx-large;
     text-align: center;
     display: block;
-    cursor: pointer;
     color: rgb(255, 208, 0);
 }
 
@@ -312,7 +311,7 @@ o rato em cima do butão de "submit" */
     margin: auto;
     width: 80%;
     margin-bottom:10px;       
-    background-color: green;
+    background-color: rgb(255, 208, 0);
 }
 
 .hamburgerMenuDiv{
@@ -327,8 +326,7 @@ o rato em cima do butão de "submit" */
     max-height: 0%;  
     width: 20ex;   
     border: 3px solid rgb(255, 208, 0);        
-    background-color: rgba(0, 0, 0, 0.5);          
-    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.5);
     right: 3ex;
     top: 10ex;
 }
@@ -366,7 +364,7 @@ o rato em cima do butão de "submit" */
 
 
 
-@media screen and (min-width: 601px) and (max-width: 999px){
+@media screen and (min-width: 600px) and (max-width: 999px){
 /* ELEMENTOS DE LOGIN */
 
 .loginButton{
@@ -595,8 +593,7 @@ o rato em cima do butão de "submit" */
 .usernameStats{
     font-size: xx-large;
     text-align: center;
-    display: block;
-    cursor: pointer;
+    display: block;   
     color: rgb(255, 208, 0);
 }
 
@@ -619,7 +616,7 @@ o rato em cima do butão de "submit" */
     margin: auto;
     width: 80%;
     margin-bottom:10px;       
-    background-color: green;
+    background-color: rgb(255, 208, 0);
 }
 
 .hamburgerMenuDiv{
@@ -632,11 +629,11 @@ o rato em cima do butão de "submit" */
     position: fixed; 
     text-align: center;    
     max-height: 0%;  
-    width: 20ex;   
+    width: 15ex;   
     border: 3px solid rgb(255, 208, 0);        
-    right: 10px;    
-    background-color: rgba(0, 0, 0, 0.5);          
-    opacity: 0.8;
+    right: 0.5ex;
+    top: 10ex;  
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 #hamburgerButtonContainer{
@@ -653,9 +650,10 @@ o rato em cima do butão de "submit" */
     
     transition: 600ms ease;
     position: fixed;
-    top: 8%;
-    right: 5%;
+    right: 2ex;
+    top: 4ex;
     width: 30px;
+    
 }
 
 #hamburgerButton img {
@@ -898,8 +896,7 @@ o rato em cima do butão de "submit" */
 .usernameStats{
     font-size: xx-large;
     text-align: center;
-    display: block;
-    cursor: pointer;
+    display: block;    
     color: rgb(255, 208, 0);
 }
 
@@ -922,7 +919,7 @@ o rato em cima do butão de "submit" */
     margin: auto;
     width: 80%;
     margin-bottom:10px;       
-    background-color: green;
+    background-color: rgb(255, 208, 0);
 }
 
 .hamburgerMenuDiv{
@@ -935,12 +932,12 @@ o rato em cima do butão de "submit" */
     position: fixed; 
     text-align: center;    
     max-height: 0%;  
-    width: 20ex;   
-    border: 3px solid rgb(255, 208, 0);            
-    background-color: rgba(0, 0, 0, 0.5);          
-    opacity: 0.8;
-    right: 3ex;
-    top: 10ex;
+    width: 100%;   
+    border: 3px solid rgb(255, 208, 0);           
+    background-color: rgba(0, 0, 0, 0.5); 
+    left: 0;    
+    right: 0;
+    top: 14ex;
 }
 
 #hamburgerButtonContainer{
@@ -957,8 +954,8 @@ o rato em cima do butão de "submit" */
     
     transition: 600ms ease;
     position: fixed;
-    top: 4ex;
-    right: 12.5ex;
+    top: 11.5ex;
+    right: 48%;
     width: 30px;
 }
 
