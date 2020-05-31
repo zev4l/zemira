@@ -56,143 +56,507 @@
     100% {border-color: pink;}
 }
 
-#game {
-    font-family: 'kongtextregular';
-    color: rgb(255, 208, 0);
-    font-size: 20px;
-    text-align: center;
+
+@media screen and (min-width: 1000px){
+    .mobile{
+        display: none;
+    }
+    
+    .tablet {
+        display: none;
+    }
+
+    #game {
+        font-family: 'kongtextregular';
+        color: rgb(255, 208, 0);
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .zPoints {
+        text-align: center;
+    }
+
+    #preZemiraPoints {
+        color: rgb(255, 208, 0);
+    }
+
+    .preText {
+        color: rgb(255, 208, 0);
+    }
+
+    .totalZPoints {
+        font-size: 25px;
+        transition: 600ms ease;
+        animation: color-change 5s infinite;
+    }
+
+    #MainTitle {
+        display: block;
+        text-align: center;
+        color: rgb(255, 208, 0);
+        font-size: 22px;
+
+    }
+
+    .iconsImg {
+        width: 170px;
+        height: 170px;
+        border-radius: 35px;
+    }
+
+    .cardBacksImg {
+        top: 5px;
+        width: 120px;
+        height: 150px;
+        border-radius: 10px;
+    }
+
+    .avatarImg {
+        width: 170px;
+        height: 170px;
+        border-radius: 35px;
+        background-color: white;
+    }
+
+    .buyButton {
+        cursor: pointer;
+        display: inline-block;
+        width: 140px;
+        height: 40px;
+        background-color: rgb(218,165,32);
+        font-family: 'kongtextregular';
+        font-size: 15px;
+        animation: border-color-change 5s infinite;
+        border-width: 5px;
+        box-shadow: 5px 5px black;
+        outline:0;
+    }
+
+
+    .buyButton:disabled {
+        background-color: grey;
+        border:solid;
+        animation: none;
+        cursor: default;
+        color: black;
+    }
+
+
+    .buyButton:hover {
+        background-color: #3e8e41
+    }
+
+    .packsToBuy {
+        text-align: center;
+        display: inline-block;
+        margin-right: 10px;
+        margin-left: 10px;
+        width: 20%;
+        height: 40%;
+    }
+
+    .backCardsToBuy {
+        text-align: center;
+        display: inline-block;
+        margin-right: 10px;
+        margin-left: 10px;
+        width: 20%;
+    }
+
+    .avatarsToBuy {
+        text-align: center;
+        display: inline-block;
+        margin-right: 10px;
+        margin-left: 10px;
+        width: 20%;
+    }
+
+    .iconsPackName {
+        margin-left: 10px;
+    }
+
+    .iconsPacksLine {
+        margin-left: 10px;
+        text-align: center;
+    }
+
+    .backCardsLine {
+        margin-left: 10px;
+        text-align: center;
+    }
+
+    .avatarsLine {
+        margin-left: 10px;
+        text-align: center;
+    }
+
+    .price {
+        font-size: 20px;
+        border: solid;
+        padding: 10px;
+        display:table;
+        margin:0 auto;
+        border-radius: 10px;
+        background-color: rgb(255, 208, 0);
+
+    }
+
+    .priceZPoints {
+        color: white;
+        font-size: 25px;
+    }
 }
 
-.zPoints {
-    text-align: center;
+
+
+@media screen and (min-width: 601px) and (max-width: 999px){
+    .registerButton {
+        position: relative;
+        margin-top: 100px;
+    }
+
+    .loginButton {
+        position: relative;
+        margin-top: 100px;
+    }
+
+    .settingsButton {
+        position: relative;
+        margin-top: 100px;
+    }
+
+    .logoutButton {
+        position: relative;
+        margin-top: 100px;
+    }
+
+    .mainTitle {
+        position: relative;
+        top: 100px;
+    }
+
+    article {
+        position: relative;
+        top: 100px;
+    }
+
+    .mobile{
+        display: none;
+    }
+
+    #game {
+        font-family: 'kongtextregular';
+        color: rgb(255, 208, 0);
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .zPoints {
+        text-align: center;
+    }
+    
+    #preZemiraPoints {
+        color: rgb(255, 208, 0);
+    }
+    
+    .preText {
+        color: rgb(255, 208, 0);
+    }
+    
+    .totalZPoints {
+        font-size: 25px;
+        transition: 600ms ease;
+        animation: color-change 5s infinite;
+    }
+    
+    #MainTitle {
+        display: block;
+        text-align: center;
+        color: rgb(255, 208, 0);
+        font-size: 22px;
+    
+    }
+    
+    .iconsImg {
+        width: 170px;
+        height: 170px;
+        border-radius: 35px;
+    }
+    
+    .cardBacksImg {
+        top: 5px;
+        width: 120px;
+        height: 150px;
+        border-radius: 10px;
+    }
+    
+    .avatarImg {
+        width: 170px;
+        height: 170px;
+        border-radius: 35px;
+        background-color: white;
+    }
+    
+    .buyButton {
+        cursor: pointer;
+        display: inline-block;
+        width: 140px;
+        height: 40px;
+        background-color: rgb(218,165,32);
+        font-family: 'kongtextregular';
+        font-size: 15px;
+        animation: border-color-change 5s infinite;
+        border-width: 5px;
+        box-shadow: 5px 5px black;
+        outline:0;
+    }
+    
+    
+    .buyButton:disabled {
+        background-color: grey;
+        border:solid;
+        animation: none;
+        cursor: default;
+        color: black;
+    }
+    
+    
+    .buyButton:hover {
+        background-color: #3e8e41
+    }
+    
+    .packsToBuy {
+        text-align: center;
+        display: inline-block;
+        margin-right: 10px;
+        margin-left: 10px;
+        width: 20%;
+        height: 40%;
+    }
+    
+    .backCardsToBuy {
+        text-align: center;
+        display: inline-block;
+        margin-right: 10px;
+        margin-left: 10px;
+        width: 20%;
+    }
+    
+    .avatarsToBuy {
+        text-align: center;
+        display: inline-block;
+        margin-right: 10px;
+        margin-left: 10px;
+        width: 20%;
+    }
+    
+    .iconsPackName {
+        margin-left: 10px;
+    }
+    
+    .iconsPacksLine {
+        margin-left: 10px;
+        text-align: center;
+    }
+    
+    .backCardsLine {
+        margin-left: 10px;
+        text-align: center;
+    }
+    
+    .avatarsLine {
+        margin-left: 10px;
+        text-align: center;
+    }
+    
+    .price {
+        font-size: 20px;
+        border: solid;
+        padding: 10px;
+        display:table;
+        margin:0 auto;
+        border-radius: 10px;
+        background-color: rgb(255, 208, 0);
+    
+    }
+    
+    .priceZPoints {
+        color: white;
+        font-size: 25px;
+    }
 }
 
-#preZemiraPoints {
-    color: rgb(255, 208, 0);
-}
-
-.preText {
-    color: rgb(255, 208, 0);
-}
-
-.totalZPoints {
-    font-size: 25px;
-    transition: 600ms ease;
-    animation: color-change 5s infinite;
-}
-
-#MainTitle {
-    display: block;
-    text-align: center;
-    color: rgb(255, 208, 0);
-    font-size: 22px;
-
-}
-
-.iconsImg {
-    width: 170px;
-    height: 170px;
-    border-radius: 35px;
-}
-
-.cardBacksImg {
-    top: 5px;
-    width: 120px;
-    height: 150px;
-    border-radius: 10px;
-}
-
-.avatarImg {
-    width: 170px;
-    height: 170px;
-    border-radius: 35px;
-    background-color: white;
-}
-
-.buyButton {
-    cursor: pointer;
-    display: inline-block;
-    width: 140px;
-    height: 40px;
-    background-color: rgb(218,165,32);
-    font-family: 'kongtextregular';
-    font-size: 15px;
-    animation: border-color-change 5s infinite;
-    border-width: 5px;
-    box-shadow: 5px 5px black;
-    outline:0;
-}
 
 
-.buyButton:disabled {
-    background-color: grey;
-    border:solid;
-    animation: none;
-    cursor: default;
-    color: black;
-}
+@media screen and (max-width: 599px){
+    .tablet {
+        display: none;
+    }
 
+    .registerButton {
+        position: relative;
+        margin-top: 100px;
+    }
 
-.buyButton:hover {
-    background-color: #3e8e41
-}
+    .loginButton {
+        position: relative;
+        margin-top: 100px;
+    }
 
-.packsToBuy {
-    text-align: center;
-    display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
-    width: 20%;
-    height: 40%;
-}
+    .settingsButton {
+        position: relative;
+        margin-top: 100px;
+    }
 
-.backCardsToBuy {
-    text-align: center;
-    display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
-    width: 20%;
-}
+    .logoutButton {
+        position: relative;
+        margin-top: 100px;
+    }
 
-.avatarsToBuy {
-    text-align: center;
-    display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
-    width: 20%;
-}
+    .mainTitle {
+        position: relative;
+        top: 100px;
+    }
 
-.iconsPackName {
-    margin-left: 10px;
-}
+    article {
+        position: relative;
+        top: 100px;
+    }
 
-.iconsPacksLine {
-    margin-left: 10px;
-    text-align: center;
-}
+    td {
+        border: solid;
+    }
 
-.backCardsLine {
-    margin-left: 10px;
-    text-align: center;
-}
-
-.avatarsLine {
-    margin-left: 10px;
-    text-align: center;
-}
-
-.price {
-    font-size: 20px;
-    border: solid;
-    padding: 10px;
-    display:table;
-    margin:0 auto;
-    border-radius: 10px;
-    background-color: rgb(255, 208, 0);
-
-}
-
-.priceZPoints {
-    color: white;
-    font-size: 25px;
+    #game {
+        font-family: 'kongtextregular';
+        color: rgb(255, 208, 0);
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .zPoints {
+        text-align: center;
+    }
+    
+    #preZemiraPoints {
+        color: rgb(255, 208, 0);
+    }
+    
+    .preText {
+        color: rgb(255, 208, 0);
+    }
+    
+    .totalZPoints {
+        font-size: 25px;
+        transition: 600ms ease;
+        animation: color-change 5s infinite;
+    }
+    
+    #MainTitle {
+        display: block;
+        text-align: center;
+        color: rgb(255, 208, 0);
+        font-size: 22px;
+    
+    }
+    
+    .iconsImg {
+        width: 170px;
+        height: 170px;
+        border-radius: 35px;
+    }
+    
+    .cardBacksImg {
+        top: 5px;
+        width: 120px;
+        height: 150px;
+        border-radius: 10px;
+    }
+    
+    .avatarImg {
+        width: 170px;
+        height: 170px;
+        border-radius: 35px;
+        background-color: white;
+    }
+    
+    .buyButton {
+        cursor: pointer;
+        display: inline-block;
+        width: 140px;
+        height: 40px;
+        background-color: rgb(218,165,32);
+        font-family: 'kongtextregular';
+        font-size: 15px;
+        animation: border-color-change 5s infinite;
+        border-width: 5px;
+        box-shadow: 5px 5px black;
+        outline:0;
+    }
+    
+    
+    .buyButton:disabled {
+        background-color: grey;
+        border:solid;
+        animation: none;
+        cursor: default;
+        color: black;
+    }
+    
+    
+    .buyButton:hover {
+        background-color: #3e8e41
+    }
+    
+    .packsToBuy {
+        position: relative;
+        text-align: center;
+        display: block;
+    }
+    
+    .backCardsToBuy {
+        text-align: center;
+        display: block;
+    }
+    
+    .avatarsToBuy {
+        text-align: center;
+        display: block;
+    }
+    
+    .iconsPackName {
+        margin-left: 10px;
+    }
+    
+    .iconsPacksLine {
+        margin-left: 10px;
+        text-align: center;
+    }
+    
+    .backCardsLine {
+        margin-left: 10px;
+        text-align: center;
+    }
+    
+    .avatarsLine {
+        margin-left: 10px;
+        text-align: center;
+    }
+    
+    .price {
+        font-size: 20px;
+        border: solid;
+        padding: 10px;
+        display:table;
+        margin:0 auto;
+        border-radius: 10px;
+        background-color: rgb(255, 208, 0);
+    
+    }
+    
+    .priceZPoints {
+        color: white;
+        font-size: 25px;
+    }
 }

@@ -233,7 +233,6 @@
         text-align: center;    
         bottom: 0px; 
         width: 100%;
-        border-style: transparent; 
         background-color: #9900CC;
     }
 
@@ -283,7 +282,7 @@
     }
 
     .corpo {
-        position: relative;
+        display: inline-block;
         text-align: center;
         align-items: center;
         margin: 0 auto auto auto;
@@ -291,17 +290,16 @@
 
     .homeCorpo {
         position: relative;
+        display: inline-block;
         right: 170px;
     }
 
 /* Para a barra de navegação de todas as outras páginas HTML */
     .mainNavBar {
-        
         border-style: solid;
         display: inline-block;
         margin-top: 2ex;
         padding: 2ex;
-        
     }
 
     .mainNavBar li {
@@ -324,7 +322,6 @@
 
     .homeNavBar {
         position: relative;
-        display: inline-block;
         margin-right: 3em;
         margin-top: 1em;
         text-align: center;
@@ -346,7 +343,7 @@
 
     #playButton {
         position: relative;
-        display: inline-block;
+        display: block;
         cursor: pointer;
         box-shadow: inset 0px 0px 40px 40px #9c01cfa4;
         color: black;
@@ -459,7 +456,6 @@
         text-align: center;    
         bottom: 0px; 
         width: 100%;
-        border-style: transparent; 
     }
 
 /* Para o botão de mute/unmute de música na home */
@@ -701,7 +697,6 @@
         text-align: center;    
         bottom: 0px; 
         width: 100%;
-        border-style: transparent; 
         background-color: #9900CC;
     }
 
