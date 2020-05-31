@@ -411,7 +411,7 @@ function openHamburguerMenu(){
 	
 	 setTimeout(function() {
 		 
-        hamburguerMenu.style.height = "40%"
+        hamburguerMenu.style.maxHeight = "40%"
     },200)
 }
 
