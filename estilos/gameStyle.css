@@ -455,6 +455,11 @@ table{
         background-image: url('../imagens/tableBackground.png')       
        
     }
+
+    .SPH3 {
+        color: rgb(255, 208, 0)
+    }
+    
     
     img {
         -webkit-user-drag: none;
@@ -484,7 +489,9 @@ table{
         text-align: center;
         display: inline-block;        
         padding: 1ex;
+        border: solid black ;
         border-style: solid ;
+        background-color:rgb(135, 0, 180);
         
     }
     
@@ -816,9 +823,9 @@ table{
     #musicToggle {
         transition: 600ms ease;
         position: fixed;
-        top: 3.7ex;
-        right: 20ex;
-        width: 50px;
+        top: 4ex;
+        right: 8ex;
+        width: 40px;
         cursor: pointer;
     }
 
@@ -862,7 +869,9 @@ table{
         text-align: center;
         display: inline-block;        
         padding: 1ex;
+        border: solid black ;
         border-style: solid ;
+        background-color:rgb(135, 0, 180);
         
     }
     
@@ -1194,12 +1203,15 @@ table{
     #musicToggle {
         transition: 600ms ease;
         position: fixed;
-        top: 3.7ex;
-        right: 20ex;
+        top: 5ex;
+        right: 4%;
         width: 50px;
         cursor: pointer;
     }
-
+    .SPH3 {
+        color: rgb(255, 208, 0)
+    }
+    
     
 }
 

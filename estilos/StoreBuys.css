@@ -207,8 +207,6 @@
         font-size: 25px;
     }
 
-    
-
 
 }
 
@@ -237,12 +235,12 @@
 
     .mainTitle {
         position: relative;
-        top: 100px;
+        top: 75px;
     }
 
     article {
         position: relative;
-        top: 100px;
+        top: 75px;
     }
 
     .mobile{
@@ -279,6 +277,7 @@
         text-align: center;
         color: rgb(255, 208, 0);
         font-size: 22px;
+        
     
     }
     
@@ -390,6 +389,23 @@
         font-size: 25px;
     }
 
+    #hamburgerButton {
+        
+        top: 130px !important;    
+        margin-right: 360px;   
+
+
+    }
+
+
+    .hamburgerMenuDiv{
+        z-index: 5;
+        top: 120px !important;    
+        margin-right: 70px;  
+
+    }
+
+
    
   
 
@@ -424,12 +440,12 @@
 
     .mainTitle {
         position: relative;
-        top: 100px;
+        top: 50px;
     }
 
     article {
         position: relative;
-        top: 100px;
+        top: 50px;
     }
 
     td {
@@ -567,4 +583,19 @@
         color: white;
         font-size: 25px;
     }
+
+
+    #hamburgerButton {
+        
+        margin-top: 40px !important;      
+
+
+    }
+
+    .hamburgerMenuDiv{
+        z-index: 5;
+        margin-top:70px;
+
+    }
+
 }
