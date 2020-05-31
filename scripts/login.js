@@ -413,7 +413,6 @@ function toggleHamburgerMenu(){
     let hamburgerMenu = document.getElementsByClassName("hamburgerMenuDiv")[0]
     let hamburgerMenuButton = document.getElementById("hamburgerButton")
 
-    console.log(hamburgerState)
     
     if (!(hamburgerState)) {
         

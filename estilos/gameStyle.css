@@ -291,17 +291,6 @@ table{
     margin: 5% auto auto 8%;
 } */
 
-/* Dimmer ativado quando se interage com os menus */
-
-#dimmer {
-    position: fixed;
-    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.589);
-    pointer-events: none;
-    transition: all 200ms linear;
-    z-index: 8;
-    opacity: 0;
-}
-
 
 /* DEFINIÇÃO DO POPUP DE MULTIPLAYER, SINGLEPLAYER E ENDGAME */
 

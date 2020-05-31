@@ -637,8 +637,14 @@ function showDuplicateNameErrorMessage() {
 function openEndgamePopup() {
     let endgameBox = document.getElementById("endgameBox")
     let dimmer = document.getElementById("dimmer")
+    let multiplayerOn = estado.multiplayer
     endgameFiller()
     endgameBox.style.display = "block"
+
+    if (!multiplayerOn) {
+        endgameBox.style.width = "400px"
+    }
+
     setTimeout(function() {
         endgameBox.style.opacity = "1"
         dimmer.style.opacity = "1"
@@ -730,6 +736,7 @@ function getTempPlayerAccuracy(tempPlayerObject) {
 // Funções relativas ao popup de leaderboard (não o de final de jogo)
 
 function openLeaderboard() {
+    leaderboardFiller()
     let leaderboardBox = document.getElementById("leaderboardBox")
     let dimmer = document.getElementById("dimmer")
     leaderboardBox.style.display = "block"
@@ -754,8 +761,36 @@ function closeLeaderboard() {
 }
 
 function leaderboardFiller() {
-    for(let i = 0; i<accountArray.length; i++) {
+
+    let leaderboardTable = document.getElementById("leaderboardTable")
+    let tempCopy = [...accountArray]
+
+
+     // Remover possíveis entradas de jogos anteriores
+     while (leaderboardTable.children.length > 1) { 
+        leaderboardTable.removeChild(leaderboardTable.lastElementChild);
+    }
+
+
+
+    tempCopy.sort((a, b) => (a.stats.lowestTime == null) ? 1 : ((a.stats.lowestTime > b.stats.lowestTime) ? 1 : -1))
+
+    for(let i = 0; i<tempCopy.length; i++) {
         
+        let playerName = tempCopy[i].username
+        let playerLowestTime = tempCopy[i].stats.lowestTime
+
+        if (playerLowestTime == 0 || playerLowestTime == null) {
+            playerLowestTime = "Never played"
+        } else {
+            playerLowestTime += " seconds"
+        }
+
+        leaderboardTable.innerHTML+="<tr>" +
+                                    "<td>" + (i+1) + "." + "</td>" +
+                                    "<td>" + playerName + "</td>" +
+                                    "<td>" + playerLowestTime + "</td>" +
+                                    "</tr>"
     }
 }
 
