@@ -1,3 +1,7 @@
+/* Grupo: 25, Número: 54960, Nome: Rafael Ribeiro, PL: 21 /
+/ Grupo: 25, Número: 55373, Nome: José Almeida, PL: 21 /
+/ Grupo: 25, Número: 54941, Nome: Miguel Duarte, PL: 21 */
+
 // Impede alguns erros fáceis de cometer.
 "use strict";
 

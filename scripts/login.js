@@ -1,3 +1,7 @@
+/* Grupo: 25, Número: 54960, Nome: Rafael Ribeiro, PL: 21 /
+/ Grupo: 25, Número: 55373, Nome: José Almeida, PL: 21 /
+/ Grupo: 25, Número: 54941, Nome: Miguel Duarte, PL: 21 */
+
 /* DEFINIÇÃO DE CONSTANTES E VARIÁVEIS GLOBAIS */
 
 const REGISTER_EMAIL = "email"
@@ -90,6 +94,9 @@ function inicial() {
 
 // FUNÇÕES GESTORAS DE DADOS
 
+/**
+ * Permite atualizar os dados no array de contas, igualando os dados da conta respetiva.
+ */
 function updateStats() {
     for (let i=0; i<accountArray.length; i++){ 
         if (accountArray[i].username == currentAccount.username) {
@@ -119,6 +126,9 @@ function updateStats() {
 	
 }
 
+/**
+ * Guarda os dados na localStorage, igualando-os aos dados das variáveis atuais
+ */
 function updateAccounts() {
     localStorage.setItem("accountArray", JSON.stringify(accountArray))
     localStorage.setItem("currentAccount", JSON.stringify(currentAccount))
@@ -593,6 +603,10 @@ function usedCredentialChecker(username, email) {
 
 // Settings
 
+/**
+ * Enche o popup de settings com as opções corretas relativas aos recursos que o jogador
+ * possui, selecionando automaticamente os que este tinha previamente selecionado.
+ */
 function settingsFiller() {
 
     formularioSettings = document.forms["aestheticsForm"]
@@ -725,6 +739,10 @@ function showSettingsAppliedMessage() {
     },1500)
 }
 
+/**
+ * Permite tocar ou não por dentro do dimmer.
+ * @param {string} suporta scope =="disable" ou scope=="enable".
+ */
 function clickToggler(scope) {
 
     let pointerEventsValue = null
