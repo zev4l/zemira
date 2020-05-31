@@ -149,6 +149,7 @@ function menuElementToggle() {
 function openLogin() {
     let loginBox = document.getElementById("loginBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("disable")
     loginBox.style.display = "block"
     setTimeout(function() {
         loginBox.style.opacity = "1"
@@ -159,6 +160,7 @@ function openLogin() {
 function closeLogin() {
     let loginBox = document.getElementById("loginBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("enable")
 
 
     loginBox.style.opacity= "0";
@@ -214,6 +216,7 @@ function loginHandler() {
 function openRegister() {
     let registerBox = document.getElementById("registerBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("disable")
     registerBox.style.display = "block"
     setTimeout(function() {
         registerBox.style.opacity = "1"
@@ -224,6 +227,7 @@ function openRegister() {
 function closeRegister() {
     let registerBox = document.getElementById("registerBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("enable")
 
 
     registerBox.style.opacity= "0";
@@ -266,6 +270,8 @@ function openLogout() {
     
     updateStats()
 
+    clickToggler("disable")
+
     let logoutBox = document.getElementById("logoutBox")
 
     let playerSpan = document.getElementById("playerName")
@@ -286,6 +292,7 @@ function openLogout() {
 function closeLogout() {
     let logoutBox = document.getElementById("logoutBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("enable")
 
 
     logoutBox.style.opacity= "0";
@@ -340,6 +347,7 @@ function deleteAccount() {
 
 function openSettings() {
     settingsFiller()
+    clickToggler("disable")
     let settingsBox = document.getElementById("settingsBox")
     let dimmer = document.getElementById("dimmer")
     settingsBox.style.display = "block"
@@ -353,6 +361,7 @@ function openSettings() {
 function closeSettings() {
     let settingsBox = document.getElementById("settingsBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("enable")
 
 
     settingsBox.style.opacity= "0";
@@ -372,6 +381,7 @@ function closeSettings() {
 function openStats(){
 	let statsBox = document.getElementById("statsBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("disable")
 	statsBoxUpdater()
     statsBox.style.display = "block"
 	
@@ -387,6 +397,7 @@ function openStats(){
 function closeStats(){
 	let statsBox = document.getElementById("statsBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("enable")
 
 
     statsBox.style.opacity= "0";
@@ -412,8 +423,6 @@ function toggleHamburgerMenu(){
     
     let hamburgerMenu = document.getElementsByClassName("hamburgerMenuDiv")[0]
     let hamburgerMenuButton = document.getElementById("hamburgerButton")
-
-    console.log(hamburgerState)
     
     if (!(hamburgerState)) {
         
@@ -696,3 +705,34 @@ function showSettingsAppliedMessage() {
     },1500)
 }
 
+function clickToggler(scope) {
+
+    let pointerEventsValue = null
+
+    if (scope =="disable") {
+        pointerEventsValue = "none"
+    }
+
+    if (scope =="enable") {
+        pointerEventsValue = "auto"
+    }
+
+    
+    document.getElementsByClassName("registerButton")[0].style.pointerEvents = pointerEventsValue
+    document.getElementsByClassName("loginButton")[0].style.pointerEvents = pointerEventsValue
+    document.getElementsByClassName("logoutButton")[0].style.pointerEvents = pointerEventsValue
+    document.getElementsByClassName("settingsButton")[0].style.pointerEvents = pointerEventsValue
+    
+
+    document.getElementById("hamburgerButtonContainer").style.pointerEvents = pointerEventsValue
+
+
+
+        if (location.href.includes("game.html")) {
+            document.getElementsByClassName("statsButton")[0].style.pointerEvents = pointerEventsValue
+            document.getElementsByClassName("leaderboardButton")[0].style.pointerEvents = pointerEventsValue
+            document.getElementsByClassName("multiPlayerButton")[0].style.pointerEvents = pointerEventsValue
+            document.getElementsByClassName("singlePlayerButton")[0].style.pointerEvents = pointerEventsValue
+        }
+
+}

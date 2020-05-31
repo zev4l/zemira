@@ -53,26 +53,6 @@ function showStats() {
 	}
 }
 
-function displayAllIcons(){
-	document.getElementsByClassName("slideShowHolder")[0].style.display="flex";
-	
-	let dimmer = document.getElementById("dimmer")
-
-	setTimeout(function() {
-        dimmer.style.opacity = "1"
-    },100)
-}
-
-
-function closeSlideShow(){
-	document.getElementsByClassName("slideShowHolder")[0].style.display="none";
-
-	let dimmer = document.getElementById("dimmer")
-
-    dimmer.style.opacity = "0"
-
-
-}
 
 
 function buyItem (number) {

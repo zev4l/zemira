@@ -157,7 +157,7 @@ h2{
 .cardTable{
     border-style: solid;
     border-color: rgb(202, 198, 193);
-    background-color: #d2b48c;
+    background-color:rgba(0, 0, 0, 0.5);
     text-align: center;
     padding: 1ex;
     width: 60%;   

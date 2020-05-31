@@ -416,6 +416,7 @@ function singleplayerStart() {
 function openSingleplayer(){
     let singleplayerBox = document.getElementById("singleplayerBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("disable")
     singleplayerBox.style.display = "block"
     setTimeout(function() {
         singleplayerBox.style.opacity = "1"
@@ -426,6 +427,7 @@ function openSingleplayer(){
 function closeSingleplayer() {
     let singleplayerBox = document.getElementById("singleplayerBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("enable")
 
 
     singleplayerBox.style.opacity= "0";
@@ -451,6 +453,7 @@ function multiplayerEnabler() {
 function openMultiplayer() {
     let multiplayerBox = document.getElementById("multiplayerBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("disable")
     multiplayerBox.style.display = "block"
     setTimeout(function() {
         multiplayerBox.style.opacity = "1"
@@ -461,6 +464,7 @@ function openMultiplayer() {
 function closeMultiplayer() {
     let multiplayerBox = document.getElementById("multiplayerBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("enable")
 
 
     multiplayerBox.style.opacity= "0";
@@ -756,6 +760,7 @@ function getTempPlayerAccuracy(tempPlayerObject) {
 
 function openLeaderboard() {
     leaderboardFiller()
+    clickToggler("disable")
     let leaderboardBox = document.getElementById("leaderboardBox")
     let dimmer = document.getElementById("dimmer")
     leaderboardBox.style.display = "block"
@@ -768,7 +773,7 @@ function openLeaderboard() {
 function closeLeaderboard() {
     let leaderboardBox = document.getElementById("leaderboardBox")
     let dimmer = document.getElementById("dimmer")
-
+    clickToggler("enable")
 
     leaderboardBox.style.opacity= "0";
     dimmer.style.opacity = "0"
@@ -825,13 +830,7 @@ function exitGame(scope=null) {
     }
 }
 
-function dimmerHelper(bool) {
 
-    if (bool) {
-
-    }
-
-}
 
 
 

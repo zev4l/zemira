@@ -465,7 +465,7 @@ if (!(localStorage.getItem("avatars"))) {
         nerdLady: "imagens/avatares/nerdLadyAvatar.png",
         snake: "imagens/avatares/snakeAvatar.png",
         starWars: "imagens/avatares/starWarsAvatar.png",
-        cardGuy: "imagens/avatares/theCardGuyAvatar.png",
+        theCardMaster: "imagens/avatares/theCardGuyAvatar.png",
         speedRunner: "imagens/avatares/theSpeedRunnerAvatar.png",
         theWay: "imagens/avatares/theWayAvatar.png"
     }
