@@ -50,8 +50,6 @@ function Account(username, password, email, gender, ageGroup, stats, aesthetics)
     this.ageGroup = ageGroup,
     this.stats = stats,
     this.aesthetics = aesthetics
-    this.playmode = "mouse"
-
 }
 
 function playerStats() {
