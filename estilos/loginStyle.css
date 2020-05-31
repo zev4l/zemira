@@ -59,7 +59,7 @@
     90% {background-color: #df75fa;}
     100% {background-color: pink;}
 }
-
+@media screen and (min-width: 1000px){
 /* ELEMENTOS DE LOGIN */
 
 .loginButton{
@@ -353,4 +353,616 @@ o rato em cima do butão de "submit" */
 
 #hamburgerButton img {
     z-index: 1;
+}
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 601px) and (max-width: 999px){
+/* ELEMENTOS DE LOGIN */
+
+.loginButton{
+    display: none;
+    border-style: solid; 
+    cursor: pointer;
+    position: absolute;
+    right: 3ex;
+    top: 4ex;
+
+}
+.registerButton{
+    display: none;
+    text-align: left;    
+    position: absolute;
+    border-style: solid;
+    cursor: pointer;
+    right: 13ex;
+    top: 4ex;
+}
+
+.logoutButton, .settingsButton, .statsButton, .leaderboardButton {
+    display: block;
+    margin: 2% auto 2% auto;  
+    cursor: pointer;
+    background-color:  rgb(255, 238, 0);
+    width: 100%;
+    display: none;
+    word-wrap: break-word;
+}
+
+
+
+.leaderboardButton {
+    display: inline-block;
+}
+
+.logoutButton:hover {
+    transition: 600ms ease;
+    background-color: red;
+    transform: scale(0.95);
+}
+
+
+.loginButton:hover, .registerButton:hover, .settingsButton:hover, .statsButton:hover, .leaderboardButton:hover{
+    transition: 600ms ease;
+    animation: background-color-change 5s infinite;
+    transform: scale(0.95);
+}
+
+
+/* DEFINIÇÃO DA CAIXA DE LOGIN, REGISTER E LOGOUT */
+
+/* Container do formulário de Login */
+.loginPopup, .registerPopup, .logoutPopup, .settingsPopup, .statsPopup{
+    display: none;
+    position: fixed;
+    border: 3px solid rgb(255, 208, 0);
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(120, 2, 160);
+    overflow: hidden;
+    text-align: center;
+    transition: all 200ms linear;
+    opacity: 0;
+}
+
+#loginForm, #registerForm, #aestheticsForm{
+  max-width: 300px;
+  padding: 10px;
+}
+
+/* Definição de efeitos quando se passa o rato por cima do texto "Login" */
+.loginTitle:hover, .registerTitle:hover, .settingsTitle:hover {
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
+}
+
+/* Modificações aos campos de texto e password do form */
+#loginForm input[type=text], #loginForm input[type=password],
+#registerForm input[type=text], #registerForm input[type=email],
+#registerForm input[type=password], .formButton, .settingsPopup select {
+  width: 80%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  border: 3px solid rgb(255, 208, 0);
+
+  /* Evitar borda azul que aparece ao clicar num campo de texto */
+  outline:0;
+}
+
+/* Fazer com que o texto escrito no campo "Username" e "E-mail" seja da font utilizada */
+#loginForm input[type=text], #registerForm input[type=text],
+#registerForm input[type=email],
+textarea, select{font-family:inherit;}
+
+/* Fazer com que o texto de placeholder seja da font utilizada */
+#loginForm input[type=text]::placeholder,
+#loginForm input[type=password]::placeholder,
+#registerForm input[type=text]::placeholder,
+#registerForm input[type=email]::placeholder,
+#registerForm input[type=password]::placeholder,
+.formButton, .confirmLogout, .declineLogout {
+    font-family: 'kongtextregular';
+}
+
+/* Definição de vários atributos do formulário */
+.formButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  transition: 600ms ease;
+}
+
+/* Definição de pequeno efeito de aumento de opacidade ao passar
+o rato em cima do butão de "submit" */
+.formButton:hover {
+  opacity: 1;
+  transform: scale(0.95)
+}
+
+/* Definição de propriedades do botão de fechar a caixa de login */
+.closeButton {
+    width: 7%;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+
+#playerName {
+    display: inline-block;
+}
+
+/* Personalização dos fieldsets */
+
+.registerPopup fieldset {
+    vertical-align: middle;
+    border: none;
+}
+
+.registerPopup legend {
+    text-decoration: underline;
+}
+
+.registerPopup input[type=radio] {
+    float: right;
+}
+
+/* Personalização dos botões do popup de logout */
+
+.logoutPopup {
+    border-color: red;
+    width: min-content;
+    padding: 10px;
+}
+.confirmLogout, .declineLogout {
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    transition: 600ms ease;
+    outline:0;
+}
+
+.declineLogout {
+    animation: background-color-change 5s infinite;
+}
+
+.confirmLogout, #deleteAccountButton {
+    background-color: red;
+}
+
+.confirmLogout:hover, #deleteAccountButton:hover, .declineLogout:hover {
+    transform: scale(0.95)
+}
+
+/* Personalização do menu settings */
+
+#aestheticsForm {
+    height: 300px;
+}
+
+#settingsBox {
+    width: 300px;
+}
+
+.selectField {
+    text-align: left;
+    padding: 10px;
+}
+
+.selectField label {
+    padding-bottom: 10px;
+    display: block;
+}
+
+.selectField select {
+    display: block;
+    margin: auto;
+    
+}
+
+/* Personalização do menu stats */
+
+.statsPopup{
+    max-width: 300px;
+}
+
+.statsTextLayout{
+    text-align: center;
+    padding: 1ex;
+}
+
+.usernameStats{
+    font-size: xx-large;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    color: rgb(255, 208, 0);
+}
+
+
+
+.numberOfCards, .numberOfGamesPlayed, .numberOfCorrectPairs, .timePlayed, .accountCurrency, .lowestTime, .accuracySpan{
+    display: block; 
+    transition: 400ms ease;
+    animation: color-change 5s infinite;  
+}
+
+.introStatsHeader{
+    color: black;
+}
+
+.statsGradeAnalyser{
+    color: white;
+    padding: 16px 20px;
+    border-color: yellow;
+    margin: auto;
+    width: 80%;
+    margin-bottom:10px;       
+    background-color: green;
+}
+
+.hamburgerMenuDiv{
+    transition: 500ms ease-in-out;
+    padding: 0.5%;
+    padding-top: 0.3%;
+    padding-bottom: 0.3% ;
+    overflow: hidden;
+    display: none;
+    position: fixed; 
+    text-align: center;    
+    max-height: 0%;  
+    width: 20ex;   
+    border: 3px solid rgb(255, 208, 0);        
+    right: 10px;    
+    background-color: rgba(0, 0, 0, 0.5);          
+    opacity: 0.8;
+}
+
+#hamburgerButtonContainer{
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    right: 6ex;
+    top: 4ex;
+    transition: 600ms ease;
+    
+}
+
+#hamburgerButton{
+    
+    transition: 600ms ease;
+    position: fixed;
+    top: 8%;
+    right: 5%;
+    width: 30px;
+}
+
+#hamburgerButton img {
+    z-index: 1;
+}
+
+
+
+}
+
+
+
+
+@media screen and (max-width: 599px){
+/* ELEMENTOS DE LOGIN */
+
+.loginButton{
+    display: none;
+    border-style: solid; 
+    cursor: pointer;
+    position: absolute;
+    right: 3ex;
+    top: 4ex;
+
+}
+.registerButton{
+    display: none;
+    text-align: left;    
+    position: absolute;
+    border-style: solid;
+    cursor: pointer;
+    right: 13ex;
+    top: 4ex;
+}
+
+.logoutButton, .settingsButton, .statsButton, .leaderboardButton {
+    display: block;
+    margin: 2% auto 2% auto;  
+    cursor: pointer;
+    background-color:  rgb(255, 238, 0);
+    width: 100%;
+    display: none;
+    word-wrap: break-word;
+}
+
+
+
+.leaderboardButton {
+    display: inline-block;
+}
+
+.logoutButton:hover {
+    transition: 600ms ease;
+    background-color: red;
+    transform: scale(0.95);
+}
+
+
+.loginButton:hover, .registerButton:hover, .settingsButton:hover, .statsButton:hover, .leaderboardButton:hover{
+    transition: 600ms ease;
+    animation: background-color-change 5s infinite;
+    transform: scale(0.95);
+}
+
+
+/* DEFINIÇÃO DA CAIXA DE LOGIN, REGISTER E LOGOUT */
+
+/* Container do formulário de Login */
+.loginPopup, .registerPopup, .logoutPopup, .settingsPopup, .statsPopup{
+    display: none;
+    position: fixed;
+    border: 3px solid rgb(255, 208, 0);
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(120, 2, 160);
+    overflow: hidden;
+    text-align: center;
+    transition: all 200ms linear;
+    opacity: 0;
+}
+
+#loginForm, #registerForm, #aestheticsForm{
+  max-width: 300px;
+  padding: 10px;
+}
+
+/* Definição de efeitos quando se passa o rato por cima do texto "Login" */
+.loginTitle:hover, .registerTitle:hover, .settingsTitle:hover {
+    transition: 600ms ease;
+    animation: color-change 5s infinite;
+}
+
+/* Modificações aos campos de texto e password do form */
+#loginForm input[type=text], #loginForm input[type=password],
+#registerForm input[type=text], #registerForm input[type=email],
+#registerForm input[type=password], .formButton, .settingsPopup select {
+  width: 80%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  border: 3px solid rgb(255, 208, 0);
+
+  /* Evitar borda azul que aparece ao clicar num campo de texto */
+  outline:0;
+}
+
+/* Fazer com que o texto escrito no campo "Username" e "E-mail" seja da font utilizada */
+#loginForm input[type=text], #registerForm input[type=text],
+#registerForm input[type=email],
+textarea, select{font-family:inherit;}
+
+/* Fazer com que o texto de placeholder seja da font utilizada */
+#loginForm input[type=text]::placeholder,
+#loginForm input[type=password]::placeholder,
+#registerForm input[type=text]::placeholder,
+#registerForm input[type=email]::placeholder,
+#registerForm input[type=password]::placeholder,
+.formButton, .confirmLogout, .declineLogout {
+    font-family: 'kongtextregular';
+}
+
+/* Definição de vários atributos do formulário */
+.formButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  transition: 600ms ease;
+}
+
+/* Definição de pequeno efeito de aumento de opacidade ao passar
+o rato em cima do butão de "submit" */
+.formButton:hover {
+  opacity: 1;
+  transform: scale(0.95)
+}
+
+/* Definição de propriedades do botão de fechar a caixa de login */
+.closeButton {
+    width: 7%;
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+
+#playerName {
+    display: inline-block;
+}
+
+/* Personalização dos fieldsets */
+
+.registerPopup fieldset {
+    vertical-align: middle;
+    border: none;
+}
+
+.registerPopup legend {
+    text-decoration: underline;
+}
+
+.registerPopup input[type=radio] {
+    float: right;
+}
+
+/* Personalização dos botões do popup de logout */
+
+.logoutPopup {
+    border-color: red;
+    width: min-content;
+    padding: 10px;
+}
+.confirmLogout, .declineLogout {
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    transition: 600ms ease;
+    outline:0;
+}
+
+.declineLogout {
+    animation: background-color-change 5s infinite;
+}
+
+.confirmLogout, #deleteAccountButton {
+    background-color: red;
+}
+
+.confirmLogout:hover, #deleteAccountButton:hover, .declineLogout:hover {
+    transform: scale(0.95)
+}
+
+/* Personalização do menu settings */
+
+#aestheticsForm {
+    height: 300px;
+}
+
+#settingsBox {
+    width: 300px;
+}
+
+.selectField {
+    text-align: left;
+    padding: 10px;
+}
+
+.selectField label {
+    padding-bottom: 10px;
+    display: block;
+}
+
+.selectField select {
+    display: block;
+    margin: auto;
+    
+}
+
+/* Personalização do menu stats */
+
+.statsPopup{
+    max-width: 300px;
+}
+
+.statsTextLayout{
+    text-align: center;
+    padding: 1ex;
+}
+
+.usernameStats{
+    font-size: xx-large;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    color: rgb(255, 208, 0);
+}
+
+
+
+.numberOfCards, .numberOfGamesPlayed, .numberOfCorrectPairs, .timePlayed, .accountCurrency, .lowestTime, .accuracySpan{
+    display: block; 
+    transition: 400ms ease;
+    animation: color-change 5s infinite;  
+}
+
+.introStatsHeader{
+    color: black;
+}
+
+.statsGradeAnalyser{
+    color: white;
+    padding: 16px 20px;
+    border-color: yellow;
+    margin: auto;
+    width: 80%;
+    margin-bottom:10px;       
+    background-color: green;
+}
+
+.hamburgerMenuDiv{
+    transition: 500ms ease-in-out;
+    padding: 0.5%;
+    padding-top: 0.3%;
+    padding-bottom: 0.3% ;
+    overflow: hidden;
+    display: none;
+    position: fixed; 
+    text-align: center;    
+    max-height: 0%;  
+    width: 20ex;   
+    border: 3px solid rgb(255, 208, 0);        
+    right: 10px;    
+    background-color: rgba(0, 0, 0, 0.5);          
+    opacity: 0.8;
+}
+
+#hamburgerButtonContainer{
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    right: 6ex;
+    top: 4ex;
+    transition: 600ms ease;
+    
+}
+
+#hamburgerButton{
+    
+    transition: 600ms ease;
+    position: fixed;
+    top: 8%;
+    right: 5%;
+    width: 30px;
+}
+
+#hamburgerButton img {
+    z-index: 1;
+}
+
+
 }

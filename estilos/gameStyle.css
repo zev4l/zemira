@@ -10,7 +10,63 @@
     font-style: normal;
 }
 
+
+
+
+
+
+@keyframes color-change {
+    10% {color: #1abc9c;}    
+    20% {color: #d35400;}     
+    30% {color: #ff0dc2;} 
+    40% {color: #2980b9;}
+    60% {color: #f1c40f;}
+    70% {color: #2980b9;}
+    80% {color: #29b9ad;}
+    90% {color: #df75fa;}
+    100% {color: pink;}
+}
+
+@-webkit-keyframes color-change {
+    10% {color: #1abc9c;}    
+    20% {color: #d35400;}     
+    30% {color: #ff0dc2;} 
+    40% {color: #2980b9;}
+    60% {color: #f1c40f;}
+    70% {color: #2980b9;}
+    80% {color: #29b9ad;}
+    90% {color: #df75fa;}
+    100% {color: pink;}
+}
+
+/* BACKGROUND KEYFRAMES */
+
+@keyframes background-color-change {
+    10% {background-color: #1abc9c;}    
+    20% {background-color: #d35400;}     
+    30% {background-color: #ff0dc2;} 
+    40% {background-color: #2980b9;}
+    60% {background-color: #f1c40f;}
+    70% {background-color: #2980b9;}
+    80% {background-color: #29b9ad;}
+    90% {background-color: #df75fa;}
+    100% {background-color: pink;}
+}
+
+@-webkit-keyframes background-color-change {
+    10% {background-color: #1abc9c;}    
+    20% {background-color: #d35400;}     
+    30% {background-color: #ff0dc2;} 
+    40% {background-color: #2980b9;}
+    60% {background-color: #f1c40f;}
+    70% {background-color: #2980b9;}
+    80% {background-color: #29b9ad;}
+    90% {background-color: #df75fa;}
+    100% {background-color: pink;}
+}
+
 /* MISC */
+@media screen and (min-width: 1000px){
 
 body {
     background-color: #9900CC ;
@@ -63,55 +119,7 @@ h2{
     animation: color-change 5s infinite;
 }
 
-@keyframes color-change {
-    10% {color: #1abc9c;}    
-    20% {color: #d35400;}     
-    30% {color: #ff0dc2;} 
-    40% {color: #2980b9;}
-    60% {color: #f1c40f;}
-    70% {color: #2980b9;}
-    80% {color: #29b9ad;}
-    90% {color: #df75fa;}
-    100% {color: pink;}
-}
 
-@-webkit-keyframes color-change {
-    10% {color: #1abc9c;}    
-    20% {color: #d35400;}     
-    30% {color: #ff0dc2;} 
-    40% {color: #2980b9;}
-    60% {color: #f1c40f;}
-    70% {color: #2980b9;}
-    80% {color: #29b9ad;}
-    90% {color: #df75fa;}
-    100% {color: pink;}
-}
-
-/* BACKGROUND KEYFRAMES */
-
-@keyframes background-color-change {
-    10% {background-color: #1abc9c;}    
-    20% {background-color: #d35400;}     
-    30% {background-color: #ff0dc2;} 
-    40% {background-color: #2980b9;}
-    60% {background-color: #f1c40f;}
-    70% {background-color: #2980b9;}
-    80% {background-color: #29b9ad;}
-    90% {background-color: #df75fa;}
-    100% {background-color: pink;}
-}
-
-@-webkit-keyframes background-color-change {
-    10% {background-color: #1abc9c;}    
-    20% {background-color: #d35400;}     
-    30% {background-color: #ff0dc2;} 
-    40% {background-color: #2980b9;}
-    60% {background-color: #f1c40f;}
-    70% {background-color: #2980b9;}
-    80% {background-color: #29b9ad;}
-    90% {background-color: #df75fa;}
-    100% {background-color: pink;}
-}
 
 
 /* BOTÕES INICIAIS */
@@ -422,3 +430,753 @@ table{
 .leaderboardAvatar {
     width: 50%;
 }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 601px) and (max-width: 999px){
+    body {
+        background-color: #9900CC ;
+        font-family: 'kongtextregular'; 
+        text-align: center;
+        
+       
+    }
+    
+    img {
+        -webkit-user-drag: none;
+    
+    }
+    
+    h2{
+        color: rgb(255, 208, 0);
+    }
+    
+    ::selection {
+        background-color: #9900CC;
+    }
+    
+    .topDiv{
+        padding: 2ex;    
+        text-align: center;
+        display: inline-block;
+        margin: 0 auto;
+       
+        
+    }
+    .gameTitle{
+        color: rgb(255, 208, 0);
+        font-weight: bold;
+        font-size: 150%;
+        text-align: center;
+        display: inline-block;        
+        padding: 1ex;
+        border-style: solid ;
+        
+    }
+    
+    .gameTitle a {
+        text-decoration: none;
+        color: rgb(255, 208, 0);
+        transition: 600ms ease;
+    }
+    
+    .gameTitle a:hover {
+        transition: 600ms ease;
+        animation: color-change 5s infinite;
+    }
+    
+
+    
+    
+    /* BOTÕES INICIAIS */
+    
+    .singlePlayer, .multiPlayer{
+    
+        width: 40%;
+        height: 40%;
+        text-align: center;
+        padding: 2ex;
+        border-style: solid;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5ex;
+        text-align: center;
+        transition: all 200ms linear;
+    }
+    .singlePlayerButton, .multiPlayerButton{
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+        padding: 2%;
+    }
+    
+    
+    .singlePlayerButton:hover, .multiPlayerButton:hover, .matrixHighlight {
+        transition: 600ms ease;
+        animation: color-change 5s infinite;
+    }
+    
+    
+    /* CONTAINER DE ELEMENTOS DO JOGO */
+    
+    .gameContent{
+        
+        width: 100%;
+        display: none;
+    }
+    
+    /* DEFINIÇÃO DA TABLE */
+    
+    .cardTable{
+        border-style: solid;
+        border-color: rgb(202, 198, 193);
+        background-color: #d2b48c;
+        text-align: center;
+        padding: 1ex;
+        width: 60%;   
+        position: relative; 
+        
+        margin-top: 5ex;
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block;
+        transition: all 500ms linear;
+        opacity: 0;
+    
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    
+    .cardTable th {
+        height: 150px;
+    }
+    
+    table{
+        width: 100%;
+        padding: 1ex;
+        padding-bottom: 5ex;
+        
+    }
+    
+    /* DEFINIÇÃO DAS CARTAS */
+    
+    .cardContainer{
+        position: relative;
+        width: 70px;
+        height: 99px;
+        background: none;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: hidden;
+        transition: all 200ms linear;
+        opacity: 0;
+    
+    }
+    
+    .card{
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        transform-style: preserve-3d;
+        transition: all 0.8s ease;
+        transform: rotateY(180deg);
+        cursor: pointer;
+    }
+    
+    .cardFront{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 95%;
+        background-color: rgb(255, 208, 0);
+        border-radius: 12px;
+        backface-visibility: visible;
+        overflow: hidden;
+    }
+    
+    .cardFront img {
+        width: 70%;
+        position: relative;
+        top: 2ex;
+        margin: auto;
+    }
+    
+    .cardBack{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 95%;
+        border-radius: 12px;
+        backface-visibility: hidden;
+        overflow: hidden;
+        background: #fafafa;
+        color: #333;
+        text-align: center;
+        transform: rotateY(180deg);
+    }
+    
+    /* PNG DImensions: 180x303 */
+    .cardBack img {
+        width: 100%;
+        position: relative;
+    }
+    
+    
+    
+    /* DEFINIÇÃO DA SIDEBAR */
+    
+    .sideBar {
+        position: absolute;
+        display: inline-block;
+        border: solid;
+        margin: 20ex 3ex auto 3ex;
+        height: 30%;
+        padding: 3ex;
+    }
+    
+    .durationCounter{
+    
+        display: block;
+        width: 15%;
+        position: relative;
+    
+    }
+    .matchesFound{
+        position: relative;
+        display: block;
+        width: 15%;
+        
+    }
+    .zemiraPoints{
+        position: relative;
+        display: block;
+        width: 15%   
+    }
+    
+    /* DEFINIÇÃO DO RESTART BUTTON */
+    
+    /* .restart {
+        position: absolute;
+        display: inline-block;
+        cursor: pointer;
+        margin: 5% auto auto 8%;
+    } */
+    
+    
+    /* DEFINIÇÃO DO POPUP DE MULTIPLAYER, SINGLEPLAYER E ENDGAME */
+    
+    .multiplayerPopup, .singleplayerPopup, .endgamePopup, .leaderboardPopup{
+    
+        display: none;
+        position: fixed;
+        border: 3px solid rgb(255, 208, 0);
+        z-index: 9;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(120, 2, 160);
+        overflow: hidden;
+        text-align: center;
+        transition: all 200ms linear;
+        opacity: 0;
+        width: 300px;
+        color: black;
+    
+    }
+    
+    .multiplayerPopup h2 {
+        color: black;
+    }
+    
+    .endgamePopup {
+        width: 620px;
+        position: fixed;
+    }
+    
+    .leaderboardPopup {
+        width: 30%;
+    }
+    
+    .backgroundHighlight {
+        animation: background-color-change 5s infinite;
+    }
+    
+    .MPButton, .SPButton {
+        width: 80%;
+        padding: 10px;
+        margin: 5px 0 22px 0;
+        border: 3px solid rgb(255, 208, 0);
+        /* Evitar borda azul que aparece ao clicar num campo de texto */
+        outline:0;
+    
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 90%;
+        margin-bottom:10px;
+        opacity: 0.8;
+        transition: 600ms ease;
+        font-family: 'kongtextregular'; 
+    }
+    
+    .MPButton:hover, .SPButton:hover {
+        opacity: 1;
+    }
+    
+    #MPStartButton, #namesOfPlayers, #MPNameFormText {
+        display: none;
+    }
+    
+    #namesOfPlayers input[type=text]::placeholder {
+        font-family: 'kongtextregular'
+    }
+    
+    .MPTextArea {
+        width: 80%;
+        padding: 10px;
+        margin: 5px 0 22px 0;
+        border: 3px solid rgb(255, 208, 0);
+      
+        /* Evitar borda azul que aparece ao clicar num campo de texto */
+        outline:0;
+        font-family: 'kongtextregular'
+    }
+    
+    .closeButton {
+        margin-bottom: 10ex;
+    }
+    
+    .exitButton {
+        background-color: red;
+    }
+    
+    #turnContainer {
+        display: none;
+        text-transform: uppercase;
+        font-size: 150%;
+        color: black;
+    }
+    
+    #turn {
+        animation: color-change 5s infinite;
+    }
+    
+    /* Leaderboards */
+    
+    #multiplayerLeaderboard, #singleplayerLeaderboard {
+        display: none;
+    }
+    
+    #multiplayerLeaderboardTable {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 10% auto 10% auto;
+    }
+    
+    #singleplayerLeaderboard {
+        text-align: left;
+        width: 80%;
+        margin: 10% auto 10% auto;
+    }
+    
+    .headerRow {
+        border-bottom: 1px solid #000;
+        padding: 10px;
+    }
+    
+    .leaderboardAvatar {
+        width: 50%;
+    }
+
+}
+
+
+@media screen and (max-width: 599px){
+    body {
+        background-color: #9900CC ;
+        font-family: 'kongtextregular'; 
+        text-align: center;
+        
+       
+    }
+    
+    img {
+        -webkit-user-drag: none;
+    
+    }
+    
+    h2{
+        color: rgb(255, 208, 0);
+    }
+    
+    ::selection {
+        background-color: #9900CC;
+    }
+    
+    .topDiv{
+        padding: 2ex;    
+        text-align: center;
+        display: inline-block;
+        margin: 0 auto;
+       
+        
+    }
+    .gameTitle{
+        color: rgb(255, 208, 0);
+        font-weight: bold;
+        font-size: 120%;
+        text-align: center;
+        display: inline-block;        
+        padding: 1ex;
+        border-style: solid ;
+        
+    }
+    
+    .gameTitle a {
+        text-decoration: none;
+        color: rgb(255, 208, 0);
+        transition: 600ms ease;
+    }
+    
+    .gameTitle a:hover {
+        transition: 600ms ease;
+        animation: color-change 5s infinite;
+    }
+    
+ 
+    
+    /* BOTÕES INICIAIS */
+    
+    .singlePlayer, .multiPlayer{
+    
+        width: 50%;
+        height: 40%;
+        text-align: center;
+        padding: 2ex;
+        border-style: solid;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5ex;
+        text-align: center;
+        transition: all 200ms linear;
+    }
+    .singlePlayerButton, .multiPlayerButton{
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+        padding: 2%;
+    }
+    
+    
+    .singlePlayerButton:hover, .multiPlayerButton:hover, .matrixHighlight {
+        transition: 600ms ease;
+        animation: color-change 5s infinite;
+    }
+    
+    
+    /* CONTAINER DE ELEMENTOS DO JOGO */
+    
+    .gameContent{
+        
+        width: 100%;
+        display: none;
+    }
+    
+    /* DEFINIÇÃO DA TABLE */
+    
+    .cardTable{
+        border-style: solid;
+        border-color: rgb(202, 198, 193);
+        background-color: #d2b48c;
+        text-align: center;
+        padding: 1ex;
+        width: 60%;   
+        position: relative; 
+        
+        margin-top: 5ex;
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block;
+        transition: all 500ms linear;
+        opacity: 0;
+    
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    
+    .cardTable th {
+        height: 150px;
+    }
+    
+    table{
+        width: 100%;
+        padding: 1ex;
+        padding-bottom: 5ex;
+        
+    }
+    
+    /* DEFINIÇÃO DAS CARTAS */
+    
+    .cardContainer{
+        position: relative;
+        width: 70px;
+        height: 99px;
+        background: none;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: hidden;
+        transition: all 200ms linear;
+        opacity: 0;
+    
+    }
+    
+    .card{
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        transform-style: preserve-3d;
+        transition: all 0.8s ease;
+        transform: rotateY(180deg);
+        cursor: pointer;
+    }
+    
+    .cardFront{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 95%;
+        background-color: rgb(255, 208, 0);
+        border-radius: 12px;
+        backface-visibility: visible;
+        overflow: hidden;
+    }
+    
+    .cardFront img {
+        width: 70%;
+        position: relative;
+        top: 2ex;
+        margin: auto;
+    }
+    
+    .cardBack{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 95%;
+        border-radius: 12px;
+        backface-visibility: hidden;
+        overflow: hidden;
+        background: #fafafa;
+        color: #333;
+        text-align: center;
+        transform: rotateY(180deg);
+    }
+    
+    /* PNG DImensions: 180x303 */
+    .cardBack img {
+        width: 100%;
+        position: relative;
+    }
+    
+    
+    
+    /* DEFINIÇÃO DA SIDEBAR */
+    
+    .sideBar {
+        position: absolute;
+        display: inline-block;
+        border: solid;
+        margin: 20ex 3ex auto 3ex;
+        height: 30%;
+        padding: 3ex;
+    }
+    
+    .durationCounter{
+    
+        display: block;
+        width: 15%;
+        position: relative;
+    
+    }
+    .matchesFound{
+        position: relative;
+        display: block;
+        width: 15%;
+        
+    }
+    .zemiraPoints{
+        position: relative;
+        display: block;
+        width: 15%   
+    }
+    
+    /* DEFINIÇÃO DO RESTART BUTTON */
+    
+    /* .restart {
+        position: absolute;
+        display: inline-block;
+        cursor: pointer;
+        margin: 5% auto auto 8%;
+    } */
+    
+    
+    /* DEFINIÇÃO DO POPUP DE MULTIPLAYER, SINGLEPLAYER E ENDGAME */
+    
+    .multiplayerPopup, .singleplayerPopup, .endgamePopup, .leaderboardPopup{
+    
+        display: none;
+        position: fixed;
+        border: 3px solid rgb(255, 208, 0);
+        z-index: 9;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(120, 2, 160);
+        overflow: hidden;
+        text-align: center;
+        transition: all 200ms linear;
+        opacity: 0;
+        width: 300px;
+        color: black;
+    
+    }
+    
+    .multiplayerPopup h2 {
+        color: black;
+    }
+    
+    .endgamePopup {
+        width: 620px;
+        position: fixed;
+    }
+    
+    .leaderboardPopup {
+        width: 30%;
+    }
+    
+    .backgroundHighlight {
+        animation: background-color-change 5s infinite;
+    }
+    
+    .MPButton, .SPButton {
+        width: 80%;
+        padding: 10px;
+        margin: 5px 0 22px 0;
+        border: 3px solid rgb(255, 208, 0);
+        /* Evitar borda azul que aparece ao clicar num campo de texto */
+        outline:0;
+    
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 90%;
+        margin-bottom:10px;
+        opacity: 0.8;
+        transition: 600ms ease;
+        font-family: 'kongtextregular'; 
+    }
+    
+    .MPButton:hover, .SPButton:hover {
+        opacity: 1;
+    }
+    
+    #MPStartButton, #namesOfPlayers, #MPNameFormText {
+        display: none;
+    }
+    
+    #namesOfPlayers input[type=text]::placeholder {
+        font-family: 'kongtextregular'
+    }
+    
+    .MPTextArea {
+        width: 80%;
+        padding: 10px;
+        margin: 5px 0 22px 0;
+        border: 3px solid rgb(255, 208, 0);
+      
+        /* Evitar borda azul que aparece ao clicar num campo de texto */
+        outline:0;
+        font-family: 'kongtextregular'
+    }
+    
+    .closeButton {
+        margin-bottom: 10ex;
+    }
+    
+    .exitButton {
+        background-color: red;
+    }
+    
+    #turnContainer {
+        display: none;
+        text-transform: uppercase;
+        font-size: 150%;
+        color: black;
+    }
+    
+    #turn {
+        animation: color-change 5s infinite;
+    }
+    
+    /* Leaderboards */
+    
+    #multiplayerLeaderboard, #singleplayerLeaderboard {
+        display: none;
+    }
+    
+    #multiplayerLeaderboardTable {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 10% auto 10% auto;
+    }
+    
+    #singleplayerLeaderboard {
+        text-align: left;
+        width: 80%;
+        margin: 10% auto 10% auto;
+    }
+    
+    .headerRow {
+        border-bottom: 1px solid #000;
+        padding: 10px;
+    }
+    
+    .leaderboardAvatar {
+        width: 50%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
