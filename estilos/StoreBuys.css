@@ -210,7 +210,7 @@
 
 
 
-@media screen and (min-width: 601px) and (max-width: 999px){
+@media screen and (min-width: 600px) and (max-width: 999px){
     .registerButton {
         position: relative;
         margin-top: 100px;
