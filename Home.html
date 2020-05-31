@@ -22,44 +22,37 @@
 
 <div class="content">
 
-    <div class="background_video">
-        <video autoplay loop muted>
-            <source src="videos/background8bit.mp4" type="video/mp4">
-            Your browser does not support this video format.
-        </video>
+    <video autoplay loop muted id="homeVideo">
+        <source src="videos/background8bit.mp4" type="video/mp4">
+        Your browser does not support this video format.
+    </video>
 
-    <div id="homeNavBar">
-        <ul class="homeNavBar">
-            <li><a href="./Home.html"> Home </a></li>
-            <li><a href="./Features.html"> Features </a></li>
-            <li><a href="./Intro.html"> Introduction </a></li>
-            <li><a href="./Loja.html"> Store </a></li>
-            <li><a href="./Regras.html"> Rules </a></li>
-            <li><a href="./Bio.html"> About </a></li>
-        </ul>
-    </div>
+    <ul class="homeNavBar">
+        <li><a href="./Home.html"> Home </a></li>
+        <li><a href="./Features.html"> Features </a></li>
+        <li><a href="./Intro.html"> Introduction </a></li>
+        <li><a href="./Loja.html"> Store </a></li>
+        <li><a href="./Regras.html"> Rules </a></li>
+        <li><a href="./Bio.html"> About </a></li>
+    </ul>
         
-    <div class="corpo homeCorpo">
+    <div class="homeCorpo">
 
-        <h1 class="titleHome">Zemira <br class="mobile"> the <br class="mobile tablet"> game</h1>
+        <h1 class="titleHome">Zemira <br class="mobile"> the <br class="mobile, tablet"> game</h1>
 
-        <div id="elementsHome">
-            <a id = "playButton" href="game.html">PLAY</a>
+        <a id = "playButton" href="game.html">PLAY</a>
 
-            <img src="imagens/muteIcon2.png" id="soundButtonHome" onclick="toggleMusicHome()">
-        </div>
+        <img src="imagens/muteIcon2.png" id="soundButtonHome" onclick="toggleMusicHome()">
     
-    </div> <!-- Este div vem da class corpo -->
+    </div>
 
-    </div><!-- Este div vem da class background_video -->
-
-</div> <!-- Este div vem da class content -->
+    </div>
 
 </body>
 
 <footer class="footerHome">
     <div id="footerMain">
-        <p><em> <a class="mobile">Zemira the Game, mobile version!</a> <br class="mobile tablet"> Developed by: José Almeida, Rafael Ribeiro, Miguel Duarte | Copyright©2020 <br>
+        <p><em> <a class="mobile">Zemira the Game, mobile version!</a> <a class="tablet">Zemira the Game, tablet version!</a> <br class="mobile"><br class="tablet"> Developed by: José Almeida, Rafael Ribeiro, Miguel Duarte | Copyright©2020 <br>
         Jogo desenvolvido como parte integrante de um projeto de Introdução às Tecnologias Web.</em></p>
     </div>
 </footer>
