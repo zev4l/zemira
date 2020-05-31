@@ -675,8 +675,8 @@ o rato em cima do butão de "submit" */
     border-style: solid; 
     cursor: pointer;
     position: absolute;
-    right: 3ex;
-    top: 4ex;
+    right: 1ex;
+    top: 85px;
 
 }
 .registerButton{
@@ -685,8 +685,8 @@ o rato em cima do butão de "submit" */
     position: absolute;
     border-style: solid;
     cursor: pointer;
-    right: 13ex;
-    top: 4ex;
+    left: 1ex;
+    top: 85px;
 }
 
 .logoutButton, .settingsButton, .statsButton, .leaderboardButton {

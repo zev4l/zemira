@@ -448,8 +448,8 @@ table{
 #musicToggle {
     transition: 600ms ease;
     position: absolute;
-    margin-top: 15px;
-    margin-right: 300px;  
+    margin-top: 90px;
+    margin-right: 670px;  
     width: 50px;
     cursor: pointer;
 }
@@ -478,7 +478,7 @@ table{
 
 
 
-@media screen and (min-width: 750px) and (max-width: 999px){
+@media screen and (min-width: 600px) and (max-width: 999px){
     body {
         background-color: #9900CC ;
         font-family: 'kongtextregular'; 
@@ -899,7 +899,7 @@ table{
 }
 
 
-@media screen and (max-width: 749px){
+@media screen and (max-width: 599px){
     body {
         background-color: #9900CC ;
         font-family: 'kongtextregular'; 
@@ -1282,7 +1282,7 @@ table{
         transition: 600ms ease;
         position: absolute;
         top: 10ex;                
-        margin-right: 70px;        
+        margin: auto;        
         width: 40px;
         cursor: pointer;
     }
