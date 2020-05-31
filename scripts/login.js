@@ -133,7 +133,7 @@ function menuElementToggle() {
         document.getElementsByClassName("loginButton")[0].style.display = "none"
         document.getElementsByClassName("logoutButton")[0].style.display = "inline-block"
         document.getElementsByClassName("settingsButton")[0].style.display = "inline-block"
-        document.getElementById("hamburgerButtonContainer").style.display = "block"
+        document.getElementById("hamburgerButton").style.display = "inline-block"
 
         if (location.href.includes("game.html")) {
             document.getElementsByClassName("statsButton")[0].style.display = "inline-block"
@@ -144,7 +144,7 @@ function menuElementToggle() {
         document.getElementsByClassName("loginButton")[0].style.display = "inline-block"
         document.getElementsByClassName("logoutButton")[0].style.display = "none"
         document.getElementsByClassName("settingsButton")[0].style.display = "none"
-        document.getElementById("hamburgerButtonContainer").style.display = "none"
+        document.getElementById("hamburgerButton").style.display = "none"
         document.getElementById("musicToggle").style.right = "25ex"
 
         if (location.href.includes("game.html")) {
@@ -744,7 +744,7 @@ function clickToggler(scope) {
     document.getElementsByClassName("settingsButton")[0].style.pointerEvents = pointerEventsValue
     
 
-    document.getElementById("hamburgerButtonContainer").style.pointerEvents = pointerEventsValue
+    document.getElementById("hamburgerButton").style.pointerEvents = pointerEventsValue
 
 
 
