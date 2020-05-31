@@ -72,8 +72,7 @@ body {
     background-color: #9900CC ;
     font-family: 'kongtextregular'; 
     text-align: center;
-    
-   
+    background-image: url('../imagens/tableBackground.png')
 }
 
 img {
@@ -104,7 +103,8 @@ h2{
     text-align: center;
     display: inline-block;        
     padding: 1ex;
-    border-style: solid ;
+    border: solid black ;
+    background-color:rgb(135, 0, 180);
     
 }
 
@@ -136,6 +136,7 @@ h2{
     margin-top: 5ex;
     text-align: center;
     transition: all 200ms linear;
+    background-color:rgb(135, 0, 180)
 }
 .singlePlayerButton, .multiPlayerButton{
     display: inline-block;
@@ -163,8 +164,7 @@ h2{
 /* DEFINIÇÃO DA TABLE */
 
 .cardTable{
-    border-style: solid;
-    border-color: rgb(202, 198, 193);
+    border: solid;
     background-color:rgba(0, 0, 0, 0.5);
     text-align: center;
     padding: 1ex;
@@ -206,6 +206,8 @@ table{
     visibility: hidden;
     transition: all 200ms linear;
     opacity: 0;
+    pointer-events: none;
+    
 
 }
 
@@ -273,6 +275,7 @@ table{
     margin: 20ex 3ex auto 3ex;
     height: 30%;
     padding: 3ex;
+    background-color:rgb(135, 0, 180)
 }
 
 .durationCounter{
@@ -293,15 +296,6 @@ table{
     display: block;
     width: 15%   
 }
-
-/* DEFINIÇÃO DO RESTART BUTTON */
-
-/* .restart {
-    position: absolute;
-    display: inline-block;
-    cursor: pointer;
-    margin: 5% auto auto 8%;
-} */
 
 
 /* DEFINIÇÃO DO POPUP DE MULTIPLAYER, SINGLEPLAYER E ENDGAME */
@@ -429,6 +423,15 @@ table{
 
 .leaderboardAvatar {
     width: 50%;
+}
+
+#musicToggle {
+    transition: 600ms ease;
+    position: fixed;
+    top: 3.7ex;
+    right: 20ex;
+    width: 50px;
+    cursor: pointer;
 }
 }
 
@@ -579,6 +582,7 @@ table{
         visibility: hidden;
         transition: all 200ms linear;
         opacity: 0;
+        pointer-events: none;
     
     }
     
@@ -945,6 +949,8 @@ table{
         visibility: hidden;
         transition: all 200ms linear;
         opacity: 0;
+        pointer-events: none;
+    
     
     }
     
@@ -1169,6 +1175,8 @@ table{
     .leaderboardAvatar {
         width: 50%;
     }
+
+    
 }
 
 

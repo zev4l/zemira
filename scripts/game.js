@@ -23,6 +23,14 @@ let TURN_ID = null
 
 let TURN_CONTAINER_ID = null
 
+let music = null
+
+let matchesSoundEffect = null
+
+let cardFlipSoundEffect = null
+
+let winningSoundEffect = new Audio("sons/winningSound.wav")
+
 /************************************************************* */
 /* ESTADO DO JOGO */
 
@@ -43,7 +51,7 @@ let defaultIconPack = packs.default
 
 let defaultBack = "imagens/cardBacks/cardBack.png"
 
-let defaultAvatar = "imagens/avatares/dogeAvatar.png"
+let defaultAvatar = "imagens/avatares/zemiraDefaultAvatar&TopImage.png"
 
 let config = {
     backImageSource: defaultBack,
@@ -61,6 +69,11 @@ let duplicateNameErrorTimeoutID = null;
 /* FUNÇÕES */
 
 function inicial() {
+
+    startMusic()
+
+    winningSoundEffect.volume = 0.3
+
 
     menuElementToggle()
 
@@ -130,6 +143,11 @@ function showCard(n) {
 
     if (n!=estado.currentCards[0] && !(estado.usedCards.includes(n))) {
         estado.cardsFlipped ++
+        // Elemento Audio é definido aqui para que seja tocado quando as 
+        // cartas são clicadas repetidamente em pouco tempo
+        cardFlipSoundEffect = new Audio("sons/cardFlip.wav")
+        cardFlipSoundEffect.volume = 0.3
+        cardFlipSoundEffect.play()
 
     }
 
@@ -177,6 +195,11 @@ function showCard(n) {
                 MPStatUpdater("matches")
                 
             }
+
+            matchesSoundEffect =  new Audio("sons/matchFound.wav")
+            matchesSoundEffect.volume = 0.3
+            matchesSoundEffect.play()
+
         }
 
             
@@ -237,6 +260,8 @@ function hideCard(n) {
 
 function endGame() {
 let multiplayerOn = estado.multiplayer
+
+    winningSoundEffect.play()
     // abre o popup de fim de jogo
 
     openEndgamePopup()
@@ -406,8 +431,11 @@ function singleplayerStart() {
 
     showSPGameElements()
     
-    startTimeCounter()
-
+    setTimeout(function() {
+        startTimeCounter()
+        enableCardClick()
+    },2000)
+    
     // Para mostrar os zPoints atualizados
     showStats();
 
@@ -583,7 +611,13 @@ function multiplayerStart() {
         closeMultiplayer()
         hideNonGameElements()
         showMPGameElements()
+
+        // Dar algum tempo para as cartas aparecerem antes de começar o contador
+        setTimeout(function() {
         startTimeCounter()
+        enableCardClick()
+        },1200)
+
 
         for (let i = 0; i < playerNames.length; i++) {
             let newTempPlayer = new tempPlayer(playerNames[i])
@@ -662,6 +696,7 @@ function openEndgamePopup() {
     let dimmer = document.getElementById("dimmer")
     let multiplayerOn = estado.multiplayer
     endgameFiller()
+    clickToggler("disable")
     endgameBox.style.display = "block"
 
     if (!multiplayerOn) {
@@ -677,6 +712,7 @@ function openEndgamePopup() {
 function closeEndgamePopup() {
     let endgameBox = document.getElementById("endgameBox")
     let dimmer = document.getElementById("dimmer")
+    clickToggler("enable")
 
 
     endgameBox.style.opacity= "0";
@@ -820,6 +856,37 @@ function leaderboardFiller() {
     }
 }
 
+// Funções relacionadas com audio
+
+function startMusic() {
+    music = backgroundMusic("sons/musicBackground.mp3")
+}
+
+function backgroundMusic(src) {
+    let sound = document.createElement("audio");
+    sound.src = src;
+    sound.setAttribute("preload", "auto");
+    sound.setAttribute("controls", "none");
+    sound.style.display = "none";
+    sound.loop = true;
+    sound.volume = 0.3;
+    return sound
+}
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play()
+        document.getElementById("musicToggle").src="imagens/soundIcon2.png"
+    } else {
+        music.pause()
+        document.getElementById("musicToggle").src="imagens/muteIcon2.png"
+    }
+}
+
+
+
+
+
 // Outras funções
 
 function exitGame(scope=null) {
@@ -829,6 +896,16 @@ function exitGame(scope=null) {
         openMultiplayer()
     }
 }
+
+function enableCardClick() {
+    let cardList = document.querySelectorAll(".cardContainer")
+
+    for (let i = 0; i < cardList.length; i++) {
+        cardList[i].style.pointerEvents = "auto"
+    }
+}
+
+
 
 
 
