@@ -425,6 +425,10 @@ table{
     width: 50%;
 }
 
+.SPH3 {
+    color: rgb(255, 208, 0)
+}
+
 #musicToggle {
     transition: 600ms ease;
     position: fixed;

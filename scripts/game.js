@@ -726,6 +726,7 @@ function closeEndgamePopup() {
 
 function endgameFiller() {
     let multiplayerLeaderboardTable = document.getElementById("multiplayerLeaderboardTable")
+    let singleplayerLeaderboardTable = document.getElementById("singleplayerLeaderboardTable")
     let multiplayerOn = estado.multiplayer 
 
     // Lidar com o leaderboard de final de jogo do multiplayer
@@ -905,6 +906,11 @@ function enableCardClick() {
     }
 }
 
+// Funções relativas a jogar com o teclado
+
+// function keyboardSupport() {
+//     let cardNumberPrompt = prompt("Enter card number!") 
+// }
 
 
 

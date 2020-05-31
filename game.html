@@ -216,9 +216,17 @@
         <p>Time taken: <span id="MPTimeTaken"></span> seconds</p>
       </div>
       <div id="singleplayerLeaderboard">
+        <h3 class="SPH3">Current game stats:</h3>
         <p>Time taken: <span id="SPTimeTaken"></span> seconds</p>
         <p>Cards flipped: <span id="SPCardsFlipped"></span></p>
         <p>Accuracy: <span id="SPAccuracy"></span></p>
+        <h3 class="SPH3">Your 10 best times:</h3>
+        <table id="singleplayerLeaderboardTable">
+          <tr class="headerRow">
+            <th class="tableTitle">Date</th>
+            <th class="tableTitle">Time taken</th>
+          </tr>
+        </table>
       </div>
 
       <button type="button" class="backgroundHighlight SPButton" id="" onclick="restartButton()">Restart game!</button>
