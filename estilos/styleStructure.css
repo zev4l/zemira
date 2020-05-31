@@ -94,10 +94,10 @@
 /* Para o botão de mute/unmute de música na home */
     #soundButtonHome {
         margin-left: 25px;
-        width: 50px;
-        height: 66px;
+        width: 60px;
+        height: 60px;
         position: absolute;
-        margin-top: 10px;
+        margin-top: 15px;
         border-radius: 12px;
         border: solid transparent;
         overflow:  hidden; 
@@ -341,10 +341,10 @@
 /* Para o botão de mute/unmute de música na home */
     #soundButtonHome {
         margin-left: 25px;
-        width: 50px;
-        height: 66px;
+        width: 60px;
+        height: 60px;
         position: absolute;
-        margin-top: 10px;
+        margin-top: 15px;
         border-radius: 12px;
         border: solid transparent;
         overflow:  hidden; 
@@ -576,10 +576,10 @@
 
 /* Para o botão de mute/unmute de música na home */
     #soundButtonHome {
-        width: 50px;
-        height: 66px;
+        width: 60px;
+        height: 60px;
         position: absolute;
-        margin-top: 60px;
+        margin-top: 65px;
         margin-left: 20px;
         border-radius: 12px;
         border: solid transparent;
