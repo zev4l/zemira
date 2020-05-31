@@ -728,11 +728,19 @@ function clickToggler(scope) {
 
 
 
-        if (location.href.includes("game.html")) {
-            document.getElementsByClassName("statsButton")[0].style.pointerEvents = pointerEventsValue
-            document.getElementsByClassName("leaderboardButton")[0].style.pointerEvents = pointerEventsValue
-            document.getElementsByClassName("multiPlayerButton")[0].style.pointerEvents = pointerEventsValue
-            document.getElementsByClassName("singlePlayerButton")[0].style.pointerEvents = pointerEventsValue
+    if (location.href.includes("game.html")) {
+        document.getElementsByClassName("statsButton")[0].style.pointerEvents = pointerEventsValue
+        document.getElementsByClassName("leaderboardButton")[0].style.pointerEvents = pointerEventsValue
+        document.getElementsByClassName("multiPlayerButton")[0].style.pointerEvents = pointerEventsValue
+        document.getElementsByClassName("singlePlayerButton")[0].style.pointerEvents = pointerEventsValue
+    }
+
+    if (location.href.includes("Loja.html")) {
+        let listOfButtons = document.querySelectorAll(".buyButton")
+
+        for (let i = 0; i<listOfButtons.length; i++){
+            listOfButtons[i].style.pointerEvents = pointerEventsValue
         }
+    }
 
 }

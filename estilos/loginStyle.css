@@ -327,9 +327,10 @@ o rato em cima do butão de "submit" */
     max-height: 0%;  
     width: 20ex;   
     border: 3px solid rgb(255, 208, 0);        
-    right: 10px;    
     background-color: rgba(0, 0, 0, 0.5);          
     opacity: 0.8;
+    right: 3ex;
+    top: 10ex;
 }
 
 #hamburgerButtonContainer{
@@ -346,8 +347,8 @@ o rato em cima do butão de "submit" */
     
     transition: 600ms ease;
     position: fixed;
-    top: 8%;
-    right: 5%;
+    top: 4.5ex;
+    right: 12.5ex;
     width: 30px;
 }
 
