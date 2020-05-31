@@ -388,7 +388,9 @@ function closeSettings() {
 /* FUNÇÕES RELATIVAS AO BOTÃO DE STATS */
 
 
-
+/**
+ * this function is responsible for the update and the popup appearence after clicking the stats button
+ */
 function openStats(){
 	let statsBox = document.getElementById("statsBox")
     let dimmer = document.getElementById("dimmer")
@@ -404,7 +406,9 @@ function openStats(){
 	
 }
 
-
+/**
+ * this function is responsible for the disaperance of the stats popup
+ */
 function closeStats(){
 	let statsBox = document.getElementById("statsBox")
     let dimmer = document.getElementById("dimmer")
@@ -423,13 +427,11 @@ function closeStats(){
 }
 
 
-function usernameSettingsAccess(){
-	closeStats()
-	openSettings()
-	
-}
 
 
+/**
+ * this function is responsible the animations and apperance of the menu containing all the stats, setting, etc... buttons
+ */
 function toggleHamburgerMenu(){
     
     let hamburgerMenu = document.getElementsByClassName("hamburgerMenuDiv")[0]
