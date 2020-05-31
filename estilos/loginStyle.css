@@ -85,7 +85,7 @@
     display: block;
     margin: 2% auto 2% auto;  
     cursor: pointer;
-    background-color:  rgba(255, 187, 0, 0.87);
+    background-color:  rgb(255, 238, 0);
     width: 100%;
     display: none;
     word-wrap: break-word;
@@ -313,7 +313,7 @@ o rato em cima do butão de "submit" */
     padding: 0.5%;
     overflow: hidden;
     display: none;
-    position: absolute; 
+    position: fixed; 
     text-align: center;    
     max-height: 0%;  
     width: 20ex;   
@@ -322,6 +322,7 @@ o rato em cima do butão de "submit" */
     background-color: black;          
     opacity: 0.5;
 }
+
 #hamburgerButtonContainer{
     display: inline-block;
     cursor: pointer;
