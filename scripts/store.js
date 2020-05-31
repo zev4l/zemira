@@ -114,4 +114,3 @@ function showBuyErrorMessage(number) {
         
     },3000)
 }
-
