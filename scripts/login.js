@@ -412,11 +412,7 @@ function closeStats(){
 }
 
 
-function usernameSettingsAccess(){
-	closeStats()
-	openSettings()
-	
-}
+
 
 
 function toggleHamburgerMenu(){
