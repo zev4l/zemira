@@ -230,8 +230,8 @@
 
      <!--box topo encostada à direita-->
     
-        <div class="hamburguerMenu" onclick="openHamburguerMenu()">
-          <p>Menu</p>
+        <div id="hamburgerButtonContainer">
+          <img id="hamburgerButton" src="imagens/menu.png" onclick="toggleHamburgerMenu()">
         </div>
         <div class="registerButton" onclick="openRegister()">
             <p>Register</p>
@@ -245,7 +245,7 @@
 
     </div>
 
-    <div class ="hamburguerMenuDiv">
+    <div class ="hamburgerMenuDiv">
       <div class="settingsButton" onclick="openSettings()">
         <p>Settings</p>
       </div>
@@ -261,7 +261,6 @@
       <div class="logoutButton" onclick="openLogout()">
         <p>Logout</p>
       </div>
-      <p class="closeHamburgerButton">X</p>
     </div>
 
 

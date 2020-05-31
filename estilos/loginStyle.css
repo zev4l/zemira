@@ -83,12 +83,12 @@
 
 .logoutButton, .settingsButton, .statsButton, .leaderboardButton {
     display: block;
-    margin: auto;
-    border: solid;    
+    margin: 2% auto 2% auto;  
     cursor: pointer;
     background-color: yellow;
     width: 100%;
     display: none;
+    word-wrap: break-word;
 }
 
 
@@ -308,32 +308,35 @@ o rato em cima do butão de "submit" */
     background-color: green;
 }
 
-.hamburguerMenuDiv{
+.hamburgerMenuDiv{
     transition: 600ms ease;
-    padding: 1%;
+    padding: 0.5%;
     overflow: hidden;
     display: none;
     position: absolute; 
     text-align: center;    
     max-height: 0%;  
-    width: 10%;    
+    width: 20ex;   
     border: 3px solid rgb(255, 208, 0);        
     right: 10px;    
     background-color: black;          
-    opacity: 0.5;  
+    opacity: 0.5;
 }
-.hamburguerMenu{
+#hamburgerButtonContainer{
     display: inline-block;
     cursor: pointer;
     position: absolute;
     right: 6ex;
     top: 4ex;
+    transition: 600ms ease;
     
 }
 
-.closeHamburgerButton{
-    position: absolute;
+#hamburgerButton{
     
-    
-    color: white;
+    transition: 600ms ease;
+    position: fixed;
+    top: 8%;
+    right: 5%;
+    width: 30px;
 }

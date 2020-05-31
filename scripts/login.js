@@ -36,6 +36,8 @@ let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null;
 
 let accountArray = JSON.parse(localStorage.getItem("accountArray")) || [];
 
+let hamburgerState = false
+
 
 /* CONSTRUTOR DE CONTAS */
 
@@ -121,6 +123,7 @@ function menuElementToggle() {
         document.getElementsByClassName("loginButton")[0].style.display = "none"
         document.getElementsByClassName("logoutButton")[0].style.display = "inline-block"
         document.getElementsByClassName("settingsButton")[0].style.display = "inline-block"
+        document.getElementById("hamburgerButtonContainer").style.display = "block"
 
         if (location.href.includes("game.html")) {
             document.getElementsByClassName("statsButton")[0].style.display = "inline-block"
@@ -131,6 +134,7 @@ function menuElementToggle() {
         document.getElementsByClassName("loginButton")[0].style.display = "inline-block"
         document.getElementsByClassName("logoutButton")[0].style.display = "none"
         document.getElementsByClassName("settingsButton")[0].style.display = "none"
+        document.getElementById("hamburgerButtonContainer").style.display = "none"
 
         if (location.href.includes("game.html")) {
             document.getElementsByClassName("statsButton")[0].style.display = "none"
@@ -404,16 +408,43 @@ function usernameSettingsAccess(){
 }
 
 
-function openHamburguerMenu(){
-	let hamburguerMenu = document.getElementsByClassName("hamburguerMenuDiv")[0]
-		
-	hamburguerMenu.style.display = "block"
-	
-	 setTimeout(function() {
-		 
-        hamburguerMenu.style.maxHeight = "40%"
-    },200)
+function toggleHamburgerMenu(){
+    
+    let hamburgerMenu = document.getElementsByClassName("hamburgerMenuDiv")[0]
+    let hamburgerMenuButton = document.getElementById("hamburgerButton")
+
+    console.log(hamburgerState)
+    
+    if (!(hamburgerState)) {
+        
+        hamburgerMenu.style.visibility = "hidden"
+        hamburgerMenu.style.display = "block"
+
+        hamburgerMenuButton.style.transform = "rotate(-90deg)";
+
+        hamburgerState = true
+        
+        setTimeout(function() {
+            
+            
+            hamburgerMenu.style.visibility = "visible"
+            hamburgerMenu.style.maxHeight = "40%"
+        },200)
+    }
+
+    else if (hamburgerState) {
+        hamburgerMenu.style.maxHeight = "0%"
+
+        hamburgerState = false
+
+        setTimeout(function() {
+            
+            hamburgerMenuButton.style.transform = "rotate(0deg)";
+            hamburgerMenu.style.display = "none"
+        },500)
+    }
 }
+
 
 
 
