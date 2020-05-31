@@ -323,7 +323,7 @@ table{
 }
 
 .leaderboardPopup {
-    width: 400px;
+    width: 30%;
 }
 
 .backgroundHighlight {
@@ -392,7 +392,7 @@ table{
     animation: color-change 5s infinite;
 }
 
-/* Leaderboard */
+/* Leaderboards */
 
 #multiplayerLeaderboard, #singleplayerLeaderboard {
     display: none;
@@ -413,4 +413,8 @@ table{
 .headerRow {
     border-bottom: 1px solid #000;
     padding: 10px;
+}
+
+.leaderboardAvatar {
+    width: 50%;
 }

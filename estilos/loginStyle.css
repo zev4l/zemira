@@ -99,13 +99,15 @@
 
 .logoutButton:hover {
     transition: 600ms ease;
-    color: red;
+    background-color: red;
+    transform: scale(0.95);
 }
 
 
 .loginButton:hover, .registerButton:hover, .settingsButton:hover, .statsButton:hover, .leaderboardButton:hover{
     transition: 600ms ease;
-    animation: color-change 5s infinite;
+    animation: background-color-change 5s infinite;
+    transform: scale(0.95);
 }
 
 
@@ -183,6 +185,7 @@ textarea, select{font-family:inherit;}
 o rato em cima do butão de "submit" */
 .formButton:hover {
   opacity: 1;
+  transform: scale(0.95)
 }
 
 /* Definição de propriedades do botão de fechar a caixa de login */
@@ -239,6 +242,10 @@ o rato em cima do butão de "submit" */
 
 .confirmLogout, #deleteAccountButton {
     background-color: red;
+}
+
+.confirmLogout:hover, #deleteAccountButton:hover, .declineLogout:hover {
+    transform: scale(0.95)
 }
 
 /* Personalização do menu settings */
@@ -309,8 +316,10 @@ o rato em cima do butão de "submit" */
 }
 
 .hamburgerMenuDiv{
-    transition: 600ms ease;
+    transition: 500ms ease-in-out;
     padding: 0.5%;
+    padding-top: 0.3%;
+    padding-bottom: 0.3% ;
     overflow: hidden;
     display: none;
     position: fixed; 
@@ -319,8 +328,8 @@ o rato em cima do butão de "submit" */
     width: 20ex;   
     border: 3px solid rgb(255, 208, 0);        
     right: 10px;    
-    background-color: black;          
-    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.5);          
+    opacity: 0.8;
 }
 
 #hamburgerButtonContainer{
@@ -340,4 +349,8 @@ o rato em cima do butão de "submit" */
     top: 8%;
     right: 5%;
     width: 30px;
+}
+
+#hamburgerButton img {
+    z-index: 1;
 }

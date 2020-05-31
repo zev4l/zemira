@@ -779,6 +779,7 @@ function leaderboardFiller() {
         
         let playerName = tempCopy[i].username
         let playerLowestTime = tempCopy[i].stats.lowestTime
+        let playerAvatar = tempCopy[i].aesthetics.avatar
 
         if (playerLowestTime == 0 || playerLowestTime == null) {
             playerLowestTime = "Never played"
@@ -787,6 +788,7 @@ function leaderboardFiller() {
         }
 
         leaderboardTable.innerHTML+="<tr>" +
+                                    "<td>" + `<img class="leaderboardAvatar" src=${eval(playerAvatar)}>` + "</td>" +
                                     "<td>" + (i+1) + "." + "</td>" +
                                     "<td>" + playerName + "</td>" +
                                     "<td>" + playerLowestTime + "</td>" +
