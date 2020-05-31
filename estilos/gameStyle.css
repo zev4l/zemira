@@ -963,8 +963,10 @@ table{
         background-color:rgba(0, 0, 0, 0.5);
         text-align: center;
         padding: 1ex;
-        width: 100%;   
-        position: relative;         
+        width: 95%;   
+        position: absolute;  
+        left: 0;  
+        right: 0;     
         margin-top: 5ex;
         margin-left: auto;
         margin-right: auto;
@@ -1065,9 +1067,15 @@ table{
         position: fixed;
         display: inline-block;
         border: solid;
-        margin: 20ex 3ex auto 3ex;
-        height: 30%;
+        width: 80%;
+        top: 5ex;
+        left: 5ex;
+        right: 5ex;
+        height: 5%;
         padding: 3ex;
+    }
+    .sideBar div{
+        display: inline-block;
     }
     
     .durationCounter{
@@ -1229,7 +1237,7 @@ table{
     #musicToggle {
         transition: 600ms ease;
         position: fixed;
-        top: 5ex;
+        top: 2.7ex;
         right: 4%;
         width: 50px;
         cursor: pointer;
@@ -1248,8 +1256,18 @@ table{
 
     .hamburgerMenuDiv{
         z-index:5 !important;
-        top: 180px !important;
+        top: 150px !important;
     }
+
+
+    #hamburgerButton{
+    
+       
+        top: 4ex !important;
+        right: 90%  !important;
+        width: 30px  !important;
+    }
+
 
 
     
