@@ -36,7 +36,7 @@ h2{
 .topDiv{
     padding: 2ex;    
     text-align: center;
-    display: block;
+    display: inline-block;
     margin: 0 auto;
    
     
@@ -167,6 +167,8 @@ h2{
     margin-left: auto;
     margin-right: auto;
     display: inline-block;
+    transition: all 500ms linear;
+    opacity: 0;
 
     user-select: none;
     -webkit-user-select: none;
@@ -194,6 +196,8 @@ table{
     left: 50%;
     transform: translate(-50%, -50%);
     visibility: hidden;
+    transition: all 200ms linear;
+    opacity: 0;
 
 }
 

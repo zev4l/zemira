@@ -313,6 +313,8 @@ function showSPGameElements() {
     // Mostra elementos essenciais ao jogo em single player
     document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
+    tableStartAnimation()
+    
     document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
     document.getElementById("singleplayerLeaderboard").style.display = "block"
 
@@ -326,6 +328,9 @@ function showMPGameElements() {
      // Mostra elementos essenciais ao jogo em single player
     document.getElementsByClassName("gameContent")[0].style.display = "inline-block"
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
+    tableStartAnimation()
+    
+
     document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
     document.getElementById("multiplayerLeaderboard").style.display = "block"
     TURN_CONTAINER_ID.style.display = "block"
@@ -333,6 +338,20 @@ function showMPGameElements() {
     for (let i=0; i<20;i++) {
         document.getElementsByClassName("cardContainer")[i].style.visibility = "visible"
     }
+}
+
+function tableStartAnimation() {
+
+    setTimeout(function() {
+        document.getElementsByClassName("cardTable")[0].style.opacity = 1
+    },100)
+
+    for (let i = 0; i<document.querySelectorAll(".cardContainer").length; i++) {
+        setTimeout(function() {
+                document.querySelectorAll(".cardContainer")[i].style.opacity = "1"
+            },200+(i*100))
+        }
+    
 }
 
 function hideNonGameElements() {
@@ -804,6 +823,14 @@ function exitGame(scope=null) {
     if (scope == "MPNewPlayers") {
         openMultiplayer()
     }
+}
+
+function dimmerHelper(bool) {
+
+    if (bool) {
+
+    }
+
 }
 
 
