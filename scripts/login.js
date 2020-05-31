@@ -51,6 +51,7 @@ function Account(username, password, email, gender, ageGroup, stats, aesthetics)
     this.stats = stats,
     this.aesthetics = aesthetics
     this.playmode = "mouse"
+
 }
 
 function playerStats() {
@@ -60,6 +61,7 @@ function playerStats() {
     this.matchesFoundEver = 0,
     this.timeSpentPlaying = 0,
     this.lowestTime = null
+    this.bestTimes = []
 }
 
 function aesthetics() {
@@ -69,6 +71,12 @@ function aesthetics() {
     this.boughtCardBacks = [],
     this.boughtAvatars = [],
     this.boughtIconPacks = []
+}
+
+function matchData(timeTaken, accuracy, date) {
+    this.accuracy = accuracy,
+    this.timeTaken = timeTaken,
+    this.date = date
 }
 
 // ************************************+
@@ -136,6 +144,7 @@ function menuElementToggle() {
         document.getElementsByClassName("logoutButton")[0].style.display = "none"
         document.getElementsByClassName("settingsButton")[0].style.display = "none"
         document.getElementById("hamburgerButtonContainer").style.display = "none"
+        document.getElementById("musicToggle").style.right = "25ex"
 
         if (location.href.includes("game.html")) {
             document.getElementsByClassName("statsButton")[0].style.display = "none"
@@ -471,8 +480,15 @@ function statsBoxUpdater(){
     if (isNaN(statsFinalGrade)) {
         statsFinalGrade = 0
     }
-	
-	
+    
+    let lowestTime = ""
+
+    if (currentAccount.stats.lowestTime == null) {
+        lowestTime = "Never played"
+    } else {
+        lowestTime = currentAccount.stats.lowestTime
+    }
+    
 	
     
     // Miguel, quando puderes adiciona um novo parâmetro.
@@ -480,13 +496,15 @@ function statsBoxUpdater(){
     // que mostra o tempo mais baixo que o jogador alguma vez fez!
     // Se tiveres problemas apaga a tua localstorage e tenta denovo :) good luck!
 
+
+
 	document.getElementsByClassName("usernameStats")[0].innerHTML = currentAccount.username;
 	document.getElementsByClassName("numberOfCards")[0].innerHTML = currentAccount.stats.cardsFlipped;
 	document.getElementsByClassName("numberOfGamesPlayed")[0].innerHTML = currentAccount.stats.gamesCompleted;
 	document.getElementsByClassName("numberOfCorrectPairs")[0].innerHTML = currentAccount.stats.matchesFoundEver;
-	document.getElementsByClassName("timePlayed")[0].innerHTML = currentAccount.stats.timeSpentPlaying + " ZemiraSecs";
+	document.getElementsByClassName("timePlayed")[0].innerHTML = currentAccount.stats.timeSpentPlaying
     document.getElementsByClassName("accountCurrency")[0].innerHTML = currentAccount.stats.zPoints
-	document.getElementsByClassName("lowestTime")[0].innerHTML = currentAccount.stats.lowestTime + " ZemiraSecs"
+	document.getElementsByClassName("lowestTime")[0].innerHTML = lowestTime
     document.getElementsByClassName("accuracySpan")[0].innerHTML = statsFinalGrade + "%";
     
     gradeStatCheck(statsFinalGrade)

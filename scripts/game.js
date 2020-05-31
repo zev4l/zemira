@@ -196,11 +196,11 @@ function showCard(n) {
                 
             }
 
-            matchesSoundEffect =  new Audio("sons/matchFound.wav")
-            matchesSoundEffect.volume = 0.3
-            matchesSoundEffect.play()
-
         }
+
+        matchesSoundEffect =  new Audio("sons/matchFound.wav")
+        matchesSoundEffect.volume = 0.3
+        matchesSoundEffect.play()
 
             
             
@@ -272,6 +272,39 @@ let multiplayerOn = estado.multiplayer
         if (!(multiplayerOn) && (currentAccount.stats.lowestTime == null || estado.timePassed < currentAccount.stats.lowestTime)) {
             currentAccount.stats.lowestTime = estado.timePassed
         }
+
+        // Verificar se existem valores na lista de melhores tempos maiores que o deste jogo
+
+        let valueCheck = currentAccount.stats.bestTimes.some(el => el.timeTaken > estado.timePassed)
+
+        currentAccount.stats.bestTimes.sort((a, b) => (a.timeTaken > b.timeTaken) ? 1 : -1)
+
+        if (!(multiplayerOn) && (currentAccount.stats.bestTimes.length < 11 || valueCheck)) {
+            let playerAccuracy = Math.round((estado.matches / (estado.cardsFlipped/2)) * 100)
+
+            // Obter data em forma YYYY-MM-DD
+            let currentDate = new Date().toISOString().slice(0, 10)
+            
+            let newBestTimeObject = new matchData(estado.timePassed, playerAccuracy, currentDate)
+
+            currentAccount.stats.bestTimes.push(newBestTimeObject)
+
+            // Reorganizar lista
+
+            currentAccount.stats.bestTimes.sort((a, b) => (a.timeTaken > b.timeTaken) ? 1 : -1)
+
+            if (currentAccount.stats.bestTimes.length >= 10) {
+                currentAccount.stats.bestTimes.pop()
+            }
+
+
+
+
+
+
+        }
+
+        console.log(currentAccount.stats.bestTimes)
         updateStats();
     }
 
