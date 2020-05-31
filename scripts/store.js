@@ -16,10 +16,7 @@ function inicial() {
 	showStats()
 	
 }
-/**
- * This function defines teh buttons to enable the microtransactions trough the store using in-game currency, disables the buying button if the content is already bought previously 
- * , it also disables the ability for the user to buy content if he is not logged in
- */
+
 function showStats() {
 	if (currentAccount){
 		document.getElementsByClassName("ZPoints")[0].getElementsByTagName("span")[1].innerHTML = currentAccount.stats.zPoints + "$Z";
@@ -56,11 +53,7 @@ function showStats() {
 	}
 }
 
-/**
- * This function is responsible for the withdraw of the in-game currency after buying the item, creating and aproaching 
- * all the buying situation for the different items in the store
- * @param {int} number -This parameter refers to the index of the element you will buy from the content list
- */
+
 
 function buyItem (number) {
 
@@ -97,19 +90,13 @@ function buyItem (number) {
 	}
 
 }
-/**
- * This function is responsible for the disable of the button to buy the content after the content is bought
- * @param {int} number- This parameter refers to the index of the element you will buy from the content list
- */
+
 function buttonDisabler(number) {
 	document.getElementsByClassName("buyButton")[number].disabled = true;
 	document.getElementsByClassName("buyButton")[number].innerHTML = "Item Bought!";
 	showStats();
 }
-/**
- * This function apraches the situation in wich the user does not have enough in-game currency to buy the item he selected
- * @param {int} number - This parameter refers to the index of the element you will buy from the content list
- */
+
 function showBuyErrorMessage(number) {
 
     clearTimeout(errorTimeoutID

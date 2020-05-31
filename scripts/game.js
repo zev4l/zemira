@@ -435,7 +435,7 @@ function showSPGameElements() {
     document.getElementsByClassName("cardTable")[0].style.display = "inline-block"
     tableStartAnimation()
     
-    document.getElementsByClassName("sideBar")[0].style.display = "block"
+    document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
     document.getElementById("singleplayerLeaderboard").style.display = "block"
 
     for (let i=0; i<20;i++) {
@@ -454,7 +454,7 @@ function showMPGameElements() {
     tableStartAnimation()
     
 
-    document.getElementsByClassName("sideBar")[0].style.display = "block"
+    document.getElementsByClassName("sideBar")[0].style.display = "inline-block"
     document.getElementById("multiplayerLeaderboard").style.display = "block"
     TURN_CONTAINER_ID.style.display = "block"
 

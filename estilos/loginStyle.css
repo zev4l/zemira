@@ -382,7 +382,7 @@ o rato em cima do butão de "submit" */
     position: absolute;
     border-style: solid;
     cursor: pointer;
-    left: 3ex;
+    right: 13ex;
     top: 4ex;
 }
 
@@ -675,8 +675,8 @@ o rato em cima do butão de "submit" */
     border-style: solid; 
     cursor: pointer;
     position: absolute;
-    right: 1ex;
-    top: 85px;
+    right: 3ex;
+    top: 4ex;
 
 }
 .registerButton{
@@ -685,8 +685,8 @@ o rato em cima do butão de "submit" */
     position: absolute;
     border-style: solid;
     cursor: pointer;
-    left: 1ex;
-    top: 85px;
+    right: 13ex;
+    top: 4ex;
 }
 
 .logoutButton, .settingsButton, .statsButton, .leaderboardButton {
@@ -940,14 +940,22 @@ o rato em cima do butão de "submit" */
     top: 14ex;
 }
 
-
+#hamburgerButtonContainer{
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    right: 6ex;
+    top: 4ex;
+    transition: 600ms ease;
+    
+}
 
 #hamburgerButton{
-    cursor: pointer;
+    
     transition: 600ms ease;
-    position: sticky;
-    top: 9ex;
-    margin-right: 430px;
+    position: fixed;
+    top: 11.5ex;
+    right: 48%;
     width: 30px;
 }
 
