@@ -88,6 +88,7 @@ h2{
     background-color: #9900CC;
 }
 
+
 .topDiv{
     padding: 2ex;    
     text-align: center;
@@ -169,15 +170,13 @@ h2{
     text-align: center;
     padding: 1ex;
     width: 60%;   
-    position: relative; 
-    
+    position: relative;     
     margin-top: 5ex;
     margin-left: auto;
     margin-right: auto;
     display: inline-block;
     transition: all 500ms linear;
     opacity: 0;
-
     user-select: none;
     -webkit-user-select: none;
 }
@@ -437,6 +436,21 @@ table{
     width: 50px;
     cursor: pointer;
 }
+
+
+#singleplayerLeaderboardTable {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 10% auto 10% auto;
+}
+
+
+
+.hamburgerMenuDiv{
+    z-index: 5 !important;
+
+
+}
 }
 
 
@@ -553,7 +567,7 @@ table{
     .cardTable{
         border-style: solid;
         border-color: rgb(202, 198, 193);
-        background-color: #d2b48c;
+        background-color:rgba(0, 0, 0, 0.5);
         text-align: center;
         padding: 1ex;
         width: 60%;   
@@ -829,6 +843,20 @@ table{
         cursor: pointer;
     }
 
+
+    #singleplayerLeaderboardTable {
+        border-collapse: collapse;
+        width: 90%;
+        margin: 10% auto 10% auto;
+    }
+
+
+    .hamburgerMenuDiv{
+        z-index: 5 !important;
+    
+    
+    }
+
 }
 
 
@@ -932,19 +960,17 @@ table{
     .cardTable{
         border-style: solid;
         border-color: rgb(202, 198, 193);
-        background-color: #d2b48c;
+        background-color:rgba(0, 0, 0, 0.5);
         text-align: center;
         padding: 1ex;
-        width: 60%;   
-        position: relative; 
-        
+        width: 100%;   
+        position: relative;         
         margin-top: 5ex;
         margin-left: auto;
         margin-right: auto;
         display: inline-block;
         transition: all 500ms linear;
-        opacity: 0;
-    
+        opacity: 0;    
         user-select: none;
         -webkit-user-select: none;
     }
@@ -1036,7 +1062,7 @@ table{
     /* DEFINIÇÃO DA SIDEBAR */
     
     .sideBar {
-        position: absolute;
+        position: fixed;
         display: inline-block;
         border: solid;
         margin: 20ex 3ex auto 3ex;
@@ -1211,6 +1237,21 @@ table{
     .SPH3 {
         color: rgb(255, 208, 0)
     }
+
+
+    #singleplayerLeaderboardTable {
+        border-collapse: collapse;
+        width: 90%;
+        margin: 10% auto 10% auto;
+    }
+
+
+    .hamburgerMenuDiv{
+        z-index:5 !important;
+        top: 180px !important;
+    }
+
+
     
     
 }
