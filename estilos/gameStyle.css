@@ -10,7 +10,17 @@
     font-style: normal;
 }
 
+body::-webkit-scrollbar {
+    width: 0.5rem;
+}
 
+body::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(255, 208, 0);
+}
 
 
 
@@ -268,13 +278,15 @@ table{
 /* DEFINIÇÃO DA SIDEBAR */
 
 .sideBar {
-    position: absolute;
-    display: inline-block;
+    display: none;
+    text-align: left;
     border: solid;
-    margin: 20ex 3ex auto 3ex;
-    height: 30%;
+    width: 40%;
+    margin: auto;
+    margin-top: 60px;
+    height: 5%;
     padding: 3ex;
-    background-color:rgb(135, 0, 180)
+    background-color:rgb(135, 0, 180);
 }
 
 .durationCounter{
@@ -387,6 +399,11 @@ table{
 }
 
 #turnContainer {
+    width: 25%;
+    background-color: #9900CC;
+    border: solid;
+    margin: auto;
+    padding: 10px;
     display: none;
     text-transform: uppercase;
     font-size: 150%;
@@ -430,9 +447,9 @@ table{
 
 #musicToggle {
     transition: 600ms ease;
-    position: fixed;
-    top: 3.7ex;
-    right: 20ex;
+    position: absolute;
+    margin-top: 90px;
+    margin-right: 670px;  
     width: 50px;
     cursor: pointer;
 }
@@ -468,6 +485,17 @@ table{
         text-align: center;
         background-image: url('../imagens/tableBackground.png')       
        
+    }
+    body::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    body::-webkit-scrollbar-track {
+        background: #1e1e24;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: rgb(255, 208, 0);
     }
 
     .SPH3 {
@@ -565,8 +593,7 @@ table{
     /* DEFINIÇÃO DA TABLE */
     
     .cardTable{
-        border-style: solid;
-        border-color: rgb(202, 198, 193);
+        border: solid;
         background-color:rgba(0, 0, 0, 0.5);
         text-align: center;
         padding: 1ex;
@@ -670,12 +697,19 @@ table{
     /* DEFINIÇÃO DA SIDEBAR */
     
     .sideBar {
-        position: absolute;
-        display: inline-block;
+        display: none;
+        text-align: left;
         border: solid;
-        margin: 20ex 3ex auto 3ex;
-        height: 30%;
+        width: 40%;
+        margin: auto;
+        margin-top: 60px;
+        height: 5%;
         padding: 3ex;
+        background-color:rgb(135, 0, 180);
+    }
+    .sideBar p{
+        display: inline;
+        margin:auto;
     }
     
     .durationCounter{
@@ -738,7 +772,7 @@ table{
     }
     
     .leaderboardPopup {
-        width: 30%;
+        width: 60%;
     }
     
     .backgroundHighlight {
@@ -797,6 +831,11 @@ table{
     }
     
     #turnContainer {
+        width: 45%;
+        background-color: #9900CC;
+        border: solid;
+        margin: auto;
+        padding: 10px;
         display: none;
         text-transform: uppercase;
         font-size: 150%;
@@ -837,8 +876,8 @@ table{
     #musicToggle {
         transition: 600ms ease;
         position: fixed;
-        top: 4ex;
-        right: 8ex;
+        top: 10ex;
+        margin-right: 20ex;
         width: 40px;
         cursor: pointer;
     }
@@ -958,12 +997,11 @@ table{
     /* DEFINIÇÃO DA TABLE */
     
     .cardTable{
-        border-style: solid;
-        border-color: rgb(202, 198, 193);
+        border-style: solid;        
         background-color:rgba(0, 0, 0, 0.5);
         text-align: center;
         padding: 1ex;
-        width: 95%;   
+        width: 90%;   
         position: absolute;  
         left: 0;  
         right: 0;     
@@ -1064,18 +1102,19 @@ table{
     /* DEFINIÇÃO DA SIDEBAR */
     
     .sideBar {
-        position: fixed;
-        display: inline-block;
+        display: none;
+        text-align: left;
         border: solid;
-        width: 80%;
-        top: 5ex;
-        left: 5ex;
-        right: 5ex;
-        height: 5%;
+        width: 40%;
+        margin: auto;
+        margin-top: 800px;
+        height: 3%;
         padding: 3ex;
+        background-color:rgb(135, 0, 180);
     }
-    .sideBar div{
-        display: inline-block;
+    .sideBar p{
+        display: inline;
+        margin:auto;
     }
     
     .durationCounter{
@@ -1138,7 +1177,7 @@ table{
     }
     
     .leaderboardPopup {
-        width: 30%;
+        width: 80%;
     }
     
     .backgroundHighlight {
@@ -1197,6 +1236,11 @@ table{
     }
     
     #turnContainer {
+        width: 65%;
+        background-color: #9900CC;
+        border: solid;
+        margin: auto;
+        padding: 10px;
         display: none;
         text-transform: uppercase;
         font-size: 150%;
@@ -1236,12 +1280,13 @@ table{
 
     #musicToggle {
         transition: 600ms ease;
-        position: fixed;
-        top: 2.7ex;
-        right: 4%;
-        width: 50px;
+        position: absolute;
+        top: 10ex;                
+        margin: auto;        
+        width: 40px;
         cursor: pointer;
     }
+
     .SPH3 {
         color: rgb(255, 208, 0)
     }
@@ -1262,7 +1307,7 @@ table{
 
     #hamburgerButton{
     
-       
+        position: sticky !important;
         top: 4ex !important;
         right: 90%  !important;
         width: 30px  !important;
