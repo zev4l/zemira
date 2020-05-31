@@ -382,7 +382,7 @@ o rato em cima do butão de "submit" */
     position: absolute;
     border-style: solid;
     cursor: pointer;
-    right: 13ex;
+    left: 3ex;
     top: 4ex;
 }
 
