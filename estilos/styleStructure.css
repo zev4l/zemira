@@ -85,6 +85,7 @@
     }
 
     .homeNavBar a {
+        text-decoration: none;
         font-size: 27px;
         color: black;
     }
@@ -332,6 +333,7 @@
     }
 
     .homeNavBar a {
+        text-decoration: none;
         font-size: 15px;
         color: black;
     }
@@ -554,22 +556,21 @@
         padding: 0;
         width: 100%;
         margin: auto;
-        margin-top: 70px;
+        margin-top: 20px;
         text-align: center;
     }
 
     .homeNavBar li {
         display: inline-block;
         background-color: black;
-        border: solid rgb(255, 208, 0);
-        border-radius: 10px;
-        padding: 20px;
+        padding: 10px;
         transition: 200ms ease;
         margin-top: 10px;
     }
 
     .homeNavBar a {
-        font-size: 13px;
+        text-decoration: none;
+        font-size: 15px;
         color: rgb(255, 208, 0);
     }
 
