@@ -110,6 +110,7 @@ function updateStats() {
             accountArray[i].stats.matchesFoundEver = currentAccount.stats.matchesFoundEver
             accountArray[i].stats.timeSpentPlaying = currentAccount.stats.timeSpentPlaying
             accountArray[i].stats.lowestTime = currentAccount.stats.lowestTime
+            accountArray[i].stats.bestTimes = currentAccount.stats.bestTimes
 
 			updateAccounts()
 			
