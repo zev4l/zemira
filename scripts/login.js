@@ -38,7 +38,7 @@ let deleteAccountTimeoutID = null
 
 let currentAccount = JSON.parse(localStorage.getItem("currentAccount")) || null;
 
-let accountArray = JSON.parse(localStorage.getItem("accountArray")) || [];
+let accountArray = JSON.parse(localStorage.getItem("accountArray")) || []; 
 
 let hamburgerState = false
 
@@ -98,7 +98,7 @@ function inicial() {
  * Permite atualizar os dados no array de contas, igualando os dados da conta respetiva.
  */
 function updateStats() {
-    for (let i=0; i<accountArray.length; i++){ 
+    for (let i=0; i<accountArray.length; i++){
         if (accountArray[i].username == currentAccount.username) {
 
 			accountArray[i].aesthetics.boughtIconPacks = currentAccount.aesthetics.boughtIconPacks
@@ -153,9 +153,11 @@ function menuElementToggle() {
         document.getElementsByClassName("logoutButton")[0].style.display = "none"
         document.getElementsByClassName("settingsButton")[0].style.display = "none"
         document.getElementById("hamburgerButton").style.display = "none"
-        document.getElementById("musicToggle").style.right = "25ex"
+
+        // Erro anterior:, linha relativa ao musicToggle estava fora do if do game.html
 
         if (location.href.includes("game.html")) {
+            document.getElementById("musicToggle").style.right = "25ex"
             document.getElementsByClassName("statsButton")[0].style.display = "none"
         }
 		
